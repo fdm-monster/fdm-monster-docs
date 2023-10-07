@@ -1,47 +1,70 @@
 ---
 sidebar_position: 1
+title: Home
+nav_order: 1
+permalink: /
+last_modified_at: 2023-07-07T08:00:00+02:00
 ---
 
-# Tutorial Intro
+# FDM Monster
+{: .fs-9 }
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Connect 100+ OctoPrint instances and manage your 3D Printing Farm with FDM Monster!
+{: .fs-6 .fw-300 }
 
-## Getting Started
+![Image](./images/server-running.png)
 
-Get started by **creating a new site**.
+Welcome to the FDM Monster documentation. You should find all the documentation required to setup your own FDM Monster
+server here.
+Please choose an installation type below to get started.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+[Get Started](/installations){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-### What you'll need
+## MonsterPi (Raspberry Pi image)
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+{: .note }
+> Skill level required: **low**
 
-## Generate a new site
+Click the button below to learn
+how to install the MonsterPi Raspberry Pi image using Raspberry Pi imager.
 
-Generate a new Docusaurus site using the **classic template**.
+[MonsterPi](installations/monsterpi.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-The classic template will automatically be added to your project after you run the command:
+## Docker Compose
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+{: .note }
+> Skill level required: **low**
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Click the button below to learn more about the docker-compose installation. 
+The docker-compose installation is suitable for both Windows and Linux.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+[Docker Compose](installations/docker_compose.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-## Start your site
+## Windows Service
 
-Run the development server:
+{: .note }
+> Skill level required: **medium**
 
-```bash
-cd my-website
-npm run start
-```
+Click the button below to get started with FDM Monster as a Windows Service, using `node-windows` under the hood.
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+[Windows Service](installations/windows_service.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+## Linux Service
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+{: .note }
+> Skill level required: **high**
+> :warning: This page is work in progress!
+
+Click the button below to get started with FDM Monster as a Windows Service, using `node-linux` under the hood.
+
+[Linux Service](installations/linux_service.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+
+# Configuration and Settings
+
+Please visit the [Configuration](configuration) section to learn more about the configuration options of FDM Monster.
+
+# Development Setup
+
+It is great to hear you are interested in contributing to FDM Monster!
+Please visit the [Development Setup](development_setup) section to get started.
+
