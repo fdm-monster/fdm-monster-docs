@@ -1,12 +1,9 @@
 ---
-layout: default
 title: Setup Client
-parent: Development Setup
-nav_order: 2
-last_modified_at: 2023-06-04T13:00:00+02:00
+sidebar_position: 2
 ---
 
-# FDM Monster Client Installation Guide
+# Set up FDM Monster Client
 
 This guide will walk you through the process of setting up the FDM Monster Vue client.
 Please note that this chapter focuses on installing the client component only.

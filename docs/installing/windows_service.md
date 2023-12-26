@@ -1,9 +1,6 @@
 ---
-layout: default
 title: Windows Service
-parent: Installations
-nav_order: 3
-last_modified_at: 2023-05-09T10:04:00+02:00
+sidebar_position: 3
 ---
 
 # Windows Service
@@ -133,4 +130,4 @@ Run the script as follows:
 ```
 
 
-Please continue to [Environment configuration](../configuration/preconfiguration.md) to change environment configuration of the FDM Monster server.
+Please continue to [Environment configuration](../0_configuration/preconfiguration.md) to change environment configuration of the FDM Monster server.

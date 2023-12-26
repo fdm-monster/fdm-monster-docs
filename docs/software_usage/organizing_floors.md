@@ -1,9 +1,6 @@
 ---
-layout: default
 title: Organizing Floors
-parent: Software Usage
-nav_order: 2
-last_modified_at: 2023-06-20T14:00:00+02:00
+sidebar_position: 2
 ---
 
 # Organizing Floors

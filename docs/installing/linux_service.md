@@ -1,9 +1,6 @@
 ---
-layout: default
 title: Linux Service
-parent: Installations
-nav_order: 4
-last_modified_at: 2023-05-05T10:01:00+02:00
+sidebar_position: 4
 ---
 
 > :warning: **This page is work in progress!**
@@ -53,7 +50,7 @@ Each configuration change requires you to run the update script:
 npm i
 ```
 
-Please read the [Environment configuration](../configuration/preconfiguration.md) section for adjusting the `.env` file.
+Please read the [Environment configuration](../0_configuration/preconfiguration.md) section for adjusting the `.env` file.
 
 # Updating the server
 

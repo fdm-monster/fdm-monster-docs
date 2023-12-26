@@ -1,9 +1,6 @@
 ---
 layout: default
-title: Development Setup
-nav_order: 3
-has_children: true
-last_modified_at: 2023-06-04T13:00:00+02:00
+sidebar_position: 3
 ---
 
 # Development Setup

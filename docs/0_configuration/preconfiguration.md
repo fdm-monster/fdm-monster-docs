@@ -1,11 +1,3 @@
----
-layout: default
-title: Preconfiguring the FDM Monster Server
-parent: Configuration
-nav_order: 1
-last_modified_at: 2023-05-10T14:00:00+02:00
----
-
 # Preconfiguring the FDM Monster Server
 
 > :warning: **After each environment change the FDM Monster server must be restarted for the change to take effect!**
@@ -64,4 +56,4 @@ services:
       - SERVER_PORT: 4000
 ```
 
-Please continue by reading the [Docker Compose section](../installations/docker_compose.md) for more information on how to setup FDM Monster and MongoDB with docker-compose.
+Please continue by reading the [Docker Compose section](../installing/docker_compose.md) for more information on how to setup FDM Monster and MongoDB with docker-compose.

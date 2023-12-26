@@ -1,9 +1,6 @@
 ---
-layout: default
 title: Software Usage
-nav_order: 5
-has_children: true
-last_modified_at: 2023-06-20T15:00:00+02:00
+sidebar_position: 5
 ---
 
 # Software Usage

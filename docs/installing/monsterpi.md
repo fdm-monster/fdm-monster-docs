@@ -1,10 +1,8 @@
 ---
-layout: default
-title: Setting up MonsterPi
-parent: Installations
-nav_order: 1
-permalink: /guides/monsterpi
-last_modified_at: 2023-05-05T10:01:00+02:00
+title: Raspberry Pi 3/4/5 with MonsterPi
+sidebar_position: 1
+id: monsterpi
+permalink: :baseUrl/:docsUrl/:langPart/:versionPart/installing/monsterpi
 ---
 
 # Setting up MonsterPi
@@ -14,9 +12,9 @@ here](https://github.com/fdm-monster/MonsterPi).
 This raspberry pi image includes FDM Monster and MongoDB. 
 All released image versions can be downloaded from the [Releases](https://github.com/fdm-monster/MonsterPi/releases) page.
 
-## Latest Version - MonsterPi 0.2.2
+## Latest Version - MonsterPi 0.3.1
 
-**MonsterPi 0.2.2** can be downloaded from Github Releases: [MonsterPi 0.2.2 release](https://github.com/fdm-monster/MonsterPi/releases/tag/0.2.2).
+**MonsterPi 0.3.1** can be downloaded from Github Releases: [MonsterPi 0.3.1 release](https://github.com/fdm-monster/MonsterPi/releases/tag/0.3.1).
 Please unzip the file before flashing it to your SD card.
 
 Older **MonsterPi releases** can be downloaded Github Releases: [MonsterPi releases](https://github.com/fdm-monster/MonsterPi/releases). 
@@ -52,7 +50,7 @@ Host monsterpi
 ```
 Personally I like the [VS Code SSH extension](https://code.visualstudio.com/docs/remote/ssh) for this!
 
-# MonsterPi Version 0.2.0+
+# MonsterPi Version 0.2.0/0.3.0+
 
 Run the following commands to change to the `pi` user and execute an update with root elevation.
 

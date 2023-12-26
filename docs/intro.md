@@ -1,16 +1,11 @@
 ---
-sidebar_position: 1
 title: Home
-nav_order: 1
-permalink: /
-last_modified_at: 2023-07-07T08:00:00+02:00
+sidebar_position: 1
 ---
 
 # FDM Monster
-{: .fs-9 }
 
 Connect 100+ OctoPrint instances and manage your 3D Printing Farm with FDM Monster!
-{: .fs-6 .fw-300 }
 
 ![Image](./images/server-running.png)
 
@@ -18,50 +13,54 @@ Welcome to the FDM Monster documentation. You should find all the documentation 
 server here.
 Please choose an installation type below to get started.
 
-[Get Started](/installations){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[//]: # ([Get Started]&#40;/installations&#41;{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 })
 
 ## MonsterPi (Raspberry Pi image)
 
-{: .note }
-> Skill level required: **low**
+:::note
+Skill level required: **low**
+:::
 
 Click the button below to learn
 how to install the MonsterPi Raspberry Pi image using Raspberry Pi imager.
 
-[MonsterPi](installations/monsterpi.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[//]: # ([MonsterPi]&#40;installations/monsterpi.md&#41;{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 })
 
 ## Docker Compose
 
-{: .note }
-> Skill level required: **low**
+:::note
+Skill level required: **low**
+:::
 
 Click the button below to learn more about the docker-compose installation. 
 The docker-compose installation is suitable for both Windows and Linux.
 
-[Docker Compose](installations/docker_compose.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[//]: # ([Docker Compose]&#40;installations/docker_compose.md&#41;{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 })
 
 ## Windows Service
 
-{: .note }
-> Skill level required: **medium**
+:::note
+Skill level required: **medium**
+:::
 
 Click the button below to get started with FDM Monster as a Windows Service, using `node-windows` under the hood.
 
-[Windows Service](installations/windows_service.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[//]: # ([Windows Service]&#40;installations/windows_service.md&#41;{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 })
 
 ## Linux Service
 
-{: .note }
-> Skill level required: **high**
-> :warning: This page is work in progress!
+:::note
+Skill level required: **high**
+:warning: This page is work in progress!
+:::
 
 Click the button below to get started with FDM Monster as a Windows Service, using `node-linux` under the hood.
 
-[Linux Service](installations/linux_service.md){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[//]: # ([Linux Service]&#40;installations/linux_service.md&#41;{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 })
 
 # Configuration and Settings
 
-Please visit the [Configuration](configuration) section to learn more about the configuration options of FDM Monster.
+Please visit the [Configuration](0_configuration) section to learn more about the configuration options of FDM Monster.
 
 # Development Setup
 

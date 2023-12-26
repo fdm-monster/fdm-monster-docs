@@ -1,12 +1,9 @@
 ---
-layout: default
 title: Docker Compose
-parent: Installations
-nav_order: 2
-last_modified_at: 2023-06-20T14:00:00+02:00
+sidebar_position: 2
 ---
 
-# Docker Compose for FDM Monster
+# Docker Compose
 
 This is a guide on how to use Docker Compose to run FDM Monster.
 
@@ -20,10 +17,10 @@ Please note that we cannot support custom scenarios or setups. Therefore, it is 
 In the next steps we will guide you through the process of running FDM Monster with Docker Compose.
 
 ### Step 1) FDM Monster image and version tag
-We provide the `davidzwa/fdm-monster` image. This image requires you to run a MongoDB service, MongoDB Atlas (cloud offering) or a MongoDB docker container (see compose file below).
-Find it on [Docker Hub](https://hub.docker.com/r/davidzwa/fdm-monster/tags).
+We provide the `fdmmonster/fdm-monster` image. This image requires you to run a MongoDB server, MongoDB Atlas (cloud offering) or a MongoDB docker container (see compose file below).
+Find it on [Docker Hub](https://hub.docker.com/r/fdmmonster/fdm-monster/tags).
 
-There are multiple tags available for the `davidzwa/fdm-monster` image.
+There are multiple tags available for the `fdmmonster/fdm-monster` image.
 - `latest` - The latest version of FDM Monster. This is the default tag.
 - `x`, `x.y`, `x.y.z` - A specific version of FDM Monster. For example, `1`, `1.4` or `1.4.0`.
 - `main` - The latest development version of FDM Monster. This version is the same as the `latest` tag and it is stable.
@@ -36,9 +33,10 @@ To run a Docker Compose stack, create a file named `docker-compose.yml` and use 
 If you choose not to use authentication, you can remove the `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD` environment variables.
 In that case you should leave out the `<username>:<password>@` part of the `MONGO` environment variable. 
 
-{: .warning }
-> It's important to protect your MongoDB database with authentication. If you choose not to use authentication, you should at least use a firewall to protect your database.
-> Do not simply expose your database over the internet without any protection! You have been warned.
+:::warning
+It's important to protect your MongoDB database with authentication. If you choose not to use authentication, you should at least use a firewall to protect your database.
+Do not simply expose your database over the internet without any protection! You have been warned.
+:::
 
 There is also a development (`NODE_ENV=development`) compose file here: [docker-compose.yml](../../docker-compose.yml)):
 
@@ -62,15 +60,14 @@ services:
 
   fdm-monster:
     container_name: fdm-monster
-    image: davidzwa/fdm-monster:latest
+    image: fdmmonster/fdm-monster:latest
     restart: unless-stopped
     ports:
       - "4000:4000"
     environment:
-      # MongoDB with authentication (optional) - see MONGO_INITDB_ROOT_USERNAME and MONGO_INITDB_ROOT_PASSWORD above
+      # MongoDB with and without authentication (optional)
       - MONGO=mongodb://YOUR_ROOT_NAME:YOUR_ROOT_PASSWORD@mongodb:27017/fdm-monster?authSource=admin
-      # MongoDB without authentication
-#      - MONGO=mongodb://mongodb:27017/fdm-monster?authSource=admin
+      # - MONGO=mongodb://mongodb:27017/fdm-monster?authSource=admin
     volumes:
       - ./fdm-monster/media:/app/media
 ```

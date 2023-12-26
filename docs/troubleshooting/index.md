@@ -1,19 +1,15 @@
 ---
-layout: default
 title: Troubleshooting
-nav_order: 6
-has_children: true 
-last_modified_at: 2023-07-07T08:30:00+02:00
+sidebar_position: 6
 ---
 
 # Troubleshooting
-{: .no_toc }
 
 ## Diagnostics
 
 Sometimes things go wrong. This section contains information about how to diagnose and report problems.
 
-### Logging
+### Log Dump
 The FDM Monster webapp has a diagnostics page that can be used to download the log files. These log files contain
 information about the FDM Monster webapp, and can be used to diagnose problems. Usually, the developers will ask you
 to send them the log files when you report a problem. This allows them to fix bugs and improve the software. Note that
@@ -45,6 +41,7 @@ This allows the developers to fix bugs and improve the software. Note that this 
 you can disable it at any time. Also note that no personal information is sent to Sentry.
 
 ![img.png](sentry_toggle.png)
+
 _Tick or untick the checkbox and press save to enable or disable Sentry._
 
 ### Reporting bugs
