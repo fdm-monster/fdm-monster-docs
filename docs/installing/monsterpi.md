@@ -1,13 +1,16 @@
 ---
-title: Raspberry Pi 3/4/5 with MonsterPi
+title: MonsterPi for Raspberry Pi
 sidebar_position: 1
 id: monsterpi
 permalink: :baseUrl/:docsUrl/:langPart/:versionPart/installing/monsterpi
 ---
 
-# Setting up MonsterPi
+# MonsterPi for Raspberry Pi
 
-MonsterPi is a Raspberry Pi image built using CustomPiOS. The repository is [to be found
+This page helps you set up the MonsterPi image on your Raspberry Pi.
+
+MonsterPi is a Raspberry Pi image built using CustomPiOS. 
+The source repository with its releases is [found
 here](https://github.com/fdm-monster/MonsterPi).
 This raspberry pi image includes FDM Monster and MongoDB. 
 All released image versions can be downloaded from the [Releases](https://github.com/fdm-monster/MonsterPi/releases) page.

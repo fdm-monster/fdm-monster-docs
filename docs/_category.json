@@ -1,8 +1,0 @@
-{
-  "label": "Home",
-  "position": 1,
-  "link": {
-    "type": "generated-index",
-    "description": "Pick an OS type"
-  }
-}

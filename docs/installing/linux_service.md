@@ -3,7 +3,9 @@ title: Linux Service
 sidebar_position: 4
 ---
 
-> :warning: **This page is work in progress!**
+:::warning
+Please note that the Linux service installation is obsolete!
+:::
 
 # Linux Service
 The scripts on this page are available in [installations/fdm-monster-node-linux](../../installations/fdm-monster-node-linux).

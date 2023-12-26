@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "FDM Monster",
+  title: "FDM Monster Docs",
   tagline: "3D printer farm management platform for local or in-cloud usage using OctoPrint.",
   favicon: "img/favicon.ico",
 
@@ -16,7 +16,8 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "fdm-monster", // Usually your GitHub org/user name.
-  projectName: "FDM Monster", // Usually your repo name.
+  projectName: "fdm-monster", // Usually your repo name.
+  deploymentBranch: "gh-pages",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -89,7 +90,7 @@ const config: Config = {
             items: [
               {
                 label: "Getting Started",
-                to: "/docs/intro"
+                to: "/docs/"
               }
             ]
           },

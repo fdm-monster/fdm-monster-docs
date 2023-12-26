@@ -1,9 +1,9 @@
 ---
-title: Docker Compose
+title: Docker and Docker Compose
 sidebar_position: 2
 ---
 
-# Docker Compose
+# Docker and Docker Compose
 
 This is a guide on how to use Docker Compose to run FDM Monster.
 

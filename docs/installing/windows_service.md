@@ -5,7 +5,9 @@ sidebar_position: 3
 
 # Windows Service
 
-**Note**: the Windows service installation involves quite some steps and is relatively new.
+:::warning
+Please note that the Windows service installation is obsolete!
+:::
 
 If you're not an experienced user, you might find some of the steps below challenging. However, if you follow them carefully, you'll be able to install FDM Monster as a Windows service on your machine. 
 
