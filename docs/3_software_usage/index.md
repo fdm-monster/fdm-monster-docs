@@ -10,12 +10,12 @@ desktop computer, and in the future it is going to be suitable for use on a tabl
 
 ## Creating Printers
 
-Please read the [Creating Printers](/creating_printers.md) section for more information.
+Please read the [Creating Printers](./creating_printers.md) section for more information.
 After creating a printer, you can place it on a floor.
 
 ## Organizing Floors
 
-Please read the [Organizing Floors](/organizing_floors.md) section for more information.
+Please read the [Organizing Floors](./organizing_floors.md) section for more information.
 
 ## Printing one GCode file
 

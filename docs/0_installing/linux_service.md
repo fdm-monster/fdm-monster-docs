@@ -8,7 +8,7 @@ Please note that the Linux service installation is obsolete!
 :::
 
 # Linux Service
-The scripts on this page are available in [installations/fdm-monster-node-linux](../../installations/fdm-monster-node-linux).
+The scripts on this page are available in [installations/fdm-monster-node-linux](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-linux).
 
 ![Image](../images/server-running.png)
 *This is the FDM Monster webapp after installation (visit [http://127.0.0.1:4000](http://127.0.0.1:4000))*

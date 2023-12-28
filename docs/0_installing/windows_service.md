@@ -11,7 +11,7 @@ Please note that the Windows service installation is obsolete!
 
 If you're not an experienced user, you might find some of the steps below challenging. However, if you follow them carefully, you'll be able to install FDM Monster as a Windows service on your machine. 
 
-The installation scripts are available in [installations/fdm-monster-node-windows](../../installations/fdm-monster-node-windows).
+The installation scripts are available in [installations/fdm-monster-node-windows](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-windows).
 
 ![Image](../images/server-running.png)
 *This is the FDM Monster web app after installation (visit [http://localhost:4000](http://localhost:4000))*
