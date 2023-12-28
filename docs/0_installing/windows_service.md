@@ -132,4 +132,4 @@ Run the script as follows:
 ```
 
 
-Please continue to [Environment configuration](../0_configuration/preconfiguration.md) to change environment configuration of the FDM Monster server.
+Please continue to [Environment configuration](../2_configuration/preconfiguration.md) to change environment configuration of the FDM Monster server.

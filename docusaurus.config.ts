@@ -50,7 +50,7 @@ const config: Config = {
         //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
         // },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css"
         }
       } satisfies Preset.Options
     ]
@@ -98,12 +98,12 @@ const config: Config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus"
+                label: "Discord",
+                href: "https://discord.gg/mwA8uP8CMc"
               },
               {
-                label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus"
+                label: "GitHub",
+                href: "https://github.com/fdm-monster/fdm-monster"
               }
             ]
           },
@@ -111,8 +111,12 @@ const config: Config = {
             title: "More",
             items: [
               {
-                label: "GitHub",
-                href: "https://github.com/facebook/docusaurus"
+                label: "Site",
+                href: "https://fdm-monster.net/"
+              },
+              {
+                label: "Demo",
+                href: "https://demo.fdm-monster.net/"
               }
             ]
           }

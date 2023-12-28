@@ -3,7 +3,7 @@ layout: default
 sidebar_position: 3
 ---
 
-# Development Setup
+# Developer Setup
 
 The NodeJS server and Vue client can be run on any platform that supports NodeJS. 
 The server can be run on a Raspberry Pi, Windows, Linux or Mac. 

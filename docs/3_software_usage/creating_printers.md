@@ -6,7 +6,7 @@ sidebar_position: 1
 # Creating Printers
 
 This is a guide on how to create new OctoPrint printers in FDM Monster. The guide assumes you have already installed FDM Monster and have a running instance.
-Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](../installing/)).
+Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](../0_installing/)).
 
 ## Prerequisites
 
