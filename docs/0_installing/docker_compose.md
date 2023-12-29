@@ -38,7 +38,7 @@ It's important to protect your MongoDB database with authentication. If you choo
 Do not simply expose your database over the internet without any protection! You have been warned.
 :::
 
-There is also a development (`NODE_ENV=development`) compose file here: [docker-compose.yml](../../docker-compose.yml)):
+There is also a development (`NODE_ENV=development`) compose file here: [docker-compose.yml](https://github.com/fdm-monster/fdm-monster/tree/main/docker-compose.yml)):
 
 ```yaml
 version: '3.4'
