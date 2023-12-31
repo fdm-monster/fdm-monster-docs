@@ -6,7 +6,7 @@ sidebar_position: 1
 # Creating Printers
 
 This is a guide on how to create new OctoPrint printers in FDM Monster. The guide assumes you have already installed FDM Monster and have a running instance.
-Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](/docs/category/0_installing)).
+Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](../category/installing)).
 
 ## Prerequisites
 
@@ -50,13 +50,14 @@ It is recommended to complete this wizard before continuing with this guide.
 
 If you don't have a physical printer, you can also use a virtual printer. This is a printer that is not connected to a physical printer, but can be used to test FDM Monster.
 
-<img src="../images/software-octoprint-virtual-printer.png" width="60%"></img>
+![img.png](../images/software-octoprint-virtual-printer.png)
 
 _To create a virtual printer, you can use toggle the Virtual Printer option in the OctoPrint settings._
 
 ### Setting up a USB printer
 
 After completing the setup wizard, you will be greeted by the OctoPrint dashboard. This dashboard will show you the status of your printer.
+
 ![img.png](../images/software-octoprint-connection.png)
 
 _OctoPrint dashboard with possible available USB connections._
@@ -65,11 +66,11 @@ _OctoPrint dashboard with possible available USB connections._
 
 To be able to connect to the OctoPrint instance, you will need to get the API key. This key can be found in the User settings.
 
-<img src="../images/software-octoprint-user-menu.png" width="30%" ></img>
+![img.png](../images/software-octoprint-user-menu.png)
 
 Click the User Settings in the user menu.
 
-<img src="../images/software-octoprint-user-settings.png" width="30%"></img>
+![img.png](../images/software-octoprint-user-settings.png)
 
 Now prepare the following things
 - Copy the API key to be used in FDM Monster.
@@ -80,11 +81,11 @@ Now prepare the following things
 
 Now that you have a running OctoPrint instance, you can add it to FDM Monster. To do this, you need to go to the Printers page in FDM Monster.
 
-<img src="../images/software-create-printer-button.png" width="50%" ></img>
+![img.png](../images/software-create-printer-button.png)
 
 Click the Create Printer button to open the printer creation dialog.
 
-<img src="../images/software-printer-create-dialog.png" width="50%"></img>
+![img.png](../images/software-printer-create-dialog.png)
 
 Fill in the printer details:
 - The name is the name that will be shown in FDM Monster.
@@ -97,7 +98,7 @@ Fill in the printer details:
 Test the connection by clicking the Test Connection button in the printer dialog. If the connection is successful, you will see a green messages appear on the right.
 If the connection is unsuccessful, you will see a red alerts appear.
 
-<img src="../images/software-test-connection-green.png" width="30%"></img>
+![img.png](../images/software-test-connection-green.png)
 
 In case of an unsuccessful connection, please check the details you entered.
 Can't resolve the issue? Please contact us on [Discord](https://discord.gg/mwA8uP8CMc).
@@ -106,7 +107,7 @@ Can't resolve the issue? Please contact us on [Discord](https://discord.gg/mwA8u
 
 Press the Create button to create the printer. If the printer has been created successfully, the printer will be shown in the printer list.
 
-<img src="../images/software-resulting-list.png" width="80%" />
+![img.png](../images/software-resulting-list.png)
 
 _The printer list with three newly created printers._
 
