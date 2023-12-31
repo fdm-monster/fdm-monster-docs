@@ -11,7 +11,7 @@ const Svg = require("@site/static/img/fdm-monster-logo.svg").default;
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+    <header className={clsx("hero hero--dark", styles.heroBanner)}>
       <div className="container">
         <Svg
           className={styles.featureSvg}
