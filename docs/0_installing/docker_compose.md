@@ -70,6 +70,20 @@ services:
       # - MONGO=mongodb://mongodb:27017/fdm-monster?authSource=admin
     volumes:
       - ./fdm-monster/media:/app/media
+
+  # The unstable alpha release version
+  fdm-monster-alpha:
+    container_name: fdm-monster-alpha
+    image: fdmmonster/fdm-monster:1.6.0-rc1-alpha
+    restart: unless-stopped
+    ports:
+      - "4001:4001"
+    environment:
+      - NODE_ENV=development
+      - SERVER_PORT=4001
+    volumes:
+      - ./fdm-monster-alpha/media/:/app/media
+      - ./fdm-monster-alpha/database/:/app/database  
 ```
 _An example docker-compose.yml file with the mongodb and fdm-monster services in one stack._
 
