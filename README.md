@@ -27,16 +27,6 @@ These are the people involved in the project.  Find the meaning of the emoji key
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<table></table>
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
 ## Docs Website
 
 This website is built using [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
