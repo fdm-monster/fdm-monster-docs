@@ -16,6 +16,7 @@ Please visit this page on FDM Monster:
 ![img.png](settings.png)
 
 ## Grid Settings
+
 The Grid Settings section allows you to change the number of rows and columns in the grid, as well as enabling large tile mode. This can be useful if you want to reduce the amount of available printers in your farm.
 Read more about it on the [grid settings page](grid_settings.md).
 
@@ -36,6 +37,7 @@ The FDM Monster Settings section allows you to configure various settings relate
 The Emergency Commands section currently allows you to restart the server, but we will continue to add new features in the future. Stay tuned for updates and new functionality to help you manage your printer farm more efficiently.
 
 The following commands are available:
+
 - **Restart Server** - restart the server (pm2 mode only)
 - **Disable printers** - disable all printers
 - **Enable printers** - enable all printers (except for printers in maintenance mode)

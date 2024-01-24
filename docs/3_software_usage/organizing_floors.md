@@ -29,4 +29,3 @@ You can remove printers from a floor by dragging them out of the floor. This wil
 
 To delete a printer, you must enable the Printer Relocate Mode. This can be done by toggling the Printer Relocate Mode switch in the top bar of the home page.
 Now click on the printer you want to delete, and it will be deleted from that floor.
-

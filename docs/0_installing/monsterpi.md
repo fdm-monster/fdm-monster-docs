@@ -9,10 +9,10 @@ permalink: :baseUrl/:docsUrl/:langPart/:versionPart/installing/monsterpi
 
 This page helps you set up the MonsterPi image on your Raspberry Pi.
 
-MonsterPi is a Raspberry Pi image built using CustomPiOS. 
+MonsterPi is a Raspberry Pi image built using CustomPiOS.
 The source repository with its releases is [found
 here](https://github.com/fdm-monster/MonsterPi).
-This raspberry pi image includes FDM Monster and MongoDB. 
+This raspberry pi image includes FDM Monster and MongoDB.
 All released image versions can be downloaded from the [Releases](https://github.com/fdm-monster/MonsterPi/releases) page.
 
 ## Latest Version - MonsterPi 0.3.1
@@ -20,7 +20,7 @@ All released image versions can be downloaded from the [Releases](https://github
 **MonsterPi 0.3.1** can be downloaded from Github Releases: [MonsterPi 0.3.1 release](https://github.com/fdm-monster/MonsterPi/releases/tag/0.3.1).
 Please unzip the file before flashing it to your SD card.
 
-Older **MonsterPi releases** can be downloaded Github Releases: [MonsterPi releases](https://github.com/fdm-monster/MonsterPi/releases). 
+Older **MonsterPi releases** can be downloaded Github Releases: [MonsterPi releases](https://github.com/fdm-monster/MonsterPi/releases).
 
 ## Installing MonsterPi
 
@@ -40,10 +40,11 @@ Steps:
 6) Alternatively you can visit [http://monsterpi.local](http://monsterpi.local)
    or [https://monsterpi.local (Self-Signed SSL Certificate)](https://monsterpi.local) to access FDM Monster
 
-# Updating FDM Monster in MonsterPi 
+# Updating FDM Monster in MonsterPi
 
 I assume you know how to SSH into your MonsterPi. For me the following SSH entry (See `~/.ssh/config`) works well:
-```
+
+```ssh/config
 Host monsterpi
    HostName monsterpi.local
    User yourcustompiuser # replace with your user
@@ -51,13 +52,14 @@ Host monsterpi
    IdentityFile ~/.ssh/id_rsa_file # Replace with your SSH Key
    Port 22
 ```
+
 Personally I like the [VS Code SSH extension](https://code.visualstudio.com/docs/remote/ssh) for this!
 
 # MonsterPi Version 0.2.0/0.3.0+
 
 Run the following commands to change to the `pi` user and execute an update with root elevation.
 
-```
+```bash
 # Change to pi user
 sudo su pi
 
@@ -73,6 +75,7 @@ This strategy allows you to stick with 0.1.1. I cannot recommend it in the long 
 has changed quite a bit.
 
 This script will not install:
+
 - HAProxy
 - gencert (SSL certificate generator)
 - welcome script
@@ -80,7 +83,7 @@ This script will not install:
 We will be downloading a gist from Github. You can also download the latest version of the file yourself
 from [this Github URL](https://github.com/fdm-monster/MonsterPi/blob/main/src/modules/monsterpi/filesystem/home/pi/fdm-monster-daemon/update-fdm-monster.sh).
 
-```
+```bash
 # Change to pi user
 sudo su pi
 

@@ -8,7 +8,7 @@ last_modified_at: 2023-05-12T14:00:00+02:00
 
 # YAML Import/Export Function
 
-The YAML import/export function allows users to export and import their printer and floor configurations in a YAML format. 
+The YAML import/export function allows users to export and import their printer and floor configurations in a YAML format.
 
 ## YAML File Format
 
