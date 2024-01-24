@@ -28,30 +28,33 @@ git clone https://github.com/fdm-monster/fdm-monster-client.git
 ## Setting Up the Development Environment
 
 1) Navigate to the cloned repository:
+
     ```bash
     cd fdm-monster-client
     ```
-   
+
 2) If yarn is not yet installed:
+
    ```bash
    npm install -g yarn
    ```
-      
+
 3) Install the dependencies using Yarn:
+
    ```bash
    yarn install
    ```
-   
+
 4) Create a run configuration for the Vue development server in your IDE of choice (either VS Code or WebStorm):
     - VS Code: Create a run configuration that executes `yarn run serve` as the command. (Refer to the VS Code Run
       Configuration section below for detailed steps.)
     - WebStorm: Create a run configuration that executes `yarn run serve` as the command. (Refer to the WebStorm
       Run Configuration section below for detailed steps.)
-   
+
 5) Launch the Vue development server. Please note that the server will automatically reload if you make any changes to
    the source code. Please ensure that the FDM Monster server is running as well.
 
-6) Access the running server at http://localhost:8080 in your preferred web browser.
+6) Access the running server at [http://localhost:8080](http://localhost:8080) in your preferred web browser.
 
 ## VS Code Run Configuration
 
@@ -62,6 +65,7 @@ git clone https://github.com/fdm-monster/fdm-monster-client.git
    If this does not work, you can manually create the file in the `.vscode` folder in the project root directory.
 
 3) Paste the following JSON script into the launch.json file:
+
    ```json
    {
      "version": "0.2.0",
@@ -88,7 +92,7 @@ git clone https://github.com/fdm-monster/fdm-monster-client.git
 - Press Ctrl + F5 to launch the Vue development server without debugging. Alternatively, you can press F5 to launch the
   Vue development server with debugging (this could be a lot slower).
 - For more information on how to develop Vue with VS Code (f.e. using Vetur), refer to
-  the [VS Code VueJS Tutorial](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial.
+  the [VS Code VueJS Tutorial](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial).
 
 ## WebStorm NPM Configuration
 

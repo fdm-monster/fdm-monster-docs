@@ -10,7 +10,7 @@ last_modified_at: 2023-05-10T14:00:00+02:00
 
 The FDM Monster Client bundle is available on two platforms, namely [Github Releases](https://github.com/fdm-monster/fdm-monster-client/releases) and [NPM package](https://www.npmjs.com/package/@fdm-monster/client).
 
-The client bundle is also included as an NPM package for air-gapped installations, serving as an offline fallback. 
+The client bundle is also included as an NPM package for air-gapped installations, serving as an offline fallback.
 Alternatively, and most commonly applied, the bundle is verified, downloaded, and extracted from Github during startup.
 
 ## Triggering Manual Update

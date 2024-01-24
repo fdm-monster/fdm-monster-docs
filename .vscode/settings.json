@@ -1,5 +1,20 @@
 {
     "cSpell.words": [
-        "fdmmonster"
+        "configdb",
+        "devpath",
+        "fdmmonster",
+        "gencert",
+        "Imager",
+        "INITDB",
+        "mongoconfig",
+        "monsterpi",
+        "Octo",
+        "Prusa",
+        "SAFEMODE",
+        "udev",
+        "udevadm",
+        "Vetur",
+        "websockets",
+        "yourcustompiuser"
     ]
 }

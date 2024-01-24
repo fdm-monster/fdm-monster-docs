@@ -40,16 +40,19 @@ git clone https://github.com/fdm-monster/fdm-monster.git
 ## Setting Up the Development Environment
 
 1) Navigate to the cloned repository:
+
     ```bash
     cd fdm-monster/server
     ```
-   
+
 2) If yarn is not yet installed:
+
    ```bash
    npm install -g yarn
    ```
-      
+
 3) Install the dependencies using Yarn:
+
    ```bash
    yarn install
    ```
@@ -65,7 +68,7 @@ git clone https://github.com/fdm-monster/fdm-monster.git
     - WebStorm: Create a run configuration that executes `yarn run dev` as the command. (Refer to the WebStorm
       Run Configuration section below for detailed steps.)
 
-7) Access the running server at http://localhost:4000 in your preferred web browser.
+7) Access the running server at [http://localhost:4000](http://localhost:4000) in your preferred web browser.
 
 ## VS Code Run Configuration
 
@@ -77,6 +80,7 @@ To create a run configuration in VS Code for running the FDM Monster server, fol
    If this does not work, you can manually create the file in the `.vscode` folder in the project root directory.
 
 3) Paste the JSON script provided below into the launch.json file:
+
    ```json
    {
      "version": "0.2.0",
@@ -156,4 +160,3 @@ Secondly, we will provide instructions on how to create printer instances in FDM
 [//]: # (Stay tuned for further instructions on creating printer instances in FDM Monster)
 
 [//]: # (using either YAML import or the client printer create dialog.)
-
