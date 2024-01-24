@@ -1,11 +1,18 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
+import Link from "@docusaurus/Link";
+
+type FeatureLink = {
+  description: string;
+  href: string;
+};
 
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: React.JSX.Element;
+  featureLink: FeatureLink;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -18,6 +25,10 @@ const FeatureList: FeatureItem[] = [
         least hassle setup, you should give this a try!
       </>
     ),
+    featureLink: {
+      description: "Read More!",
+      href: "/docs/installing/docker_compose",
+    },
   },
   {
     title: "Install MonsterPi on your Pi",
@@ -25,6 +36,10 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>Run FDM Monster on a Raspberry Pi 3, 4 or 5 using our prebuilt image.</>
     ),
+    featureLink: {
+      description: "Read More!",
+      href: "/docs/installing/monsterpi",
+    },
   },
   {
     title: "Powered by OctoPrint",
@@ -35,10 +50,14 @@ const FeatureList: FeatureItem[] = [
         farm!
       </>
     ),
+    featureLink: {
+      description: "Read More!",
+      href: "https://octoprint.org/",
+    },
   },
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ Svg, title, description, featureLink }) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
@@ -47,6 +66,9 @@ function Feature({ Svg, title, description }) {
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
+        <Link className="button button--secondary button--lg" to={featureLink.href}>
+            {featureLink.description}
+        </Link>
       </div>
     </div>
   );
