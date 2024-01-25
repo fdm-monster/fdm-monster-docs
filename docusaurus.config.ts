@@ -124,6 +124,11 @@ const config: Config = {
         copyright: `Copyright © ${new Date().getFullYear()} David Zwart. Built with Docusaurus.`
       },
       prism: {
+        colorMode: {
+          // Let the system decide with 'respectPrefersColorScheme' below
+          // defaultMode: 'dark',
+          respectPrefersColorScheme: true,
+        },
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula
       }
