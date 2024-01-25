@@ -127,7 +127,7 @@ const config: Config = {
         colorMode: {
           // Let the system decide with 'respectPrefersColorScheme' below
           // defaultMode: 'dark',
-          respectPrefersColorScheme: true,
+          respectPrefersColorScheme: true
         },
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula
