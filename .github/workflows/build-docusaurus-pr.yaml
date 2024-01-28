@@ -16,5 +16,6 @@ jobs:
         with:
           node-version: 18.x
 
-      - run: yarn install --frozen-lockfile
+      - run: yarn set version berry
+      - run: yarn install --immutable
       - run: yarn run build
