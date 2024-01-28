@@ -3,8 +3,6 @@ title: Software Usage
 sidebar_position: 5
 ---
 
-# Software Usage
-
 The FDM Monster webapp is a web application that can be used to manage your 3D printers. It is designed to be used on a
 desktop computer, and in the future it is going to be suitable for use on a tablet or mobile phone.
 

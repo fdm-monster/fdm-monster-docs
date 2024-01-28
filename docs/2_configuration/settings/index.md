@@ -4,16 +4,13 @@ title: Settings
 parent: Configuration
 nav_order: 2
 has_children: true
-last_modified_at: 2023-05-13T14:00:00+02:00
 ---
-
-# Settings
 
 This section specifies the settings that can be changed once the FDM Monster server has been started.
 
 Please visit this page on FDM Monster:
 
-![img.png](settings.png)
+![Screenshot of FDM Monster with all settings sections](settings.png)
 
 ## Grid Settings
 

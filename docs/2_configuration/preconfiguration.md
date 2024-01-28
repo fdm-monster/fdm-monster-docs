@@ -1,6 +1,13 @@
-# Pre-configuring the FDM Monster Server
+---
+layout: default
+title: Pre-configuring the FDM Monster Server
+parent: Configuration
+nav_order: 1
+---
 
-> :warning: **After each environment change the FDM Monster server must be restarted for the change to take effect!**
+:::warning
+After each environment change the FDM Monster server must be restarted for the change to take effect!
+:::
 
 FDM Monster Server can be configured with environment variables. There are different ways to do this for each setup:
 
