@@ -25,7 +25,8 @@
       "contributions": [
         "maintenance",
         "ideas",
-        "doc"
+        "doc",
+        "bug"
       ]
     }
   ],
