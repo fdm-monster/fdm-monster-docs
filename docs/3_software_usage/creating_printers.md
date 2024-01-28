@@ -3,10 +3,8 @@ title: Creating Printers
 sidebar_position: 1
 ---
 
-# Creating Printers
-
 This is a guide on how to create new OctoPrint printers in FDM Monster. The guide assumes you have already installed FDM Monster and have a running instance.
-Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](../category/installing)).
+Also, it is assumed you have MongoDB running on the same machine as FDM Monster (see [installations](../installing)).
 
 ## Prerequisites
 
@@ -46,14 +44,6 @@ _OctoPrint dashboard with a printer connected._
 
 When you first start OctoPrint, you will be greeted by the setup wizard. This wizard will guide you through the initial setup of OctoPrint.
 It is recommended to complete this wizard before continuing with this guide.
-
-### Setting up a Virtual printer (Optional)
-
-If you don't have a physical printer, you can also use a virtual printer. This is a printer that is not connected to a physical printer, but can be used to test FDM Monster.
-
-![img.png](../images/software-octoprint-virtual-printer.png)
-
-_To create a virtual printer, you can use toggle the Virtual Printer option in the OctoPrint settings._
 
 ### Setting up a USB printer
 

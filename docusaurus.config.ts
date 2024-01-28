@@ -20,6 +20,7 @@ const config: Config = {
   deploymentBranch: "gh-pages",
 
   onBrokenLinks: "throw",
+  onBrokenAnchors: "warn",
   onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internalization, you can use this field to set useful
@@ -76,7 +77,7 @@ const config: Config = {
           },
           // { to: "/blog", label: "Blog", position: "left" },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/fdm-monster/fdm-monster-docs",
             label: "GitHub",
             position: "right"
           }
@@ -121,7 +122,7 @@ const config: Config = {
             ]
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} David Zwart. Built with Docusaurus.`
+        copyright: `Copyright © ${new Date().getFullYear()} David Zwart. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.`
       },
       prism: {
         colorMode: {
@@ -130,7 +131,8 @@ const config: Config = {
           respectPrefersColorScheme: true
         },
         theme: prismThemes.github,
-        darkTheme: prismThemes.dracula
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'json', 'powershell'],
       }
     }
 };

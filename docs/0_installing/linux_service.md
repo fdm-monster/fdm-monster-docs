@@ -1,27 +1,33 @@
 ---
 title: Linux Service
+description: How to use a Linux service for your FDM-Monster environment (deprecated)
+image: ../images/server-running.png # TODO: Change image!
+keywords: [fdm-monster, OctoPrint, 3d-printing, monsterpi] #TODO: Keywords!
 sidebar_position: 4
+id: linux_service
+permalink: :baseUrl/:docsUrl/:langPart/:versionPart/installing/:id
 ---
 
-:::warning
-Please note that the Linux service installation is obsolete!
+:::danger
+The Linux service installation is deprecated!
+
+Documentation for the Linux Service is provided as-is and will not be supported.
 :::
 
-# Linux Service
-
-The scripts on this page are available in [installations/fdm-monster-node-linux](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-linux).
+The scripts on this page are available on GitHub in [installations/fdm-monster-node-linux](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-linux).
 
 ![Image](../images/server-running.png)
-*This is the FDM Monster webapp after installation (visit [http://127.0.0.1:4000](http://127.0.0.1:4000))*
+*This is the FDM Monster web app after installation (visit [http://127.0.0.1:4000](http://127.0.0.1:4000))*
 
 ## Preparation of the Linux Service installation
 
 Please ensure the following dependencies are installed and working:
 
-- nodejs 18+
+- NodeJS 18 or higher
+- MongoDB 4.4 or higher
 - git
 - yarn (npm package)
-- fdm-monster (github cloned source code)
+- FDM monster source files (GitHub cloned source code)
 - node-linux (npm package)
 
 ## Installation of the service
@@ -30,32 +36,31 @@ Please ensure that:
 
 - You've cloned the repository
 - Changed directory to [installations/fdm-monster-node-linux](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-linux)
-- MongoDB 4.4+ has been installed
 - `yarn` dependencies are installed in `fdm-monster/server/`
 - `npm` dependencies are installed in `fdm-monster-node-linux/`
 
 Please ensure the service is installed (executed inside `fdm-monster-node-linux`):
 
-```shell
+```bash
 npm i
 ```
 
 This will call `node ./install-fdm-monster.js` indirectly.
 
-# Configuring server environment
+## Configuring server environment
 
 The server has configuration options that allow changing how it operates. Warning, wrong configuration might cause the
 server unable to correctly startup.
 
 Each configuration change requires you to run the update script:
 
-```shell
+```bash
 npm i
 ```
 
 Please read the [Environment configuration](../2_configuration/preconfiguration.md) section for adjusting the `.env` file.
 
-# Updating the server
+## Updating the server
 
 The server is easily updated with the provided script `update-fdm-monster.sh`.
 You will need to run this with elevation:

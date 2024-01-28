@@ -3,8 +3,6 @@ title: Troubleshooting
 sidebar_position: 6
 ---
 
-# Troubleshooting
-
 ## Diagnostics
 
 Sometimes things go wrong. This section contains information about how to diagnose and report problems.
@@ -17,23 +15,23 @@ to send them the log files when you report a problem. This allows them to fix bu
 the logs might contain personal information, such as your username or printed file names.
 If you do not want to share this information, you can remove it from the log files before sending them to the developers.
 
-* **Downloading the log dump ZIP - webapp**
-  * Open the FDM Monster webapp in your browser.
-  * Click on the `Settings` navigation link
-  * Click on the `Diagnostics` setting page
-  * Click on the `Download log files (.ZIP)` button
+- **Downloading the log dump ZIP - webapp**
+  - Open the FDM Monster webapp in your browser.
+  - Click on the `Settings` navigation link
+  - Click on the `Diagnostics` setting page
+  - Click on the `Download log files (.ZIP)` button
 
   ![downloading_log_dump.png](downloading_log_dump.png)
   
   _The `Diagnostics` settings page with log dump button._
 
-* **Downloading the log dump ZIP - direct download**
+- **Downloading the log dump ZIP - direct download**
 It is possible to download the log dump ZIP file directly, without using the FDM Monster webapp. This can be useful if
 the FDM Monster webapp is not working.
-  * Open your browser.
-  * Navigate to the following URL: `http://<your-server-ip>:<your-server-port>/api/server/dump-fdm-monster-logs`
-  * Replace `<your-server-ip>` and `<your-server-port>` of your FDM Monster server. For example: `http://monsterpi.local:4000/api/server/dump-fdm-monster-logs`
-  * Save the ZIP file to your computer
+  - Open your browser.
+  - Navigate to the following URL: `http://<your-server-ip>:<your-server-port>/api/server/dump-fdm-monster-logs`
+  - Replace `<your-server-ip>` and `<your-server-port>` of your FDM Monster server. For example: `http://monsterpi.local:4000/api/server/dump-fdm-monster-logs`
+  - Save the ZIP file to your computer
 
 ### Sentry
 
@@ -44,7 +42,7 @@ you can disable it at any time. Also note that no personal information is sent t
 
 ![img.png](sentry_toggle.png)
 
-_Tick or untick the checkbox and press save to enable or disable Sentry._
+_Check or uncheck the checkbox and press save to enable or disable Sentry._
 
 ### Reporting bugs
 

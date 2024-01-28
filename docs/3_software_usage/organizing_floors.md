@@ -3,8 +3,6 @@ title: Organizing Floors
 sidebar_position: 2
 ---
 
-# Organizing Floors
-
 The FDM Monster webapp uses a concept of floors to group printers together. This allows you to organize your printers in a logical way.
 Of course all farms are different, so you can organize your printers in any way you want.
 

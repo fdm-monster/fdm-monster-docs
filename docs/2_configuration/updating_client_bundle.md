@@ -3,10 +3,7 @@ layout: default
 title: Updating Client Bundle
 parent: Configuration
 nav_order: 3
-last_modified_at: 2023-05-10T14:00:00+02:00
 ---
-
-# Updating Client Bundle
 
 The FDM Monster Client bundle is available on two platforms, namely [Github Releases](https://github.com/fdm-monster/fdm-monster-client/releases) and [NPM package](https://www.npmjs.com/package/@fdm-monster/client).
 
@@ -21,7 +18,8 @@ To update the FDM Monster client bundle manually, navigate to the Help page and 
 
 This will open the Software Upgrade page, where you can select the client version and click the **UPGRADE CLIENT** button to trigger the update.
 
-![img.png](../images/5-update-client-button.png)
+![Screenshot with a list of available client versions](../images/5-update-client-button.png)
 
-> **Warning**
-> Upon confirmation, the page will reload within 5 to 10 seconds and present you with the updated bundle.
+:::warning
+Upon confirmation, the page will reload within 5 to 10 seconds and present you with the updated bundle.
+:::
