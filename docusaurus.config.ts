@@ -61,21 +61,21 @@ const config: Config = {
     {
       algolia: {
         // The application ID provided by Algolia
-        appId: "6KPHKLDLA1",
+        appId: "BZ7UWA7P64",
         // Public API key: it is safe to commit it
-        apiKey: "a068613f6dec6a6efd597fa892088ba4",
-        indexName: "Docs V1",
+        apiKey: "58008360f3754a5ce748b4c13b855a64",
+        indexName: "fdm-monster",
         // Optional: see doc section below
         contextualSearch: true,
         // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
         externalUrlRegex: "docs.fdm-monster\\.net|fdm-monster\\.net",
         // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-        replaceSearchResultPathname: {
-          from: "/docs/", // or as RegExp: /\/docs\//
-          to: "/"
-        },
+        // replaceSearchResultPathname: {
+        //   from: "/docs/", // or as RegExp: /\/docs\//
+        //   to: "/"
+        // },
         // Optional: Algolia search parameters
-        searchParameters: {},
+        // searchParameters: {},
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: "search"
         //... other Algolia params
