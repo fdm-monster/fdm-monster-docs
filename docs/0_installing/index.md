@@ -14,5 +14,6 @@ Please select your favorite installation method.
 
 ```mdx-code-block
 import DocCardList from '@theme/DocCardList';
+
 <DocCardList />
 ```
