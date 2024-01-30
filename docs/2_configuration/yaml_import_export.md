@@ -59,8 +59,12 @@ Here are some screenshots of the user interface for the YAML import/export funct
 
 ![UI screenshot 3](../images/button-function.png)
 
-The first screenshot shows the main interface for the import/export function. The second screenshot shows the import dialog, where users can select a YAML file to import. The third screenshot shows the import button, which users can click to begin the import process.
+The first screenshot shows the main interface for the import/export function. The second screenshot shows the import
+dialog, where users can select a YAML file to import. The third screenshot shows the import button, which users can click
+to begin the import process.
 
 ## Conclusion
 
-The YAML import/export function provides a convenient way for users to backup and transfer their printer and floor configurations. By following the format described in this documentation, users can ensure that their YAML files are correctly formatted for import.
+The YAML import/export function provides a convenient way for users to backup and transfer their printer and floor
+configurations. By following the format described in this documentation, users can ensure that their YAML files are
+correctly formatted for import.

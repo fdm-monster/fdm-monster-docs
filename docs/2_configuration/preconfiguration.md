@@ -38,7 +38,8 @@ The following variables are read and used by FDM Monster at startup. Always rest
 
 ## The `.env` file
 
-A very simple text file with a variable per line. The following `.env` is often already enough to make sure FDM Monster works as you like:
+A very simple text file with a variable per line. The following `.env` is often already enough to make sure FDM Monster
+works as you like:
 
 ```dotenv
 MONGO=mongodb://127.0.0.1:27017/fdm-monster
@@ -47,15 +48,17 @@ SERVER_PORT=4000
 
 ## Applying it to your setup
 
-So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for your specific scenario.
+So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for
+your specific scenario.
 
 ### NodeJS with node-linux, node-windows or pm2
 
-Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying the `.env.template` file.
-Copy this and rename it to `.env` to get started quicker.
-The server will automatically create the `.env` file for you, and the server logs will show what is going wrong if something is missing.
+Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying the
+`.env.template` file. Copy this and rename it to `.env` to get started quicker. The server will automatically create the
+`.env` file for you, and the server logs will show what is going wrong if something is missing.
 
-Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the **required** variables are correctly set.
+Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the **required** variables are correctly
+set.
 
 ### Docker-compose
 
@@ -71,4 +74,5 @@ services:
       - SERVER_PORT: 4000
 ```
 
-Please continue by reading the [Docker Compose section](../0_installing/docker_compose.md) for more information on how to setup FDM Monster and MongoDB with docker-compose.
+Please continue by reading the [Docker Compose section](../0_installing/docker_compose.md) for more information on how
+to setup FDM Monster and MongoDB with docker-compose.

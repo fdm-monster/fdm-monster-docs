@@ -18,7 +18,8 @@ page.
 
 ## Latest Version
 
-[![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=d52828&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest) [![Latest pre-release](https://img.shields.io/github/v/release/fdm-monster/monsterpi?include_prereleases&color=d52828&label=pre-release)](https://github.com/fdm-monster/MonsterPi/releases)
+[![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=d52828&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest)
+[![Latest pre-release](https://img.shields.io/github/v/release/fdm-monster/monsterpi?include_prereleases&color=d52828&label=pre-release)](https://github.com/fdm-monster/MonsterPi/releases)
 
 The downloaded file needs to be unzipped before flashing it to your SD Card. Use your favorite unzipping application to
 extract the files.

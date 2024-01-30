@@ -13,7 +13,8 @@ Familiarity with [Docker](https://www.docker.com/) and [Docker Compose](https://
 :::
 
 :::tip
-We simply cannot support custom scenarios or setups. Therefore, it is essential to check your device's memory limits, architecture, and CPU power.
+We simply cannot support custom scenarios or setups. Therefore, it is essential to check your device's memory limits,
+architecture, and CPU power.
 :::
 
 ## Running FDM Monster with Docker Compose
@@ -22,7 +23,8 @@ In the next steps, we will guide you through the process of running FDM Monster 
 
 ### Step 1: FDM Monster image and version tag
 
-We provide the `fdmmonster/fdm-monster` image. This image requires you to run a MongoDB server, MongoDB Atlas (cloud offering), or a MongoDB docker container (see compose file below).
+We provide the `fdmmonster/fdm-monster` image. This image requires you to run a MongoDB server, MongoDB Atlas (cloud
+offering), or a MongoDB docker container (see compose file below).
 Find it on [Docker Hub](https://hub.docker.com/r/fdmmonster/fdm-monster/tags).
 
 There are multiple tags available for the `fdmmonster/fdm-monster` image.
@@ -31,17 +33,21 @@ There are multiple tags available for the `fdmmonster/fdm-monster` image.
 - `x`, `x.y`, `x.y.z` - A specific version of FDM Monster. For example, `1`, `1.4`, or `1.4.0`.
 - `main` - The latest development version of FDM Monster. This version is the same as the `latest` tag and it is stable.
 - `develop` - The latest development version of FDM Monster. This version is not recommended for production use.
-- `x.y.z-rc?-1234` - A specific release candidate of FDM Monster with a specific build number. For example, `1.4.0-rc1-1234`. These are development versions and are not recommended for production use.
-- `x.y.z-1234` - A specific version of FDM Monster with a specific build number. For example, `1.4.0-1234`. These are development versions and are not recommended for production use.
+- `x.y.z-rc?-1234` - A specific release candidate of FDM Monster with a specific build number. For example,
+`1.4.0-rc1-1234`. These are development versions and are not recommended for production use.
+- `x.y.z-1234` - A specific version of FDM Monster with a specific build number. For example, `1.4.0-1234`. These are
+development versions and are not recommended for production use.
 
 ### Step 2: Create a docker-compose.yml file
 
-To run a Docker Compose stack, create a file named `docker-compose.yml` and use the file contents presented below. Note that an option has been added for adding MongoDB authentication.
-If you choose not to use authentication, you can remove the `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD` environment variables.
-In that case, you should leave out the `<username>:<password>@` part of the `MONGO` environment variable.
+To run a Docker Compose stack, create a file named `docker-compose.yml` and use the file contents presented below. Note
+that an option has been added for adding MongoDB authentication.
+If you choose not to use authentication, you can remove the `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD`
+environment variables. In that case, you should leave out the `<username>:<password>@` part of the `MONGO` environment variable.
 
 :::warning
-It's important to protect your MongoDB database with authentication. If you choose not to use authentication, you should at least use a firewall to protect your database.
+It's important to protect your MongoDB database with authentication. If you choose not to use authentication, you should
+at least use a firewall to protect your database.
 Do not simply expose your database over the internet without any protection! You have been warned.
 :::
 
@@ -104,7 +110,7 @@ docker-compose up -d
 ```
 
 Please note that FDM Monster requires a MongoDB database to function properly. When using the `latest` or `alpine` images,
-make sure to configure your root user's username and password for MongoDB.
-Additionally, FDM Monster needs to access the `admin` table, which is the default table name for the authentication source.
+make sure to configure your root user's username and password for MongoDB. Additionally, FDM Monster needs to access the
+`admin` table, which is the default table name for the authentication source.
 
 Now you can access FDM Monster at `http://localhost:4000`, `http://127.0.0.1:4000`, or `http://<your-ip>:4000`.

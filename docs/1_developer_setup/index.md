@@ -17,7 +17,8 @@ For Developing we advise using a Windows or Linux machine with at least 8GB of m
 
 ## Making Changes to FDM Monster
 
-If you wish to contribute to the FDM Monster project and make changes to the codebase, please follow the guidelines outlined in the [CONTRIBUTING.MD](https://github.com/fdm-monster/fdm-monster/blob/develop/CONTRIBUTING.md) file.
+If you wish to contribute to the FDM Monster project and make changes to the codebase, please follow the guidelines
+outlined in the [CONTRIBUTING.MD](https://github.com/fdm-monster/fdm-monster/blob/develop/CONTRIBUTING.md) file.
 
 In summary:
 

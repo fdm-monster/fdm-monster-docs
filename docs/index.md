@@ -7,7 +7,8 @@ sidebar_position: 1
 permalink: :baseUrl/:docsUrl/:langPart/:versionPart
 ---
 
-FDM Monster is capable of connecting to over 100 OctoPrint instances allowing you to be able to manage your 3D Printing Farm using a single view!
+FDM Monster is capable of connecting to over 100 OctoPrint instances allowing you to be able to manage your 3D Printing
+Farm using a single view!
 
 ## FDM Monster
 
@@ -15,4 +16,5 @@ FDM Monster is capable of connecting to over 100 OctoPrint instances allowing yo
 
 The quickest way to get started is by using either the [MonsterPi](installing/monsterpi) image or by using [Docker Compose](installing/docker_compose).
 
-Please keep in mind that the Docker Compose route will be a bit more advanced and knowledge of Docker and Docker Compose is required.
+Please keep in mind that the Docker Compose route will be a bit more advanced and knowledge of Docker and Docker Compose
+is required.
