@@ -11,3 +11,8 @@ permalink: :baseUrl/:docsUrl/:langPart/:versionPart/:id
 Please select your favorite installation method.
 
 ![Running FDM Monster Server](../images/server-running.png)
+
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
+<DocCardList />
+```
