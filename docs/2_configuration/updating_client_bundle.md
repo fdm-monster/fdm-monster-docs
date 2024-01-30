@@ -1,8 +1,6 @@
 ---
-layout: default
 title: Updating Client Bundle
-parent: Configuration
-nav_order: 3
+sidebar_position: 3
 ---
 
 The FDM Monster Client bundle is available on two platforms, namely [Github Releases](https://github.com/fdm-monster/fdm-monster-client/releases) and [NPM package](https://www.npmjs.com/package/@fdm-monster/client).

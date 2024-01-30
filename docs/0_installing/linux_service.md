@@ -16,7 +16,9 @@ Documentation for the Linux Service is provided as-is and will not be supported.
 
 The scripts on this page are available on GitHub in [installations/fdm-monster-node-linux](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-linux).
 
-![Image](../images/server-running.png)
+![A running instance of FDM Monster 3D Printing Server with the Printing Grid opened.
+Only one disabled printer is shown on the grid and it's disabled.
+The rest of the grid is showing empty tiles.](../images/server-running.png)
 *This is the FDM Monster web app after installation (visit [http://127.0.0.1:4000](http://127.0.0.1:4000))*
 
 ## Preparation of the Linux Service installation

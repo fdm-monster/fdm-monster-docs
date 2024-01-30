@@ -1,9 +1,8 @@
 ---
-layout: default
 title: Grid Settings
 parent: Settings
 grand_parent: Configuration
-nav_order: 1
+sidebar_position: 1
 ---
 
 The grid settings influence how many printers are shown in the grid.
