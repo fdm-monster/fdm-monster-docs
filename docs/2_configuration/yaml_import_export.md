@@ -1,8 +1,6 @@
 ---
-layout: default
 title: YAML Import and Export
-parent: Configuration
-nav_order: 4
+sidebar_position: 4
 ---
 
 The YAML import/export function allows users to export and import their printer and floor configurations in a YAML format.

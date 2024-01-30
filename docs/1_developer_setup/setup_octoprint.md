@@ -26,9 +26,9 @@ _To create a virtual printer, you can check the Virtual Printer checkbox in the 
 
 After enabling the VIRTUAL printer, you will see a `VIRTUAL` option in the printer section on the OctoPrint dashboard
 
-![OctoPrint dashboard with available VIRTUAL printer](../images/software-octoprint-connection.png)
+![OctoPrint dashboard with VIRTUAL printer available](../images/software-octoprint-connection.png)
 
-_OctoPrint dashboard with available VIRTUAL printer._
+_OctoPrint dashboard with VIRTUAL printer available._
 
 ## Next Steps
 

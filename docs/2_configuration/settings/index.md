@@ -1,9 +1,7 @@
 ---
-layout: default
 title: Settings
 parent: Configuration
-nav_order: 2
-has_children: true
+sidebar_position: 2
 ---
 
 This section specifies the settings that can be changed once the FDM Monster server has been started.

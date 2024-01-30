@@ -1,8 +1,6 @@
 ---
-layout: default
 title: Pre-configuring the FDM Monster Server
-parent: Configuration
-nav_order: 1
+sidebar_position: 1
 ---
 
 :::warning
