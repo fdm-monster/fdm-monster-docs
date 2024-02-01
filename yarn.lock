@@ -3072,14 +3072,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.50":
-  version: 18.2.50
-  resolution: "@types/react@npm:18.2.50"
+"@types/react@npm:18.2.51":
+  version: 18.2.51
+  resolution: "@types/react@npm:18.2.51"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/9866e5dc6d786b03842b1f39c49a5b750411cae4e15e17a86ee9a51209fb96c0c0d4b0a07ba58880e7ad998aa3f2b46197c982f42c28b3aaf0cf6011559acb3a
+  checksum: 10c0/409f684dc1cb03ed542e1f185da7e84f81186d7945119adb553fe0e4e28bad3468213fce9096e1867b358c87fb57fc80b53a3e544a3779f7080ddde7c1b99eb1
   languageName: node
   linkType: hard
 
@@ -5511,7 +5511,7 @@ __metadata:
     "@docusaurus/tsconfig": "npm:3.1.1"
     "@docusaurus/types": "npm:3.1.1"
     "@mdx-js/react": "npm:3.0.0"
-    "@types/react": "npm:18.2.50"
+    "@types/react": "npm:18.2.51"
     clsx: "npm:2.1.0"
     prism-react-renderer: "npm:2.3.1"
     react: "npm:18.2.0"
