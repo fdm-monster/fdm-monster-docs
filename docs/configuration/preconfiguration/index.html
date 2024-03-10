@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.1.1">
 <title data-rh="true">Pre-configuring the FDM Monster Server | FDM Monster Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://docs.fdm-monster.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://docs.fdm-monster.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://docs.fdm-monster.net/docs/configuration/preconfiguration"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Pre-configuring the FDM Monster Server | FDM Monster Docs"><meta data-rh="true" name="description" content="After each environment change the FDM Monster server must be restarted for the change to take effect!"><meta data-rh="true" property="og:description" content="After each environment change the FDM Monster server must be restarted for the change to take effect!"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.fdm-monster.net/docs/configuration/preconfiguration"><link data-rh="true" rel="alternate" href="https://docs.fdm-monster.net/docs/configuration/preconfiguration" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.fdm-monster.net/docs/configuration/preconfiguration" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://BZ7UWA7P64-dsn.algolia.net" crossorigin="anonymous"><link rel="search" type="application/opensearchdescription+xml" title="FDM Monster Docs" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.0afc5415.css">
-<script src="/assets/js/runtime~main.ac68615a.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.bf5b83d3.js" defer="defer"></script>
 <script src="/assets/js/main.1a8b52ea.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -26,43 +26,64 @@
 </li>
 <li>docker - all at once<!-- -->
 <ul>
-<li>docker: using the <code>--env-file ./.env</code> command <a href="https://docs.docker.com/engine/reference/commandline/run/#options">(Read docker options)</a></li>
-<li>docker-compose: using the <code>environment</code> section <a href="https://docs.docker.com/compose/environment-variables/">(Read docker-compose environment)</a></li>
+<li>docker: using the <code>--env-file ./.env</code>
+command <a href="https://docs.docker.com/engine/reference/commandline/run/#options">(Read docker options)</a></li>
+<li>docker-compose: using the <code>environment</code>
+section <a href="https://docs.docker.com/compose/environment-variables/">(Read docker-compose environment)</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="required-and-optional-variables">Required and optional variables</h2>
+<admonition type="warning"><p>Since FDM Monster Server v1.6.0+, a new database type was added named SQLite managed with the TypeORM library.
+The file-based database SQLite allows for a standalone FDM Monster setup without MongoDB.
+Hence, no running MongoDB database would be required, if this new mode is enabled.
+Enable this mode by setting <code>ENABLE_EXPERIMENTAL_TYPEORM=true</code>. You do not have to specify <code>MONGO</code> anymore in that case!
+The <code>MONGO</code> variable will be ignored by FDM Monster.</p><p>Also note that no data is migrated from MongoDB to SQLite. You can use YAML export &amp; import for migrating most data.</p><p>This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide
+feedback
+in case of errors or unexpected behaviour!</p></admonition>
 <p>The following variables are read and used by FDM Monster at startup. Always restart your server after a change.</p>
 <ul>
-<li><code>MONGO</code> (Required) <strong>the connection to mongodb</strong>. For example:</li>
+<li><code>MONGO</code> (Optional, required before 1.6.x) <strong>the connection to mongodb</strong>. For example:</li>
 </ul>
 <blockquote>
 <p><code>MONGO=mongodb://127.0.0.1:27017/fdm-monster</code></p>
 </blockquote>
 <ul>
-<li><code>SERVER_PORT</code> (Optional, default=4000) <strong>the port of the local FDM Monster website</strong>. For example:</li>
+<li>
+<p><code>ENABLE_EXPERIMENTAL_TYPEORM</code> (Optional) <strong>a flag indicating SQLite should be used instead of MongoDB. Setting it to
+exactly <code>true</code> will enable this new mode.</strong></p>
+</li>
+<li>
+<p><code>ENABLE_EXPERIMENTAL_TYPEORM=true</code></p>
+</li>
+<li>
+<p><code>SERVER_PORT</code> (Optional, default=4000) <strong>the port of the local FDM Monster website</strong>. For example:</p>
+</li>
 </ul>
 <blockquote>
 <p><code>SERVER_PORT=4000</code></p>
 </blockquote>
-<ul>
-<li><code>SAFEMODE_ENABLED</code> <strong>Safely start FDM Monster: without any task being run to avoid crashes.</strong></li>
-</ul>
-<blockquote>
-<p><code>SAFEMODE_ENABLED=true</code></p>
-</blockquote>
 <h2 id="the-env-file">The <code>.env</code> file</h2>
-<p>A very simple text file with a variable per line. The following <code>.env</code> is often already enough to make sure FDM Monster works as you like:</p>
+<p>A very simple text file with a variable per line. The following <code>.env</code> is often already enough to make sure FDM Monster
+works as you like:</p>
 <pre><code class="language-dotenv">MONGO=mongodb://127.0.0.1:27017/fdm-monster
 SERVER_PORT=4000
 </code></pre>
+<p>Alternatively, the new SQLite (TypeORM) mode can be enabled as such:</p>
+<pre><code class="language-dotenv">ENABLE_EXPERIMENTAL_TYPEORM=true
+SERVER_PORT=4000
+</code></pre>
 <h2 id="applying-it-to-your-setup">Applying it to your setup</h2>
-<p>So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for your specific scenario.</p>
+<p>So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for
+your specific scenario.</p>
 <h3 id="nodejs-with-node-linux-node-windows-or-pm2">NodeJS with node-linux, node-windows or pm2</h3>
-<p>Create a <code>.env</code> file in the <code>fdm-monster/server</code> folder with the <strong>required</strong> and/or <em>optional</em> variables by copying the <code>.env.template</code> file.
+<p>Create a <code>.env</code> file in the <code>fdm-monster/server</code> folder with the <strong>required</strong> and/or <em>optional</em> variables by copying
+the <code>.env.template</code> file.
 Copy this and rename it to <code>.env</code> to get started quicker.
-The server will automatically create the <code>.env</code> file for you, and the server logs will show what is going wrong if something is missing.</p>
-<p>Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the <strong>required</strong> variables are correctly set.</p>
+The server will automatically create the <code>.env</code> file for you, and the server logs will show what is going wrong if
+something is missing.</p>
+<p>Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the <strong>required</strong> variables are correctly
+set.</p>
 <h3 id="docker-compose">Docker-compose</h3>
 <p>With docker-compose you have a great tool to pass environment variables use the <code>environment</code> section.
 Here is how the environment section in docker would look.</p>
@@ -70,9 +91,12 @@ Here is how the environment section in docker would look.</p>
   fdm-monster:
     # ... other sections here
     environment:
+      #       To use SQLite / TypeORM instead:
+      #      - ENABLE_EXPERIMENTAL_TYPEORM=true
       - MONGO: mongodb://127.0.0.1:27017/fdm-monster
       - SERVER_PORT: 4000
 </code></pre>
-<p>Please continue by reading the <a href="/docs/installing/docker_compose">Docker Compose section</a> for more information on how to setup FDM Monster and MongoDB with docker-compose.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/fdm-monster/fdm-monster-docs/docs/2_configuration/preconfiguration.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2024-01-30T19:20:43.000Z">Jan 30, 2024</time></b> by <b>David Zwart</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/configuration/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Configuration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/configuration/settings/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Settings</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#required-and-optional-variables" class="table-of-contents__link toc-highlight">Required and optional variables</a></li><li><a href="#the-env-file" class="table-of-contents__link toc-highlight">The <code>.env</code> file</a></li><li><a href="#applying-it-to-your-setup" class="table-of-contents__link toc-highlight">Applying it to your setup</a><ul><li><a href="#nodejs-with-node-linux-node-windows-or-pm2" class="table-of-contents__link toc-highlight">NodeJS with node-linux, node-windows or pm2</a></li><li><a href="#docker-compose" class="table-of-contents__link toc-highlight">Docker-compose</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Getting Started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/mwA8uP8CMc" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/fdm-monster/fdm-monster" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://fdm-monster.net/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Site<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://demo.fdm-monster.net/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Demo<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 David Zwart. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.</div></div></div></footer></div>
+<p>Please continue by reading the <a href="/docs/installing/docker_compose">Docker Compose section</a> for more information on how
+to setup FDM Monster and MongoDB with docker-compose.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/fdm-monster/fdm-monster-docs/docs/2_configuration/preconfiguration.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2024-03-10T14:39:00.000Z">Mar 10, 2024</time></b> by <b>David Zwart</b></span></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/configuration/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Configuration</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/configuration/settings/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Settings</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#required-and-optional-variables" class="table-of-contents__link toc-highlight">Required and optional variables</a></li><li><a href="#the-env-file" class="table-of-contents__link toc-highlight">The <code>.env</code> file</a></li><li><a href="#applying-it-to-your-setup" class="table-of-contents__link toc-highlight">Applying it to your setup</a><ul><li><a href="#nodejs-with-node-linux-node-windows-or-pm2" class="table-of-contents__link toc-highlight">NodeJS with node-linux, node-windows or pm2</a></li><li><a href="#docker-compose" class="table-of-contents__link toc-highlight">Docker-compose</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/">Getting Started</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/mwA8uP8CMc" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/fdm-monster/fdm-monster" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://fdm-monster.net/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Site<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://demo.fdm-monster.net/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Demo<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 David Zwart. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.</div></div></div></footer></div>
 </body>
 </html>
