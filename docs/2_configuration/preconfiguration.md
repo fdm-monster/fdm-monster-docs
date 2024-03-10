@@ -22,19 +22,32 @@ FDM Monster Server can be configured with environment variables. There are diffe
 
 ## Required and optional variables
 
+:::warning
+Since FDM Monster Server v1.6.0+, a new database type was added named SQLite managed with the TypeORM library. 
+The file-based database SQLite allows for a standalone FDM Monster setup without MongoDB.
+Hence, no running MongoDB database would be required, if this new mode is enabled.
+Enable this mode by setting `ENABLE_EXPERIMENTAL_TYPEORM=true`. You do not have to specify `MONGO` anymore in that case! 
+The `MONGO` variable will be ignored by FDM Monster.
+
+Also note that no data is migrated from MongoDB to SQLite. You can use YAML export & import for migrating most data.
+
+This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide feedback
+in case of errors or unexpected behaviour!
+:::
+
 The following variables are read and used by FDM Monster at startup. Always restart your server after a change.
 
-- `MONGO` (Required) **the connection to mongodb**. For example:
+- `MONGO` (Optional, required before <1.6) **the connection to mongodb**. For example:
 
 > `MONGO=mongodb://127.0.0.1:27017/fdm-monster`
+
+- `ENABLE_EXPERIMENTAL_TYPEORM` (Optional) **a flag indicating SQLite should be used instead of MongoDB. Setting it to exactly `true` will enable this new mode.**
+
+- `ENABLE_EXPERIMENTAL_TYPEORM=true`
 
 - `SERVER_PORT` (Optional, default=4000) **the port of the local FDM Monster website**. For example:
 
 > `SERVER_PORT=4000`
-
-- `SAFEMODE_ENABLED` **Safely start FDM Monster: without any task being run to avoid crashes.**
-
-> `SAFEMODE_ENABLED=true`
 
 ## The `.env` file
 
@@ -42,6 +55,13 @@ A very simple text file with a variable per line. The following `.env` is often 
 
 ```dotenv
 MONGO=mongodb://127.0.0.1:27017/fdm-monster
+SERVER_PORT=4000
+```
+
+Alternatively, the new SQLite (TypeORM) mode can be enabled as such:
+
+```dotenv
+ENABLE_EXPERIMENTAL_TYPEORM=true
 SERVER_PORT=4000
 ```
 
@@ -67,6 +87,8 @@ services:
   fdm-monster:
     # ... other sections here
     environment:
+#       To use SQLite / TypeORM instead:
+#      - ENABLE_EXPERIMENTAL_TYPEORM=true
       - MONGO: mongodb://127.0.0.1:27017/fdm-monster
       - SERVER_PORT: 4000
 ```
