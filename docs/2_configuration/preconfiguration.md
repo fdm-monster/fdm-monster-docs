@@ -40,7 +40,7 @@ in case of errors or unexpected behaviour!
 
 The following variables are read and used by FDM Monster at startup. Always restart your server after a change.
 
-- `MONGO` (Optional, required before <1.6) **the connection to mongodb**. For example:
+- `MONGO` (Optional, required before 1.6.x) **the connection to mongodb**. For example:
 
 > `MONGO=mongodb://127.0.0.1:27017/fdm-monster`
 
