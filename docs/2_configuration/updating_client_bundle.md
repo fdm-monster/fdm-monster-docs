@@ -15,13 +15,10 @@ here: [Client Release Notes](https://github.com/fdm-monster/fdm-monster-client/r
 
 To update the FDM Monster client bundle manually, follow these steps:
 
-1. Navigate to the Settings page.
-
-2. Click on the left navigation panel to switch to the **Software Upgrade** page.
-
-![Screenshot of the Help page with the UPDATE CLIENT button highlighted](../images/2-software-upgrade-page.png)
-
-3. This will open the Software Upgrade page, where you can select the client version and click the **UPGRADE/DOWNGRADE
+1) Navigate to the Settings page.
+2) Click on the left navigation panel to switch to the **Software Upgrade** page.
+   ![Screenshot of the Help page with the UPDATE CLIENT button highlighted](../images/2-software-upgrade-page.png)
+3) This will open the Software Upgrade page, where you can select the client version and click the **UPGRADE/DOWNGRADE
    CLIENT**
    button to trigger the update.
 
@@ -47,11 +44,9 @@ Upon confirmation, the page will reload within 5 to 10 seconds and present you w
 If the bundle fails to update, it could be due to one of the following reasons:
 
 - **Server Not Running**: The server must be running for a webapp upgrade to succeed.
--
 - **GitHub API Rate Limit**: The server's ability to download the bundle may be hindered by GitHub API rate limits. To
   resolve this:
-  -
-  Visit [Github Rate Limit documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28)
+  - Visit [Github Rate Limit documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28)
   to better understand the rate limit. In order to increase the rate limit threshold, you will have to add a Github
   Personal Access Token (PAT) and set `GITHUB_PAT` environment variable to this value.
   - Alternatively, wait for a certain amount of time before attempting to upgrade the bundle again.
