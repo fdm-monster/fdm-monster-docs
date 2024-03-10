@@ -17,21 +17,24 @@ FDM Monster Server can be configured with environment variables. There are diffe
 - docker - specify each variable separately, this can become tedious:
   - docker: using the `-e VARIABLE=value` command repeatedly
 - docker - all at once
-  - docker: using the `--env-file ./.env` command [(Read docker options)](https://docs.docker.com/engine/reference/commandline/run/#options)
-  - docker-compose: using the `environment` section [(Read docker-compose environment)](https://docs.docker.com/compose/environment-variables/)
+  - docker: using the `--env-file ./.env`
+    command [(Read docker options)](https://docs.docker.com/engine/reference/commandline/run/#options)
+  - docker-compose: using the `environment`
+    section [(Read docker-compose environment)](https://docs.docker.com/compose/environment-variables/)
 
 ## Required and optional variables
 
 :::warning
-Since FDM Monster Server v1.6.0+, a new database type was added named SQLite managed with the TypeORM library. 
+Since FDM Monster Server v1.6.0+, a new database type was added named SQLite managed with the TypeORM library.
 The file-based database SQLite allows for a standalone FDM Monster setup without MongoDB.
 Hence, no running MongoDB database would be required, if this new mode is enabled.
-Enable this mode by setting `ENABLE_EXPERIMENTAL_TYPEORM=true`. You do not have to specify `MONGO` anymore in that case! 
+Enable this mode by setting `ENABLE_EXPERIMENTAL_TYPEORM=true`. You do not have to specify `MONGO` anymore in that case!
 The `MONGO` variable will be ignored by FDM Monster.
 
 Also note that no data is migrated from MongoDB to SQLite. You can use YAML export & import for migrating most data.
 
-This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide feedback
+This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide
+feedback
 in case of errors or unexpected behaviour!
 :::
 
@@ -41,7 +44,8 @@ The following variables are read and used by FDM Monster at startup. Always rest
 
 > `MONGO=mongodb://127.0.0.1:27017/fdm-monster`
 
-- `ENABLE_EXPERIMENTAL_TYPEORM` (Optional) **a flag indicating SQLite should be used instead of MongoDB. Setting it to exactly `true` will enable this new mode.**
+- `ENABLE_EXPERIMENTAL_TYPEORM` (Optional) **a flag indicating SQLite should be used instead of MongoDB. Setting it to
+  exactly `true` will enable this new mode.**
 
 - `ENABLE_EXPERIMENTAL_TYPEORM=true`
 
@@ -51,7 +55,8 @@ The following variables are read and used by FDM Monster at startup. Always rest
 
 ## The `.env` file
 
-A very simple text file with a variable per line. The following `.env` is often already enough to make sure FDM Monster works as you like:
+A very simple text file with a variable per line. The following `.env` is often already enough to make sure FDM Monster
+works as you like:
 
 ```dotenv
 MONGO=mongodb://127.0.0.1:27017/fdm-monster
@@ -67,15 +72,19 @@ SERVER_PORT=4000
 
 ## Applying it to your setup
 
-So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for your specific scenario.
+So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for
+your specific scenario.
 
 ### NodeJS with node-linux, node-windows or pm2
 
-Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying the `.env.template` file.
+Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying
+the `.env.template` file.
 Copy this and rename it to `.env` to get started quicker.
-The server will automatically create the `.env` file for you, and the server logs will show what is going wrong if something is missing.
+The server will automatically create the `.env` file for you, and the server logs will show what is going wrong if
+something is missing.
 
-Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the **required** variables are correctly set.
+Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the **required** variables are correctly
+set.
 
 ### Docker-compose
 
@@ -87,10 +96,11 @@ services:
   fdm-monster:
     # ... other sections here
     environment:
-#       To use SQLite / TypeORM instead:
-#      - ENABLE_EXPERIMENTAL_TYPEORM=true
+      #       To use SQLite / TypeORM instead:
+      #      - ENABLE_EXPERIMENTAL_TYPEORM=true
       - MONGO: mongodb://127.0.0.1:27017/fdm-monster
       - SERVER_PORT: 4000
 ```
 
-Please continue by reading the [Docker Compose section](../0_installing/docker_compose.md) for more information on how to setup FDM Monster and MongoDB with docker-compose.
+Please continue by reading the [Docker Compose section](../0_installing/docker_compose.md) for more information on how
+to setup FDM Monster and MongoDB with docker-compose.
