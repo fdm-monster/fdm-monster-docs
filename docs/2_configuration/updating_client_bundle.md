@@ -16,9 +16,10 @@ here: [Client Release Notes](https://github.com/fdm-monster/fdm-monster-client/r
 To update the FDM Monster client bundle manually, follow these steps:
 
 1) Navigate to the Settings page.
-2) Click on the left navigation panel to switch to the **Software Upgrade** page.
+1) Click on the left navigation panel to switch to the **Software Upgrade** page.
    ![Screenshot of the Help page with the UPDATE CLIENT button highlighted](../images/2-software-upgrade-page.png)
-3) This will open the Software Upgrade page, where you can select the client version and click the **UPGRADE/DOWNGRADE
+
+1) This will open the Software Upgrade page, where you can select the client version and click the **UPGRADE/DOWNGRADE
    CLIENT**
    button to trigger the update.
 
