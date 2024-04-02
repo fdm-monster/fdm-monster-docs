@@ -3076,13 +3076,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.73":
-  version: 18.2.73
-  resolution: "@types/react@npm:18.2.73"
+"@types/react@npm:18.2.74":
+  version: 18.2.74
+  resolution: "@types/react@npm:18.2.74"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/b6645ab3c20efa41cfccf58ce0be45419517a0ba4594e323dd400342fb1c1f9589d169cf9bfa85b5b0605e9097fe9de7734b6d0c533f5b9bc32aaadb624537a4
+  checksum: 10c0/347e38b4c5dc20d50ff71bf04b7caaef490e5ff695e74a0088a13fbb2a0c5d125a5ecfd142adfa30f0176da0e2734942c91ba61d95ce269c43b3265bd7379361
   languageName: node
   linkType: hard
 
@@ -5514,7 +5514,7 @@ __metadata:
     "@docusaurus/tsconfig": "npm:3.2.0"
     "@docusaurus/types": "npm:3.2.0"
     "@mdx-js/react": "npm:3.0.1"
-    "@types/react": "npm:18.2.73"
+    "@types/react": "npm:18.2.74"
     clsx: "npm:2.1.0"
     prism-react-renderer: "npm:2.3.1"
     react: "npm:18.2.0"
