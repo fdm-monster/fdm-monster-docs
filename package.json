@@ -28,7 +28,7 @@
     "@docusaurus/tsconfig": "3.2.0",
     "@docusaurus/types": "3.2.0",
     "@types/react": "18.2.74",
-    "typescript": "5.4.3"
+    "typescript": "5.4.4"
   },
   "browserslist": {
     "production": [
