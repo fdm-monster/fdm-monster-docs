@@ -25,7 +25,7 @@ The rest of the grid is showing empty tiles.](../images/server-running.png)
 
 Please ensure the following dependencies are installed and working:
 
-- NodeJS 18 or higher
+- Node.js 18 or higher
 - MongoDB 4.4 or higher
 - git
 - yarn (npm package)

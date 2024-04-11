@@ -11,7 +11,7 @@ permalink: :baseUrl/:docsUrl/:langPart/:versionPart/:id
 
 For Developing we advise using a Windows or Linux machine with at least 8GB of memory and a modern CPU.
 
-- The NodeJS server and Vue client can be run on any platform that supports NodeJS.
+- The Node.js server and Vue client can be run on any platform that supports Node.js.
 - The server can be run on a Raspberry Pi, Windows, Linux, or Mac.
 - The client can be run on any platform that supports a modern web browser.
 

@@ -12,8 +12,8 @@ FDM Monster Server can be configured with environment variables. There are diffe
 - specify a `.env` file. This works for these setups:
   - Windows service setup with `node-windows`
   - Linux service setup with `node-linux`
-  - NodeJS with `pm2`
-  - NodeJS with `nodemon`
+  - Node.js with `pm2`
+  - Node.js with `nodemon`
 - docker - specify each variable separately, this can become tedious:
   - docker: using the `-e VARIABLE=value` command repeatedly
 - docker - all at once
@@ -75,7 +75,7 @@ SERVER_PORT=4000
 So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for
 your specific scenario.
 
-### NodeJS with node-linux, node-windows or pm2
+### Node.js with node-linux, node-windows or pm2
 
 Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying
 the `.env.template` file.
