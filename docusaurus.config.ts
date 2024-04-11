@@ -41,7 +41,11 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/fdm-monster/fdm-monster-docs",
           showLastUpdateAuthor: true,
-          showLastUpdateTime: true
+          showLastUpdateTime: true,
+          admonitions: {
+            keywords: ['note', 'tip', 'info', 'warning', 'danger'],
+            extendDefaults: true,
+          },
         },
         // blog: {
         //   showReadingTime: true,

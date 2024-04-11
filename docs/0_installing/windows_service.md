@@ -7,19 +7,19 @@ sidebar_position: 3
 id: windows_service
 permalink: :baseUrl/:docsUrl/:langPart/:versionPart/installing/:id
 ---
-
-
 :::danger
+
 The Windows service installation is deprecated!
 
 Documentation for the Windows service is provided as-is and will not be supported.
+
 :::
 
 If you're not an experienced user, you might find some of the steps below challenging. However, if you follow them
 carefully, you'll be able to install FDM Monster as a Windows service on your machine.
 
-The installation scripts are available
-in [installations/fdm-monster-node-windows](https://github.com/fdm-monster/fdm-monster/tree/main/installations/fdm-monster-node-windows).
+The installation scripts have been removed since 1.6.0 and are not supported anymore. They are available at the 1.5.4 branch, to be used at your own risk
+in [installations/fdm-monster-node-windows](https://github.com/fdm-monster/fdm-monster/tree/1.5.4/installations/fdm-monster-node-windows).
 
 ![A running instance of FDM Monster 3D Printing Server with the Printing Grid opened.
 Only one disabled printer is shown on the grid and it's disabled.
@@ -30,7 +30,7 @@ The rest of the grid is showing empty tiles.](../images/server-running.png)
 
 The following steps will install:
 
-- NodeJS 18 or higher
+- Node.js 18 or higher
 - MongoDB 4.4 or higher
 - git
 - yarn (npm package)
@@ -41,16 +41,16 @@ The following steps will install:
 
 - Internet access is required
 - Windows only (if you use Linux, please use Docker)
-- Pay attention to versions (e.g., NodeJS 18)
+- Pay attention to versions (e.g., Node.js 18)
 - Understand PowerShell execution policy: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted` will allow anything to
   run.
 
 ---
 
-### Step 1: Installing NodeJS 18+
+### Step 1: Installing Node.js 18+
 
-Install NodeJS LTS (long-term support) from [https://nodejs.org/en/download](https://nodejs.org/en/download). At the
-time of writing, this is Node 18. The FDM Monster server requires NodeJS 18 LTS or higher.
+Install Node.js LTS (long-term support) from [https://nodejs.org/en/download](https://nodejs.org/en/download). At the
+time of writing, this is Node 18. The FDM Monster server requires Node.js 18 LTS or higher.
 
 To check whether Node is installed properly, execute this in Command Prompt or PowerShell:
 
