@@ -42,10 +42,6 @@ const config: Config = {
           editUrl: "https://github.com/fdm-monster/fdm-monster-docs",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          admonitions: {
-            keywords: ['note', 'tip', 'info', 'warning', 'danger'],
-            extendDefaults: true,
-          },
         },
         // blog: {
         //   showReadingTime: true,
