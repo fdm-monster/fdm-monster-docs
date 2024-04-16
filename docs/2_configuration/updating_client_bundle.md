@@ -23,8 +23,6 @@ To update the FDM Monster client bundle manually, follow these steps:
    CLIENT**
    button to trigger the update.
 
-![Screenshot with a list of available client versions](../images/2-software-upgrade-list.png)
-
 Use the information attached to each version for understanding whether that version is an upgrade, the current version
 or a downgrade.
 Downgrades can be installed since Client version 1.5.0, but the "Allow downgrade" checkbox on the bottom must be checked
