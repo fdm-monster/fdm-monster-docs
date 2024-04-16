@@ -8,7 +8,7 @@ This section specifies the settings that can be changed once the FDM Monster ser
 
 Please visit this page on FDM Monster:
 
-![Screenshot of FDM Monster with all settings sections](settings.png)
+![Screenshot of FDM Monster with all settings sections](../../images/settings.png)
 
 ## Grid Settings
 

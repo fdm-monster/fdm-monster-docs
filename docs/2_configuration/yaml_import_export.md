@@ -57,7 +57,7 @@ Here are some screenshots of the user interface for the YAML import/export funct
 
 ![UI screenshot 2](../images/import-ui.png)
 
-![UI screenshot 3](../images/button-function.png)
+![UI screenshot 3](../images/software-create-printer-button.png)
 
 The first screenshot shows the main interface for the import/export function. The second screenshot shows the import dialog, where users can select a YAML file to import. The third screenshot shows the import button, which users can click to begin the import process.
 
