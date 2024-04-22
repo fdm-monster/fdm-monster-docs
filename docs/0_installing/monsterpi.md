@@ -47,7 +47,38 @@ Upgrading MonsterPi requires you to have SSH knowledge. If you do not feel comfo
 not continue and ask an expert to assist you!
 :::
 
-### MonsterPi Version 0.2/0.3 to 0.4
+### MonsterPi Version 0.4+
+
+Run the following commands as the `pi` user and execute an update with root elevation.
+Replace `VERSION_HERE` with the version of FDM Monster you like. 
+
+```bash
+cd ~/scripts
+
+# Deploy the FDM Monster server update
+sudo bash ./update-fdm-monster.sh --tag "VERSION_HERE" --non-interactive
+```
+
+For example, if your FDM Monster is 1.6.2 and let's imagine 1.7.0 was available.
+You would do the upgrade like this:
+
+```bash
+cd ~/scripts
+sudo bash ./update-fdm-monster.sh --tag "1.7.0" --non-interactive
+```
+
+If you would like to upgrade to the latest, you can run it like this, but beware that this mode is still
+experimental. It might not install the true latest or highest version sometimes, this happens mostly when a release candidate was released before (like 1.6.0-rc3).
+
+```bash
+cd ~/scripts
+sudo bash ./update-fdm-monster.sh
+```
+
+Please make sure to find the latest version tag on GitHub here https://github.com/fdm-monster/fdm-monster/tags.
+That way you can use the `--tag` based command, which is known to work well.
+
+### MonsterPi Version 0.2/0.3 to 0.4+
 
 :::warning
 There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 1.6 and up.
