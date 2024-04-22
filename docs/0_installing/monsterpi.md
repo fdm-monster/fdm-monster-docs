@@ -47,6 +47,23 @@ Upgrading MonsterPi requires you to have SSH knowledge. If you do not feel comfo
 not continue and ask an expert to assist you!
 :::
 
+### MonsterPi Version 0.2/0.3 to 0.4
+
+:::warning
+There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 1.6 and up.
+:::
+
+It is advised to export a `.yaml` file to back up your printers, printer floor positions and floors.  
+Here are the steps to take:
+1) Go to the import/export dialog to get the `.yaml` file as a download.
+1) Check the file for missing or incorrect properties. Correct the mistakes with a text editor and save.
+1) Refer to [YAML Import and Export](../2_configuration/yaml_import_export.md) for more details.
+1) Ensure your .yaml is ready to be imported.
+1) Flash a new SD card with the installation steps [above](#installing-monsterpi)
+1) Ensure your MonsterPi is working. Proceed through the setup and create an account.
+1) Import the YAML file according to [YAML Import and Export](../2_configuration/yaml_import_export.md#user-interface) for the import.
+1) Your printers and floors will reappear.
+
 ### MonsterPi Version 0.2.0 -> 0.3.0+
 
 Run the following commands as the `pi` user and execute an update with root elevation.
