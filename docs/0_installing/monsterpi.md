@@ -75,7 +75,7 @@ cd ~/scripts
 sudo bash ./update-fdm-monster.sh
 ```
 
-Please make sure to find the latest version tag on GitHub here <https://github.com/fdm-monster/fdm-monster/tags>.
+Please make sure to find the latest version tag on [GitHub](https://github.com/fdm-monster/fdm-monster/tags).
 That way you can use the `--tag` based command, which is known to work well.
 
 ### MonsterPi Version 0.2/0.3 to 0.4+
