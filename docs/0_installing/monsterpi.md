@@ -50,7 +50,7 @@ not continue and ask an expert to assist you!
 ### MonsterPi Version 0.4+
 
 Run the following commands as the `pi` user and execute an update with root elevation.
-Replace `VERSION_HERE` with the version of FDM Monster you like. 
+Replace `VERSION_HERE` with the version of FDM Monster you like.
 
 ```bash
 cd ~/scripts
@@ -75,7 +75,7 @@ cd ~/scripts
 sudo bash ./update-fdm-monster.sh
 ```
 
-Please make sure to find the latest version tag on GitHub here https://github.com/fdm-monster/fdm-monster/tags.
+Please make sure to find the latest version tag on [GitHub](https://github.com/fdm-monster/fdm-monster/tags).
 That way you can use the `--tag` based command, which is known to work well.
 
 ### MonsterPi Version 0.2/0.3 to 0.4+
@@ -86,6 +86,7 @@ There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, us
 
 It is advised to export a `.yaml` file to back up your printers, printer floor positions and floors.  
 Here are the steps to take:
+
 1) Go to the import/export dialog to get the `.yaml` file as a download.
 1) Check the file for missing or incorrect properties. Correct the mistakes with a text editor and save.
 1) Refer to [YAML Import and Export](../2_configuration/yaml_import_export.md) for more details.
