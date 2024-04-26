@@ -45,8 +45,8 @@ If the bundle fails to update, it could be due to one of the following reasons:
 - **Server Not Running**: The server must be running for a webapp upgrade to succeed.
 - **GitHub API Rate Limit**: The server's ability to download the bundle may be hindered by GitHub API rate limits. To
   resolve this:
-  - Visit [Github Rate Limit documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28)
-  to better understand the rate limit. In order to increase the rate limit threshold, you will have to add a Github
+  - Visit [GitHub Rate Limit documentation](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28)
+  to better understand the rate limit. In order to increase the rate limit threshold, you will have to add a GitHub
   Personal Access Token (PAT) and set `GITHUB_PAT` environment variable to this value.
   - Alternatively, wait for a certain amount of time before attempting to upgrade the bundle again.
 

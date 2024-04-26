@@ -19,6 +19,8 @@ const config: Config = {
   projectName: "fdm-monster", // Usually your repo name.
   deploymentBranch: "gh-pages",
 
+  trailingSlash: false,
+
   onBrokenLinks: "throw",
   onBrokenAnchors: "warn",
   onBrokenMarkdownLinks: "warn",
