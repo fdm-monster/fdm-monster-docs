@@ -28,6 +28,15 @@
         "doc",
         "bug"
       ]
+    },
+    {
+      "login": "GijsGroote",
+      "name": "Gijs Groote",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23523271?v=4",
+      "profile": "https://github.com/GijsGroote",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
