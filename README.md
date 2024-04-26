@@ -7,7 +7,7 @@ The documentation for FDM Monster 3D Printing server based on Docusaurus
 These are the people involved in the project.  Find the meaning of the emoji keys [here](https://allcontributors.org/docs/en/emoji-key).
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -18,6 +18,7 @@ These are the people involved in the project.  Find the meaning of the emoji key
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/davidzwa"><img src="https://avatars.githubusercontent.com/u/6005355?v=4?s=100" width="100px;" alt="David Zwart"/><br /><sub><b>David Zwart</b></sub></a><br /><a href="https://github.com/fdm-monster/fdm-monster-docs/issues?q=author%3Adavidzwa" title="Bug reports">🐛</a> <a href="https://github.com/fdm-monster/fdm-monster-docs/commits?author=davidzwa" title="Code">💻</a> <a href="#maintenance-davidzwa" title="Maintenance">🚧</a> <a href="#userTesting-davidzwa" title="User Testing">📓</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://kevenaar.name"><img src="https://avatars.githubusercontent.com/u/834643?v=4?s=100" width="100px;" alt="Maurice Kevenaar"/><br /><sub><b>Maurice Kevenaar</b></sub></a><br /><a href="#maintenance-mkevenaar" title="Maintenance">🚧</a> <a href="#ideas-mkevenaar" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/fdm-monster/fdm-monster-docs/commits?author=mkevenaar" title="Documentation">📖</a> <a href="https://github.com/fdm-monster/fdm-monster-docs/issues?q=author%3Amkevenaar" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/GijsGroote"><img src="https://avatars.githubusercontent.com/u/23523271?v=4?s=100" width="100px;" alt="Gijs Groote"/><br /><sub><b>Gijs Groote</b></sub></a><br /><a href="https://github.com/fdm-monster/fdm-monster-docs/issues?q=author%3AGijsGroote" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
