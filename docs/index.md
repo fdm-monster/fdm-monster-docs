@@ -13,6 +13,6 @@ FDM Monster is capable of connecting to over 100 OctoPrint instances allowing yo
 
 ![Screenshot of the homepage of FDM Monster](./images/server-running.png)
 
-The quickest way to get started is by using either the [MonsterPi](installing/monsterpi) image or by using [Docker Compose](installing/docker_compose).
+The quickest way to get started is by using either the [MonsterPi](./0_installing/monsterpi.md) image or by using [Docker Compose](./0_installing/docker_compose.md).
 
 Please keep in mind that the Docker Compose route will be a bit more advanced and knowledge of Docker and Docker Compose is required.
