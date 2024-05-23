@@ -5027,9 +5027,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.777
-  resolution: "electron-to-chromium@npm:1.4.777"
-  checksum: 10c0/759ba698f579dc322cf911c0d4c581afc4689ef94739b96382f9248026acaf63a5605d99967c5540caf626ccbf44bfbbeab0fa72c932fd40db5efadd9d24dc6f
+  version: 1.4.778
+  resolution: "electron-to-chromium@npm:1.4.778"
+  checksum: 10c0/8f5accbfb709dbb048d8438a9d0f7f945171e08431b3d05dae2a35d286a052d76cb728af0e3bb2be5dc2a275f9f8d157554d615655bab8be91b7bd672a266754
   languageName: node
   linkType: hard
 
@@ -9300,12 +9300,12 @@ __metadata:
   linkType: hard
 
 "postcss-selector-parser@npm:^6.0.11, postcss-selector-parser@npm:^6.0.16, postcss-selector-parser@npm:^6.0.2, postcss-selector-parser@npm:^6.0.4":
-  version: 6.0.16
-  resolution: "postcss-selector-parser@npm:6.0.16"
+  version: 6.1.0
+  resolution: "postcss-selector-parser@npm:6.1.0"
   dependencies:
     cssesc: "npm:^3.0.0"
     util-deprecate: "npm:^1.0.2"
-  checksum: 10c0/0e11657cb3181aaf9ff67c2e59427c4df496b4a1b6a17063fae579813f80af79d444bf38f82eeb8b15b4679653fd3089e66ef0283f9aab01874d885e6cf1d2cf
+  checksum: 10c0/91e9c6434772506bc7f318699dd9d19d32178b52dfa05bed24cb0babbdab54f8fb765d9920f01ac548be0a642aab56bce493811406ceb00ae182bbb53754c473
   languageName: node
   linkType: hard
 
