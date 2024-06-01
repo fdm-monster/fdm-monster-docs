@@ -2968,11 +2968,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.12.13
-  resolution: "@types/node@npm:20.12.13"
+  version: 20.13.0
+  resolution: "@types/node@npm:20.13.0"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/2ac92bb631dbddfb560eb3ba4eedbb1c688044a0130bc1ef032f5c0f20148ac7c9aa3c5aaa5a9787b6c4c6299847d754b96ee8c9def951481ba6628c46b683f5
+  checksum: 10c0/4fb1ab41d622bbf3434da138bd0f23052e5df3bc59852ea1228cdfe185fd9d66ea71171a68a3106452c883808be7eaa7bc4cd87f534708754d49849e817aa566
   languageName: node
   linkType: hard
 
@@ -4715,14 +4715,14 @@ __metadata:
   linkType: hard
 
 "debug@npm:4, debug@npm:^4.0.0, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.4":
-  version: 4.3.4
-  resolution: "debug@npm:4.3.4"
+  version: 4.3.5
+  resolution: "debug@npm:4.3.5"
   dependencies:
     ms: "npm:2.1.2"
   peerDependenciesMeta:
     supports-color:
       optional: true
-  checksum: 10c0/cedbec45298dd5c501d01b92b119cd3faebe5438c3917ff11ae1bff86a6c722930ac9c8659792824013168ba6db7c4668225d845c633fbdafbbf902a6389f736
+  checksum: 10c0/082c375a2bdc4f4469c99f325ff458adad62a3fc2c482d59923c260cb08152f34e2659f72b3767db8bb2f21ca81a60a42d1019605a412132d7b9f59363a005cc
   languageName: node
   linkType: hard
 
