@@ -1,0 +1,203 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "FDM Monster Docs Blog",
+    "home_page_url": "https://docs.fdm-monster.net/blog",
+    "description": "Keep up to date with FDM Monster and articles by following our feed!",
+    "items": [
+        {
+            "id": "https://docs.fdm-monster.net/blog/documentation-site-revamp",
+            "content_html": "<p>The documentation website has been updated!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-documentation-changes\">📖 Documentation changes<a href=\"https://docs.fdm-monster.net/blog/documentation-site-revamp#-documentation-changes\" class=\"hash-link\" aria-label=\"Direct link to 📖 Documentation changes\" title=\"Direct link to 📖 Documentation changes\">​</a></h2>\n<p>There are not much changes on the documentation itself, however some of the pages have been moved.</p>\n<p>The main changes are:</p>\n<ul>\n<li>Developer documentation has been split off of the end-user documentation<!-- -->\n<ul>\n<li>Having the <a href=\"https://docs.fdm-monster.net/docs/developer_setup/introduction\">developer documentation</a> part of the end-user documentation never made sense to me. So I have moved it to it's own section on the top of the page.</li>\n<li>The URLs stayed the same, so any bookmarks should still work</li>\n</ul>\n</li>\n<li>Community section added<!-- -->\n<ul>\n<li>The <a href=\"https://docs.fdm-monster.net/docs/community/ourteam\">Our Team</a> page has been moved to the Community section</li>\n<li>A new page with <a href=\"https://docs.fdm-monster.net/docs/community/links\">external links</a> has been added.</li>\n</ul>\n</li>\n<li>Blogs!<!-- -->\n<ul>\n<li>The devlogs from Discord have been moved over here!</li>\n</ul>\n</li>\n</ul>",
+            "url": "https://docs.fdm-monster.net/blog/documentation-site-revamp",
+            "title": "Documentation site revamp",
+            "summary": "Just a quick update",
+            "date_modified": "2024-11-03T00:00:00.000Z",
+            "author": {
+                "name": "Maurice Kevenaar",
+                "url": "https://kevenaar.name"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/klipper-update",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"klipper-support\">Klipper support<a href=\"https://docs.fdm-monster.net/blog/klipper-update#klipper-support\" class=\"hash-link\" aria-label=\"Direct link to Klipper support\" title=\"Direct link to Klipper support\">​</a></h2>\n<p>After the work on 1.6.2 I have started work on Klipper for FDM Monster 1.7.0 🥳</p>\n<p><img decoding=\"async\" loading=\"lazy\" alt=\"Update printer klipper\" src=\"https://docs.fdm-monster.net/assets/images/klipper-update-printer-a4708893dab84887185e96bd2e0983cd.png\" width=\"1200\" height=\"513\" class=\"img_ev3q\"></p>\n<div class=\"theme-admonition theme-admonition-info admonition_xJq3 alert alert--info\"><div class=\"admonitionHeading_Gvgb\"><span class=\"admonitionIcon_Rf37\"><svg viewBox=\"0 0 14 16\"><path fill-rule=\"evenodd\" d=\"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z\"></path></svg></span>UPDATE</div><div class=\"admonitionContent_BuS1\"><p>After development we noticed Moonraker, by default, does not require an API key. This has been updated in the code</p></div></div>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-poll\">❔ Poll<a href=\"https://docs.fdm-monster.net/blog/klipper-update#-poll\" class=\"hash-link\" aria-label=\"Direct link to ❔ Poll\" title=\"Direct link to ❔ Poll\">​</a></h2>\n<p>The poll for filament tracking was announced a couple of days ago. The idea is to estimate what you are using for this, so integration work for FDM Monster can be planned around this in the future.\nFind it <a href=\"https://github.com/fdm-monster/fdm-monster/discussions/3142\" target=\"_blank\" rel=\"noopener noreferrer\">here</a></p>",
+            "url": "https://docs.fdm-monster.net/blog/klipper-update",
+            "title": "Klipper update",
+            "summary": "Just a quick update",
+            "date_modified": "2024-04-24T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/planning-update",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-planning\">📆 Planning<a href=\"https://docs.fdm-monster.net/blog/planning-update#-planning\" class=\"hash-link\" aria-label=\"Direct link to 📆 Planning\" title=\"Direct link to 📆 Planning\">​</a></h2>\n<p>The past two weeks have been mostly about planning and refining the work for FDM Monster. It has become clearer to me and others that the project needs a cleaner roadmap.</p>\n<p>Together with @Dyrant we've been able to formalize the roadmap and shape the work into <a href=\"https://github.com/fdm-monster/fdm-monster/milestones\" target=\"_blank\" rel=\"noopener noreferrer\">Github Milestones</a>\nThe result is a development cycle which slightly looks different than what was before:</p>\n<ul>\n<li>a set of specific features are selected for a release (version 1.6.0)</li>\n<li>in a follow-up cycle, bugs are collected, prioritized and fixed (for example 1.6.1, 1.6.2 and so on)</li>\n<li>and then the next cycle: work towards a new release starts (for example 1.7.0 with Klipper support), but also work on documentation, site and overall code quality (administration)</li>\n</ul>\n<p><img decoding=\"async\" loading=\"lazy\" alt=\"Milestones\" src=\"https://docs.fdm-monster.net/assets/images/milestones-fde1bea768f6cff8a29677043c80bfed.png\" width=\"1540\" height=\"914\" class=\"img_ev3q\"></p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-smooth-ride-towards-162\">🥌 Smooth ride towards 1.6.2<a href=\"https://docs.fdm-monster.net/blog/planning-update#-smooth-ride-towards-162\" class=\"hash-link\" aria-label=\"Direct link to 🥌 Smooth ride towards 1.6.2\" title=\"Direct link to 🥌 Smooth ride towards 1.6.2\">​</a></h2>\n<p>The updates for FDM Monster 1.6.2 have been long-awaited bugfixes! It really felt great to fix things like OctoFarm printer import, YAML import issues, SQLite database problems, and a bunch more of UI changes.</p>\n<p><img decoding=\"async\" loading=\"lazy\" alt=\"Import\" src=\"https://docs.fdm-monster.net/assets/images/import-2b857b04e921060f0a889b25216d7d1a.png\" width=\"738\" height=\"1076\" class=\"img_ev3q\"></p>\n<p>It is mostly due to feedback by the likes of @Smart Home Sellout that gave the inspiration to add a GIF to clarify the OctoFarm printer import process. That was a huge improvement and a great idea.</p>\n<p><img decoding=\"async\" loading=\"lazy\" alt=\"Release 1.6.2\" src=\"https://docs.fdm-monster.net/assets/images/1.6.2-update-27a65c75805fa3fff6e4353ad99527d1.png\" width=\"1125\" height=\"195\" class=\"img_ev3q\"></p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"️-wait-klipper-support-in-170\">🖨️ Wait Klipper support in 1.7.0??<a href=\"https://docs.fdm-monster.net/blog/planning-update#%EF%B8%8F-wait-klipper-support-in-170\" class=\"hash-link\" aria-label=\"Direct link to 🖨️ Wait Klipper support in 1.7.0??\" title=\"Direct link to 🖨️ Wait Klipper support in 1.7.0??\">​</a></h2>\n<p>You read that right! Huge change, I'm super stoked to get to work on this in the next weeks after 1.6.2 has been shipped.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-lets-celebrate\">🥂 Let's celebrate<a href=\"https://docs.fdm-monster.net/blog/planning-update#-lets-celebrate\" class=\"hash-link\" aria-label=\"Direct link to 🥂 Let's celebrate\" title=\"Direct link to 🥂 Let's celebrate\">​</a></h2>\n<p>I just wanted to take a small moment to celebrate that FDM Monster is nearly 3 years old! Thanks for being with me along the way. You guys rock!</p>",
+            "url": "https://docs.fdm-monster.net/blog/planning-update",
+            "title": "Planning update",
+            "summary": "Just a quick update",
+            "date_modified": "2024-04-16T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/april-2024-updates",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-updates\">🚀 Updates<a href=\"https://docs.fdm-monster.net/blog/april-2024-updates#-updates\" class=\"hash-link\" aria-label=\"Direct link to 🚀 Updates\" title=\"Direct link to 🚀 Updates\">​</a></h2>\n<p>This week I have started the upgrade of the frontend UI of FDM Monster. I've allocated quite some time to upgrade from Vue 2 to Vue 3. Luckily, this is not the first time I'm doing this so it will be a feasible but impactful task.\nI do want to emphasize that this gives mental space for Mobile Design of FDM Monster, something I've been putting off quite a while now.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"️-releases\">⬆️ Release(s)<a href=\"https://docs.fdm-monster.net/blog/april-2024-updates#%EF%B8%8F-releases\" class=\"hash-link\" aria-label=\"Direct link to ⬆️ Release(s)\" title=\"Direct link to ⬆️ Release(s)\">​</a></h2>\n<p>fdm-monster-client version 1.5.8 - a tiny bugfix which fixes the Maintenance Dialog showing no content</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-news\">🌐 News<a href=\"https://docs.fdm-monster.net/blog/april-2024-updates#-news\" class=\"hash-link\" aria-label=\"Direct link to 🌐 News\" title=\"Direct link to 🌐 News\">​</a></h2>\n<p>This week for the Bun.js framework released 1.1 which is Windows compatible. They have attracted my attention for quite a while, and I will definitely explore Bun + NestJS as a replacement for NodeJS + Awilix.\nRead about them <a href=\"https://bun.sh/blog/bun-v1.1\" target=\"_blank\" rel=\"noopener noreferrer\">here</a></p>",
+            "url": "https://docs.fdm-monster.net/blog/april-2024-updates",
+            "title": "April 2024 Updates",
+            "summary": "Just a quick update",
+            "date_modified": "2024-04-07T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/bit-of-a-break",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-bit-of-a-break\">🤗 Bit of a break<a href=\"https://docs.fdm-monster.net/blog/bit-of-a-break#-bit-of-a-break\" class=\"hash-link\" aria-label=\"Direct link to 🤗 Bit of a break\" title=\"Direct link to 🤗 Bit of a break\">​</a></h2>\n<p>The last few weeks I've given myself a bit of a break.\nThis was necessary after a lot of work was done recently. It is important to take rest every now and then!\nThis was also a source of inspiration around this project. 💡</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"--updates\">🚀  Updates<a href=\"https://docs.fdm-monster.net/blog/bit-of-a-break#--updates\" class=\"hash-link\" aria-label=\"Direct link to 🚀  Updates\" title=\"Direct link to 🚀  Updates\">​</a></h2>\n<p>As you have seen FDM Monster reached <a href=\"https://unraid.net/community/apps?q=fdm+monster#r\" target=\"_blank\" rel=\"noopener noreferrer\">Unraid Community Apps</a>. This caused a bump of new users and a lot more views on Github and the main site.\nThis sends a clear message that FDM Monster is in demand, but it is not easy enough to install. Platforms like Unraid make this easier. Noted!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"️-development\">🖨️ Development<a href=\"https://docs.fdm-monster.net/blog/bit-of-a-break#%EF%B8%8F-development\" class=\"hash-link\" aria-label=\"Direct link to 🖨️ Development\" title=\"Direct link to 🖨️ Development\">​</a></h2>\n<p>I started work on Moonraker integration yesterday using a virtual klipper printer (thanks to the people at Mainsail for creating this). Fascinating how different Moonraker is compared to OctoPrint.\nIt is quite \"open\" in its API, compared to OctoPrint which locks down almost everything behind login, roles and permissions. Im eager to see the results.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-further-notes\">🤔 Further notes<a href=\"https://docs.fdm-monster.net/blog/bit-of-a-break#-further-notes\" class=\"hash-link\" aria-label=\"Direct link to 🤔 Further notes\" title=\"Direct link to 🤔 Further notes\">​</a></h2>\n<p>Im thinking about the path forward with MonsterPi. Maybe I will convert it to a setup which deploys FDM Monster with  docker and portainer.\nI hope we can spark a conversation about this! Please speak up if you have thoughts about this.</p>",
+            "url": "https://docs.fdm-monster.net/blog/bit-of-a-break",
+            "title": "Bit of a Break",
+            "summary": "Just a quick update",
+            "date_modified": "2024-03-22T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/connectivity-to-octoprint",
+            "content_html": "<p>This week I updated the connectivity to OctoPrint. I added more robust state updates, to make sure FDM Monster reports the right state in the UI.\nThere are more tweaks to be done, but this is already great!\nI tested it on OctoPrint 1.9.3 and I plan to test 1.8.x soon, to make sure you all will have a smooth ride.</p>\n<p>Released in: 1.6.0</p>\n<p>When: soon™️</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"documentation\">Documentation<a href=\"https://docs.fdm-monster.net/blog/connectivity-to-octoprint#documentation\" class=\"hash-link\" aria-label=\"Direct link to Documentation\" title=\"Direct link to Documentation\">​</a></h2>\n<p>@Dyrant and me gave the <a href=\"https://docs.fdm-monster.net/\" target=\"_blank\" rel=\"noopener noreferrer\">documentation</a> a thorough review. Lots of nice tweaks are coming (not yet visible).</p>",
+            "url": "https://docs.fdm-monster.net/blog/connectivity-to-octoprint",
+            "title": "Connectivity to OctoPrint",
+            "summary": "Just a quick update",
+            "date_modified": "2024-01-26T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/mongodb_to_sqlite",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"an-easier-setup-without-external-database\">An easier setup without external database<a href=\"https://docs.fdm-monster.net/blog/mongodb_to_sqlite#an-easier-setup-without-external-database\" class=\"hash-link\" aria-label=\"Direct link to An easier setup without external database\" title=\"Direct link to An easier setup without external database\">​</a></h2>\n<p>Time for an update from my end. In the previous months I've announced a shift from MongoDB to SQLite. The SQLite database code is nearing completion, and Im testing the server + web client together now. So far things seem to work beautifully!\nThe migration process is not an easy one, and I want the transition from MongoDB to SQLite to be as smooth as possible for all existing users! Please hold tight for those reasons.\nUsers starting afresh would not have this complex route, so if anyone is interested I can already look at releasing a test docker container with SQLite - <strong>thumbs up below to show interest!</strong></p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"next-year\">Next year<a href=\"https://docs.fdm-monster.net/blog/mongodb_to_sqlite#next-year\" class=\"hash-link\" aria-label=\"Direct link to Next year\" title=\"Direct link to Next year\">​</a></h2>\n<p>Pushing the project to the next quality level</p>\n<p>My focus will be on:</p>\n<ul>\n<li>fixing file list inconsistency on the backend (f.e. for batch uploads)</li>\n<li>making the OctoPrint socket connection more reliable, and making the web client refresh button more usable when the connection is disrupted</li>\n<li>improving the camera stream and statistics page</li>\n<li>docs</li>\n<li>small feature requests (like a 'group' feature, or more feature-rich import from OctoFarm)</li>\n<li>UI responsiveness</li>\n</ul>",
+            "url": "https://docs.fdm-monster.net/blog/mongodb_to_sqlite",
+            "title": "MongoDB to SQLite",
+            "summary": "Just a quick update",
+            "date_modified": "2023-12-25T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog6",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"current-progress-\">Current progress 💪🏼<a href=\"https://docs.fdm-monster.net/blog/blog6#current-progress-\" class=\"hash-link\" aria-label=\"Direct link to Current progress 💪🏼\" title=\"Direct link to Current progress 💪🏼\">​</a></h2>\n<p>The authentication mechanism is being finalized. There are some tweaks that need to be done in order to ensure it is user friendly. For example,  currently only one login is allowed to be active and refreshed at the same time. If the same user would login on another device, the first user login session would be logged out. This is not desirable.</p>\n<p>Furthermore, Ive started work on a first time setup page. Ill need testers for this soon.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"changes\">Changes<a href=\"https://docs.fdm-monster.net/blog/blog6#changes\" class=\"hash-link\" aria-label=\"Direct link to Changes\" title=\"Direct link to Changes\">​</a></h2>\n<ul>\n<li>login page</li>\n<li>switch to Typescript using SWC. Quite a bit of impact on installation and documentation.</li>\n<li>experimentation with MikroORM and SQLite as a relative database (required Typescript). It seems a success so far. FYI I intend to release this with an EXPERIMENTAL_SQLITE environment flag, so users with MongoDB will not see impact.</li>\n</ul>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"next-weeks-️\">Next weeks 🗓️<a href=\"https://docs.fdm-monster.net/blog/blog6#next-weeks-%EF%B8%8F\" class=\"hash-link\" aria-label=\"Direct link to Next weeks 🗓️\" title=\"Direct link to Next weeks 🗓️\">​</a></h2>\n<ul>\n<li>Adding a registration page (can be disabled)</li>\n<li>Adding first time setup page</li>\n<li>Updating docs and installation scripts</li>\n<li>Working towards server 1.5.0-rc1</li>\n<li>Lot of testing</li>\n<li>Planning features and bugfixes like MJPEG camera page/dialogs afterwards</li>\n</ul>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"update-2023-09-30\">Update 2023-09-30<a href=\"https://docs.fdm-monster.net/blog/blog6#update-2023-09-30\" class=\"hash-link\" aria-label=\"Direct link to Update 2023-09-30\" title=\"Direct link to Update 2023-09-30\">​</a></h2>\n<p>MikroORM is not the path I will be taking. Instead I've headed into using TypeORM which I have 2 years of experience with. Ive managed to tackle the issues I had with it and managed to make it a much better dev experience.</p>\n<p>MikroORM failed to generate proper database migrations (basically bailing out), because SQLite is a very simplistic database. I've spoken with its main author, and sadly I do not see a path forward with that ORM (Object Relational Mapper).\nTypeORM supports the SQLite limitations much better (it seems), so I will continue on that path.</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog6",
+            "title": "Blog 6",
+            "summary": "Just a quick update",
+            "date_modified": "2023-09-22T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog5",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"current-progress-\">Current progress 💪🏼<a href=\"https://docs.fdm-monster.net/blog/blog5#current-progress-\" class=\"hash-link\" aria-label=\"Direct link to Current progress 💪🏼\" title=\"Direct link to Current progress 💪🏼\">​</a></h2>\n<p>After a lot of tinkering, the login system on the server has reached it's first usable stage. Next up: ensuring all API endpoints are authentication/role protected. (optional) registration and websocket protected. On the UI side, I'm actively working on error handling and a login page 🛡️. Furthermore I've been working on a camera page 🎦 .</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"next-weeks--\">Next weeks  📆<a href=\"https://docs.fdm-monster.net/blog/blog5#next-weeks--\" class=\"hash-link\" aria-label=\"Direct link to Next weeks  📆\" title=\"Direct link to Next weeks  📆\">​</a></h2>\n<ul>\n<li>The login, role and user mechanisms will be finalized.</li>\n<li>The webcam page will be finalized  (no WebRTC yet, purely MJPEG/HTTP).</li>\n<li>🪲 I will work on a OctoPrint state connection state bug</li>\n<li>🪲 A batch reprint bug</li>\n<li>Preference: cancellation stop vs emergency stop setting (cancellation by default) for all printer tiles / sidenav</li>\n</ul>\n<p>Catch you later!</p>\n<p>David</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog5",
+            "title": "Blog 5",
+            "summary": "Just a quick update",
+            "date_modified": "2023-07-23T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog4",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"short-update-\">Short update 😄<a href=\"https://docs.fdm-monster.net/blog/blog4#short-update-\" class=\"hash-link\" aria-label=\"Direct link to Short update 😄\" title=\"Direct link to Short update 😄\">​</a></h2>\n<p>I've started the work on the server login system for FDM Monster 1.5.0-rc1. This login system needs to be implemented on the frontend, which I will tackle soon! Furthermore, together with @WindArrow 's great help, I was able  work on tracking down some performance issues and associated fixes concering the reconnection of OctoPrints and preventing startup timeouts/slowdown. Some tweaking is still needed, but the server is more stable now even in case of powered down OctoPrints!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"next-week-\">Next week 📆<a href=\"https://docs.fdm-monster.net/blog/blog4#next-week-\" class=\"hash-link\" aria-label=\"Direct link to Next week 📆\" title=\"Direct link to Next week 📆\">​</a></h2>\n<p>As mentioned above the login system is under development now 🔒. The client's login form and authentication guard will be built next. This will be accompanied with a user registration form ®️  and first-time setup 🗨️ . More importantly, I will add an admin setting to turn on or off login/authentication 🔓, user registration 🧑🏼‍🏭  and a role management system 🏭 . Speaking of the role system, I will also start to test this and implement a page stating \"You don't have the role to perform the action at this time\" 🔐 .\nI will most likely release the login mechanic first and later start adding the roles. Would love to hear your feedback on what roles you would use in your farm workflow and team (and why!) 🎙️</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"feedback-\">Feedback 💡<a href=\"https://docs.fdm-monster.net/blog/blog4#feedback-\" class=\"hash-link\" aria-label=\"Direct link to Feedback 💡\" title=\"Direct link to Feedback 💡\">​</a></h2>\n<p>@Tobikiss and me are planning to send out a feedback form soon. Stay tuned or feel free to give suggestions in ⁠general or ⁠feature-requests if you feel like sharing your thoughts before the form is available!</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog4",
+            "title": "Blog 4",
+            "summary": "Just a quick update",
+            "date_modified": "2023-07-05T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog3",
+            "content_html": "<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"short-update-\">Short update 😄<a href=\"https://docs.fdm-monster.net/blog/blog3#short-update-\" class=\"hash-link\" aria-label=\"Direct link to Short update 😄\" title=\"Direct link to Short update 😄\">​</a></h2>\n<p>This week I was working hard on 1.4.0 which involved mostly ensuring that MonsterPi images could actually update to that version, and that the client 1.2.0-rcx RC webapps could be downloaded just like the non-release candidates.\nIt took a bit longer to build 1.4.0, but I really believe the work has paid off. Eager to fine-tune the webapp performance this week and get it out there soon!\nFurthermore, I've started work on GitReleaseManager which is a tool that will create release notes automatically (and it does a bunch more) starting with MonsterPi (for now).</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"future-\">Future 🔍<a href=\"https://docs.fdm-monster.net/blog/blog3#future-\" class=\"hash-link\" aria-label=\"Direct link to Future 🔍\" title=\"Direct link to Future 🔍\">​</a></h2>\n<p>The work after will involve mostly improving the tile system with settings for changing the action button for fine grain print control. Secondly, I'm working on a simple login system. Finally, I'm looking at converting the client webapp to Vue 3, which is definitely a lot of work - luckily I've done it before with great results. So, concluding, it's going nicely with FDM Monster right now.</p>\n<p>Have fun printing, whether it's for the heck of it, for nice things or for your business! :monster:\nOh small side-note: <a href=\"https://discord.com/channels/864835453773807686/1048129598099034112\" target=\"_blank\" rel=\"noopener noreferrer\">⁠show-and-tell</a> is perfect for showing your prints, if you feel like it!</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog3",
+            "title": "Blog 3",
+            "summary": "Just a quick update",
+            "date_modified": "2023-06-10T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog2",
+            "content_html": "<p>Hey there, welcome to the second installment of our blog series! If this is your first time diving into the FDMM server, we're excited to have you on board! 😄</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-what-happened-this-week-octoprint-related\">📆 What Happened This Week (OctoPrint related)<a href=\"https://docs.fdm-monster.net/blog/blog2#-what-happened-this-week-octoprint-related\" class=\"hash-link\" aria-label=\"Direct link to 📆 What Happened This Week (OctoPrint related)\" title=\"Direct link to 📆 What Happened This Week (OctoPrint related)\">​</a></h2>\n<p>This week, OctoPrint released a minor update, version 1.9.0. A big shoutout to all the contributors who made this release possible! You can check out the details of the <a href=\"https://github.com/OctoPrint/OctoPrint/releases/tag/1.9.0\" target=\"_blank\" rel=\"noopener noreferrer\">release 1.9.0</a>.</p>\n<p>One of the notable improvements in this release is the performance boost in the file list API. We've already implemented measures to address this issue in FDMM, but this update will make our server even quicker regardless! 😊 Additionally, OctoPrint now supports multi-file upload, which could come in handy for us in the future. It's definitely something we'll keep in mind!</p>\n<p>Apart from the performance enhancements, the OctoPrint team also fixed several annoying bugs in the announcements and wizard sections during setup. They even introduced a new webcam stack, which might interest you if you're in need of webcam functionality. Personally, I don't utilize it, but it's worth checking out!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-should-you-upgrade\">⏫ Should You Upgrade?<a href=\"https://docs.fdm-monster.net/blog/blog2#-should-you-upgrade\" class=\"hash-link\" aria-label=\"Direct link to ⏫ Should You Upgrade?\" title=\"Direct link to ⏫ Should You Upgrade?\">​</a></h2>\n<p>If you heavily rely on OctoPrint, I would recommend holding off on upgrading to version 1.9.0 just yet. As with any new release, there may be potential changes and issues that need time to settle and be addressed. So, it's generally a good idea to exercise caution and wait for the subsequent release, 1.9.1, before making the jump.</p>\n<h3 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"️-will-fdmm-require-octoprint-190\">🛡️ Will FDMM Require OctoPrint 1.9.0?<a href=\"https://docs.fdm-monster.net/blog/blog2#%EF%B8%8F-will-fdmm-require-octoprint-190\" class=\"hash-link\" aria-label=\"Direct link to 🛡️ Will FDMM Require OctoPrint 1.9.0?\" title=\"Direct link to 🛡️ Will FDMM Require OctoPrint 1.9.0?\">​</a></h3>\n<p>At the moment, there is no pressing need for FDMM to require OctoPrint 1.9.0. However, we're constantly monitoring the situation and will keep you informed if any changes occur. Rest assured, we'll always strive to ensure compatibility and provide the best experience for our users!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-fancy-ideas-for-fdmm\">💡 Fancy Ideas for FDMM<a href=\"https://docs.fdm-monster.net/blog/blog2#-fancy-ideas-for-fdmm\" class=\"hash-link\" aria-label=\"Direct link to 💡 Fancy Ideas for FDMM\" title=\"Direct link to 💡 Fancy Ideas for FDMM\">​</a></h2>\n<p>This week has been full of exciting experimentation for FDMM (FDM Monster)! I had the opportunity to try out some fantastic features that I can't wait to share with you:</p>\n<p>🔹 Adding Fixed Gcode Templates: One of the highlights is the addition of fixed Gcode templates. Soon, you'll be able to upload these templates to any printer after completing maintenance or access them conveniently from the right-side menu. You can prepare handy slices like benchies or build-plate cleaning Gcode there. Of course, you will need to do the slicing for your printer to avoid uploading the wrong gcode.</p>\n<p>🔹 Role-Based Authorization and Local Login: I'm thrilled to announce that role-based authorization and local login are on their way to becoming a part of FDMM (coming soon™). This addition will enhance security and provide better control over user access.</p>\n<p>🔹 Repair Log: Keeping track of repairs will become easier! I'm introducing a repair log feature that allows you to track your repairs over time. This feature will be integrated into FDMM, ensuring you have a comprehensive history of your maintenance activities.</p>\n<p>🔹 Nozzle and Sheet Information: I've also made enhancements to the printer grid tile. Soon, you'll be able to see important details like nozzle type, nozzle diameter, and sheet type associated with a printer right on the grid tile. This improvement will make it more convenient to manage your printers.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-️-whats-currently-being-worked-on\">📚 🛠️ What's Currently Being Worked On?<a href=\"https://docs.fdm-monster.net/blog/blog2#-%EF%B8%8F-whats-currently-being-worked-on\" class=\"hash-link\" aria-label=\"Direct link to 📚 🛠️ What's Currently Being Worked On?\" title=\"Direct link to 📚 🛠️ What's Currently Being Worked On?\">​</a></h2>\n<p>Exciting things are happening behind the scenes at FDMM! Here's a quick update on our ongoing projects:</p>\n<p>📚 Documentation on Gitbook: Our documentation is getting a makeover! Thanks to the efforts of our amazing team member @Dumnersm, we are in the process of porting the documentation to Gitbook. This move will make it easier for everyone to access and contribute to our growing knowledge base.</p>\n<p>🛠️ FDM Monster 1.4.0-rc1: I've been hard at work on the upcoming FDM Monster version 1.4.0-rc1. This release will introduce the new OctoPrint socket adapter, which has been a significant undertaking. The server code has undergone extensive cleanup and optimization, making it more streamlined and efficient. These improvements will enable faster feature development and pave the way for the future migration to FDMM v2.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-whats-next\">🚀 What's Next?<a href=\"https://docs.fdm-monster.net/blog/blog2#-whats-next\" class=\"hash-link\" aria-label=\"Direct link to 🚀 What's Next?\" title=\"Direct link to 🚀 What's Next?\">​</a></h2>\n<p>We have a release lined up for the near future:</p>\n<p>Server 1.3.10 Release: I'll be releasing server version 1.3.10 this week. This update will primarily focus on addressing minor bug fixes and making small tweaks to improve the overall user experience. If you encounter any issues, please report them in the ⁠general channel or through a GitHub issue.</p>\n<p>Stay tuned for more updates, and don't hesitate to reach out if you have any questions or feedback. We appreciate your continued support as we strive to make FDMM the best it can be! 🚀</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog2",
+            "title": "Blog 2",
+            "summary": "Just a quick update",
+            "date_modified": "2023-05-25T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        },
+        {
+            "id": "https://docs.fdm-monster.net/blog/blog1",
+            "content_html": "<p>Hey you there! So I thought it fun to write a bit about the coding aspect of FDM Monster in a blog style. I've been wanting to share the progress in a mini article like this, so you can follow the work a bit.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-what-happened-in-may-so-far\">📆 What happened in May so far?<a href=\"https://docs.fdm-monster.net/blog/blog1#-what-happened-in-may-so-far\" class=\"hash-link\" aria-label=\"Direct link to 📆 What happened in May so far?\" title=\"Direct link to 📆 What happened in May so far?\">​</a></h2>\n<p>Another project, called OctoFarm, decided to call it quits, which was not unexpected given the silence on github. Even though this ending was not unexpected, it was still announced abruptly. After the announcement a small shift in the OctoPrint 3D Farm Print software ecosystem happened. Suddenly, it struck me, @Dyrant  and @Tobikiss that a replacement could be found in FDM Monster. After quite some chats with those fine aforementioned people and interesting folks like @tideline3d and @WindArrow, it was clear that FDM Monster (FDMM for short) needs a lot of improvements in order to get mature for the public. Documentation, a login system, more grid customization, a raspberry pi image (MonsterPi) and minor bugfixes were some of the topics.</p>\n<p>After these talks, a wave of people arrived into this discord and the Github suddenly showed a steady increase in view counts and clones. This gave me a big boost to work harder as now there are users using the software in their daily life, depending on it and in need of new features and expansion. It's so nice to see the project take off!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"️-what-was-achieved-last-weeks\">🏃🏼‍♂️ What was achieved last weeks<a href=\"https://docs.fdm-monster.net/blog/blog1#%EF%B8%8F-what-was-achieved-last-weeks\" class=\"hash-link\" aria-label=\"Direct link to 🏃🏼‍♂️ What was achieved last weeks\" title=\"Direct link to 🏃🏼‍♂️ What was achieved last weeks\">​</a></h2>\n<p>With the release information in the ⁠releases and ⁠support-monsterpi in mind, you might have spotted new features started to pop up. Not only did the UI get some nice customization, the Raspberry Pi image MonsterPi was released to make running FDM Monster so much easier. Thirdly, a more professional Github workflow has slowly been adopted. For the tech savvy: the main branch is now stable and the develop branch is presented by default. The develop branch contains the latest work.\nFinally, @Dumnersm decided to put his time into contributing nice tweaks for the documentation. It's really nice to get help and to spar about new ideas!</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"-whats-next\">🔍 What's Next<a href=\"https://docs.fdm-monster.net/blog/blog1#-whats-next\" class=\"hash-link\" aria-label=\"Direct link to 🔍 What's Next\" title=\"Direct link to 🔍 What's Next\">​</a></h2>\n<p>It looks like @Dumnersm  is working on a new documentation system with git-book, which I'm eager to see! Personally I'm working on fixing the issue which causes the UI printer tiles to not update after a good while (hours) . This will lead to server 1.4.0-rc1 as it touched a lot of code <a href=\"https://github.com/fdm-monster/fdm-monster/issues/1632\" target=\"_blank\" rel=\"noopener noreferrer\">Issue #1632</a>. During this work I hope to make the server event-driven. This basically means that the functions in the server are triggered when needed. To give an example: \"A printer is deleted\" will result in \"the print job filename and progress state is cleared\". This is an inversion in the way FDMM was initially written. And I strongly believe it will lead to a stronger server structure soon!</p>\n<p>Do let me know if what you like to see me write about next in  ⁠general. Hope to update you soon with another blog.</p>\n<p>Yours truly,\nDavid</p>",
+            "url": "https://docs.fdm-monster.net/blog/blog1",
+            "title": "Blog 1",
+            "summary": "Just a quick update",
+            "date_modified": "2023-05-16T00:00:00.000Z",
+            "author": {
+                "name": "David Zwart",
+                "url": "https://github.com/davidzwa"
+            },
+            "tags": [
+                "devblog"
+            ]
+        }
+    ]
+}
