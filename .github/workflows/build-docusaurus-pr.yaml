@@ -10,7 +10,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: articulate/actions-markdownlint@v1
+      - uses: DavidAnson/markdownlint-cli2-action@v17
+        with:
+          globs: |
+            **/*.md
+            **/*.mdx
 
       - uses: actions/setup-node@v4
         with:
