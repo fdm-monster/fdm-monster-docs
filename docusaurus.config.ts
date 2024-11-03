@@ -97,7 +97,7 @@ const config: Config = {
         redirects: [
           {
             from: ['/docs/ourteam'],
-            to: '/community/ourteam',
+            to: '/docs/community/ourteam',
           },
         ],
       } satisfies ClientRedirectsOptions,

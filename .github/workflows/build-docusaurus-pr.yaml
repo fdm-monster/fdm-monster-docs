@@ -12,7 +12,9 @@ jobs:
 
       - uses: DavidAnson/markdownlint-cli2-action@v17
         with:
-          globs: '**/*.md,**/*.mdx'
+          globs: |
+            **/*.md
+            **/*.mdx
 
       - uses: actions/setup-node@v4
         with:
