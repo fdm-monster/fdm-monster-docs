@@ -1,0 +1,29 @@
+---
+title: MongoDB to SQLite
+authors:
+  - davidzwa
+tags: [devblog]
+slug: /mongodb_to_sqlite
+description: Just a quick update
+---
+
+## An easier setup without external database
+
+Time for an update from my end. In the previous months I've announced a shift from MongoDB to SQLite. The SQLite database code is nearing completion, and Im testing the server + web client together now. So far things seem to work beautifully!
+The migration process is not an easy one, and I want the transition from MongoDB to SQLite to be as smooth as possible for all existing users! Please hold tight for those reasons.
+Users starting afresh would not have this complex route, so if anyone is interested I can already look at releasing a test docker container with SQLite - **thumbs up below to show interest!**
+
+<!-- truncate -->
+
+## Next year
+
+Pushing the project to the next quality level
+
+My focus will be on:
+
+- fixing file list inconsistency on the backend (f.e. for batch uploads)
+- making the OctoPrint socket connection more reliable, and making the web client refresh button more usable when the connection is disrupted
+- improving the camera stream and statistics page
+- docs
+- small feature requests (like a 'group' feature, or more feature-rich import from OctoFarm)
+- UI responsiveness

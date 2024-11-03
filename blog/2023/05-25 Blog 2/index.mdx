@@ -1,0 +1,57 @@
+---
+authors:
+  - davidzwa
+tags: [devblog]
+slug: /blog2
+description: Just a quick update
+---
+
+# Blog 2
+
+Hey there, welcome to the second installment of our blog series! If this is your first time diving into the FDMM server, we're excited to have you on board! 😄
+
+## 📆 What Happened This Week (OctoPrint related)
+
+This week, OctoPrint released a minor update, version 1.9.0. A big shoutout to all the contributors who made this release possible! You can check out the details of the [release 1.9.0](https://github.com/OctoPrint/OctoPrint/releases/tag/1.9.0).
+
+One of the notable improvements in this release is the performance boost in the file list API. We've already implemented measures to address this issue in FDMM, but this update will make our server even quicker regardless! 😊 Additionally, OctoPrint now supports multi-file upload, which could come in handy for us in the future. It's definitely something we'll keep in mind!
+
+Apart from the performance enhancements, the OctoPrint team also fixed several annoying bugs in the announcements and wizard sections during setup. They even introduced a new webcam stack, which might interest you if you're in need of webcam functionality. Personally, I don't utilize it, but it's worth checking out!
+
+<!--truncate-->
+
+## ⏫ Should You Upgrade?
+
+If you heavily rely on OctoPrint, I would recommend holding off on upgrading to version 1.9.0 just yet. As with any new release, there may be potential changes and issues that need time to settle and be addressed. So, it's generally a good idea to exercise caution and wait for the subsequent release, 1.9.1, before making the jump.
+
+### 🛡️ Will FDMM Require OctoPrint 1.9.0?
+
+At the moment, there is no pressing need for FDMM to require OctoPrint 1.9.0. However, we're constantly monitoring the situation and will keep you informed if any changes occur. Rest assured, we'll always strive to ensure compatibility and provide the best experience for our users!
+
+## 💡 Fancy Ideas for FDMM
+
+This week has been full of exciting experimentation for FDMM (FDM Monster)! I had the opportunity to try out some fantastic features that I can't wait to share with you:
+
+🔹 Adding Fixed Gcode Templates: One of the highlights is the addition of fixed Gcode templates. Soon, you'll be able to upload these templates to any printer after completing maintenance or access them conveniently from the right-side menu. You can prepare handy slices like benchies or build-plate cleaning Gcode there. Of course, you will need to do the slicing for your printer to avoid uploading the wrong gcode.
+
+🔹 Role-Based Authorization and Local Login: I'm thrilled to announce that role-based authorization and local login are on their way to becoming a part of FDMM (coming soon™). This addition will enhance security and provide better control over user access.
+
+🔹 Repair Log: Keeping track of repairs will become easier! I'm introducing a repair log feature that allows you to track your repairs over time. This feature will be integrated into FDMM, ensuring you have a comprehensive history of your maintenance activities.
+
+🔹 Nozzle and Sheet Information: I've also made enhancements to the printer grid tile. Soon, you'll be able to see important details like nozzle type, nozzle diameter, and sheet type associated with a printer right on the grid tile. This improvement will make it more convenient to manage your printers.
+
+## 📚 🛠️ What's Currently Being Worked On?
+
+Exciting things are happening behind the scenes at FDMM! Here's a quick update on our ongoing projects:
+
+📚 Documentation on Gitbook: Our documentation is getting a makeover! Thanks to the efforts of our amazing team member @Dumnersm, we are in the process of porting the documentation to Gitbook. This move will make it easier for everyone to access and contribute to our growing knowledge base.
+
+🛠️ FDM Monster 1.4.0-rc1: I've been hard at work on the upcoming FDM Monster version 1.4.0-rc1. This release will introduce the new OctoPrint socket adapter, which has been a significant undertaking. The server code has undergone extensive cleanup and optimization, making it more streamlined and efficient. These improvements will enable faster feature development and pave the way for the future migration to FDMM v2.
+
+## 🚀 What's Next?
+
+We have a release lined up for the near future:
+
+ Server 1.3.10 Release: I'll be releasing server version 1.3.10 this week. This update will primarily focus on addressing minor bug fixes and making small tweaks to improve the overall user experience. If you encounter any issues, please report them in the ⁠general channel or through a GitHub issue.
+
+Stay tuned for more updates, and don't hesitate to reach out if you have any questions or feedback. We appreciate your continued support as we strive to make FDMM the best it can be! 🚀

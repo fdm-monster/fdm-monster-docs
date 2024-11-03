@@ -1,0 +1,33 @@
+---
+authors:
+  - davidzwa
+tags: [devblog]
+slug: /blog1
+description: Just a quick update
+---
+
+# Blog 1
+
+Hey you there! So I thought it fun to write a bit about the coding aspect of FDM Monster in a blog style. I've been wanting to share the progress in a mini article like this, so you can follow the work a bit.
+
+## 📆 What happened in May so far?
+
+Another project, called OctoFarm, decided to call it quits, which was not unexpected given the silence on github. Even though this ending was not unexpected, it was still announced abruptly. After the announcement a small shift in the OctoPrint 3D Farm Print software ecosystem happened. Suddenly, it struck me, @Dyrant  and @Tobikiss that a replacement could be found in FDM Monster. After quite some chats with those fine aforementioned people and interesting folks like @tideline3d and @WindArrow, it was clear that FDM Monster (FDMM for short) needs a lot of improvements in order to get mature for the public. Documentation, a login system, more grid customization, a raspberry pi image (MonsterPi) and minor bugfixes were some of the topics.
+
+After these talks, a wave of people arrived into this discord and the Github suddenly showed a steady increase in view counts and clones. This gave me a big boost to work harder as now there are users using the software in their daily life, depending on it and in need of new features and expansion. It's so nice to see the project take off!
+
+<!--truncate-->
+
+## 🏃🏼‍♂️ What was achieved last weeks
+
+With the release information in the ⁠releases and ⁠support-monsterpi in mind, you might have spotted new features started to pop up. Not only did the UI get some nice customization, the Raspberry Pi image MonsterPi was released to make running FDM Monster so much easier. Thirdly, a more professional Github workflow has slowly been adopted. For the tech savvy: the main branch is now stable and the develop branch is presented by default. The develop branch contains the latest work.
+Finally, @Dumnersm decided to put his time into contributing nice tweaks for the documentation. It's really nice to get help and to spar about new ideas!
+
+## 🔍 What's Next
+
+It looks like @Dumnersm  is working on a new documentation system with git-book, which I'm eager to see! Personally I'm working on fixing the issue which causes the UI printer tiles to not update after a good while (hours) . This will lead to server 1.4.0-rc1 as it touched a lot of code [Issue #1632](https://github.com/fdm-monster/fdm-monster/issues/1632). During this work I hope to make the server event-driven. This basically means that the functions in the server are triggered when needed. To give an example: "A printer is deleted" will result in "the print job filename and progress state is cleared". This is an inversion in the way FDMM was initially written. And I strongly believe it will lead to a stronger server structure soon!
+
+Do let me know if what you like to see me write about next in  ⁠general. Hope to update you soon with another blog.
+
+Yours truly,
+David

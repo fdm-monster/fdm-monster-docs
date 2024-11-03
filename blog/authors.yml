@@ -1,0 +1,20 @@
+davidzwa:
+  name: David Zwart
+  title: Founder / Lead Developer
+  url: https://github.com/davidzwa
+  image_url: https://github.com/davidzwa.png
+  page: true
+  socials:
+    github: davidzwa
+    linkedin: david-zwart-88514083
+
+mkevenaar:
+  name: Maurice Kevenaar
+  title: Independent advisor and friend of the project / Community manager
+  url: https://kevenaar.name
+  image_url: https://github.com/mkevenaar.png
+  page: true
+  socials:
+    github: mkevenaar
+    linkedin: mauricekevenaar
+    x: mkevenaar

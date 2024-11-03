@@ -1,0 +1,38 @@
+---
+title: Blog 6
+authors:
+  - davidzwa
+tags: [devblog]
+slug: /blog6
+description: Just a quick update
+---
+
+## Current progress 💪🏼
+
+The authentication mechanism is being finalized. There are some tweaks that need to be done in order to ensure it is user friendly. For example,  currently only one login is allowed to be active and refreshed at the same time. If the same user would login on another device, the first user login session would be logged out. This is not desirable.
+
+Furthermore, Ive started work on a first time setup page. Ill need testers for this soon.
+
+<!-- truncate -->
+
+## Changes
+
+- login page
+- switch to Typescript using SWC. Quite a bit of impact on installation and documentation.
+- experimentation with MikroORM and SQLite as a relative database (required Typescript). It seems a success so far. FYI I intend to release this with an EXPERIMENTAL_SQLITE environment flag, so users with MongoDB will not see impact.
+
+## Next weeks 🗓️
+
+- Adding a registration page (can be disabled)
+- Adding first time setup page
+- Updating docs and installation scripts
+- Working towards server 1.5.0-rc1
+- Lot of testing
+- Planning features and bugfixes like MJPEG camera page/dialogs afterwards
+
+## Update 2023-09-30
+
+MikroORM is not the path I will be taking. Instead I've headed into using TypeORM which I have 2 years of experience with. Ive managed to tackle the issues I had with it and managed to make it a much better dev experience.
+
+MikroORM failed to generate proper database migrations (basically bailing out), because SQLite is a very simplistic database. I've spoken with its main author, and sadly I do not see a path forward with that ORM (Object Relational Mapper).
+TypeORM supports the SQLite limitations much better (it seems), so I will continue on that path.
