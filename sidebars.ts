@@ -39,6 +39,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
             'configuration/settings/grid_settings',
           ],
         },
+        'configuration/moonraker',
         'configuration/updating_client_bundle',
         'configuration/yaml_import_export',
       ],
