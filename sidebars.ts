@@ -14,8 +14,19 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       items: [
         'installing/monsterpi',
         'installing/docker_compose',
-        'installing/windows_service',
-        'installing/linux_service',
+        {
+          type: 'category',
+          label: 'Deprecated',
+          link: {
+            type: 'doc',
+            id: 'installing/deprecated/index',
+          },
+          items: [
+            'installing/deprecated/windows_service',
+            'installing/deprecated/linux_service',
+            'installing/deprecated/preconfiguration',
+          ],
+        },
       ],
     },
     {
@@ -27,16 +38,57 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: true,
       items: [
-        'configuration/preconfiguration',
+        'configuration/first-time-setup',
         {
           type: 'category',
-          label: 'Settings',
+          label: 'Menu',
           link: {
             type: 'doc',
-            id: 'configuration/settings/index',
+            id: 'configuration/menu/index',
           },
           items: [
-            'configuration/settings/grid_settings',
+            {
+              type: 'category',
+              label: 'Home',
+              link: {
+                type: 'doc',
+                id: 'configuration/menu/home/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Printers',
+              link: {
+                type: 'doc',
+                id: 'configuration/menu/printers/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cameras',
+              link: {
+                type: 'doc',
+                id: 'configuration/menu/cameras/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Settings',
+              link: {
+                type: 'doc',
+                id: 'configuration/menu/settings/index',
+              },
+              items: [
+                'configuration/menu/settings/grid_settings',
+              ],
+            },
+
           ],
         },
         'configuration/moonraker',
@@ -51,7 +103,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         type: 'doc',
         id: 'software_usage/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'software_usage/creating_printers',
         'software_usage/organizing_floors',
@@ -64,7 +116,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         type: 'doc',
         id: 'troubleshooting/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'troubleshooting/log_dump',
         'troubleshooting/sentry',
