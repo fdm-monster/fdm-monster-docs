@@ -3,13 +3,31 @@
   "extends": [
     "config:recommended"
   ],
-  "labels": ["renovate"],
-  "lockFileMaintenance": {"enabled": true, "extends": ["schedule:daily"]},
+  "labels": [
+    "renovate"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": [
+      "schedule:daily"
+    ]
+  },
   "packageRules": [
     {
-      "paths": ["package.json"],
-      "matchPackageNames": ["@mdx-js/react"],
-      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "lockFileMaintenance"],
+      "matchFileNames": [
+        "package.json"
+      ],
+      "matchPackageNames": [
+        "@mdx-js/react"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "lockFileMaintenance"
+      ],
       "enabled": false
     }
   ]
