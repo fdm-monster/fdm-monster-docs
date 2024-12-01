@@ -31,7 +31,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
     },
     {
       type: 'category',
-      label: 'Configuration',
+      label: 'Software Usage',
       link: {
         type: 'doc',
         id: 'configuration/index',
@@ -41,7 +41,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         'configuration/first-time-setup',
         {
           type: 'category',
-          label: 'Menu',
+          label: 'FDM Monster Menu Items',
           link: {
             type: 'doc',
             id: 'configuration/menu/index',
