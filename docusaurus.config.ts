@@ -99,6 +99,18 @@ const config: Config = {
             from: ['/docs/ourteam'],
             to: '/docs/community/ourteam',
           },
+          {
+            from: ['/docs/software_usage/preconfiguration'],
+            to: '/docs/installing/deprecated/preconfiguration',
+          },
+          {
+            from: ['/docs/installing/windows_service'],
+            to: '/docs/installing/deprecated/windows_service',
+          },
+          {
+            from: ['/docs/installing/linux_service'],
+            to: '/docs/installing/deprecated/linux_service',
+          },
         ],
       } satisfies ClientRedirectsOptions,
     ],

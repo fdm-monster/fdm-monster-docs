@@ -1,7 +1,17 @@
 ---
 title: Pre-configuring the FDM Monster Server
 description: Pre-configuration
-slug: /configuration/preconfiguration
+slug: /installing/deprecated/preconfiguration
+pagination_prev: installing/deprecated/index
+pagination_next: software_usage/index
+---
+
+:::note Difficulty
+Difficulty: **advanced**
+
+Not required when using the Docker or MonsterPi installations.
+:::
+
 ---
 
 :::warning
@@ -36,23 +46,29 @@ Also note that no data is migrated from MongoDB to SQLite. You can use YAML expo
 
 This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide
 feedback
-in case of errors or unexpected behaviour!
+in case of errors or unexpected behavior!
 :::
 
 The following variables are read and used by FDM Monster at startup. Always restart your server after a change.
 
 - `MONGO` (Optional, required before 1.6.x) **the connection to mongodb**. For example:
 
-> `MONGO=mongodb://127.0.0.1:27017/fdm-monster`
+  ```dotenv
+  MONGO=mongodb://127.0.0.1:27017/fdm-monster
+  ```
 
 - `ENABLE_EXPERIMENTAL_TYPEORM` (Optional) **a flag indicating SQLite should be used instead of MongoDB. Setting it to
   exactly `true` will enable this new mode.**
 
-- `ENABLE_EXPERIMENTAL_TYPEORM=true`
+  ```dotenv
+  ENABLE_EXPERIMENTAL_TYPEORM=true
+  ```
 
 - `SERVER_PORT` (Optional, default=4000) **the port of the local FDM Monster website**. For example:
 
-> `SERVER_PORT=4000`
+  ```dotenv
+  SERVER_PORT=4000
+  ```
 
 ## The `.env` file
 
@@ -103,5 +119,5 @@ services:
       - SERVER_PORT: 4000
 ```
 
-Please continue by reading the [Docker Compose section](../installing/docker_compose.mdx) for more information on how
+Please continue by reading the [Docker Compose section](../docker_compose.mdx) for more information on how
 to setup FDM Monster and MongoDB with docker-compose.
