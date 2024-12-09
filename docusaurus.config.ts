@@ -100,7 +100,7 @@ const config: Config = {
             to: '/docs/community/ourteam',
           },
           {
-            from: ['/docs/configuration/preconfiguration'],
+            from: ['/docs/software_usage/preconfiguration'],
             to: '/docs/installing/deprecated/preconfiguration',
           },
           {

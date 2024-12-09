@@ -48,7 +48,7 @@ const FeatureList: FeatureItem[] = [
     ),
     featureLink: {
       description: "Read More!",
-      href: "/docs/configuration/moonraker",
+      href: "/docs/software_usage/moonraker",
     },
   },
   {

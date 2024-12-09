@@ -34,17 +34,18 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       label: 'Software Usage',
       link: {
         type: 'doc',
-        id: 'configuration/index',
+        id: 'software_usage/index',
       },
       collapsed: true,
       items: [
-        'configuration/first-time-setup',
+        'software_usage/first-time-setup',
+        'software_usage/getting-started',
         {
           type: 'category',
           label: 'FDM Monster Menu Items',
           link: {
             type: 'doc',
-            id: 'configuration/menu/index',
+            id: 'software_usage/menu/index',
           },
           items: [
             {
@@ -52,7 +53,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
               label: 'Home',
               link: {
                 type: 'doc',
-                id: 'configuration/menu/home/index',
+                id: 'software_usage/menu/home/index',
               },
               items: [
               ],
@@ -62,7 +63,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
               label: 'Printers',
               link: {
                 type: 'doc',
-                id: 'configuration/menu/printers/index',
+                id: 'software_usage/menu/printers/index',
               },
               items: [
               ],
@@ -72,7 +73,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
               label: 'Cameras',
               link: {
                 type: 'doc',
-                id: 'configuration/menu/cameras/index',
+                id: 'software_usage/menu/cameras/index',
               },
               items: [
               ],
@@ -82,31 +83,31 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
               label: 'Settings',
               link: {
                 type: 'doc',
-                id: 'configuration/menu/settings/index',
+                id: 'software_usage/menu/settings/index',
               },
               items: [
-                'configuration/menu/settings/grid_settings',
+                'software_usage/menu/settings/grid_settings',
               ],
             },
 
           ],
         },
-        'configuration/moonraker',
-        'configuration/updating_client_bundle',
-        'configuration/yaml_import_export',
+        'software_usage/moonraker',
+        'software_usage/updating_client_bundle',
+        'software_usage/yaml_import_export',
       ],
     },
     {
       type: 'category',
-      label: 'Software usage',
+      label: '[TBD] Old Software usage',
       link: {
         type: 'doc',
-        id: 'software_usage/index',
+        id: 'old_software_usage/index',
       },
       collapsed: true,
       items: [
-        'software_usage/creating_printers',
-        'software_usage/organizing_floors',
+        'old_software_usage/creating_printers',
+        'old_software_usage/organizing_floors',
       ],
     },
     {
