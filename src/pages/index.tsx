@@ -37,7 +37,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description="FDM Monster documentation - Are you ready to scale up your 3D Print farm?"
     >
       <HomepageHeader />
       <main>
