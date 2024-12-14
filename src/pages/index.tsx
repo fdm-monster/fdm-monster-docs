@@ -36,7 +36,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`${siteConfig.title}`}
+      title="Home"
       description="FDM Monster documentation - Are you ready to scale up your 3D Print farm?"
     >
       <HomepageHeader />

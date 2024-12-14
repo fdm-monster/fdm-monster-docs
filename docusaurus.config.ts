@@ -130,8 +130,7 @@ const config: Config = {
       //... other Algolia params
     },
 
-    // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/server-running.png",
     navbar: {
       title: "FDM Monster",
       logo: {
