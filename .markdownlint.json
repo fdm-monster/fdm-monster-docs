@@ -9,7 +9,8 @@
   "MD033": {
     "allowed_elements": [
       "br",
-      "kbd"
+      "kbd",
+      "IIcon"
     ]
   }
 }

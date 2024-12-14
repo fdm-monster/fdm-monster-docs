@@ -1,30 +1,17 @@
 ---
 title: Software Usage
-description: FDM Monster software usage
-slug: /software_usage
+description: FDM Monster Software usage
+slug: /configuration
+pagination_prev: installing/index
 ---
 
-The FDM Monster webapp is a web application that can be used to manage your 3D printers. It is designed to be used on a
-desktop computer, and in the future it is going to be suitable for use on a tablet or mobile phone.
+Before starting the FDM Monster server it is possible to adjust configuration.
+Once the server has started, you can adjust settings on the settings page.
 
-## Creating Printers
+The webapp client bundle can be updated on the fly, without restarting the server.
 
-Please read the [Creating Printers](./creating_printers.mdx) section for more information.
-After creating a printer, you can place it on a floor.
+```mdx-code-block
+import DocCardList from '@theme/DocCardList';
 
-## Organizing Floors
-
-Please read the [Organizing Floors](./organizing_floors.mdx) section for more information.
-
-## Printing one GCode file
-
-To print a file on an OctoPrint, you can upload it to the printer by dragging and dropping it on the printer.
-
-**Batch print**
-You can also upload it to the printer by clicking on the printer to select it,
-and then drag and drop the file in the file upload area on the top. This allows you to upload a file to multiple
-printers at once.
-
-**Batch reprint**
-You can also reprint a file on multiple printers at once by clicking on all printers involved to select them.
-Then click the reprint button in the top bar. This will reprint the last file that was printed on all selected printers.
+<DocCardList />
+```
