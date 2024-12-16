@@ -6,9 +6,9 @@ import type { Options as BlogOptions } from "@docusaurus/plugin-content-blog";
 import type { Options as ClientRedirectsOptions } from "@docusaurus/plugin-client-redirects";
 
 const config: Config = {
-  title: "FDM Monster Docs",
+  title: "FDM Monster",
   tagline:
-    "3D printer farm management platform for local or in-cloud usage using OctoPrint.",
+    "Are you ready to scale up your 3D Print farm?",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -99,6 +99,18 @@ const config: Config = {
             from: ['/docs/ourteam'],
             to: '/docs/community/ourteam',
           },
+          {
+            from: ['/docs/software_usage/preconfiguration'],
+            to: '/docs/installing/deprecated/preconfiguration',
+          },
+          {
+            from: ['/docs/installing/windows_service'],
+            to: '/docs/installing/deprecated/windows_service',
+          },
+          {
+            from: ['/docs/installing/linux_service'],
+            to: '/docs/installing/deprecated/linux_service',
+          },
         ],
       } satisfies ClientRedirectsOptions,
     ],
@@ -175,8 +187,12 @@ const config: Config = {
           title: "Docs",
           items: [
             {
+              label: "Installation",
+              to: "/docs/installing",
+            },
+            {
               label: "Getting Started",
-              to: "/docs/",
+              to: "/docs/software_usage/getting-started",
             },
           ],
         },

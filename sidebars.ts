@@ -14,47 +14,100 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       items: [
         'installing/monsterpi',
         'installing/docker_compose',
-        'installing/windows_service',
-        'installing/linux_service',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Configuration',
-      link: {
-        type: 'doc',
-        id: 'configuration/index',
-      },
-      collapsed: true,
-      items: [
-        'configuration/preconfiguration',
         {
           type: 'category',
-          label: 'Settings',
+          label: 'Deprecated',
           link: {
             type: 'doc',
-            id: 'configuration/settings/index',
+            id: 'installing/deprecated/index',
           },
           items: [
-            'configuration/settings/grid_settings',
+            'installing/deprecated/windows_service',
+            'installing/deprecated/linux_service',
+            'installing/deprecated/preconfiguration',
           ],
         },
-        'configuration/moonraker',
-        'configuration/updating_client_bundle',
-        'configuration/yaml_import_export',
       ],
     },
     {
       type: 'category',
-      label: 'Software usage',
+      label: 'Software Usage',
       link: {
         type: 'doc',
         id: 'software_usage/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
-        'software_usage/creating_printers',
-        'software_usage/organizing_floors',
+        'software_usage/first-time-setup',
+        'software_usage/getting-started',
+        {
+          type: 'category',
+          label: 'FDM Monster Menu Items',
+          link: {
+            type: 'doc',
+            id: 'software_usage/menu/index',
+          },
+          items: [
+            {
+              type: 'category',
+              label: 'Home',
+              link: {
+                type: 'doc',
+                id: 'software_usage/menu/home/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Printers',
+              link: {
+                type: 'doc',
+                id: 'software_usage/menu/printers/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Cameras',
+              link: {
+                type: 'doc',
+                id: 'software_usage/menu/cameras/index',
+              },
+              items: [
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Settings',
+              link: {
+                type: 'doc',
+                id: 'software_usage/menu/settings/index',
+              },
+              items: [
+                'software_usage/menu/settings/grid_settings',
+              ],
+            },
+
+          ],
+        },
+        'software_usage/moonraker',
+        'software_usage/updating_client_bundle',
+        'software_usage/yaml_import_export',
+      ],
+    },
+    {
+      type: 'category',
+      label: '[TBD] Old Software usage',
+      link: {
+        type: 'doc',
+        id: 'old_software_usage/index',
+      },
+      collapsed: true,
+      items: [
+        'old_software_usage/creating_printers',
+        'old_software_usage/organizing_floors',
       ],
     },
     {
@@ -64,7 +117,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         type: 'doc',
         id: 'troubleshooting/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'troubleshooting/log_dump',
         'troubleshooting/sentry',
@@ -82,6 +135,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
   community: [
     'community/support',
     'community/ourteam',
+    'community/sponsor-us',
     'community/links',
     {
       type: 'link',
