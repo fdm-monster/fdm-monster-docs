@@ -2112,21 +2112,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docsearch/css@npm:3.8.0":
-  version: 3.8.0
-  resolution: "@docsearch/css@npm:3.8.0"
-  checksum: 10c0/eda8801f48a0b0c987d69c611bf76887fa64bc49e36870667af67c430ef344df4b02ad248067c87cc7ae148e67f880109dfaa450a73b0988dbe77cced243932c
+"@docsearch/css@npm:3.8.2":
+  version: 3.8.2
+  resolution: "@docsearch/css@npm:3.8.2"
+  checksum: 10c0/32f86b7b344834885a4a0b1a317d3fb568bafb2ceab5b4733c2d99ebd13d85899035fcb2680c940876c96d0d9f7b5db84b5be3a4d5ca41f0807775cc31991cff
   languageName: node
   linkType: hard
 
 "@docsearch/react@npm:^3.5.2":
-  version: 3.8.0
-  resolution: "@docsearch/react@npm:3.8.0"
+  version: 3.8.2
+  resolution: "@docsearch/react@npm:3.8.2"
   dependencies:
     "@algolia/autocomplete-core": "npm:1.17.7"
     "@algolia/autocomplete-preset-algolia": "npm:1.17.7"
-    "@docsearch/css": "npm:3.8.0"
-    algoliasearch: "npm:^5.12.0"
+    "@docsearch/css": "npm:3.8.2"
+    algoliasearch: "npm:^5.14.2"
   peerDependencies:
     "@types/react": ">= 16.8.0 < 19.0.0"
     react: ">= 16.8.0 < 19.0.0"
@@ -2141,7 +2141,7 @@ __metadata:
       optional: true
     search-insights:
       optional: true
-  checksum: 10c0/9b7b4e17a5ef5173853ec701b954e0881e29955ba380401014bc4359c752d36c48381b8053266172a73c870f4789c22d28285dd450eb129d99456c533cd69a13
+  checksum: 10c0/f54916d478abb2e8b797ad19b4c549c162aa04a9cdc8eca5e92d31722404ddafa64669922008bd1e723ea9d2cd8f3eee7f8ed22c224118ae961640503bd90be1
   languageName: node
   linkType: hard
 
@@ -3996,7 +3996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algoliasearch@npm:^5.12.0":
+"algoliasearch@npm:^5.14.2":
   version: 5.17.1
   resolution: "algoliasearch@npm:5.17.1"
   dependencies:
@@ -4432,7 +4432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"call-bind@npm:^1.0.5, call-bind@npm:^1.0.8":
+"call-bind@npm:^1.0.5":
   version: 1.0.8
   resolution: "call-bind@npm:1.0.8"
   dependencies:
@@ -4445,12 +4445,12 @@ __metadata:
   linkType: hard
 
 "call-bound@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "call-bound@npm:1.0.2"
+  version: 1.0.3
+  resolution: "call-bound@npm:1.0.3"
   dependencies:
-    call-bind: "npm:^1.0.8"
-    get-intrinsic: "npm:^1.2.5"
-  checksum: 10c0/19761e1ce55578f9c41bed06b162de22058d0228cd9c14215d8db73716594ef61b87e5e7486855ea04becd86f55ed08ed81e2c25a4a56962ca12e6b0e772f141
+    call-bind-apply-helpers: "npm:^1.0.1"
+    get-intrinsic: "npm:^1.2.6"
+  checksum: 10c0/45257b8e7621067304b30dbd638e856cac913d31e8e00a80d6cf172911acd057846572d0b256b45e652d515db6601e2974a1b1a040e91b4fc36fb3dd86fa69cf
   languageName: node
   linkType: hard
 
@@ -4498,9 +4498,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:^1.0.30001688":
-  version: 1.0.30001688
-  resolution: "caniuse-lite@npm:1.0.30001688"
-  checksum: 10c0/2ef3145ac69ea5faf403b613912a3a72006db2e004e58abcf40dc89904aa05568032b5a6dcfb267556944fd380a9b018ad645f93d84e543bed3471e4950a89f4
+  version: 1.0.30001689
+  resolution: "caniuse-lite@npm:1.0.30001689"
+  checksum: 10c0/51cf99751dddfba24e13556ae0e0f38c062f76d49f2e24cce3d28e71a0325ca6fe04fe51b4a0e8467d601d94e72fea84f160bf577e7cbb5677f14ac673b6da20
   languageName: node
   linkType: hard
 
@@ -5559,13 +5559,13 @@ __metadata:
   linkType: hard
 
 "dunder-proto@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "dunder-proto@npm:1.0.0"
+  version: 1.0.1
+  resolution: "dunder-proto@npm:1.0.1"
   dependencies:
-    call-bind-apply-helpers: "npm:^1.0.0"
+    call-bind-apply-helpers: "npm:^1.0.1"
     es-errors: "npm:^1.3.0"
     gopd: "npm:^1.2.0"
-  checksum: 10c0/b321e5cbf64f0a4c786b0b3dc187eb5197a83f6e05a1e11b86db25251b3ae6747c4b805d9e0a4fbf481d22a86a539dc75f82d883daeac7fc2ce4bd72ff5ef5a2
+  checksum: 10c0/199f2a0c1c16593ca0a145dbf76a962f8033ce3129f01284d48c45ed4e14fea9bbacd7b3610b6cdc33486cef20385ac054948fefc6272fcce645c09468f93031
   languageName: node
   linkType: hard
 
@@ -5591,9 +5591,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.73":
-  version: 1.5.73
-  resolution: "electron-to-chromium@npm:1.5.73"
-  checksum: 10c0/b97118d469f2b3b7a816932004cd36d82879829904ca4a8daf70eaefbe686a23afa6e39e0ad0cdc39d00a9ebab97160d072b786fdeb6964f13fb15aa688958f1
+  version: 1.5.74
+  resolution: "electron-to-chromium@npm:1.5.74"
+  checksum: 10c0/1a93119adbdeb0bba4c29e3bad5a48e6a4626ae50fbff2bc5c207f32e67ed64a5d8db6500befb44080359be3b18be7bf830fb920d5199d935be95bb9f97deb10
   languageName: node
   linkType: hard
 
@@ -6397,7 +6397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-intrinsic@npm:^1.2.4, get-intrinsic@npm:^1.2.5":
+"get-intrinsic@npm:^1.2.4, get-intrinsic@npm:^1.2.5, get-intrinsic@npm:^1.2.6":
   version: 1.2.6
   resolution: "get-intrinsic@npm:1.2.6"
   dependencies:
@@ -7547,11 +7547,11 @@ __metadata:
   linkType: hard
 
 "jiti@npm:^1.20.0":
-  version: 1.21.6
-  resolution: "jiti@npm:1.21.6"
+  version: 1.21.7
+  resolution: "jiti@npm:1.21.7"
   bin:
     jiti: bin/jiti.js
-  checksum: 10c0/05b9ed58cd30d0c3ccd3c98209339e74f50abd9a17e716f65db46b6a35812103f6bde6e134be7124d01745586bca8cc5dae1d0d952267c3ebe55171949c32e56
+  checksum: 10c0/77b61989c758ff32407cdae8ddc77f85e18e1a13fc4977110dbd2e05fc761842f5f71bce684d9a01316e1c4263971315a111385759951080bbfe17cbb5de8f7a
   languageName: node
   linkType: hard
 
