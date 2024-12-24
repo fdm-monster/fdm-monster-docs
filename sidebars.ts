@@ -51,7 +51,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         type: 'doc',
         id: 'software_usage/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'software_usage/creating_printers',
         'software_usage/organizing_floors',
@@ -64,7 +64,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         type: 'doc',
         id: 'troubleshooting/index',
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         'troubleshooting/log_dump',
         'troubleshooting/sentry',
@@ -82,6 +82,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
   community: [
     'community/support',
     'community/ourteam',
+    'community/sponsor-us',
     'community/links',
     {
       type: 'link',
