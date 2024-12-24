@@ -21,12 +21,11 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/docker-svgrepo-com.svg").default,
     description: (
       <>
-        With docker you can be sure FDM Monster will run in isolation. For the
-        least hassle setup, you should give this a try!
+        With docker you can be sure FDM Monster will run in isolation. (easy)
       </>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Easy setup!",
       href: "/docs/installing/docker_compose",
     },
   },
@@ -45,14 +44,22 @@ const FeatureList: FeatureItem[] = [
     title: "Powered by OctoPrint",
     Svg: require("@site/static/img/octoprint-tentacle.svg").default,
     description: (
-      <>
-        Using OctoPrint, FDM Monster prevents single points of failures in your
-        farm!
-      </>
+      <>Using OctoPrint, FDM Monster prevents single points of failures in your farm!</>
     ),
     featureLink: {
       description: "Read More!",
       href: "https://octoprint.org/",
+    },
+  },
+  {
+    title: "Powered by Moonraker",
+    Svg: require("@site/static/img/klipper.svg").default,
+    description: (
+      <>Moonraker enables FDM Monster to communicate with your Klipper device!</>
+    ),
+    featureLink: {
+      description: "Read More!",
+      href: "https://moonraker.readthedocs.io/",
     },
   },
 ];
@@ -66,7 +73,9 @@ function Feature({ Svg, title, description, featureLink }) {
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
-        <Link className="button button--secondary button--lg" to={featureLink.href}>
+      </div>
+      <div className="text--center padding-horiz--md">
+        <Link className={clsx("button button--secondary button--lg")} to={featureLink.href}>
             {featureLink.description}
         </Link>
       </div>
@@ -75,15 +84,20 @@ function Feature({ Svg, title, description, featureLink }) {
 }
 
 export default function HomepageFeatures() {
+  const firstRow = FeatureList.slice(0, 3);
+  const secondRow = FeatureList.slice(3);
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
+    <div className="container text--center">
+      <div className="row margin-top--lg margin-bottom--lg">
+        {firstRow.map((props, idx) => (
             <Feature key={idx} {...props} />
-          ))}
-        </div>
+        ))}
       </div>
-    </section>
+      <div className="row margin-bottom--lg">
+        {secondRow.map((props, idx) => (
+            <Feature key={idx} {...props} />
+        ))}
+      </div>
+    </div>
   );
 }

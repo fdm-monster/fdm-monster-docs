@@ -6,9 +6,9 @@ import type { Options as BlogOptions } from "@docusaurus/plugin-content-blog";
 import type { Options as ClientRedirectsOptions } from "@docusaurus/plugin-client-redirects";
 
 const config: Config = {
-  title: "FDM Monster Docs",
+  title: "FDM Monster",
   tagline:
-    "3D printer farm management platform for local or in-cloud usage using OctoPrint.",
+    "Are you ready to scale up your 3D Print farm?",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -183,6 +183,10 @@ const config: Config = {
         {
           title: "Community",
           items: [
+            {
+              label: "Sponsor us",
+              href: "/docs/community/sponsor-us",
+            },
             {
               label: "Discord",
               href: "https://discord.gg/mwA8uP8CMc",
