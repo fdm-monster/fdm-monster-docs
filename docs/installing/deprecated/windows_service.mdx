@@ -1,8 +1,8 @@
 ---
 title: Windows Service
 description: How to use a Windows service for your FDM-Monster environment (deprecated)
-slug: /installing/windows_service
-pagination_next: configuration/index
+slug: /installing/deprecated/windows_service
+pagination_prev: installing/deprecated/index
 ---
 :::danger
 
@@ -20,7 +20,7 @@ in [installations/fdm-monster-node-windows](https://github.com/fdm-monster/fdm-m
 
 ![A running instance of FDM Monster 3D Printing Server with the Printing Grid opened.
 Only one disabled printer is shown on the grid and it's disabled.
-The rest of the grid is showing empty tiles.](../images/server-running.png)
+The rest of the grid is showing empty tiles.](../../images/server-running.png)
 *This is the FDM Monster web app after installation (visit [http://localhost:4000](http://localhost:4000))*
 
 ## Preparation for the Windows service installation
@@ -127,7 +127,7 @@ containing the description `FDM Monster` in Task Manager.
 The service should have `Status: Running``. If this is not the case, something went wrong. Reach out to us
 via [Discord](https://discord.gg/mwA8uP8CMc) for more help!
 
-![Windows Task Manager showing the Services tab on which a service named fdmmonster.exe is showing status Running](../images/task-manager.png)
+![Windows Task Manager showing the Services tab on which a service named fdmmonster.exe is showing status Running](../../images/task-manager.png)
 
 If things are working, you can open FDM Monster with this URL: [http://localhost:4000](http://localhost:4000)
 or [http://127.0.0.1:4000](http://127.0.0.1:4000).
@@ -170,5 +170,5 @@ Run the script as follows:
 ./uninstall-fdm-monster.ps1
 ```
 
-Please continue to [Environment configuration](../configuration/preconfiguration.mdx) to change the environment
+Please continue to [Environment configuration](../../configuration/preconfiguration.mdx) to change the environment
 configuration of the FDM Monster server.

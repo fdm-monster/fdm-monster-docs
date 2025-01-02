@@ -99,6 +99,14 @@ const config: Config = {
             from: ['/docs/ourteam'],
             to: '/docs/community/ourteam',
           },
+          {
+            from: ['/docs/installing/windows_service'],
+            to: '/docs/installing/deprecated/windows_service',
+          },
+          {
+            from: ['/docs/installing/linux_service'],
+            to: '/docs/installing/deprecated/linux_service',
+          },
         ],
       } satisfies ClientRedirectsOptions,
     ],
@@ -129,7 +137,10 @@ const config: Config = {
       searchPagePath: "search",
       //... other Algolia params
     },
-
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
+    },
     image: "img/server-running.png",
     navbar: {
       title: "FDM Monster",
@@ -174,6 +185,10 @@ const config: Config = {
         {
           title: "Docs",
           items: [
+            {
+              label: "Installation",
+              to: "/docs/installing",
+            },
             {
               label: "Getting Started",
               to: "/docs/",

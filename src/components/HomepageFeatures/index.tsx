@@ -41,6 +41,17 @@ const FeatureList: FeatureItem[] = [
     },
   },
   {
+    title: "Chat on Discord",
+    Svg: require("@site/static/img/discord-icon-svgrepo-com.svg").default,
+    description: (
+      <>Do you have questions about FDM MOnster? Or just want to talk about 3D Printing?</>
+    ),
+    featureLink: {
+      description: "Join our Discord!",
+      href: "https://discord.gg/mwA8uP8CMc",
+    },
+  },
+  {
     title: "Powered by OctoPrint",
     Svg: require("@site/static/img/octoprint-tentacle.svg").default,
     description: (

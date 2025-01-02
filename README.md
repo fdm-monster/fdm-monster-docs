@@ -46,6 +46,12 @@ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+```bash
+yarn start --no-open
+```
+
+This command starts a local development server without opening a browser window. You can open the website using <http://localhost:3000>
+
 ### Build
 
 ```bash
