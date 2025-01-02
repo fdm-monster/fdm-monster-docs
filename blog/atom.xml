@@ -2,12 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.fdm-monster.net/blog</id>
     <title>FDM Monster Blog</title>
-    <updated>2024-11-03T00:00:00.000Z</updated>
+    <updated>2025-01-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.fdm-monster.net/blog"/>
     <subtitle>Keep up to date with FDM Monster and articles by following our feed!</subtitle>
     <icon>https://docs.fdm-monster.net/img/favicon.ico</icon>
-    <rights>Copyright © 2024 David Zwart.</rights>
+    <rights>Copyright © 2025 David Zwart.</rights>
+    <entry>
+        <title type="html"><![CDATA[MonsterPi Documentation]]></title>
+        <id>https://docs.fdm-monster.net/blog/monsterpi-documentation</id>
+        <link href="https://docs.fdm-monster.net/blog/monsterpi-documentation"/>
+        <updated>2025-01-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Rewritten the MonsterPi documentation]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-documentation-changes">📖 Documentation changes<a href="https://docs.fdm-monster.net/blog/monsterpi-documentation#-documentation-changes" class="hash-link" aria-label="Direct link to 📖 Documentation changes" title="Direct link to 📖 Documentation changes">​</a></h2>
+<p>We have completely rewritten the FDM Monster <a href="https://docs.fdm-monster.net/docs/installing/monsterpi">MonsterPi</a> documentation.</p>
+<p>The main changes are:</p>
+<ul>
+<li>The Raspberry Pi Imager documentation has completely rewritten.<!-- -->
+<ul>
+<li>This includes a total of 13 screenshots.</li>
+</ul>
+</li>
+<li>A table with suggested items has been added for your MonsterPi device.</li>
+<li>The Windows and Linux installations that have been deprecated for a while has been moved to the deprecated folder.</li>
+<li>Some sections have been reworded</li>
+<li>Documentation for upgrading MonsterPi images before 0.4.x has been removed. Upgrading to 0.4.x is advised.</li>
+<li>A <a href="https://discord.gg/mwA8uP8CMc" target="_blank" rel="noopener noreferrer">Chat on Discord</a> link has been added to the homepage</li>
+<li>Soon the FDM Monster website will be redirected to the documentation.</li>
+</ul>]]></content>
+        <author>
+            <name>Maurice Kevenaar</name>
+            <uri>https://kevenaar.name</uri>
+        </author>
+        <category label="devblog" term="devblog"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Documentation site revamp]]></title>
         <id>https://docs.fdm-monster.net/blog/documentation-site-revamp</id>
@@ -33,7 +61,7 @@
 </li>
 <li>Blogs!<!-- -->
 <ul>
-<li>The devlogs from Discord have been moved over here!</li>
+<li>The devblogs from Discord have been moved over here!</li>
 </ul>
 </li>
 </ul>]]></content>
