@@ -15,6 +15,9 @@ mkevenaar:
   image_url: https://github.com/mkevenaar.png
   page: true
   socials:
+    bluesky: kevenaar.name
+    mastodon: https://masto.nu/@mkevenaar
     github: mkevenaar
     linkedin: mauricekevenaar
     x: mkevenaar
+    newsletter: https://kevenaar.name
