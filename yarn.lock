@@ -2186,7 +2186,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-client-redirects@npm:^3.5.2":
+"@docusaurus/plugin-client-redirects@npm:3.7.0":
   version: 3.7.0
   resolution: "@docusaurus/plugin-client-redirects@npm:3.7.0"
   dependencies:
@@ -5971,7 +5971,7 @@ __metadata:
   dependencies:
     "@docusaurus/core": "npm:3.7.0"
     "@docusaurus/module-type-aliases": "npm:3.7.0"
-    "@docusaurus/plugin-client-redirects": "npm:^3.5.2"
+    "@docusaurus/plugin-client-redirects": "npm:3.7.0"
     "@docusaurus/preset-classic": "npm:3.7.0"
     "@docusaurus/theme-search-algolia": "npm:3.7.0"
     "@docusaurus/tsconfig": "npm:3.7.0"
