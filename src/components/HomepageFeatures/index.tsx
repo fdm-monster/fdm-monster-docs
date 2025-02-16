@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
     title: "Install MonsterPi on your Pi",
     Svg: require("@site/static/img/raspberry-pi-svgrepo-com.svg").default,
     description: (
-      <>Run FDM Monster on a Raspberry Pi 3, 4 or 5 using our prebuilt image.</>
+      <>Run FDM Monster on a Raspberry Pi 3 or 4 using our prebuilt image.</>
     ),
     featureLink: {
       description: "Read More!",
@@ -44,7 +44,7 @@ const FeatureList: FeatureItem[] = [
     title: "Chat on Discord",
     Svg: require("@site/static/img/discord-icon-svgrepo-com.svg").default,
     description: (
-      <>Do you have questions about FDM MOnster? Or just want to talk about 3D Printing?</>
+      <>Do you have questions about FDM Monster? Or just want to talk about 3D Printing?</>
     ),
     featureLink: {
       description: "Join our Discord!",
