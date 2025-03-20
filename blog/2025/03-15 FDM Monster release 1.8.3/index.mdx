@@ -11,16 +11,31 @@ Version **1.8.3** of FDM Monster Server has been released! This release ships wi
 
 This release includes new features, improvements and bug fixes to both FDM Monster Server and FDM Monster Client since the [FDM Monster 1.8.2 release](../01-03%20FDM%20Monster%20Server%20release%201.8.2/index.mdx)!
 
-## Highlights of this release
+## Issues
 
-- [Printer Thumbnail improvement (experimental feature)](/fdm-monster-server-release-1-8-3#printer-thumbnail-improvement-experimental-feature)
-- [Print upload bar would get stuck](/fdm-monster-server-release-1-8-3#print-upload-bar-would-get-stuck)
-- [Support paths in Printer URLs (like octoprint_deploy)](/fdm-monster-server-release-1-8-3#support-paths-in-printer-urls-like-octoprint_deploy)
-- [Http client with builder pattern](/fdm-monster-server-release-1-8-3#http-client-with-builder-pattern)
-- [SocketIO messages are not serialized twice](/fdm-monster-server-release-1-8-3#avoid-serializing-socketio-messages-twice)
-- [Smaller chores on the repository](/fdm-monster-server-release-1-8-3#smaller-chores-and-fixes)
+As part of this release we had [6 issues](https://github.com/fdm-monster/fdm-monster/milestone/28?closed=1) closed.
+
+### Bug
+
+- [#4086](https://github.com/fdm-monster/fdm-monster/issues/4086) [Bug]: failed upload still ends up in changed thumbnail
+- [#4117](https://github.com/fdm-monster/fdm-monster/issues/4117) [Change]: dont serialize SocketIO messages on backend, dont parse on frontend
+- [#4077](https://github.com/fdm-monster/fdm-monster/issues/4077) [Bug]: Uploading GCode causes the upload bar to show indefinitely
+- [#4080](https://github.com/fdm-monster/fdm-monster/issues/4080) [Chore]: Clean up resources on the repository
+- [#3944](https://github.com/fdm-monster/fdm-monster/issues/3944) [Bug]: Printers that use octoprint_deploy /instancename path based routing will not connect properly
+- [#4074](https://github.com/fdm-monster/fdm-monster/issues/4074) [Maintenance]: HttpClient does not use configurable timeout across codebase
+
+If you encounter issues with this release, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
 
 <!-- truncate -->
+
+## Highlights of this release
+
+- [Printer Thumbnail improvement (experimental feature)](#printer-thumbnail-improvement-experimental-feature)
+- [Print upload bar would get stuck](#print-upload-bar-would-get-stuck)
+- [Support paths in Printer URLs (like octoprint_deploy)](#support-paths-in-printer-urls-like-octoprint_deploy)
+- [Http client with builder pattern](#http-client-with-builder-pattern)
+- [SocketIO messages are not serialized twice](#avoid-serializing-socketio-messages-twice)
+- [Smaller chores on the repository](#smaller-chores-and-fixes)
 
 ## Printer Thumbnail improvement (experimental feature)
 
@@ -102,18 +117,3 @@ This release was made possible thanks to the [FDM Monster team](https://docs.fdm
 - [AbbeDabbe](https://github.com/AbbeDabbe) for reporting [this octoprint_deploy bug](https://github.com/fdm-monster/fdm-monster/issues/3944) that has been fixed.
 
 Full details of what has been included can be seen below.
-
-## Issues
-
-As part of this release we had [6 issues](https://github.com/fdm-monster/fdm-monster/milestone/28?closed=1) closed.
-
-### Bug
-
-- [#4086](https://github.com/fdm-monster/fdm-monster/issues/4086) [Bug]: failed upload still ends up in changed thumbnail
-- [#4117](https://github.com/fdm-monster/fdm-monster/issues/4117) [Change]: dont serialize SocketIO messages on backend, dont parse on frontend
-- [#4077](https://github.com/fdm-monster/fdm-monster/issues/4077) [Bug]: Uploading GCode causes the upload bar to show indefinitely
-- [#4080](https://github.com/fdm-monster/fdm-monster/issues/4080) [Chore]: Clean up resources on the repository
-- [#3944](https://github.com/fdm-monster/fdm-monster/issues/3944) [Bug]: Printers that use octoprint_deploy /instancename path based routing will not connect properly
-- [#4074](https://github.com/fdm-monster/fdm-monster/issues/4074) [Maintenance]: HttpClient does not use configurable timeout across codebase
-
-If you encounter issues with this release, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
