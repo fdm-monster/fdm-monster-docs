@@ -1,15 +1,15 @@
 ---
-title: FDM Monster Server release 1.8.3
+title: FDM Monster release 1.8.3
 authors:
   - davidzwa
 tags: [releases]
-slug: /fdm-monster-server-release-1-8-3
-description: FDM Monster Server version 1.8.3 has been released!
+slug: /fdm-monster-release-1-8-3
+description: FDM Monster version 1.8.3 has been released!
 ---
 
-Version **1.8.3** of FDM Monster Server has been released! This release ships with FDM Monster Client 1.9.0, which is also the minimum required client version.
+Version **1.8.3** of FDM Monster has been released! This release ships with FDM Monster Client 1.9.0, which is also the minimum required client version.
 
-This release includes new features, improvements and bug fixes to both FDM Monster Server and FDM Monster Client since the [FDM Monster 1.8.2 release](../01-03%20FDM%20Monster%20Server%20release%201.8.2/index.mdx)!
+This release includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.2 release](../01-03%20FDM%20Monster%20release%201.8.2/index.mdx)!
 
 ## Issues
 
@@ -39,7 +39,7 @@ If you encounter issues with this release, please create an issue at our [GitHub
 
 ## Printer Thumbnail improvement (experimental feature)
 
-The thumbnail feature has been introduced as an experimental feature since FDM Monster Server v1.8.0. Since then the thumbnail feature has received a bugfix in v1.8.1 within the UI. In this release the thumbnail will only change after the printed file has been uploaded and accepted by OctoPrint.
+The thumbnail feature has been introduced as an experimental feature since FDM Monster v1.8.0. Since then the thumbnail feature has received a bugfix in v1.8.1 within the UI. In this release the thumbnail will only change after the printed file has been uploaded and accepted by OctoPrint.
 
 This change however was not enough, it was found that even when OctoPrint is busy the thumbnail will change. This is tracked in [this issue](https://github.com/fdm-monster/fdm-monster/issues/4138) that will be tackled in a future release.
 
@@ -51,12 +51,12 @@ The design of the upload bar is not very clear yet. Also it is not clear what fi
 
 ## Support paths in Printer URLs (like octoprint_deploy)
 
-Printers that use octoprint_deploy `/printer1` path based routing would not connect properly. The path would not be consistently used in FDM Monster Server backend. The fix was to standardize the URL usage across the codebase for both HTTP calls as well as Websocket clients. This means that now the URL path is preserved across all supported
+Printers that use octoprint_deploy `/printer1` path based routing would not connect properly. The path would not be consistently used in FDM Monster backend. The fix was to standardize the URL usage across the codebase for both HTTP calls as well as Websocket clients. This means that now the URL path is preserved across all supported
 printer services (OctoPrint, Moonraker, etc).
 
 ## Http client with builder pattern
 
-Previously in the FDM Monster Server codebase, http clients were constructed using custom methods building on top of a static `axios` instance. This was hard to work with because some places required a customized http timeout, different URL, different headers or different request/response handling. This was growing too complex.
+Previously in the FDM Monster codebase, http clients were constructed using custom methods building on top of a static `axios` instance. This was hard to work with because some places required a customized http timeout, different URL, different headers or different request/response handling. This was growing too complex.
 By introducing a builder pattern, the http clients in the codebase can reuse the same logic, but choose which combination is required for that place. Also, the builder pattern allows to chain customization or overrides using the fluent pattern.
 
 Before (no chaining using the builder pattern) 😥
