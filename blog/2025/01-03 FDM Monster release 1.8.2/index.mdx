@@ -1,0 +1,32 @@
+---
+title: FDM Monster release 1.8.2
+authors:
+  - davidzwa
+tags: [releases]
+slug: /fdm-monster-release-1-8-2
+description: FDM Monster version 1.8.2 has been released!
+---
+
+Version **1.8.2** of FDM Monster has been released!
+
+## Highlights of this release
+
+The release notes for this release have been placed as a reference only.
+
+<!-- truncate -->
+
+### FDM Monster
+
+- Change developer setup to be node based only (remove concurrently and nodemon packages)
+- Replace server restart with NotImplementedException
+- Remove simple-git package
+- Remove git-pull-based server update mechanic
+- Remove unnecessary environment utilities
+- Updated client required to 1.8.8
+
+### FDM Monster Client
+
+- Updated client to 1.8.8
+  - Adjust server version api response (no more isPm2 or isNodemon flags)
+  - Delete files on printer details (sidenav) should be protected by a confirmation dialog.
+  - Emergency commands: server restart does not work - broken button removed
