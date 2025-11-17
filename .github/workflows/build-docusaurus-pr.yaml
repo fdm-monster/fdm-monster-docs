@@ -10,7 +10,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: DavidAnson/markdownlint-cli2-action@v19
+      - uses: DavidAnson/markdownlint-cli2-action@v21
         with:
           globs: |
             **/*.md
