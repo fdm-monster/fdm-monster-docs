@@ -7,7 +7,7 @@
     <link rel="alternate" href="https://docs.fdm-monster.net/blog"/>
     <subtitle>Keep up to date with FDM Monster and articles by following our feed!</subtitle>
     <icon>https://docs.fdm-monster.net/img/favicon.ico</icon>
-    <rights>Copyright © 2025 David Zwart.</rights>
+    <rights>Copyright © 2026 David Zwart.</rights>
     <entry>
         <title type="html"><![CDATA[FDM Monster release 1.8.3]]></title>
         <id>https://docs.fdm-monster.net/blog/fdm-monster-release-1-8-3</id>
@@ -183,7 +183,7 @@ Now that this has been simplified, the server requires the client to be updated 
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>UPDATE</div><div class="admonitionContent_BuS1"><p>After development we noticed Moonraker, by default, does not require an API key. This has been updated in the code</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="-poll">❔ Poll<a href="https://docs.fdm-monster.net/blog/klipper-update#-poll" class="hash-link" aria-label="Direct link to ❔ Poll" title="Direct link to ❔ Poll">​</a></h2>
 <p>The poll for filament tracking was announced a couple of days ago. The idea is to estimate what you are using for this, so integration work for FDM Monster can be planned around this in the future.
-Find it <a href="https://github.com/fdm-monster/fdm-monster/discussions/3142" target="_blank" rel="noopener noreferrer">here</a></p>]]></content>
+Find it <a href="https://github.com/fdm-monster/fdm-monster/discussions/3142" target="_blank" rel="noopener noreferrer">in GitHub discussion #3142</a></p>]]></content>
         <author>
             <name>David Zwart</name>
             <uri>https://github.com/davidzwa</uri>
@@ -234,7 +234,7 @@ I do want to emphasize that this gives mental space for Mobile Design of FDM Mon
 <p>fdm-monster-client version 1.5.8 - a tiny bugfix which fixes the Maintenance Dialog showing no content</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="-news">🌐 News<a href="https://docs.fdm-monster.net/blog/april-2024-updates#-news" class="hash-link" aria-label="Direct link to 🌐 News" title="Direct link to 🌐 News">​</a></h2>
 <p>This week for the Bun.js framework released 1.1 which is Windows compatible. They have attracted my attention for quite a while, and I will definitely explore Bun + NestJS as a replacement for NodeJS + Awilix.
-Read about them <a href="https://bun.sh/blog/bun-v1.1" target="_blank" rel="noopener noreferrer">here</a></p>]]></content>
+Read about them <a href="https://bun.sh/blog/bun-v1.1" target="_blank" rel="noopener noreferrer">on their blog</a></p>]]></content>
         <author>
             <name>David Zwart</name>
             <uri>https://github.com/davidzwa</uri>
