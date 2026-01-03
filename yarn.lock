@@ -2651,14 +2651,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@iconify/react@npm:6.0.0"
+"@iconify/react@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@iconify/react@npm:6.0.2"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
   peerDependencies:
     react: ">=16"
-  checksum: 10c0/612cbc56e7b270076ce2c087c260cd53a0325875057202f2032f0a1fb0a88da44aec6cb63aab17530f35effa1f9fd5a86d0ab74ef99123ce30e5c49bca767b67
+  checksum: 10c0/1f53f588361d658c6f077fefcc31d52f6f5d375f06b63dd13cc73b71fd28cf9409edece921ea8fa5195a79d02ff9162aff8472c14e858c0178067eecc3128460
   languageName: node
   linkType: hard
 
@@ -6032,7 +6032,7 @@ __metadata:
     "@docusaurus/theme-search-algolia": "npm:3.7.0"
     "@docusaurus/tsconfig": "npm:3.7.0"
     "@docusaurus/types": "npm:3.7.0"
-    "@iconify/react": "npm:6.0.0"
+    "@iconify/react": "npm:6.0.2"
     "@types/react": "npm:19.2.7"
     clsx: "npm:2.1.1"
     prism-react-renderer: "npm:2.4.1"
