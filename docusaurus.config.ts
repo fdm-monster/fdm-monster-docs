@@ -27,7 +27,13 @@ const config: Config = {
 
   onBrokenLinks: "throw",
   onBrokenAnchors: "throw",
-  onBrokenMarkdownLinks: "throw",
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "throw",
+      onBrokenMarkdownImages: "throw"
+    }
+  },
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -232,12 +238,12 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} David Zwart. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.`,
     },
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     prism: {
-      colorMode: {
-        // Let the system decide with 'respectPrefersColorScheme' below
-        // defaultMode: 'dark',
-        respectPrefersColorScheme: true,
-      },
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ["bash", "json", "powershell"],

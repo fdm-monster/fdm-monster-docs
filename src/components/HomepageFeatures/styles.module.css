@@ -1,11 +1,208 @@
-.features {
+.featuresSection {
+  background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+  padding: 5rem 0;
+  position: relative;
+}
+
+.featuresContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.featuresHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.25rem;
+  color: #a0aec0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* First row: 3 tiles (each takes 4 columns out of 12) */
+.featureCard:nth-child(1),
+.featureCard:nth-child(2),
+.featureCard:nth-child(3) {
+  grid-column: span 4;
+}
+
+/* Second row: 4 tiles (each takes 3 columns out of 12) */
+.featureCard:nth-child(4),
+.featureCard:nth-child(5),
+.featureCard:nth-child(6),
+.featureCard:nth-child(7) {
+  grid-column: span 3;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.featureCard:nth-child(1) { animation-delay: 0.1s; }
+.featureCard:nth-child(2) { animation-delay: 0.2s; }
+.featureCard:nth-child(3) { animation-delay: 0.3s; }
+.featureCard:nth-child(4) { animation-delay: 0.4s; }
+.featureCard:nth-child(5) { animation-delay: 0.5s; }
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 12px 40px rgba(239, 68, 68, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.featureIconWrapper {
+  width: 120px;
+  height: 120px;
   display: flex;
   align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover .featureIconWrapper {
+  transform: scale(1.1);
 }
 
 .featureSvg {
-  height: 125px;
-  width: 125px;
+  height: 80px;
+  width: 80px;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.3));
+}
+
+.featureContent {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #a0aec0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.featureAction {
+  width: 100%;
+}
+
+.featureButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.featureButton:hover {
+  background: #ef4444;
+  color: white;
+  text-decoration: none;
+  border-color: #ef4444;
+  transform: translateY(-2px);
+}
+
+.featureArrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.featureButton:hover .featureArrow {
+  transform: translateX(4px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .featuresSection {
+    padding: 3rem 0;
+  }
+
+  .featuresHeader {
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Reset all cards to full width on mobile */
+  .featureCard:nth-child(1),
+  .featureCard:nth-child(2),
+  .featureCard:nth-child(3),
+  .featureCard:nth-child(4),
+  .featureCard:nth-child(5),
+  .featureCard:nth-child(6),
+  .featureCard:nth-child(7) {
+    grid-column: span 1;
+  }
+
+  .featureCard {
+    padding: 1.5rem;
+  }
 }
