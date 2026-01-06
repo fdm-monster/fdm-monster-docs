@@ -25,7 +25,7 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
     featureLink: {
-      description: "Easy setup!",
+      description: "Get Started",
       href: "/docs/installing/docker_compose",
     },
   },
@@ -36,7 +36,7 @@ const FeatureList: FeatureItem[] = [
       <>Run FDM Monster on a Raspberry Pi 3 or 4 using our prebuilt image.</>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Learn More",
       href: "/docs/installing/monsterpi",
     },
   },
@@ -47,7 +47,7 @@ const FeatureList: FeatureItem[] = [
       <>Do you have questions about FDM Monster? Or just want to talk about 3D Printing?</>
     ),
     featureLink: {
-      description: "Join our Discord!",
+      description: "Join Community",
       href: "https://discord.gg/mwA8uP8CMc",
     },
   },
@@ -58,7 +58,7 @@ const FeatureList: FeatureItem[] = [
       <>Using OctoPrint, FDM Monster prevents single points of failures in your farm!</>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Visit OctoPrint",
       href: "https://octoprint.org/",
     },
   },
@@ -69,7 +69,7 @@ const FeatureList: FeatureItem[] = [
       <>Moonraker enables FDM Monster to communicate with your Klipper device!</>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Visit Moonraker",
       href: "https://moonraker.readthedocs.io/",
     },
   },
@@ -80,7 +80,7 @@ const FeatureList: FeatureItem[] = [
       <>Connect and manage your Bambu Lab printers directly through FDM Monster!</>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Visit Bambu Lab",
       href: "https://bambulab.com/",
     },
   },
@@ -91,33 +91,53 @@ const FeatureList: FeatureItem[] = [
       <>Integrate your Prusa printers using PrusaLink for seamless farm management!</>
     ),
     featureLink: {
-      description: "Read More!",
+      description: "Visit PrusaLink",
       href: "https://help.prusa3d.com/article/prusalink-and-prusaconnect_302608",
+    },
+  },
+  {
+    title: "Deploy on Unraid",
+    Svg: require("@site/static/img/unraid-logo.svg").default,
+    description: (
+      <>Run FDM Monster on your Unraid server for easy container management!</>
+    ),
+    featureLink: {
+      description: "Learn More",
+      href: "/docs/installing/docker_compose",
     },
   },
 ];
 
 function Feature({ Svg, title, description, featureLink }) {
+  const isExternal = featureLink.href.startsWith('http');
+
   return (
-    <div className={styles.featureCard}>
-      <div className={styles.featureIconWrapper}>
-        {typeof Svg === "string" ? (
-          <img src={Svg} className={styles.featureSvg} alt={title} />
-        ) : (
-          <Svg className={styles.featureSvg} role="img" />
-        )}
+    <Link
+      to={featureLink.href}
+      className={styles.featureCardLink}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+    >
+      <div className={styles.featureCard}>
+        <div className={styles.featureIconWrapper}>
+          {typeof Svg === "string" ? (
+            <img src={Svg} className={styles.featureSvg} alt={title} />
+          ) : (
+            <Svg className={styles.featureSvg} role="img" />
+          )}
+        </div>
+        <div className={styles.featureContent}>
+          <h3 className={styles.featureTitle}>{title}</h3>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
+        <div className={styles.featureAction}>
+          <span className={styles.featureButton}>
+            {featureLink.description}{" "}
+            <span className={styles.featureArrow}>→</span>
+          </span>
+        </div>
       </div>
-      <div className={styles.featureContent}>
-        <h3 className={styles.featureTitle}>{title}</h3>
-        <p className={styles.featureDescription}>{description}</p>
-      </div>
-      <div className={styles.featureAction}>
-        <Link className={styles.featureButton} to={featureLink.href}>
-          {featureLink.description}{" "}
-          <span className={styles.featureArrow}>→</span>
-        </Link>
-      </div>
-    </div>
+    </Link>
   );
 }
 

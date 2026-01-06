@@ -1,5 +1,5 @@
 .featuresSection {
-  background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+  background: linear-gradient(190deg, #0f3460 0%, #16213e 25%, #1a1a2e 60%, #0f1419 100%);
   padding: 5rem 0;
   position: relative;
 }
@@ -38,18 +38,36 @@
 }
 
 /* First row: 3 tiles (each takes 4 columns out of 12) */
-.featureCard:nth-child(1),
-.featureCard:nth-child(2),
-.featureCard:nth-child(3) {
+.featureCardLink:nth-child(1),
+.featureCardLink:nth-child(2),
+.featureCardLink:nth-child(3) {
   grid-column: span 4;
 }
 
 /* Second row: 4 tiles (each takes 3 columns out of 12) */
-.featureCard:nth-child(4),
-.featureCard:nth-child(5),
-.featureCard:nth-child(6),
-.featureCard:nth-child(7) {
+.featureCardLink:nth-child(4),
+.featureCardLink:nth-child(5),
+.featureCardLink:nth-child(6),
+.featureCardLink:nth-child(7) {
   grid-column: span 3;
+}
+
+/* Third row: 1 centered tile (Unraid) */
+.featureCardLink:nth-child(8) {
+  grid-column: 5 / 9; /* Center it by starting at column 5 and spanning 4 columns */
+}
+
+.featureCardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+
+.featureCardLink:hover {
+  text-decoration: none;
+  color: inherit;
 }
 
 .featureCard {
@@ -64,15 +82,19 @@
   text-align: center;
   backdrop-filter: blur(10px);
   animation: fadeInUp 0.6s ease-out backwards;
+  height: 100%;
 }
 
-.featureCard:nth-child(1) { animation-delay: 0.1s; }
-.featureCard:nth-child(2) { animation-delay: 0.2s; }
-.featureCard:nth-child(3) { animation-delay: 0.3s; }
-.featureCard:nth-child(4) { animation-delay: 0.4s; }
-.featureCard:nth-child(5) { animation-delay: 0.5s; }
+.featureCardLink:nth-child(1) .featureCard { animation-delay: 0.1s; }
+.featureCardLink:nth-child(2) .featureCard { animation-delay: 0.2s; }
+.featureCardLink:nth-child(3) .featureCard { animation-delay: 0.3s; }
+.featureCardLink:nth-child(4) .featureCard { animation-delay: 0.4s; }
+.featureCardLink:nth-child(5) .featureCard { animation-delay: 0.5s; }
+.featureCardLink:nth-child(6) .featureCard { animation-delay: 0.6s; }
+.featureCardLink:nth-child(7) .featureCard { animation-delay: 0.7s; }
+.featureCardLink:nth-child(8) .featureCard { animation-delay: 0.8s; }
 
-.featureCard:hover {
+.featureCardLink:hover .featureCard {
   transform: translateY(-8px);
   border-color: rgba(239, 68, 68, 0.5);
   box-shadow: 0 12px 40px rgba(239, 68, 68, 0.15);
@@ -91,7 +113,7 @@
   transition: transform 0.3s ease;
 }
 
-.featureCard:hover .featureIconWrapper {
+.featureCardLink:hover .featureIconWrapper {
   transform: scale(1.1);
 }
 
@@ -139,9 +161,10 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  pointer-events: none; /* Prevent button from intercepting clicks */
 }
 
-.featureButton:hover {
+.featureCardLink:hover .featureButton {
   background: #ef4444;
   color: white;
   text-decoration: none;
@@ -154,7 +177,7 @@
   transition: transform 0.3s ease;
 }
 
-.featureButton:hover .featureArrow {
+.featureCardLink:hover .featureArrow {
   transform: translateX(4px);
 }
 
@@ -192,13 +215,14 @@
   }
 
   /* Reset all cards to full width on mobile */
-  .featureCard:nth-child(1),
-  .featureCard:nth-child(2),
-  .featureCard:nth-child(3),
-  .featureCard:nth-child(4),
-  .featureCard:nth-child(5),
-  .featureCard:nth-child(6),
-  .featureCard:nth-child(7) {
+  .featureCardLink:nth-child(1),
+  .featureCardLink:nth-child(2),
+  .featureCardLink:nth-child(3),
+  .featureCardLink:nth-child(4),
+  .featureCardLink:nth-child(5),
+  .featureCardLink:nth-child(6),
+  .featureCardLink:nth-child(7),
+  .featureCardLink:nth-child(8) {
     grid-column: span 1;
   }
 

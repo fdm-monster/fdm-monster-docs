@@ -21,8 +21,8 @@
   --ifm-color-secondary-darker: #1d4ed8;
 
   /* Background Colors */
-  --ifm-background-color: #1a1a2e;
-  --ifm-background-surface-color: #16213e;
+  --ifm-background-color: #0f1419;
+  --ifm-background-surface-color: #1a1a2e;
 
   /* Text Colors */
   --ifm-font-color-base: #ffffff;
@@ -33,6 +33,9 @@
   --ifm-navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   --ifm-navbar-height: 70px;
 
+  /* Footer */
+  --ifm-footer-background-color: #0f1419;
+
   /* Code */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(239, 68, 68, 0.1);
@@ -40,6 +43,11 @@
   /* Borders */
   --ifm-global-border-width: 1px;
   --ifm-hr-border-color: rgba(239, 68, 68, 0.1);
+
+  /* Container backgrounds */
+  --ifm-container-background-color: #0f1419;
+  --ifm-code-background: rgba(15, 20, 25, 0.8);
+  --ifm-toc-border-color: rgba(239, 68, 68, 0.2);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -52,11 +60,13 @@
   --ifm-color-primary-lighter: #fca5a5;
   --ifm-color-primary-lightest: #fecaca;
 
-  --ifm-background-color: #1a1a2e;
-  --ifm-background-surface-color: #16213e;
+  --ifm-background-color: #0f1419;
+  --ifm-background-surface-color: #1a1a2e;
   --ifm-font-color-base: #ffffff;
   --ifm-font-color-secondary: #a0aec0;
   --docusaurus-highlighted-code-line-bg: rgba(239, 68, 68, 0.15);
+  --ifm-footer-background-color: #0f1419;
+  --ifm-code-background: rgba(15, 20, 25, 0.8);
 }
 
 /* Navbar Styling */
@@ -77,8 +87,8 @@
 .navbar__logo {
   filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3));
   transition: transform 0.3s ease;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+  margin-left: 2rem;
 }
 
 .navbar__logo:hover {
@@ -135,14 +145,46 @@
 
 /* Main content area */
 main {
-  background: #1a1a2e;
+  background: #0f1419;
+}
+
+/* Docs page specific backgrounds */
+.docs-wrapper {
+  background: #0f1419;
+}
+
+.docMainContainer {
+  background: #0f1419;
+}
+
+.docPage {
+  background: #0f1419;
+}
+
+.theme-doc-markdown {
+  background: rgba(26, 26, 46, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(239, 68, 68, 0.05);
+}
+
+article {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+}
+
+.markdown {
+  background: transparent;
 }
 
 /* Sidebar styling for docs */
 .menu {
-  background: rgba(22, 33, 62, 0.5);
+  background: rgba(15, 20, 25, 0.8);
   backdrop-filter: blur(10px);
   padding: 1rem;
+  border-right: 1px solid rgba(239, 68, 68, 0.1);
 }
 
 .menu__link {
@@ -165,9 +207,26 @@ main {
 
 /* Cards and containers */
 .card {
-  background: rgba(22, 33, 62, 0.5);
+  background: rgba(26, 26, 46, 0.5);
   border: 1px solid rgba(239, 68, 68, 0.1);
   backdrop-filter: blur(10px);
+}
+
+.container {
+  background: transparent;
+}
+
+.row {
+  background: transparent;
+}
+
+/* Blog page backgrounds */
+.blogPage {
+  background: #0f1419;
+}
+
+.blogPostPage {
+  background: #0f1419;
 }
 
 /* Buttons */
