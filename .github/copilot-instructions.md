@@ -37,12 +37,14 @@ yarn serve
 ### Design System
 
 **Color Palette:**
+
 - Primary: `#ef4444` (red)
 - Secondary: `#3b82f6` (blue)
 - Dark backgrounds: `#1a1a2e`, `#16213e`, `#0f3460`
 - Text: `#ffffff` (primary), `#a0aec0` (secondary)
 
 **Design Principles:**
+
 - Modern, dark-mode first interface
 - Glassmorphism effects with backdrop blur
 - Smooth animations and transitions
@@ -59,9 +61,9 @@ yarn serve
 ### Workflow
 
 1. Make requested changes
-2. **Wait for user to request validation** - don't auto-build
-3. User will report issues if problems occur
-4. Only run commands when explicitly asked
+1. **Wait for user to request validation** - don't auto-build
+1. User will report issues if problems occur
+1. Only run commands when explicitly asked
 
 ---
 
