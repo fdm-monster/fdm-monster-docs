@@ -1,107 +1,135 @@
 ---
-title: Pre-configuring the FDM Monster Server
-description: Pre-configuration
+title: Environment Variables
+description: Configure FDM Monster with environment variables
 slug: /configuration/preconfiguration
 ---
 
-:::warning
-For the changes in the environment variables to take effect, your FDM Monster server **must** be restarted!
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+:::info
+FDM Monster 2.0.0+ uses SQLite as its database by default. No separate database configuration is required.
 :::
 
-FDM Monster Server can be configured with environment variables. There are different ways to do this for each setup:
-
-- specify a `.env` file. This works for these setups:
-  - Windows service setup with `node-windows`
-  - Linux service setup with `node-linux`
-  - Node.js with `pm2`
-  - Node.js with `nodemon`
-- docker - specify each variable separately, this can become tedious:
-  - docker: using the `-e VARIABLE=value` command repeatedly
-- docker - all at once
-  - docker: using the `--env-file ./.env`
-    command [(Read docker options)](https://docs.docker.com/engine/reference/commandline/run/#options)
-  - docker-compose: using the `environment`
-    section [(Read docker-compose environment)](https://docs.docker.com/compose/environment-variables/)
-
-## Required and optional variables
-
 :::warning
-Since FDM Monster Server v1.6.0+, a new database type was added named SQLite managed with the TypeORM library.
-The file-based database SQLite allows for a standalone FDM Monster setup without MongoDB.
-Hence, no running MongoDB database would be required, if this new mode is enabled.
-Enable this mode by setting `ENABLE_EXPERIMENTAL_TYPEORM=true`. You do not have to specify `MONGO` anymore in that case!
-The `MONGO` variable will be ignored by FDM Monster.
-
-Also note that no data is migrated from MongoDB to SQLite. You can use YAML export & import for migrating most data.
-
-This new mode is experimental, although it has been tested quite a bit. We hope you are in the position to provide
-feedback
-in case of errors or unexpected behaviour!
+For environment variable changes to take effect, your FDM Monster server **must** be restarted.
 :::
 
-The following variables are read and used by FDM Monster at startup. Always restart your server after a change.
+## Configuration Methods
 
-- `MONGO` (Optional, required before 1.6.x) **the connection to mongodb**. For example:
+For Docker and Docker Compose setup instructions, see the [Docker Compose Guide](../installing/docker_compose.mdx).
 
-> `MONGO=mongodb://127.0.0.1:27017/fdm-monster`
+Environment variables can be configured using:
+- **Docker Compose**: `environment` section in `docker-compose.yml`
+- **Docker**: `-e` flags or `--env-file` parameter
+- **.env file**: For Node.js setups with `pm2`, `nodemon`, or direct execution
 
-- `ENABLE_EXPERIMENTAL_TYPEORM` (Optional) **a flag indicating SQLite should be used instead of MongoDB. Setting it to
-  exactly `true` will enable this new mode.**
+## Environment Variables Reference
 
-- `ENABLE_EXPERIMENTAL_TYPEORM=true`
+### Server Configuration
 
-- `SERVER_PORT` (Optional, default=4000) **the port of the local FDM Monster website**. For example:
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SERVER_PORT` | `4000` | The port the server listens on |
+| `NODE_ENV` | `production` | Environment mode: `development` or `production` |
+| `ENABLE_COLORED_LOGS` | `false` | Enable colored console logs |
 
-> `SERVER_PORT=4000`
+### Authentication
 
-## The `.env` file
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OVERRIDE_LOGIN_REQUIRED` | `true` | Require login to access the application |
+| `OVERRIDE_REGISTRATION_ENABLED` | `false` | Allow new user registration |
+| `OVERRIDE_JWT_SECRET` | `fdm-monster-jwt-secret-2023` | JWT secret key (changing invalidates logins) |
+| `OVERRIDE_JWT_EXPIRES_IN` | `3600` | JWT expiration in seconds (minimum: 120) |
+| `OVERRIDE_JWT_ISSUER` | `fdm-monster-server-2023` | JWT issuer (changing invalidates logins) |
+| `OVERRIDE_JWT_AUDIENCE` | `fdm-monster-client-next-2026` | JWT audience (changing invalidates logins) |
 
-A very simple text file with a variable per line. The following `.env` is often already enough to make sure FDM Monster
-works as you like:
+### Demo Mode
 
-```dotenv
-MONGO=mongodb://127.0.0.1:27017/fdm-monster
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OVERRIDE_IS_DEMO_MODE` | `false` | Enable demo mode (completes wizard automatically) |
+| `OVERRIDE_DEMO_USERNAME` | `demo` | Demo mode username |
+| `OVERRIDE_DEMO_PASSWORD` | `demo2023` | Demo mode password |
+| `OVERRIDE_DEMO_ROLE` | `ADMIN` | Demo user role: `ADMIN` or `OPERATOR` |
+
+### Database
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DATABASE_PATH` | `./database` | Path to SQLite database directory |
+| `DATABASE_FILE` | `fdm-monster.sqlite` | SQLite database filename |
+
+### GitHub Integration
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `GITHUB_PAT` | - | GitHub Personal Access Token for client bundle downloads |
+
+### Monitoring & Debugging
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DEBUG_SOCKET_STATES` | `false` | Enable socket state debugging |
+| `ENABLE_PROMETHEUS` | `false` | Enable Prometheus monitoring |
+| `ENABLE_LOKI` | `false` | Enable Loki logging |
+| `LOKI_ADDRESS` | - | Loki server address |
+| `ENABLE_PROMETHEUS_METRICS` | `false` | Enable Prometheus metrics endpoint |
+
+### Sentry Bug Tracking
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SENTRY_CUSTOM_DSN` | FDM Monster default | Custom Sentry DSN for bug tracking |
+
+### API Documentation
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DISABLE_SWAGGER_OPENAPI` | `false` | Disable Swagger UI and OpenAPI endpoints |
+| `GENERATE_SWAGGER_JSON` | `false` | Generate swagger.json file in media folder |
+
+## Common Configuration Examples
+
+### Production Setup
+
+```bash
 SERVER_PORT=4000
+NODE_ENV=production
+OVERRIDE_LOGIN_REQUIRED=true
+OVERRIDE_REGISTRATION_ENABLED=false
+ENABLE_COLORED_LOGS=false
 ```
 
-Alternatively, the new SQLite (TypeORM) mode can be enabled as such:
+### Development Setup
 
-```dotenv
-ENABLE_EXPERIMENTAL_TYPEORM=true
+```bash
 SERVER_PORT=4000
+NODE_ENV=development
+ENABLE_COLORED_LOGS=true
+DEBUG_SOCKET_STATES=true
+OVERRIDE_LOGIN_REQUIRED=false
 ```
 
-## Applying it to your setup
+### Demo Mode Setup
 
-So, you understand the variables to configure FDM Monster now. How do I set this up for my environment? Read below for
-your specific scenario.
-
-### Node.js with node-linux, node-windows or pm2
-
-Create a `.env` file in the `fdm-monster/server` folder with the **required** and/or _optional_ variables by copying
-the `.env.template` file.
-Copy this and rename it to `.env` to get started quicker.
-The server will automatically create the `.env` file for you, and the server logs will show what is going wrong if
-something is missing.
-
-Feel adventurous? Customize the file to your liking, but again ALWAYS make sure the **required** variables are correctly
-set.
-
-### Docker-compose
-
-With docker-compose you have a great tool to pass environment variables use the `environment` section.
-Here is how the environment section in docker would look.
-
-```yaml
-services:
-  fdm-monster:
-    # ... other sections here
-    environment:
-      #       To use SQLite / TypeORM instead:
-      #      - ENABLE_EXPERIMENTAL_TYPEORM=true
-      - MONGO: mongodb://127.0.0.1:27017/fdm-monster
-      - SERVER_PORT: 4000
+```bash
+SERVER_PORT=4000
+NODE_ENV=production
+OVERRIDE_IS_DEMO_MODE=true
+OVERRIDE_DEMO_USERNAME=demo
+OVERRIDE_DEMO_PASSWORD=demo2023
+OVERRIDE_DEMO_ROLE=ADMIN
 ```
 
-Please continue by reading the [Docker Compose section](../installing/docker_compose.mdx) for more information on how
-to setup FDM Monster and MongoDB with docker-compose.
+### Custom Authentication
+
+```bash
+SERVER_PORT=4000
+OVERRIDE_LOGIN_REQUIRED=true
+OVERRIDE_REGISTRATION_ENABLED=true
+OVERRIDE_JWT_SECRET=your-secure-secret-here
+OVERRIDE_JWT_EXPIRES_IN=7200
+```
+

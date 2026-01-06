@@ -14,18 +14,6 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       items: [
         'installing/monsterpi',
         'installing/docker_compose',
-        {
-          type: 'category',
-          label: 'Deprecated',
-          link: {
-            type: 'doc',
-            id: 'installing/deprecated/index',
-          },
-          items: [
-            'installing/deprecated/windows_service',
-            'installing/deprecated/linux_service',
-          ],
-        },
       ],
     },
     {
