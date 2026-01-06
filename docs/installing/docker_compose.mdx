@@ -6,111 +6,117 @@ pagination_prev: installing/index
 pagination_next: software_usage/index
 ---
 
-:::info
-Familiarity with [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) is required.
-:::
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-:::tip
-We simply cannot support custom scenarios or setups. Therefore, it is essential to check your device's memory limits, architecture, and CPU power.
-:::
+Starting from version 2.0.0, FDM Monster uses SQLite as its database, so no separate database server is required.
 
-## Running FDM Monster with Docker Compose
+## Quick Start
 
-In the next steps, we will guide you through the process of running FDM Monster with Docker Compose.
+<Tabs>
+<TabItem value="docker-compose" label="Docker Compose" default>
 
-### Step 1: FDM Monster image and version tag
-
-We provide the `fdmmonster/fdm-monster` image. This image requires you to run a MongoDB server, MongoDB Atlas (cloud offering), or a MongoDB docker container (see compose file below).
-Find it on [Docker Hub](https://hub.docker.com/r/fdmmonster/fdm-monster/tags).
-
-There are multiple tags available for the `fdmmonster/fdm-monster` image.
-
-- `latest` - The latest version of FDM Monster. This is the default tag.
-- `x`, `x.y`, `x.y.z` - A specific version of FDM Monster. For example, `1`, `1.4`, or `1.4.0`.
-- `main` - The latest development version of FDM Monster. This version is the same as the `latest` tag and it is stable.
-- `develop` - The latest development version of FDM Monster. This version is not recommended for production use.
-- `x.y.z-rc?-1234` - A specific release candidate of FDM Monster with a specific build number. For example, `1.4.0-rc1-1234`. These are development versions and are not recommended for production use.
-- `x.y.z-1234` - A specific version of FDM Monster with a specific build number. For example, `1.4.0-1234`. These are development versions and are not recommended for production use.
-
-### Step 2: Create a docker-compose.yml file
-
-To run a Docker Compose stack, create a file named `docker-compose.yml` and use the file contents presented below. Note that an option has been added for adding MongoDB authentication.
-If you choose not to use authentication, you can remove the `MONGO_INITDB_ROOT_USERNAME` and `MONGO_INITDB_ROOT_PASSWORD` environment variables.
-In that case, you should leave out the `<username>:<password>@` part of the `MONGO` environment variable.
-
-:::warning
-It's important to protect your MongoDB database with authentication. If you choose not to use authentication, you should at least use a firewall to protect your database.
-Do not simply expose your database over the internet without any protection! You have been warned.
-:::
-
-There is also a development (`NODE_ENV=development`) compose file here: [docker-compose.yml](https://github.com/fdm-monster/fdm-monster/tree/main/docker-compose.yml)):
-
-```yaml title="docker-compose.yml example"
-version: '3.4'
-
-services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb
-    restart: always
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
-      interval: 10s
-      timeout: 10s
-      retries: 5
-      start_period: 40s
-    environment:
-      # MongoDB with authentication (advised!)
-      - MONGO_INITDB_ROOT_USERNAME=YOUR_ROOT_NAME
-      - MONGO_INITDB_ROOT_PASSWORD=YOUR_ROOT_PASSWORD
-    volumes:
-      - ./mongodb-data:/data/db
-      - ./mongoconfig:/data/configdb
-
-  fdm-monster:
-    container_name: fdm-monster
-    image: fdmmonster/fdm-monster:latest
-    restart: unless-stopped
-    healthcheck:
-      test: curl --fail http://localhost:4000 || exit 1
-      interval: 30s
-      timeout: 5s
-      retries: 5
-      start_period: 40s
-    depends_on:
-      - mongodb
-    ports:
-      - "4000:4000"
-    environment:
-      # MongoDB with and without authentication (advised!)
-      - MONGO=mongodb://YOUR_ROOT_NAME:YOUR_ROOT_PASSWORD@mongodb:27017/fdm-monster?authSource=admin
-      # - MONGO=mongodb://mongodb:27017/fdm-monster?authSource=admin
-    volumes:
-      - ./fdm-monster/media:/app/media
-```
-
-_An example of a docker-compose.yml file with the MongoDB and FDM-Monster services in one stack._
-
-:::info
-By default the `mongodb` service is not exposed to your local network. To expose MongoDB add the lines below right above the `environment` line.
+Create a `docker-compose.yml` file:
 
 ```yaml
+services:
+  fdm-monster:
+    container_name: fdm-monster
+    image: fdmmonster/fdm-monster:2.0.0
+    restart: unless-stopped
+    deploy:
+      restart_policy:
+        delay: 5s
+        max_attempts: 3
+        window: 120s
     ports:
-      - "28017:27017"
+      - "4000:4000"
+    volumes:
+      - fdm-monster-media:/app/media
+      - fdm-monster-database:/app/database
+
+volumes:
+  fdm-monster-media:
+  fdm-monster-database:
 ```
 
-:::
+Run the container:
 
-### Step 3: Execute the docker-compose stack
-
-Execute this command to run the containers:
-
-```powershell
+```bash
 docker-compose up -d
 ```
 
-Please note that FDM Monster requires a MongoDB database to function properly. When using the `latest` or `alpine` images,
-make sure to configure your root user's username and password for MongoDB.
-Additionally, FDM Monster needs to access the `admin` table, which is the default table name for the authentication source.
+</TabItem>
+<TabItem value="docker" label="Docker">
 
-Now you can access FDM Monster at `http://localhost:4000`, `http://127.0.0.1:4000`, or `http://<your-ip>:4000`.
+Run FDM Monster with Docker:
+
+```bash
+docker run -d \
+  --name fdm-monster \
+  -p 4000:4000 \
+  -v fdm-monster-media:/app/media \
+  -v fdm-monster-database:/app/database \
+  --restart unless-stopped \
+  fdmmonster/fdm-monster:2.0.0
+```
+
+</TabItem>
+</Tabs>
+
+Access FDM Monster at `http://localhost:4000`
+
+## Docker Image
+
+The FDM Monster Docker image can be found on [Docker Hub](https://hub.docker.com/r/fdmmonster/fdm-monster/tags).
+
+### Image Tags
+
+Multiple tags are available for the `fdmmonster/fdm-monster` image:
+
+- `latest` - The latest stable release
+- `2`, `2.0`, `2.0.0` - Specific version tags
+- `main` - Latest stable development version (same as `latest`)
+- `develop` - Latest development version (not recommended for production)
+- `x.y.z-rc1-1234` - Release candidates (not recommended for production)
+
+## Environment Variables
+
+FDM Monster can be customized using environment variables. See the complete [Environment Variables Reference](../configuration/preconfiguration.mdx) for all available options.
+
+### Quick Example
+
+```yaml
+services:
+  fdm-monster:
+    container_name: fdm-monster
+    image: fdmmonster/fdm-monster:2.0.0
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - SERVER_PORT=4000
+      - NODE_ENV=production
+      - OVERRIDE_LOGIN_REQUIRED=true
+    volumes:
+      - fdm-monster-media:/app/media
+      - fdm-monster-database:/app/database
+
+volumes:
+  fdm-monster-media:
+  fdm-monster-database:
+```
+
+Common environment variables include:
+
+- `SERVER_PORT` - Change the server port (default: 4000)
+- `NODE_ENV` - Set environment mode (default: production)
+- `OVERRIDE_LOGIN_REQUIRED` - Require login (default: true)
+- `OVERRIDE_IS_DEMO_MODE` - Enable demo mode (default: false)
+
+For the complete list of environment variables, configuration examples, and detailed descriptions, see the [Environment Variables Guide](../configuration/preconfiguration.mdx).
+
+## Additional Resources
+
+- Development compose file: [docker-compose.yml](https://github.com/fdm-monster/fdm-monster/tree/main/docker-compose.yml)
+- Docker Hub: [fdmmonster/fdm-monster](https://hub.docker.com/r/fdmmonster/fdm-monster)
