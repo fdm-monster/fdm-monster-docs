@@ -105,14 +105,6 @@ const config: Config = {
             from: ['/docs/ourteam'],
             to: '/docs/community/ourteam',
           },
-          {
-            from: ['/docs/installing/windows_service'],
-            to: '/docs/installing/deprecated/windows_service',
-          },
-          {
-            from: ['/docs/installing/linux_service'],
-            to: '/docs/installing/deprecated/linux_service',
-          },
         ],
       } satisfies ClientRedirectsOptions,
     ],
