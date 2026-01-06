@@ -10,7 +10,9 @@
     "allowed_elements": [
       "br",
       "kbd",
-      "IIcon"
+      "IIcon",
+      "Tabs",
+      "TabItem"
     ]
   }
 }
