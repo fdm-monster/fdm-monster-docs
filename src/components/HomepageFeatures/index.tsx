@@ -103,7 +103,7 @@ const FeatureList: FeatureItem[] = [
     ),
     featureLink: {
       description: "Learn More",
-      href: "/docs/installing/docker_compose",
+      href: "https://unraid.net/community/apps",
     },
   },
 ];
