@@ -27,7 +27,6 @@ services:
     deploy:
       restart_policy:
         delay: 5s
-        max_attempts: 3
         window: 120s
     ports:
       - "4000:4000"
