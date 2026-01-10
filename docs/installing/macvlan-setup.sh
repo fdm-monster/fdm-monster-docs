@@ -16,54 +16,68 @@
 # Use at your own risk.
 # 
 
-if [ "$#" -ne 6 ]; then
 cat<<-EOH
   FDM Monster macvlan setup helper
-   $0 <name> <interface> <network> <subnet> <gateway> <IP>
 
   This script creates the docker macvlan bridge network and a 
-  base docker compose files for you.
+  base docker compose files for you. You will need to know:
 
    name      -> the name for the docker bridge
-   interface -> the host interface the bridge will bind too (ex eth0)
+   interface -> the host interface the bridge will bind to (ex eth0)
    network   -> the network address in cidr notation (ex 192.168.1.0/24)
    aubnet    -> the aubnet in cidr available for the bridge (ex 192.168.1.240/28)
-   gateway   -> the network subnet gateway address (ex 192.168.1)
+                These are the IP addresses docker will asign to containers IF
+                the container is not assigned a static IP at start. These IP
+                address must be excluded from any DHCP scopes
+   gateway   -> the network default gateway address (ex 192.168.1)
    IP        -> the IP address from the subnet to assign to the container (ex 192.168.1.241)
+                The container does not support DHCP or DHCPE reservation at this time. 
 
-  The docker-compose file will be named VERIFY_docker-compose.yml. Please review the file
+  The docker-compose file will be named FDMM-mDNS-docker-compose.yml. Please review the file
   before use. The file should be renamed to something meaningful for your install.
 
-
 EOH
-  exit
-else
+
+echo -n "  Please enter the name to be used for the docker macvlan network: "
+read name
+echo -n "  Please enter the interface to bind the network to: "
+read interface
+echo -n "  Please enter the network in cidr notation: "
+read network
+echo -n "  Please enter the IP subnet in cdir notation that is dedicated to the $name bridge: "
+read subnet
+echo -n "  Please enter tha default gateway for $network: "
+read gateway
+echo -n "  Please enter the IP to assign to the FDM Monster container: "
+read ip
+
+
 cat << EOD
   Docker network command:
-     docker network create -d macvlan --subnet=${3} --ip-range=${4} --gateway=${5} -o parent=${2} ${1}
+     docker network create -d macvlan --subnet=${network} --ip-range=${subnet} --gateway=${gateway} -o parent=${interface} ${name}
 
 EOD
+
 echo -n "  execute (y/N)? "
 read -rn 1 resp
 echo
 
 if [[ "$resp" == "y" || "$resp" == "Y" ]]
 then
-   docker network create -d macvlan --subnet=${3} --ip-range=${4} --gateway=${5} -o parent=${2} ${1}
+   docker network create -d macvlan --subnet=${network} --ip-range=${subnet} --gateway=${gateway} -o parent=${interface} ${name}
 else
   echo "  Please make sure you have the needed mavlan brige created."
 fi
 
-echo -e "\n  creating VERIFY_docker-compose.yml"
 
-cat<< EOC > VERIFY_docker-compose.yml
+docker_compose=$(cat << EOC
 # docker build --platform linux/amd64,linux/arm64 -t 1.5.0-alpha . -f .\docker\Dockerfile-mdns
 # This section requires an explict docker network that allows the container to
 #  utilize an IP directly on the host interface. Reference macvlan setup at
 #  https://docs.docker.com/engine/network/drivers/macvlan/ for details
 fdm-monster-mdns:
   container_name: fdm-monster-mdns
-  image: fdmmonster/fdm-monster:2.0.0-mdns
+  image: fdmmonster/fdm-monster:latest-mdns
   restart: unless-stopped
   environment:
     - SERVER_PORT=80
@@ -73,8 +87,8 @@ fdm-monster-mdns:
       #max_attempts: 3
       window: 120s
   networks:
-    ${1}: # rename to mach your config option below
-      ipv4_address: ${6} # dhcp is available. Refer to docker documentation
+    ${name}: # rename to mach your config option below
+      ipv4_address: ${ip} # dhcp is available. Refer to docker documentation
   volumes:
     - fdmm-media:/app/media
     - fdmm-database:/app/database
@@ -86,19 +100,35 @@ volumes:
     name: fdmm-database
 
 networks:
-  ${1}:   # edit to suite as this is internal config
+  ${name}:   # edit to suite as this is internal config
     external: true
-    name: ${1} # must match your macvlan bridge name
+    name: ${name} # must match your macvlan bridge name
 
 EOC
+)
+
+echo -e "  Here is the prepared docker-compose.yml\n============================\n\n"
+echo -e "${docker_compose}"
+
+echo -en "\n\n  Woould you like me to write the above to FDM-mDNS-docker-compose.yml? (y/N): "
+read -rn 1 resp
+
+if [[ "$resp" == "y" || "$resp" == "Y" ]]
+then
+	echo "${docker_compose}" > ./FDMM-mDNS-docker-compose.yml
+	echo -e "  File written\n\n"
+fi
 
 cat << EOM
-  complete
 
-  Enjoy FDM Monster.
+
+  To start your container execute:
+    docker compose -f FDMM-mDNA-docker-compose.yml up -d
+
+  Enjoy using FDM Monster.
     Docs    > https://docs.fdm-monster.net/docs
     Discord > https://discord.gg/mwA8uP8CMc
     GitHub  > https://github.com/fdm-monster/fdm-monster
 
 EOM
-fi
+
