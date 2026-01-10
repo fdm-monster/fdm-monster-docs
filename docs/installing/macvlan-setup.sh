@@ -1,6 +1,19 @@
-#!/bin/bash
-# FMD Monster mDNS configuration helper.
-# This script is provided with no warantee. 
+#!/usr/bin/env bash
+# ==============================================================================
+# FDM Monster mDNS configuration helper.
+# ==============================================================================
+#
+# Copyright (c) 2026 FDM Monster
+#
+# This script is provided "AS IS", without warranty of any kind, express or implied,
+# including but not limited to the warranties of merchantability, fitness for a
+# particular purpose, and noninfringement.
+#
+# In no event shall FDM Monster be liable for any claim, damages, or other liability,
+# whether in an action of contract, tort, or otherwise, arising from, out of, or in
+# connection with the script or the use or other dealings in the script.
+#
+# Use at your own risk.
 # 
 
 if [ "$#" -ne 6 ]; then
