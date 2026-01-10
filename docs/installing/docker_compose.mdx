@@ -79,6 +79,16 @@ Multiple tags are available for the `fdmmonster/fdm-monster` image:
 - `develop` - Latest development version (not recommended for production)
 - `x.y.z-rc1-1234` - Release candidates (not recommended for production)
 
+As of version 2.2.0, mDNS support is available via a new image. This image can be selected by adding "-mdns" to an of the above tags.
+- latest-mdns
+- 2.2.0-mdns
+- main-mdns
+- develop-mdns
+- x.y.z-rc1-1234-mdns
+
+The mDNS version requires use of docker's macvlan diver and minor changes to docker-compose.yml 
+A helper script is available to perform the macvlan bridge creation and create a docker-compose.yml file; [macvlan-setup.sh](./macvlan-setup.sh)
+
 ## Environment Variables
 
 FDM Monster can be customized using environment variables. See the complete [Environment Variables Reference](../configuration/preconfiguration.mdx) for all available options.
