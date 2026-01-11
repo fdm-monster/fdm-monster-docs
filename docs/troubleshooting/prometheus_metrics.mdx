@@ -11,6 +11,7 @@ FDM Monster can expose Prometheus metrics for monitoring and troubleshooting per
 To enable Prometheus metrics, set the `ENABLE_PROMETHEUS_METRICS` environment variable to `true`.
 
 **Docker Compose:**
+
 ```yaml
 services:
   fdm-monster:
@@ -19,6 +20,7 @@ services:
 ```
 
 **Docker:**
+
 ```bash
 docker run -d \
   -e ENABLE_PROMETHEUS_METRICS=true \
@@ -31,7 +33,7 @@ For more configuration options, see the [Environment Variables Guide](../configu
 
 Once enabled, Prometheus metrics are available at:
 
-```
+```bash
 http://<your-server-ip>:<your-server-port>/metrics
 ```
 

@@ -21,14 +21,15 @@ curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/mai
 The one-click installer will automatically:
 
 1. Detect your platform and architecture (linux/amd64, linux/arm64, etc.)
-2. Install Node.js 24+ if not already present
-3. Set up Yarn via corepack
-4. Install `@fdm-monster/server` package
-5. Create and start systemd service
-6. Create CLI wrapper at `~/.local/bin/fdm-monster` (alias: `fdmm`)
-7. Display access URLs and management commands
+1. Install Node.js 24+ if not already present
+1. Set up Yarn via corepack
+1. Install `@fdm-monster/server` package
+1. Create and start systemd service
+1. Create CLI wrapper at `~/.local/bin/fdm-monster` (alias: `fdmm`)
+1. Display access URLs and management commands
 
 After installation completes, FDM Monster will be:
+
 - Running as a systemd service
 - Accessible at `http://localhost:4000`
 - Manageable via the `fdmm` CLI command
@@ -118,7 +119,7 @@ The `fdmm uninstall` command will ask you whether to delete your data folder. Us
 
 After installation, the installer will display all available access URLs. Typically:
 
-```
+```bash
 http://localhost:4000
 http://YOUR_SERVER_IP:4000
 ```
@@ -172,6 +173,7 @@ Do not edit the systemd service file directly as it may break configuration over
 ### Permission Errors
 
 If you encounter permission errors during installation, ensure you have write access to:
+
 - `~/.fdm-monster` (install directory)
 - `~/.fdm-monster-data` (data directory)
 - `~/.local/bin` (CLI directory)
@@ -245,7 +247,7 @@ fdmm backup
 
 This will create a timestamped backup file in `~/.fdm-monster-backups/`:
 
-```
+```bash
 Backup created: ~/.fdm-monster-backups/fdm-monster-20260111-161209.tar.gz
 ```
 
@@ -276,6 +278,7 @@ fdmm uninstall
 ```
 
 This will:
+
 - Stop the systemd service
 - Remove the service file
 - Delete the installation directory (`~/.fdm-monster`)
@@ -309,7 +312,7 @@ If you prefer not to use the one-click installer, see these alternatives:
 
 Below is an example of what you'll see during installation:
 
-```
+```bash
     ___________ __  ___   __  ___                 __
    / ____/ __ \/  |/  /  /  |/  /___  ____  _____/ /____  _____
   / /_  / / / / /|_/ /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/

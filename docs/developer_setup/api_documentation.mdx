@@ -10,13 +10,13 @@ FDM Monster includes built-in API documentation using Swagger/OpenAPI. This inte
 
 Once FDM Monster is running, you can access the interactive API documentation at:
 
-```
+```bash
 http://localhost:4000/api-docs
 ```
 
 Or if accessing from another device on your network:
 
-```
+```bash
 http://YOUR_SERVER_IP:4000/api-docs
 ```
 
@@ -36,11 +36,12 @@ The Swagger UI provides:
 
 The raw OpenAPI specification is available in JSON format at:
 
-```
+```bash
 http://localhost:4000/api-docs/swagger.json
 ```
 
 This JSON file can be:
+
 - Imported into API testing tools like Postman or Insomnia
 - Used to generate client libraries in various programming languages
 - Integrated into CI/CD pipelines for API testing
@@ -80,8 +81,8 @@ FDM Monster uses versioned API endpoints:
 Most API endpoints require authentication. To use the Swagger UI with authenticated endpoints:
 
 1. Log in to FDM Monster in another browser tab
-2. The Swagger UI will use your active session
-3. Alternatively, use API keys for programmatic access
+1. The Swagger UI will use your active session
+1. Alternatively, use API keys for programmatic access
 
 ## Use Cases
 
@@ -95,6 +96,7 @@ Most API endpoints require authentication. To use the Swagger UI with authentica
 ### For Integration
 
 The OpenAPI specification enables:
+
 - Custom dashboard development
 - Third-party integrations
 - Mobile app development
@@ -104,12 +106,12 @@ The OpenAPI specification enables:
 ## Example: Testing an Endpoint
 
 1. Navigate to `http://localhost:4000/api-docs`
-2. Find the endpoint you want to test (e.g., `GET /api/v2/printer`)
-3. Click on the endpoint to expand it
-4. Click "Try it out"
-5. Fill in any required parameters
-6. Click "Execute"
-7. View the response below
+1. Find the endpoint you want to test (e.g., `GET /api/v2/printer`)
+1. Click on the endpoint to expand it
+1. Click "Try it out"
+1. Fill in any required parameters
+1. Click "Execute"
+1. View the response below
 
 ## Common Endpoints
 

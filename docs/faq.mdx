@@ -4,65 +4,71 @@ description: Common questions about FDM Monster
 slug: /faq
 ---
 
-### What is FDM Monster?
+We've listed some common questions, and we'll keep adding more!
+
+## What is FDM Monster?
 
 FDM Monster is an open-source 3D print farm management tool for monitoring and controlling multiple printers from a single dashboard. It supports OctoPrint, Moonraker (Klipper), PrusaLink, and Bambu Lab printers.
 
-### Which platforms are supported?
+## Which platforms are supported?
 
 - Linux (Ubuntu/Debian) via one-click installer
 - Docker / Docker Compose
 - Raspberry Pi (3B+, 4) via MonsterPi image
 
-### What are the system requirements?
+## What are the system requirements?
 
 - RAM: 512MB minimum (2GB+ recommended)
 - Storage: 500MB - 1GB free space
 - Network: Stable connection to your printers
 
-### Which printer firmwares are supported?
+## Which printer firmwares are supported?
 
 - **OctoPrint** - Full support
 - **Moonraker** (Klipper) - Full support
 - **PrusaLink** - Full support
 - **Bambu Lab** - Work in progress
 
-### Do I need a separate database?
+## Do I need a separate database?
 
 No, FDM Monster uses SQLite as its built-in database. No separate database server is required.
 
-### What about MongoDB support?
+## What about MongoDB support?
 
 MongoDB is no longer supported since FDM Monster v2.0. The application now uses SQLite as its built-in database, which provides better performance and eliminates the need for a separate database server.
 
-### How do I update FDM Monster?
+## How do I update FDM Monster?
 
 **Docker Compose:**
+
 ```bash
 docker-compose pull && docker-compose up -d
 ```
 
 Your data is preserved across updates when using Docker volumes or persistent storage.
 
-### My printer shows as "offline" but it's running
+## My printer shows as "offline" but it's running
 
 Common causes:
+
 - Incorrect IP address or hostname
 - Firewall blocking connection
 - Invalid or expired API key
 
 Try accessing the printer's web interface directly to verify connectivity.
 
-### Where can I get help?
+## Where can I get help?
 
 Join our [Discord community](https://discord.gg/mwA8uP8CMc) or report bugs on [GitHub](https://github.com/fdm-monster/fdm-monster/issues).
 
-### Is there a demo instance I can try?
+## Is there a demo instance I can try?
 
 **[Stable Demo](https://demo.fdm-monster.net) <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{display: 'inline', verticalAlign: 'middle'}}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>**
+
 - Username: `demo`
 - Password: `demo2023`
 
 **[Test Demo](https://test-demo.fdm-monster.net) <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{display: 'inline', verticalAlign: 'middle'}}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>**
+
 - Username: `demo`
 - Password: `demo2023`

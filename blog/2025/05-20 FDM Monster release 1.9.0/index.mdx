@@ -14,6 +14,7 @@ Version **1.9.x** of FDM Monster has been released! This series includes version
 This release series includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.3 release](../03-15%20FDM%20Monster%20release%201.8.3/index.mdx)!
 
 **Major Features:**
+
 - **PrusaLink Support** - Full adapter for PrusaLink printers (MK3S+, Mini+, MK4S, XL, Core One)
 - **BambuLab Support** - Experimental support for BambuLab printers via MQTT and FTP
 - **Full YAML Import/Export** - Complete backup and restore with users, roles, and settings
@@ -24,8 +25,8 @@ This release series includes new features, improvements and bug fixes to both FD
 
 ## Version 1.9.4 - BambuLab Improvements
 
-### Fixes
-+
+### Fixes 1.9.4
+
 - BambuLab MQTT adapter now connects using `mqtts://` protocol
 - BambuLab FTP now works with `.3mf` files (as well as gcode)
 - BambuLab: Implemented socket state emitting for test functionality
@@ -35,37 +36,38 @@ This release series includes new features, improvements and bug fixes to both FD
 
 ## Version 1.9.3 - BambuLab Port Fix
 
-### Fixes
+### Fixes 1.9.3
 
 - BambuLab port corrected from 1883 to 8883
 - Removed confusing app constants wrongly suggesting MQTT configuration is an option
 
 ## Version 1.9.2 - YAML Import/Export & BambuLab
 
-### Features
+### Features 1.9.2
 
 - **Full YAML export** with users, roles, and settings
 - **Full YAML import** for easy migration and getting started
 - **Experimental BambuLab support** (tested with mock BambuLab server)
 
-### Fixes
+### Fixes 1.9.2
 
 - Floor: SQLite floor level would start at 0, not 1
 - YAML export: Mongo floor printer position would export printerId as {} instead of string
 
 ## Version 1.9.1 - Security Update
 
-### Updates
+### Updates 1.9.1
 
 - Resolved CVE multer vulnerabilities by updating to 2.0.2
 
 ## Version 1.9.0 - PrusaLink & Monitoring
 
-### Features
+### Features 1.9.0
 
 #### PrusaLink Adapter
 
 Introduce PrusaLink adapter for limited printer support for these printers:
+
 - MK3S(+) (needs PrusaLink extension with Raspberry Pi)
 - Mini(+)
 - MK4(S)
