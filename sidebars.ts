@@ -86,6 +86,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
   ],
   development: [
     'developer_setup/introduction',
+    'developer_setup/api_documentation',
     'developer_setup/setup_server',
     'developer_setup/setup_client',
     'developer_setup/setup_octoprint',

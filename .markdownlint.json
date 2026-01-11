@@ -6,13 +6,5 @@
   "MD029": {
     "style": "one"
   },
-  "MD033": {
-    "allowed_elements": [
-      "br",
-      "kbd",
-      "IIcon",
-      "Tabs",
-      "TabItem"
-    ]
-  }
+  "MD033": false
 }
