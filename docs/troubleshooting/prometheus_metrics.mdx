@@ -1,0 +1,73 @@
+---
+title: Prometheus Metrics
+description: Enabling Prometheus metrics for monitoring
+slug: /troubleshooting/prometheus_metrics
+---
+
+FDM Monster can expose Prometheus metrics for monitoring and troubleshooting performance issues. This is useful for tracking system health, diagnosing problems, and setting up monitoring dashboards.
+
+## Enabling Prometheus Metrics
+
+To enable Prometheus metrics, set the `ENABLE_PROMETHEUS_METRICS` environment variable to `true`.
+
+**Docker Compose:**
+
+```yaml
+services:
+  fdm-monster:
+    environment:
+      - ENABLE_PROMETHEUS_METRICS=true
+```
+
+**Docker:**
+
+```bash
+docker run -d \
+  -e ENABLE_PROMETHEUS_METRICS=true \
+  fdmmonster/fdm-monster:2
+```
+
+For more configuration options, see the [Environment Variables Guide](../configuration/environment_variables.mdx#advanced-variables).
+
+## Accessing Metrics
+
+Once enabled, Prometheus metrics are available at:
+
+```bash
+http://<your-server-ip>:<your-server-port>/metrics
+```
+
+For example: `http://localhost:4000/metrics` or `http://monsterpi.local:4000/metrics`
+
+## What Metrics Are Available?
+
+The metrics endpoint provides various system and application metrics including:
+
+- HTTP request durations and counts
+- Active connections
+- Memory usage
+- Process CPU usage
+- Node.js event loop metrics
+- Custom application metrics
+
+## Setting Up Prometheus
+
+To collect these metrics with Prometheus, add FDM Monster as a scrape target in your `prometheus.yml`:
+
+```yaml
+scrape_configs:
+  - job_name: 'fdm-monster'
+    static_configs:
+      - targets: ['<your-server-ip>:<your-server-port>']
+```
+
+Replace `<your-server-ip>` and `<your-server-port>` with your FDM Monster server's address.
+
+## Use Cases
+
+Prometheus metrics are useful for:
+
+- **Performance monitoring** - Track response times and resource usage over time
+- **Troubleshooting** - Identify bottlenecks and performance issues
+- **Alerting** - Set up alerts for high memory usage, slow responses, etc.
+- **Capacity planning** - Understand resource usage patterns to plan scaling

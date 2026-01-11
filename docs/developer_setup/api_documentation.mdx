@@ -1,0 +1,130 @@
+---
+title: API Documentation
+description: Explore the FDM Monster API with Swagger/OpenAPI
+slug: /developer_setup/api_documentation
+---
+
+FDM Monster includes built-in API documentation using Swagger/OpenAPI. This interactive documentation allows you to explore and test all available API endpoints directly from your browser.
+
+## Accessing Swagger UI
+
+Once FDM Monster is running, you can access the interactive API documentation at:
+
+```bash
+http://localhost:4000/api-docs
+```
+
+Or if accessing from another device on your network:
+
+```bash
+http://YOUR_SERVER_IP:4000/api-docs
+```
+
+Replace `YOUR_SERVER_IP` with your server's IP address.
+
+## Features
+
+The Swagger UI provides:
+
+- **Interactive API Testing** - Try out API endpoints directly from the browser
+- **Complete Endpoint Documentation** - Detailed information about all available endpoints
+- **Request/Response Examples** - See example requests and responses for each endpoint
+- **Schema Definitions** - View data models and their properties
+- **Authentication Testing** - Test authenticated endpoints with your API token
+
+## OpenAPI JSON Specification
+
+The raw OpenAPI specification is available in JSON format at:
+
+```bash
+http://localhost:4000/api-docs/swagger.json
+```
+
+This JSON file can be:
+
+- Imported into API testing tools like Postman or Insomnia
+- Used to generate client libraries in various programming languages
+- Integrated into CI/CD pipelines for API testing
+- Used with code generators to create type-safe API clients
+
+## Configuration
+
+### Disabling Swagger
+
+If you want to disable the Swagger UI in production, set the following environment variable:
+
+```bash
+DISABLE_SWAGGER_OPENAPI=true
+```
+
+See the [Environment Variables Guide](../configuration/environment_variables.mdx#advanced-variables) for more details.
+
+### Generating Swagger JSON File
+
+To generate a `swagger.json` file in your media folder, set:
+
+```bash
+GENERATE_SWAGGER_JSON=true
+```
+
+The file will be saved to `media/swagger.json`.
+
+## API Versions
+
+FDM Monster uses versioned API endpoints:
+
+- **v2** - Current API version available at `/api/v2/*`
+- Future versions will be added alongside existing versions to maintain compatibility
+
+## Authentication
+
+Most API endpoints require authentication. To use the Swagger UI with authenticated endpoints:
+
+1. Log in to FDM Monster in another browser tab
+1. The Swagger UI will use your active session
+1. Alternatively, use API keys for programmatic access
+
+## Use Cases
+
+### For Developers
+
+- **Explore the API** - Understand what endpoints are available and how they work
+- **Test Integration** - Try API calls before implementing them in your application
+- **Debug Issues** - Test specific endpoints to isolate problems
+- **Generate Clients** - Use the OpenAPI spec to generate type-safe API clients
+
+### For Integration
+
+The OpenAPI specification enables:
+
+- Custom dashboard development
+- Third-party integrations
+- Mobile app development
+- Automation scripts
+- Monitoring and alerting tools
+
+## Example: Testing an Endpoint
+
+1. Navigate to `http://localhost:4000/api-docs`
+1. Find the endpoint you want to test (e.g., `GET /api/v2/printer`)
+1. Click on the endpoint to expand it
+1. Click "Try it out"
+1. Fill in any required parameters
+1. Click "Execute"
+1. View the response below
+
+## Common Endpoints
+
+Some commonly used API endpoints include:
+
+- **Printers** - `GET /api/v2/printer` - List all printers
+- **Floors** - `GET /api/v2/floor` - Get printer floor layouts
+- **Files** - `GET /api/v2/file` - List uploaded files
+- **Settings** - `GET /api/v2/settings` - Retrieve server settings
+- **Print Jobs** - `GET /api/v2/print-job` - View print job history
+
+## Additional Resources
+
+- [Contributing Guide](https://github.com/fdm-monster/fdm-monster/blob/develop/CONTRIBUTING.md)
+- [GitHub Repository](https://github.com/fdm-monster/fdm-monster)
+- [Discord Community](https://discord.gg/mwA8uP8CMc)

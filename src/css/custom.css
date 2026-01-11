@@ -6,448 +6,182 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* FDM Monster Brand Colors */
-  --ifm-color-primary: #ef4444;
-  --ifm-color-primary-dark: #dc2626;
-  --ifm-color-primary-darker: #b91c1c;
-  --ifm-color-primary-darkest: #991b1b;
-  --ifm-color-primary-light: #f87171;
-  --ifm-color-primary-lighter: #fca5a5;
-  --ifm-color-primary-lightest: #fecaca;
+  /* FDM Monster Brand Colors - TU Delft Blue Theme */
+  --fdm-blue-primary: #00A6D6;
+  --fdm-blue-dark: #0086B3;
+  --fdm-blue-darker: #006B8F;
+  --fdm-blue-darkest: #00506B;
+  --fdm-blue-light: #33B8DE;
+  --fdm-blue-lighter: #66CAE6;
+  --fdm-blue-lightest: #99DCEE;
 
-  /* Secondary Colors */
-  --ifm-color-secondary: #3b82f6;
-  --ifm-color-secondary-dark: #2563eb;
-  --ifm-color-secondary-darker: #1d4ed8;
-
-  /* Background Colors */
-  --ifm-background-color: #0f1419;
-  --ifm-background-surface-color: #1a1a2e;
-
-  /* Text Colors */
-  --ifm-font-color-base: #ffffff;
-  --ifm-font-color-secondary: #a0aec0;
-
-  /* Navbar */
-  --ifm-navbar-background-color: #0f1419;
-  --ifm-navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --ifm-navbar-height: 70px;
-
-  /* Footer */
-  --ifm-footer-background-color: #0f1419;
-
-  /* Code */
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(239, 68, 68, 0.1);
-
-  /* Borders */
-  --ifm-global-border-width: 1px;
-  --ifm-hr-border-color: rgba(239, 68, 68, 0.1);
-
-  /* Container backgrounds */
-  --ifm-container-background-color: #0f1419;
-  --ifm-code-background: rgba(15, 20, 25, 0.8);
-  --ifm-toc-border-color: rgba(239, 68, 68, 0.2);
+  /* Override Docusaurus primary color for both themes */
+  --ifm-color-primary: var(--fdm-blue-primary);
+  --ifm-color-primary-dark: var(--fdm-blue-dark);
+  --ifm-color-primary-darker: var(--fdm-blue-darker);
+  --ifm-color-primary-darkest: var(--fdm-blue-darkest);
+  --ifm-color-primary-light: var(--fdm-blue-light);
+  --ifm-color-primary-lighter: var(--fdm-blue-lighter);
+  --ifm-color-primary-lightest: var(--fdm-blue-lightest);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Light mode specific overrides */
+[data-theme='light'] {
+  --ifm-font-color-secondary: #525860;
+  --ifm-code-background: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark mode specific overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #ef4444;
-  --ifm-color-primary-dark: #dc2626;
-  --ifm-color-primary-darker: #b91c1c;
-  --ifm-color-primary-darkest: #991b1b;
-  --ifm-color-primary-light: #f87171;
-  --ifm-color-primary-lighter: #fca5a5;
-  --ifm-color-primary-lightest: #fecaca;
-
   --ifm-background-color: #0f1419;
   --ifm-background-surface-color: #1a1a2e;
-  --ifm-font-color-base: #ffffff;
-  --ifm-font-color-secondary: #a0aec0;
-  --docusaurus-highlighted-code-line-bg: rgba(239, 68, 68, 0.15);
+  --ifm-navbar-background-color: #0f1419;
+  --ifm-navbar-link-color: #a0aec0;
+  --ifm-navbar-link-hover-color: var(--fdm-blue-primary);
   --ifm-footer-background-color: #0f1419;
-  --ifm-code-background: rgba(15, 20, 25, 0.8);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 166, 214, 0.15);
 }
 
-/* Navbar Styling */
+/* Navbar styling */
 .navbar {
-  background: linear-gradient(90deg, #0f1419 0%, #16213e 100%);
-  border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 1rem 1.5rem;
+  min-height: 70px;
+  border-bottom: 1px solid color-mix(in srgb, var(--ifm-color-primary) 30%, transparent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar > .navbar__inner {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__items {
+  display: flex;
+  align-items: center;
+}
+
+[data-theme='dark'] .navbar {
+  background: linear-gradient(90deg, var(--ifm-navbar-background-color) 0%, color-mix(in srgb, var(--ifm-color-primary) 8%, var(--ifm-navbar-background-color)) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--ifm-color-primary) 40%, transparent);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .navbar__title {
   font-weight: 700;
   font-size: 1.25rem;
+  margin-top: -3px; /* Hack */
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+[data-theme='dark'] .navbar__title {
   color: #ffffff !important;
 }
 
 .navbar__logo {
-  filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3));
   transition: transform 0.3s ease;
-  margin-right: 1.5rem;
-  margin-left: 2rem;
+  margin-top: -3px; /* Hack */
+  margin-left: 10px;
+  height: 32px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar__logo:hover {
   transform: scale(1.05);
 }
 
-.navbar__item {
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
 .navbar__link {
-  color: #a0aec0 !important;
   transition: all 0.3s ease;
-  position: relative;
+  color: var(--ifm-navbar-link-color);
 }
 
 .navbar__link:hover {
-  color: #ef4444 !important;
+  color: var(--ifm-navbar-link-hover-color) !important;
 }
 
 .navbar__link--active {
-  color: #ef4444 !important;
+  color: var(--ifm-color-primary) !important;
   font-weight: 600;
 }
 
-.navbar__link--active::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #ef4444;
-}
-
-/* Navbar GitHub link styling */
-.navbar__item--right .navbar__link {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+/* Navbar GitHub icon link styling */
+.header-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  margin-right: 5px;
   border-radius: 8px;
-  padding: 0.5rem 1rem !important;
-  color: #ef4444 !important;
-  font-weight: 600;
-}
-
-.navbar__item--right .navbar__link:hover {
-  background: #ef4444;
-  color: white !important;
-  border-color: #ef4444;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-}
-
-/* Main content area */
-main {
-  background: #0f1419;
-}
-
-/* Docs page specific backgrounds */
-.docs-wrapper {
-  background: #0f1419;
-}
-
-.docMainContainer {
-  background: #0f1419;
-}
-
-.docPage {
-  background: #0f1419;
-}
-
-.theme-doc-markdown {
-  background: rgba(26, 26, 46, 0.3);
-  border-radius: 12px;
-  padding: 2rem;
-  border: 1px solid rgba(239, 68, 68, 0.05);
-}
-
-article {
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  border: none;
-}
-
-.markdown {
-  background: transparent;
-}
-
-/* Sidebar styling for docs */
-.menu {
-  background: rgba(15, 20, 25, 0.8);
-  backdrop-filter: blur(10px);
-  padding: 1rem;
-  border-right: 1px solid rgba(239, 68, 68, 0.1);
-}
-
-.menu__link {
-  color: #a0aec0;
-  border-radius: 6px;
   transition: all 0.3s ease;
 }
 
-.menu__link:hover {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+.header-github-link:hover {
+  box-shadow: 0 4px 12px rgba(0, 166, 214, 0.3);
+  background: rgba(0, 166, 214, 0.1);
 }
 
-.menu__link--active {
-  background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
-  font-weight: 600;
-  border-left: 3px solid #ef4444;
-}
-
-/* Cards and containers */
-.card {
-  background: rgba(26, 26, 46, 0.5);
-  border: 1px solid rgba(239, 68, 68, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.container {
-  background: transparent;
-}
-
-.row {
-  background: transparent;
-}
-
-/* Blog page backgrounds */
-.blogPage {
-  background: #0f1419;
-}
-
-.blogPostPage {
-  background: #0f1419;
-}
-
-/* Buttons */
-.button--primary {
-  background: #ef4444;
-  border-color: #ef4444;
-  transition: all 0.3s ease;
-}
-
-.button--primary:hover {
-  background: #dc2626;
-  border-color: #dc2626;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-}
-
-.button--secondary {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #ef4444;
-}
-
-.button--secondary:hover {
-  background: #ef4444;
-  color: white;
-  border-color: #ef4444;
-}
-
-/* Table of Contents */
-.table-of-contents {
-  border-left: 2px solid rgba(239, 68, 68, 0.2);
-}
-
-.table-of-contents__link {
-  color: #a0aec0;
-  transition: all 0.3s ease;
-}
-
-.table-of-contents__link:hover {
-  color: #ef4444;
-}
-
-.table-of-contents__link--active {
-  color: #ef4444;
-  font-weight: 600;
-}
-
-/* Admonitions */
-.admonition {
-  border-left-width: 4px;
-  backdrop-filter: blur(10px);
-}
-
-.admonition-note {
-  background: rgba(59, 130, 246, 0.1);
-  border-left-color: #3b82f6;
-}
-
-.admonition-tip {
-  background: rgba(34, 197, 94, 0.1);
-  border-left-color: #22c55e;
-}
-
-.admonition-danger {
-  background: rgba(239, 68, 68, 0.1);
-  border-left-color: #ef4444;
-}
-
-.admonition-warning {
-  background: rgba(251, 191, 36, 0.1);
-  border-left-color: #fbbf24;
-}
-
-/* Code blocks */
-.prism-code {
-  background: #0f1419 !important;
-  border: 1px solid rgba(239, 68, 68, 0.1);
-  border-radius: 8px;
-}
-
-/* Pagination */
-.pagination-nav__link {
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  background: rgba(22, 33, 62, 0.5);
-  transition: all 0.3s ease;
-}
-
-.pagination-nav__link:hover {
-  border-color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f1419;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(239, 68, 68, 0.3);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(239, 68, 68, 0.5);
-}
-
-/* Mobile navbar */
-.navbar-sidebar {
-  background: linear-gradient(180deg, #0f1419 0%, #1a1a2e 100%);
-}
-
-.navbar-sidebar__backdrop {
-  background: rgba(15, 20, 25, 0.8);
-  backdrop-filter: blur(4px);
-}
-
-.navbar-sidebar__item {
-  padding: 0.5rem 1rem;
-}
-
-.navbar-sidebar__brand {
-  border-bottom: 1px solid rgba(239, 68, 68, 0.2);
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Search bar */
-.navbar__search {
-  margin-left: 1rem;
-}
-
-.DocSearch-Button {
-  background: rgba(239, 68, 68, 0.1) !important;
-  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+/* Theme toggle button styling to match GitHub button */
+.navbar button[aria-label*="Switch"],
+.navbar button[title*="Switch"] {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0.5rem !important;
+  margin: -3px 20px 0 5px !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
-}
-
-.DocSearch-Button:hover {
-  background: rgba(239, 68, 68, 0.2) !important;
-  border-color: rgba(239, 68, 68, 0.5) !important;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2) !important;
-}
-
-.DocSearch-Button-Keys {
   display: flex !important;
-  gap: 0.25rem !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Blog post cards */
-.card {
-  border-radius: 12px;
-  transition: all 0.3s ease;
+/* Add margin to the parent container as well */
+.navbar__items--right > div:has(button[aria-label*="Switch"]),
+.navbar__items--right > div:has(button[title*="Switch"]) {
+  margin-right: 10px !important;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3);
+.navbar button[aria-label*="Switch"]:hover,
+.navbar button[title*="Switch"]:hover {
+  box-shadow: 0 4px 12px rgba(0, 166, 214, 0.3) !important;
+  background: rgba(0, 166, 214, 0.1) !important;
 }
 
-/* Badges */
-.badge {
-  border-radius: 6px;
-  font-weight: 600;
+[data-theme='dark'] .header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23efefef' d='M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.badge--primary {
-  background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+[data-theme='light'] .header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23181717' d='M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* Tabs */
-.tabs {
-  border-bottom: 2px solid rgba(239, 68, 68, 0.2);
+/* Scroll offset for anchor links */
+section[id] {
+  scroll-margin-top: 40px;
 }
 
-.tabs__item {
-  color: #a0aec0;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.tabs__item:hover {
-  color: #ef4444;
-}
-
-.tabs__item--active {
-  color: #ef4444;
-  border-bottom-color: #ef4444;
-}
-
-/* Announcement bar (if used) */
-.announcementBar {
-  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-weight: 600;
-}
-
-.announcementBarContent {
-  color: white;
-}
-
-/* Smooth animations */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* Override for interactive elements */
-a, button, input, select, textarea {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-}
+/* End of custom CSS - Docusaurus handles the rest */
 
 

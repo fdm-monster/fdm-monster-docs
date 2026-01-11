@@ -1,0 +1,86 @@
+---
+title: Environment Variables
+description: Configure FDM Monster with environment variables
+slug: /configuration/environment_variables
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Configuration Methods
+
+For Docker and Docker Compose setup instructions, see the [Docker Compose Guide](../installing/docker_compose.mdx).
+
+Environment variables can be configured using:
+
+- **Docker Compose**: `environment` section in `docker-compose.yml`
+- **Docker**: `-e` flags or `--env-file` parameter
+- **.env file**: For Node.js setups with `pm2`, `nodemon`, or direct execution
+
+:::warning
+For environment variable changes to take effect, your FDM Monster server **must** be restarted.
+:::
+
+## Environment Variables Reference
+
+### Main Variables
+
+Commonly used configuration options for typical deployments.
+
+| Variable                        | Default              | Description                                       |
+|---------------------------------|----------------------|---------------------------------------------------|
+| `SERVER_PORT`                   | `4000`               | The port the server listens on                    |
+| `NODE_ENV`                      | `production`         | Environment mode: `development` or `production`   |
+| `OVERRIDE_LOGIN_REQUIRED`       | `true`               | Require login to access the application           |
+| `OVERRIDE_REGISTRATION_ENABLED` | `false`              | Allow new user registration                       |
+| `OVERRIDE_IS_DEMO_MODE`         | `false`              | Enable demo mode (completes wizard automatically) |
+| `OVERRIDE_DEMO_USERNAME`        | `demo`               | Demo mode username                                |
+| `OVERRIDE_DEMO_PASSWORD`        | `demo2023`           | Demo mode password                                |
+| `DATABASE_PATH`                 | `./database`         | Path to SQLite database directory                 |
+| `DATABASE_FILE`                 | `fdm-monster.sqlite` | SQLite database filename                          |
+| `MEDIA_PATH`                    | `./media`            | Path to media storage (logs, files, uploads)      |
+
+### Advanced Variables
+
+Technical configuration options for advanced use cases, debugging, and integrations.
+
+| Variable                    | Default                        | Description                                              |
+|-----------------------------|--------------------------------|----------------------------------------------------------|
+| `ENABLE_COLORED_LOGS`       | `false`                        | Enable colored console logs                              |
+| `OVERRIDE_JWT_SECRET`       | `fdm-monster-jwt-secret-2023`  | JWT secret key (changing invalidates logins)             |
+| `OVERRIDE_JWT_EXPIRES_IN`   | `3600`                         | JWT expiration in seconds (minimum: 120)                 |
+| `OVERRIDE_JWT_ISSUER`       | `fdm-monster-server-2023`      | JWT issuer (changing invalidates logins)                 |
+| `OVERRIDE_JWT_AUDIENCE`     | `fdm-monster-client-next-2026` | JWT audience (changing invalidates logins)               |
+| `OVERRIDE_DEMO_ROLE`        | `ADMIN`                        | Demo user role: `ADMIN` or `OPERATOR`                    |
+| `GITHUB_PAT`                | -                              | GitHub Personal Access Token for client bundle downloads |
+| `DEBUG_SOCKET_STATES`       | `false`                        | Enable socket state debugging                            |
+| `ENABLE_PROMETHEUS_METRICS` | `false`                        | Enable Prometheus metrics endpoint                       |
+| `ENABLE_LOKI`               | `false`                        | Enable Loki logging                                      |
+| `LOKI_ADDRESS`              | -                              | Loki server address                                      |
+| `SENTRY_CUSTOM_DSN`         | FDM Monster default            | Custom Sentry DSN for bug tracking                       |
+| `DISABLE_SWAGGER_OPENAPI`   | `false`                        | Disable Swagger UI and OpenAPI endpoints                 |
+| `GENERATE_SWAGGER_JSON`     | `false`                        | Generate swagger.json file in media folder               |
+
+## Common Configuration Examples
+
+### Production Setup
+
+```bash
+SERVER_PORT=4000
+NODE_ENV=production
+OVERRIDE_LOGIN_REQUIRED=true
+OVERRIDE_REGISTRATION_ENABLED=false
+ENABLE_COLORED_LOGS=false
+```
+
+### Development Setup
+
+```bash
+SERVER_PORT=4000
+NODE_ENV=development
+ENABLE_COLORED_LOGS=true
+DEBUG_SOCKET_STATES=true
+OVERRIDE_LOGIN_REQUIRED=false
+OVERRIDE_JWT_SECRET=your-secure-secret-here
+OVERRIDE_JWT_EXPIRES_IN=7200
+```

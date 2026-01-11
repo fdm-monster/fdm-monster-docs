@@ -9,24 +9,33 @@ import TabItem from '@theme/TabItem';
 
 FDM Monster is capable of connecting to over 100 OctoPrint instances allowing you to be able to manage your 3D Printing Farm using a single view!
 
-## FDM Monster
-
 ![Screenshot of the homepage of FDM Monster](./images/server-running.png)
 
 ## Quick Start
 
+Choose your preferred installation method and get started right away.
+
 <Tabs>
-<TabItem value="docker-compose" label="docker-compose.yml" default>
+<TabItem value="linux" label="Linux" default>
 
-The quickest way to get started is by using [Docker Compose](./installing/docker_compose.mdx).
+Run this one-line command to automatically install FDM Monster on **Ubuntu / Debian / Raspberry Pi OS**:
 
-Create a `docker-compose.yml` file:
+```bash
+curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh | bash
+```
+
+[View Installation Script](https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh) • [Full Installation Guide](./installing/linux.mdx)
+
+</TabItem>
+<TabItem value="docker-compose" label="Docker Compose">
+
+**1. Create a docker-compose.yml file:**
 
 ```yaml
 services:
   fdm-monster:
     container_name: fdm-monster
-    image: fdmmonster/fdm-monster:2.0.0
+    image: fdmmonster/fdm-monster:2
     restart: unless-stopped
     deploy:
       restart_policy:
@@ -43,18 +52,18 @@ volumes:
   fdm-monster-database:
 ```
 
-Then run:
+**2. Start the container:**
 
 ```bash
 docker-compose up -d
 ```
 
-Access FDM Monster at `http://localhost:4000`
+[View Docker Compose Guide](./installing/docker_compose.mdx)
 
 </TabItem>
 <TabItem value="docker" label="Docker">
 
-Run FDM Monster directly with Docker:
+Run FDM Monster in a Docker container with this single command:
 
 ```bash
 docker run -d \
@@ -63,12 +72,17 @@ docker run -d \
   -v fdm-monster-media:/app/media \
   -v fdm-monster-database:/app/database \
   --restart unless-stopped \
-  fdmmonster/fdm-monster:2.0.0
+  fdmmonster/fdm-monster:2
 ```
 
-Access FDM Monster at `http://localhost:4000`
+[View Docker Guide](./installing/docker_compose.mdx)
+
+</TabItem>
+<TabItem value="monsterpi" label="Raspberry Pi (3/4)">
+
+**MonsterPi** is a pre-built Raspberry Pi image with FDM Monster already configured and ready to use. Perfect for Raspberry Pi 3B+, Pi 4, and compatible devices.
+
+[View MonsterPi Installation Guide](./installing/raspberrypi34.mdx)
 
 </TabItem>
 </Tabs>
-
-For more detailed installation instructions, see the [Installation Guide](./installing/index.mdx).
