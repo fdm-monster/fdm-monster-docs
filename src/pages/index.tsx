@@ -45,16 +45,16 @@ function HomepageHeader() {
             monitoring all your printers in one central place.
           </p>
           <div className={ styles.heroButtons }>
-            <Link
+            <a
               className={ clsx("button", styles.heroCta) }
-              to="#quick-install"
+              href="#quick-install"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('quick-install')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               Quick Install{ " " }
-            </Link>
+            </a>
             <Link
               className={ clsx("button", styles.heroCtaOutlined) }
               to="/docs"
