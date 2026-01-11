@@ -1,0 +1,235 @@
+---
+title: FDM Monster 2.0.0 - Major Release
+authors:
+  - davidzwa
+tags: [releases, major]
+slug: /fdm-monster-release-2-0-0
+description: FDM Monster version 2.0.0 is here with a complete UI redesign, SQLite-only architecture, and powerful new features!
+---
+
+Version **2.0.0** of FDM Monster has been released! This is a major milestone bringing a completely redesigned UI, streamlined architecture, and powerful new features for managing your 3D print farm.
+
+## Highlights
+
+This major release represents a significant evolution of FDM Monster with breaking changes and exciting new capabilities:
+
+**Major Changes:**
+- **Brand New UI** - Complete redesign with fdm-monster-client-next v2.0.0
+- **SQLite Only** - MongoDB support removed for simplified setup and maintenance
+- **API v2** - New API endpoint structure at `/api/v2`
+- **Print Queue System** - Manage and schedule multiple print jobs
+- **File Analysis** - Advanced gcode analysis and metadata extraction
+- **Swagger/OpenAPI** - Interactive API documentation built-in
+- **Slicer Integration** - Direct upload from your slicer software
+
+<!-- truncate -->
+
+## Breaking Changes
+
+### MongoDB Support Removed
+
+FDM Monster 2.0.0 removes MongoDB support entirely. All installations now use SQLite as the built-in database. This change brings several benefits:
+
+- **Simplified setup** - No need to install or manage a separate database server
+- **Better performance** - SQLite provides excellent performance for FDM Monster's use case
+- **Easier backups** - Your entire database is a single file
+- **Lower resource usage** - Reduced memory and CPU overhead
+
+**Migration:** If you're running FDM Monster 1.x with MongoDB, use the YAML export feature to backup your printers and settings, then import them after upgrading to 2.0.0.
+
+### New API Endpoint Structure
+
+The API has been restructured to `/api/v2`. This provides a clean slate for future API evolution while maintaining stability.
+
+## New Features
+
+### Complete UI Redesign
+
+FDM Monster Client Next brings a modern, responsive interface with improved usability and new features. The redesign focuses on:
+
+- Enhanced printer grid layouts
+- Better mobile support
+- Improved navigation
+- More intuitive workflows
+- Faster load times
+
+See the [full client release notes](https://github.com/fdm-monster/fdm-monster-client-next/blob/main/RELEASE_NOTES.MD) for details.
+
+### Print Queue System
+
+The new queue system allows you to:
+- Schedule multiple print jobs per printer
+- Automatically start the next job when one completes
+- Manage queue priorities
+- View queue status across all printers
+
+### File Analysis
+
+Advanced file analysis provides:
+- Automatic gcode metadata extraction
+- Estimated print time and material usage
+- Thumbnail generation support
+- File compatibility checking
+
+### Slicer Integration API
+
+Upload directly from your slicer software with the new slicer API:
+- Direct integration with popular slicers
+- Automatic printer selection
+- Print start control
+- Progress tracking
+
+### Swagger/OpenAPI Documentation
+
+Built-in API documentation accessible at `/swagger`:
+- Interactive API testing
+- Complete endpoint documentation
+- Schema definitions
+- Request/response examples
+
+Configure with environment variables:
+- `DISABLE_SWAGGER_OPENAPI` - Disable Swagger UI (default: false)
+- `GENERATE_SWAGGER_JSON` - Generate swagger.json file (default: false)
+
+### Tag Colors
+
+Organize your printers better with colored tags:
+- Visual categorization
+- Quick identification
+- Customizable colors
+- Filter by tag
+
+### Print Job History
+
+Track your print jobs with detailed history:
+- Keep records of all completed prints
+- See which prints succeeded or failed
+- Monitor material usage over time
+- Track how long each print took
+
+## Improvements and Fixes
+
+### Stability Improvements
+
+- BambuLab connection rejections can no longer cause server crashes
+- Camera entity properly handles printer deletion with SET NULL foreign key
+- ExceptionFilter now uses loggerFactory for better error logging
+- YAML import service more robust against printer type failures
+
+### Performance Enhancements
+
+- Printer files load in background instead of synchronously
+- Better resource management
+- Optimized WebSocket connections
+- Reduced memory footprint
+
+### Bug Fixes
+
+- Floor service position updates now work correctly (fixed x==x, y==x comparison)
+- Quick stop API endpoint moved to printer controller
+- File uploads now go to `media/file-uploads` instead of `media`
+- First-time-setup API filter now allows Swagger endpoints
+- Floor order changes properly implemented in API service
+- Fixed all TypeScript strict null check issues
+
+## Removed Features
+
+The following experimental or unused features were removed:
+
+- MongoDB support (breaking change)
+- Experimental thumbnail support (will be redesigned)
+- Custom Gcode table (unused)
+- PrintCompletion table (broken, replaced by PrintJob)
+- Client next experimental setting (now default)
+- Batch/single gcode analysis toggle
+
+## Technical Changes
+
+### Architecture
+
+- Role system reimplemented based on RoleName
+- Permission system cleaned up and unused permissions removed
+- Key-diff cache now uses Map instead of Object
+- PrinterGroup renamed to PrinterTag for clarity
+
+### Developer Experience
+
+- Complete TypeScript strict null checks
+- Improved dependency injection
+- Better code organization
+- Comprehensive API documentation
+
+## Upgrading to 2.0.0
+
+### Docker / Docker Compose
+
+Update your image tag:
+
+```yaml
+services:
+  fdm-monster:
+    image: fdmmonster/fdm-monster:2
+```
+
+Then pull and restart:
+
+```bash
+docker-compose pull && docker-compose up -d
+```
+
+### Linux One-Click Install
+
+Use the upgrade command:
+
+```bash
+fdmm upgrade
+```
+
+Your data is automatically preserved during the upgrade.
+
+### MongoDB to SQLite Migration
+
+1. **Export your data** from FDM Monster 1.x:
+   - Go to Settings → Import/Export
+   - Export YAML file with all printers, floors, and settings
+
+2. **Upgrade** to FDM Monster 2.0.0
+
+3. **Import your data**:
+   - Go to Settings → Import/Export
+   - Import the YAML file from step 1
+
+See our [YAML Import/Export guide](https://docs.fdm-monster.net/docs/configuration/yaml_import_export) for details.
+
+## What's Next
+
+FDM Monster 2.0.0 lays the foundation for exciting features planned for future releases:
+
+- Enhanced BambuLab support (currently work in progress)
+- Advanced queue management features
+- Improved file analysis and thumbnails
+- More printer firmware integrations
+- Enhanced monitoring and alerting
+
+## Issues and Feedback
+
+If you encounter issues with this release, please:
+- Create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues)
+- Join our [Discord community](https://discord.gg/mwA8uP8CMc)
+- Check the [documentation](https://docs.fdm-monster.net)
+
+## Contributors
+
+This major release was made possible thanks to the [FDM Monster team](https://docs.fdm-monster.net/docs/community/ourteam) and the entire community.
+
+Special thanks to all community members who:
+- Tested release candidates
+- Provided feedback on the new UI
+- Reported bugs and issues
+- Contributed to discussions and planning
+
+Full details of what has been included can be found in the [release notes](https://github.com/fdm-monster/fdm-monster/blob/main/RELEASE_NOTES.md).
+
+---
+
+Welcome to FDM Monster 2.0 - the future of 3D print farm management! 🚀

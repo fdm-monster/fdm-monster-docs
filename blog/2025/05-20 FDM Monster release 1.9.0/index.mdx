@@ -1,119 +1,110 @@
 ---
-title: FDM Monster release 1.9.0
+title: FDM Monster release 1.9.x
 authors:
   - davidzwa
 tags: [releases]
-slug: /fdm-monster-release-1-9.0
-description: FDM Monster version 1.9.0 has been released!
+slug: /fdm-monster-release-1-9-x
+description: FDM Monster version 1.9.0 through 1.9.4 have been released!
 ---
 
-Version **1.9.0** of FDM Monster has been released! This release ships with FDM Monster Client 1.9.0.
+Version **1.9.x** of FDM Monster has been released! This series includes versions 1.9.0 through 1.9.4, bringing PrusaLink support, BambuLab improvements, YAML import/export enhancements, and many bug fixes.
 
-## Highlights of this release
+## Highlights of this release series
 
-This release includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.2 release](../01-03%20FDM%20Monster%20release%201.8.2/index.mdx)!
+This release series includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.3 release](../03-15%20FDM%20Monster%20release%201.8.3/index.mdx)!
 
-- Printer Thumbnail improvement (experimental feature)
-- Print upload bar would get stuck
-- Support paths in Printer URLs (like octoprint_deploy)
-- Http client with builder pattern
-- SocketIO messages are not serialized twice
-- Smaller chores on the repository
+**Major Features:**
+- **PrusaLink Support** - Full adapter for PrusaLink printers (MK3S+, Mini+, MK4S, XL, Core One)
+- **BambuLab Support** - Experimental support for BambuLab printers via MQTT and FTP
+- **Full YAML Import/Export** - Complete backup and restore with users, roles, and settings
+- **Prometheus & Loki Integration** - Opt-in monitoring and logging support
+- **Colored Logs** - Optional colored console output with `ENABLE_COLORED_LOGS` env var
 
 <!-- truncate -->
 
-### Printer Thumbnail improvement (experimental feature)
+## Version 1.9.4 - BambuLab Improvements
 
-The thumbnail feature has been introduced as an experimental feature since FDM Monster v1.8.0. Since then the thumbnail feature has received a bugfix in v1.8.1 within the UI. In this release the thumbnail will only change after the printed file has been uploaded and accepted by OctoPrint.
+### Fixes
+- BambuLab MQTT adapter now connects using `mqtts://` protocol
+- BambuLab FTP now works with `.3mf` files (as well as gcode)
+- BambuLab: Implemented socket state emitting for test functionality
+- PrusaLink: Implemented socket state emitting for test functionality
+- BambuLab: Download file implemented via FTP
+- File upload now checks file extension after upload (not during upload)
 
-This change however was not enough, it was found that even when OctoPrint is busy the thumbnail will change. This is tracked in [this issue](https://github.com/fdm-monster/fdm-monster/issues/4138) that will be tackled in a future release.
+## Version 1.9.3 - BambuLab Port Fix
 
-### Print upload bar would get stuck
+### Fixes
+- BambuLab port corrected from 1883 to 8883
+- Removed confusing app constants wrongly suggesting MQTT configuration is an option
 
-Whenever a user uploads a file, the upload bar will show. This works in two stages: first the file is uploaded and then the file is forward to a printer service (OctoPrint, Moonraker, etc). In the second stage the upload progress got stuck and the UI got showed a frozen progress bar that would not disappear, even after page reload by pressing F5. The correct upload progress is now sent to the UI and when the upload succeeds/fails the progress bar will disappear.
+## Version 1.9.2 - YAML Import/Export & BambuLab
 
-The design of the upload bar is not very clear yet. Also it is not clear what files have been uploaded in the past. These are known challenges captured in [this GitHub feature](https://github.com/fdm-monster/fdm-monster/issues/4148).
+### Features
+- **Full YAML export** with users, roles, and settings
+- **Full YAML import** for easy migration and getting started
+- **Experimental BambuLab support** (tested with mock BambuLab server)
 
-### Support paths in Printer URLs (like octoprint_deploy)
+### Fixes
+- Floor: SQLite floor level would start at 0, not 1
+- YAML export: Mongo floor printer position would export printerId as {} instead of string
 
-Printers that use octoprint_deploy `/printer1` path based routing would not connect properly. The path would not be consistently used in FDM Monster backend. The fix was to standardize the URL usage across the codebase for both HTTP calls as well as Websocket clients. This means that now the URL path is preserved across all supported
-printer services (OctoPrint, Moonraker, etc).
+## Version 1.9.1 - Security Update
 
-### Http client with builder pattern
+### Updates
+- Resolved CVE multer vulnerabilities by updating to 2.0.2
 
-Previously in the FDM Monster codebase, http clients were constructed using custom methods building on top of a static `axios` instance. This was hard to work with because some places required a customized http timeout, different URL, different headers or different request/response handling. This was growing too complex.
-By introducing a builder pattern, the http clients in the codebase can reuse the same logic, but choose which combination is required for that place. Also, the builder pattern allows to chain customization or overrides using the fluent pattern.
+## Version 1.9.0 - PrusaLink & Monitoring
 
-Before (no chaining using the builder pattern) 😥
+### Features
 
-```typescript
-const headers = {
-  ...options.headers,
-  ...formData.getHeaders(),
-  "Content-Length": result,
-};
+#### PrusaLink Adapter
+Introduce PrusaLink adapter for limited printer support for these printers:
+- MK3S(+) (needs PrusaLink extension with Raspberry Pi)
+- Mini(+)
+- MK4(S)
+- XL
+- Core One
 
-const response = await axios({
-  method: "POST",
-  url,
-  data: formData,
-  headers,
-  onUploadProgress: (p: AxiosProgressEvent) => {
-    if (token) {
-      this.eventEmitter2.emit(`${uploadProgressEvent(token)}`, token, p);
-    }
-  },
-});
-```
+#### Monitoring Integration
+- Add opt-in **Prometheus integration** (experimental)
+- Add opt-in **Loki integration** (experimental)
 
-After (chained customization and reuse) 🥳
+#### Upload Improvements
+- Introduce separate upload timeout setting for better control and resilience
+- Ability to add `startPrint` parameter to specify print or not after upload
 
-```typescript
-const response = await this.createClient(login, (builder) =>
-  builder
-    .withMultiPartFormData()
-    .withHeaders({
-      ...formData.getHeaders(),
-    })
-    .withOnUploadProgress((p: AxiosProgressEvent) => {
-      if (token) {
-        this.eventEmitter2.emit(`${uploadProgressEvent(token)}`, token, p);
-      }
-    })
-).post(urlPath, formData);
-```
+### Fixes
+- OctoPrint 1.8.7 needs explicit passive flag in body instead of header to login
+- PrusaLink subfeature was not added to printer type feature (new client packaged)
+- Improved Moonraker error logging
+- Made colored logs opt-in with `ENABLE_COLORED_LOGS: true` env var
+- SocketIO gateway logs errors more explicitly
+- Logger is now static, reducing memory usage and test duration
 
-When working with the builder, the developer gets suggestions of what other methods can be chained on top. This invites the code to be reused whilst reducing duplication of complicated logic. All in all a great improvement! 🥳
+### Chores
+- Remove unused code for OctoPrint plugin support
+- Remove unused code for OctoPrint plugin backup and firmware update
+- Remove unused code for OctoPrint plugin repository
+- Remove unused code for Prusa firmware releases
+- Remove cache-manager package
+- Add biome linter/formatter, remove prettier and eslint
+- Update .env.template
 
-### Avoid serializing SocketIO messages twice
+### Technical Changes
+- `tsconfig.json` strictNullChecks and strictPropertyInitialization set to true
+- Update dependency injection with awilix, switch to CLASSIC mode
+- Update API controller, use decorators over api builder
+- Remove PrinterFile entity (unused)
+- Remove debug settings from server settings database
+- Remove all API compatibility feature flags except for printerGroupsApi and multiplePrinterServices
 
-The UI of FDM Monster Client receives server updates over SocketIO. Each message needs to be serialized by the server and deserialized by the client. This serialization step, however, was done an extra time by the server requiring the client to deserialize it another time as well. This was double work, because SocketIO internally already does both required steps on the sending and receiving end.
-Now that this has been simplified, the server requires the client to be updated to `1.9.0` in order to not create an incompatibility.
-
-### Smaller chores and fixes
-
-- The `installations` folder was removed from the repository for the sake of removing clutter. The contents wer not directly related to or not used anymore for FDM Monster.
-- The `requests` folder was moved into the test folder. It is used when testing and therefore this made more sense.
-
-## Issues
-
-As part of this release [6 issues](https://github.com/fdm-monster/fdm-monster/milestone/28?closed=1) were closed.
-
-### Bugs
-
-- [#4086](https://github.com/fdm-monster/fdm-monster/issues/4086) [Bug]: failed upload still ends up in changed thumbnail
-- [#4117](https://github.com/fdm-monster/fdm-monster/issues/4117) [Change]: dont serialize SocketIO messages on backend, dont parse on frontend
-- [#4077](https://github.com/fdm-monster/fdm-monster/issues/4077) [Bug]: Uploading GCode causes the upload bar to show indefinitely
-- [#4080](https://github.com/fdm-monster/fdm-monster/issues/4080) [Chore]: Clean up resources on the repository
-- [#3944](https://github.com/fdm-monster/fdm-monster/issues/3944) [Bug]: Printers that use octoprint_deploy /instancename path based routing will not connect properly
-- [#4074](https://github.com/fdm-monster/fdm-monster/issues/4074) [Maintenance]: HttpClient does not use configurable timeout across codebase
-
-If you encounter issues with this release, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
+If you encounter issues with this release series, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
 
 ## Contributors
 
-This release was made possible thanks to the [FDM Monster team](https://docs.fdm-monster.net/docs/community/ourteam). Special thanks to the feedback of these awesome community members:
+This release series was made possible thanks to the [FDM Monster team](https://docs.fdm-monster.net/docs/community/ourteam) and feedback from the community.
 
-- [AbbeDabbe](https://github.com/AbbeDabbe) for reporting [this octoprint_deploy bug](https://github.com/fdm-monster/fdm-monster/issues/3944) that has been fixed.
+Special thanks to all community members who tested the experimental BambuLab and PrusaLink support!
 
-Full details of what has been included can be seen below.
+Full details of what has been included can be found in the [release notes](https://github.com/fdm-monster/fdm-monster/blob/main/RELEASE_NOTES.md).
