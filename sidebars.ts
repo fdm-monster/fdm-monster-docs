@@ -12,8 +12,21 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: false,
       items: [
-        'installing/monsterpi',
-        'installing/docker_compose',
+        {
+          type: 'doc',
+          id: 'installing/linux',
+          label: 'Linux',
+        },
+        {
+          type: 'doc',
+          id: 'installing/docker_compose',
+          label: 'Docker Compose',
+        },
+        {
+          type: 'doc',
+          id: 'installing/monsterpi',
+          label: 'Raspberry Pi (3/4)',
+        },
       ],
     },
     {
@@ -25,7 +38,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: true,
       items: [
-        'configuration/preconfiguration',
+        'configuration/environment_variables',
         {
           type: 'category',
           label: 'Settings',
@@ -66,9 +79,10 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       items: [
         'troubleshooting/log_dump',
         'troubleshooting/sentry',
-
+        'troubleshooting/prometheus_metrics',
       ],
     },
+    'faq',
   ],
   development: [
     'developer_setup/introduction',

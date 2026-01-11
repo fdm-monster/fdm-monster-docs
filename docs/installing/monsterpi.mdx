@@ -6,97 +6,135 @@ pagination_prev: installing/index
 pagination_next: software_usage/index
 ---
 
+<style>{ `
+  .centered-image {
+    display: block;
+    margin: 1rem auto;
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .centered-image {
+      max-width: 100%;
+    }
+  }
+` }</style>
+
 ## What is Monster Pi?
 
-[MonsterPi](https://github.com/fdm-monster/MonsterPi) is a [Raspberry Pi](https://www.raspberrypi.org/) image based on [Ubuntu](https://ubuntu.com/download/raspberry-pi) built using [CustomPiOS](https://github.com/guysoft/CustomPiOS) running [FDM Monster](https://fdm-monster.net/).
+[MonsterPi](https://github.com/fdm-monster/MonsterPi) is
 
-Depending on the image, either [MongoDB](https://www.mongodb.com/) or [SQLite](https://www.sqlite.org/) is included.
+- a [Raspberry Pi](https://www.raspberrypi.org/) image
+- based on [Ubuntu](https://ubuntu.com/download/raspberry-pi)
+- built using [CustomPiOS](https://github.com/guysoft/CustomPiOS)
+- running [FDM Monster](https://fdm-monster.net/)
 
 ## Hardware requirements
 
-:::warning
-A Raspberry Pi 5 has been tested and will not work. The MonsterPi team is aware of this. Users interested in MonsterPi for the Raspberry Pi 5 can follow [this GitHub issue](https://github.com/fdm-monster/MonsterPi/issues/82) for any progress.
-:::
-
-:::warning
-An Orange Pi or any other Single Board Computer (SBC) has not been tested and will most likely not work.
-:::
-
 We advise you to get these components for your setup. You might already have these or equivalents of them. All links point to the official Raspberry Pi website. From there links to (local) stores are provided.
 
-| Component | Raspberry Pi 3 | Raspberry Pi 4 |
-| --------- | -------------- | -------------- |
-| Raspberry Pi | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) |
-| Raspberry Pi Case | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-case/) | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case/) |
-| Cooling | Not Required | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/) |
-| Power Supply | [Product Link](https://www.raspberrypi.com/products/micro-usb-power-supply/) | [Product Link](https://www.raspberrypi.com/products/type-c-power-supply/) |
-| 16GB or bigger Class 10 SD Card<br />Please get a decent brand<br />**do not save money on this** | [Product Link](https://www.raspberrypi.com/products/sd-cards/) | [Product Link](https://www.raspberrypi.com/products/sd-cards/) |
+| Component                                                                                         | Raspberry Pi 3                                                               | Raspberry Pi 4                                                                |
+|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Raspberry Pi                                                                                      | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)  | |
+| Raspberry Pi Case                                                                                 | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-case/)    | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case/)     |
+| Cooling                                                                                           | Not Required                                                                 | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/) |
+| Power Supply                                                                                      | [Product Link](https://www.raspberrypi.com/products/micro-usb-power-supply/) | [Product Link](https://www.raspberrypi.com/products/type-c-power-supply/)     |
+| 16GB or bigger Class 10 SD Card<br />Please get a decent brand<br />**do not save money on this** | [Product Link](https://www.raspberrypi.com/products/sd-cards/)               | [Product Link](https://www.raspberrypi.com/products/sd-cards/)                |
 
 Additionally, depending on your device, you might need a SD Card reader and (optionally) an micro SD Card to SD Card adapter.
 
-## Latest Version
-
-The latest version of MonsterPi can be downloaded by clicking the button below.
-
-[![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest)
-
-:::note
-Previous MonsterPi images can be downloaded from [GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases).
+:::warning
+A Raspberry Pi 5 will not work. Please check out [this GitHub issue](https://github.com/fdm-monster/MonsterPi/issues/82) for any progress on this matter.
 :::
 
-### Installing MonsterPi
-
-:::note
-Screenshots and texts may vary depending on your operating system, versions used, and your devices locale settings.
-:::
+## Installing MonsterPi
 
 1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-1. Download the [Latest](https://github.com/fdm-monster/monsterpi/releases/latest) Monster Pi image. Extracting the file is not required.
+1. Download the Monster Pi image [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
+[GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases)
 1. Insert your SD Card into your SD Card Reader
-1. Start Raspberry Pi Imager on your computer<br />
-   ![Raspberry Pi Imager](./images/rpi-imager-home.png)
-1. Click on **Choose Device** and select the device matching your RaspberryPi device:<br />
-   ![Raspberry Pi Imager Choose Device](./images/rpi-imager-select-device.png)`
-1. Click on **Choose OS**, scroll to the bottom, select **Use Custom**, and select the downloaded Monster Pi image on your computer.<br />
-   ![Raspberry Pi Imager Choose OS](./images/rpi-imager-custom-os.png)
+1. Start Raspberry Pi Imager on your computer
+
+   <img src={ require('./images/rpi-imager-home.png').default } alt="Raspberry Pi Imager" className="centered-image"/>
+
+1. Click on **Choose Device** and select the device matching your RaspberryPi device:
+
+   <img src={ require('./images/rpi-imager-select-device.png').default } alt="Raspberry Pi Imager Choose Device" className="centered-image"/>
+
+1. Click on **Choose OS**, scroll to the bottom, select **Use Custom**, and select the downloaded Monster Pi image on your computer.
+
+   <img src={ require('./images/rpi-imager-custom-os.png').default } alt="Raspberry Pi Imager Choose OS" className="centered-image"/>
+
 1. Click on **Choose Storage**, and select your SD Card.
+
    :::danger Triple check this!
    Ensure you have selected the correct Storage!
    :::
-   ![Raspberry Pi Imager Choose OS](./images/rpi-imager-sd-card.png)
-1. Click on **Next** to continue configuring the Raspberry Pi Image.<br />
-   ![Raspberry Pi Imager All configured](./images/rpi-imager-next.png)
-1. The Raspberry Pi Imager will now ask you if you want to customize your image. Click on **Edit Settings** to start your configuration.<br />
-   ![Raspberry Pi Imager Customize OS Dialog](./images/rpi-imager-edit-settings.png)
+
+   <img src={ require('./images/rpi-imager-sd-card.png').default } alt="Raspberry Pi Imager Choose Storage" className="centered-image"/>
+
+1. Click on **Next** to continue configuring the Raspberry Pi Image.
+
+   <img src={ require('./images/rpi-imager-next.png').default } alt="Raspberry Pi Imager All configured" className="centered-image"/>
+
+1. The Raspberry Pi Imager will now ask you if you want to customize your image. Click on **Edit Settings** to start your configuration.
+
+   <img src={ require('./images/rpi-imager-edit-settings.png').default } alt="Raspberry Pi Imager Customize OS Dialog" className="centered-image"/>
+
 1. In the **General** section, check the checkbox for **Set Hostname** and name it `monsterpi`.
+
    :::info
    You can pick any name, but that will change steps later in the documentation
    :::
+
    Also check the **Set username and password** checkbox. Set the username to `pi` and the password to any value. This is required for enabling SSH later on.
+
    :::warning
    Note: You cannot change the default username and password using the Raspberry Pi Imager. The default username and password will still be `pi` and `raspberry`. This is due to a limitation of using `Ubuntu` instead of `RaspberryPiOS`.
    :::
-   If required, change the WiFi and locale settings to your needs.<br />
-   ![Raspberry Pi Imager Customize settings](./images/rpi-imager-settings-hostname-password.png)
+
+   If required, change the WiFi and locale settings to your needs.
+
+   <img src={ require('./images/rpi-imager-settings-hostname-password.png').default } alt="Raspberry Pi Imager Customize settings" className="centered-image"/>
+
 1. In the **Services** section, check the checkbox for **Enable SSH**. Depending on your preferences and setup, either select **Use password authentication** or **Allow public-key authentication only**
+
    :::info
    If you have an SSH Key, **Allow public-key authentication only** is advisable.
    :::
-   ![Raspberry Pi Imager Customize SSH settings](./images/rpi-imager-settings-ssh.png)
-1. Click the **Save** Button at the bottom of the dialog. Once the dialog closes, click **Yes** to apply your customizations to the image.<br />
-   ![Raspberry Pi Imager apply customizations](./images/rpi-imager-settings-yes.png)
-1. After pressing **Yes** Raspberry Pi Imager will ask you for a confirmation to overwrite all data of the SD Card. Triple check if you have the correct storage device. Click **Yes** to continue.<br />
-   ![Raspberry Pi Imager confirmation](./images/rpi-imager-confirm-sd-card.png)
-1. Raspberry Pi Imager will now start writing and verifying the image to your SD Card. This steps takes some time and can vary depending on your USB Bus speed, SD Card and other factors, but will usually take about 5-10 minutes.<br />
-   ![Raspberry Pi Imager Writing](./images/rpi-imager-writing.png)<br />
-   ![Raspberry Pi Imager Verifying](./images/rpi-imager-verifying.png)
-1. Once the verification is complete, by default, Raspberry Pi Imager will "eject" the device, play a sound and show a notification on the screen.<br />
-   ![Raspberry Pi Imager Complete](./images/rpi-imager-done.png)
+
+   <img src={ require('./images/rpi-imager-settings-ssh.png').default } alt="Raspberry Pi Imager Customize SSH settings" className="centered-image"/>
+
+1. Click the **Save** Button at the bottom of the dialog. Once the dialog closes, click **Yes** to apply your customizations to the image.
+
+   <img src={ require('./images/rpi-imager-settings-yes.png').default } alt="Raspberry Pi Imager apply customizations" className="centered-image"/>
+
+1. After pressing **Yes** Raspberry Pi Imager will ask you for a confirmation to overwrite all data of the SD Card. Triple check if you have the correct storage device. Click **Yes** to continue.
+
+   <img src={ require('./images/rpi-imager-confirm-sd-card.png').default } alt="Raspberry Pi Imager confirmation" className="centered-image"/>
+
+1. Raspberry Pi Imager will now start writing and verifying the image to your SD Card. This steps takes some time and can vary depending on your USB Bus speed, SD Card and other factors, but will usually take about 5-10 minutes.
+
+   <img src={ require('./images/rpi-imager-writing.png').default } alt="Raspberry Pi Imager Writing" className="centered-image"/>
+   <img src={ require('./images/rpi-imager-verifying.png').default } alt="Raspberry Pi Imager Verifying" className="centered-image"/>
+
+1. Once the verification is complete, by default, Raspberry Pi Imager will "eject" the device, play a sound and show a notification on the screen.
+
+   <img src={ require('./images/rpi-imager-done.png').default } alt="Raspberry Pi Imager Complete" className="centered-image"/>
+
 1. Insert the SD card into your Raspberry Pi and power it up.
+
    :::note
    The first power up can take some time. Wait up to 10 minutes before attempting a power cycle.
    :::
-1. Visit [http://monsterpi.local:4000](http://monsterpi.local:4000) to access FDM Monster. <br />Alternatively, you can visit [http://monsterpi.local](http://monsterpi.local) or [https://monsterpi.local (Self-Signed SSL Certificate)](https://monsterpi.local) to access FDM Monster.
+
+1. Visit [http://monsterpi.local:4000](http://monsterpi.local:4000) to access FDM Monster.
+
+   Alternatively, you can visit [http://monsterpi.local](http://monsterpi.local) or [https://monsterpi.local (Self-Signed SSL Certificate)](https://monsterpi.local) to access FDM Monster.
 
 ## Upgrading FDM Monster in MonsterPi
 

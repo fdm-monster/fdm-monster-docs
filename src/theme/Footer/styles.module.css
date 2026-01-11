@@ -1,6 +1,6 @@
 .footer {
-  background: linear-gradient(180deg, #1a1a2e 0%, #0f1419 100%);
-  border-top: 1px solid rgba(239, 68, 68, 0.1);
+  background: var(--ifm-footer-background-color);
+  border-top: 1px solid color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
   padding: 4rem 0 2rem;
   position: relative;
   overflow: hidden;
@@ -15,7 +15,7 @@
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(239, 68, 68, 0.5) 50%,
+    color-mix(in srgb, var(--ifm-color-primary) 50%, transparent) 50%,
     transparent 100%
   );
 }
@@ -42,7 +42,7 @@
 .footerColumnTitle {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--ifm-font-color-base);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -57,7 +57,7 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #ef4444 0%, transparent 100%);
+  background: linear-gradient(90deg, var(--ifm-color-primary) 0%, transparent 100%);
 }
 
 .footerColumnList {
@@ -74,7 +74,7 @@
 }
 
 .footerLink {
-  color: #a0aec0;
+  color: var(--ifm-font-color-secondary);
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -91,12 +91,12 @@
   left: -12px;
   width: 4px;
   height: 0;
-  background: #ef4444;
+  background: var(--ifm-color-primary);
   transition: height 0.3s ease;
 }
 
 .footerLink:hover {
-  color: #ef4444;
+  color: var(--ifm-color-primary);
   transform: translateX(4px);
 }
 
@@ -121,19 +121,19 @@
 }
 
 .footerCopyright {
-  color: #718096;
+  color: var(--ifm-font-color-secondary);
   font-size: 0.875rem;
   line-height: 1.6;
 }
 
 .footerCopyright a {
-  color: #ef4444;
+  color: var(--ifm-color-primary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footerCopyright a:hover {
-  color: #dc2626;
+  color: var(--ifm-color-primary-dark);
   text-decoration: underline;
 }
 

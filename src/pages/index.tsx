@@ -10,6 +10,16 @@ import React from "react";
 
 const Svg = require("@site/static/img/fdm-monster-logo.svg").default;
 
+function handleSectionTitleClick(sectionId: string, scrollPosition: ScrollLogicalPosition = 'start') {
+  return () => {
+    globalThis.history.pushState(null, '', `#${sectionId}`);
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: scrollPosition });
+    }
+  };
+}
+
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -26,23 +36,52 @@ function HomepageHeader() {
             { siteConfig.title }
           </h1>
           <p className={ styles.heroSubtitle }>
-            All the tools you need to manage and scale your 3D Print farm,
+            The Open Source tool you need to manage and scale your 3D Print farm,
             monitoring all your printers in one central place.
           </p>
           <div className={ styles.heroButtons }>
             <Link
               className={ clsx("button", styles.heroCta) }
+              to="#quick-install"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('quick-install')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Quick Install{ " " }
+            </Link>
+            <Link
+              className={ clsx("button", styles.heroCtaOutlined) }
               to="/docs"
             >
-              Get started{ " " }
+              Documentation{ " " }
               <span className={ styles.ctaArrow }>→</span>
             </Link>
           </div>
         </div>
         <div className={ styles.heroVisual }>
-          <div className={ styles.visualCard }></div>
-          <div className={ styles.visualCard }></div>
-          <div className={ styles.visualCard }></div>
+          <Link to="/blog/fdm-monster-release-1-9.0" className={ styles.visualCard }>
+            <div className={ styles.visualCardBadge }>Latest Release</div>
+            <h3 className={ styles.visualCardTitle }>1.9.0</h3>
+            <p className={ styles.visualCardDesc }>Printer thumbnail improvements, fixed upload progress bar, path-based routing support, and HTTP client builder pattern</p>
+            <span className={ styles.visualCardLink }>Read more →</span>
+          </Link>
+          <a href="#why-fdm-monster" className={ styles.visualCard } onClick={(e) => {
+            e.preventDefault();
+            window.history.pushState(null, '', '#why-fdm-monster');
+            document.getElementById('why-fdm-monster')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
+            <div className={ styles.visualCardBadge }>Features</div>
+            <h3 className={ styles.visualCardTitle }>Why FDM Monster?</h3>
+            <p className={ styles.visualCardDesc }>Discover the powerful features built for managing your 3D print farm</p>
+            <span className={ styles.visualCardLink }>Learn more →</span>
+          </a>
+          <a href="https://github.com/sponsors/fdm-monster" target="_blank" rel="noopener noreferrer" className={ styles.visualCard }>
+            <div className={ styles.visualCardBadge }>Support Us</div>
+            <h3 className={ styles.visualCardTitle }>Sponsor</h3>
+            <p className={ styles.visualCardDesc }>Help us keep the project going</p>
+            <span className={ styles.visualCardLink }>Sponsor on GitHub →</span>
+          </a>
         </div>
       </div>
     </header>
@@ -65,13 +104,13 @@ function CodeBlock({ prefix, command, syntax }: { prefix?: string; command: stri
       const parts = commandText.split(/(\s+)/);
       return parts.map((part, i) => {
         if (part.startsWith('curl') || part === 'bash' || part === 'docker' || part === 'docker-compose') {
-          return <span key={ i } style={ { color: '#86efac' } }>{ part }</span>;
+          return <span key={ i } className={ styles.syntaxCommand }>{ part }</span>;
         } else if (part.startsWith('-')) {
-          return <span key={ i } style={ { color: '#c084fc' } }>{ part }</span>;
+          return <span key={ i } className={ styles.syntaxFlag }>{ part }</span>;
         } else if (part.startsWith('http://') || part.startsWith('https://')) {
-          return <span key={ i } style={ { color: '#fbbf24' } }>{ part }</span>;
+          return <span key={ i } className={ styles.syntaxUrl }>{ part }</span>;
         } else if (part === '|' || part === '\\') {
-          return <span key={ i } style={ { color: '#94a3b8' } }>{ part }</span>;
+          return <span key={ i } className={ styles.syntaxOperator }>{ part }</span>;
         }
         return <span key={ i }>{ part }</span>;
       });
@@ -87,9 +126,9 @@ function CodeBlock({ prefix, command, syntax }: { prefix?: string; command: stri
           return (
             <span key={ i }>
               { indent }
-              <span style={ { color: '#86efac' } }>{ key }</span>
-              <span style={ { color: '#94a3b8' } }>:</span>
-              <span style={ { color: '#fbbf24' } }>{ rest }</span>
+              <span className={ styles.syntaxKey }>{ key }</span>
+              <span className={ styles.syntaxOperator }>:</span>
+              <span className={ styles.syntaxValue }>{ rest }</span>
               { i < lines.length - 1 && '\n' }
             </span>
           );
@@ -131,8 +170,49 @@ function CodeBlock({ prefix, command, syntax }: { prefix?: string; command: stri
 }
 
 function QuickInstall() {
+  const [activeTab, setActiveTab] = React.useState('linux');
+  const tabsWrapperRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith('#quick-install-')) {
+      const tabValue = hash.replace('#quick-install-', '');
+      setActiveTab(tabValue);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    // Map of tab labels to values
+    const tabMapping: Record<string, string> = {
+      'Linux': 'linux',
+      'Docker Compose': 'docker-compose',
+      'Docker': 'docker',
+      'Raspberry Pi (3/4)': 'monsterpi'
+    };
+
+    const handleTabClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const tabButton = target.closest('[role="tab"]') as HTMLElement;
+      if (tabButton) {
+        const label = tabButton.textContent?.trim() || '';
+        const tabValue = tabMapping[label];
+        if (tabValue) {
+          window.history.pushState(null, '', `#quick-install-${tabValue}`);
+        }
+      }
+    };
+
+    const wrapper = tabsWrapperRef.current;
+    if (wrapper) {
+      wrapper.addEventListener('click', handleTabClick as EventListener);
+      return () => {
+        wrapper.removeEventListener('click', handleTabClick as EventListener);
+      };
+    }
+  }, []);
+
   const linuxCommandPrefix = "$ ";
-  const linuxCommand = "curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster/main/install.sh | bash";
+  const linuxCommand = "curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh | bash";
   const dockerComposeYaml = `services:
   fdm-monster:
     container_name: fdm-monster
@@ -161,20 +241,34 @@ volumes:
   fdmmonster/fdm-monster:2`;
 
   return (
-    <section className={ styles.quickInstall }>
+    <section id="quick-install" className={ styles.quickInstall }>
       <div className={ styles.quickInstallContainer }>
-        <h2 className={ styles.quickInstallTitle }>Quick Install</h2>
+        <h2 className={ styles.quickInstallTitle } onClick={ handleSectionTitleClick('quick-install') } style={{ cursor: 'pointer' }}>
+          Quick Install
+        </h2>
         <p className={ styles.quickInstallSubtitle }>
           Choose your preferred installation method and get started right away
         </p>
 
-        <Tabs>
-          <TabItem value="linux" label="Linux" default>
+        <div className={ styles.tabsWrapper } ref={tabsWrapperRef}>
+          <Tabs defaultValue={activeTab} key={activeTab}>
+            <TabItem value="linux" label="Linux">
             <div className={ styles.tabContent }>
+              <p className={ styles.tabDescription }>
+                Run this one-line command to automatically install FDM Monster on <strong>Ubuntu / Debian / Raspberry Pi OS</strong>:
+              </p>
               <CodeBlock prefix={ linuxCommandPrefix } command={ linuxCommand } syntax="bash"/>
+              <div className={ styles.scriptLink }>
+                <a href="https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh" target="_blank" rel="noopener noreferrer" className={ styles.viewScriptLink }>
+                  View Installation Script{" "}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline', verticalAlign: 'middle' }}>
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              </div>
               <div className={ styles.quickInstallLinks }>
-                <Link to="/docs/installing/one-click-linux" className={ styles.quickInstallLink }>
-                  Full Installation Guide <strong>→</strong>
+                <Link to="/docs/installing/linux" className={ styles.quickInstallLink }>
+                  Full Installation Guide →
                 </Link>
               </div>
             </div>
@@ -182,16 +276,13 @@ volumes:
 
           <TabItem value="docker-compose" label="Docker Compose">
             <div className={ styles.tabContent }>
-              <p className={ styles.tabDescription }>
-                Run FDM Monster in a Docker container with docker-compose for easy management.
-              </p>
               <p className={ styles.stepLabel }>1. Create a docker-compose.yml file:</p>
               <CodeBlock command={ dockerComposeYaml } syntax="yaml"/>
               <p className={ styles.stepLabel }>2. Start the container:</p>
               <CodeBlock prefix={ linuxCommandPrefix } command={ dockerComposeCommand } syntax="bash"/>
               <div className={ styles.quickInstallLinks }>
                 <Link to="/docs/installing/docker_compose" className={ styles.quickInstallLink }>
-                  Full Docker Guide →
+                  View Docker Compose Guide →
                 </Link>
               </div>
             </div>
@@ -199,10 +290,13 @@ volumes:
 
           <TabItem value="docker" label="Docker">
             <div className={ styles.tabContent }>
+              <p className={ styles.tabDescription }>
+                Run FDM Monster in a Docker container with this single command:
+              </p>
               <CodeBlock prefix={ linuxCommandPrefix } command={ dockerCommand } syntax="bash"/>
               <div className={ styles.quickInstallLinks }>
                 <Link to="/docs/installing/docker_compose" className={ styles.quickInstallLink }>
-                  Full Docker Guide →
+                  View Docker Guide →
                 </Link>
               </div>
             </div>
@@ -210,18 +304,75 @@ volumes:
 
           <TabItem value="monsterpi" label="Raspberry Pi (3/4)">
             <div className={ styles.tabContent }>
-              <div className={ styles.monsterpiContent }>
-                <p className={ styles.monsterpiDescription }>
-                  MonsterPi is a pre-built Raspberry Pi image with FDM Monster already configured and ready to use.
-                  Perfect for Raspberry Pi 3B+, Pi 4, and compatible devices.
-                </p>
-                <Link to="/docs/installing/monsterpi" className={ styles.monsterpiButton }>
-                  View Full MonsterPi Installation Guide →
+              <div className={ styles.monsterpiHeader }>
+                <img src="/img/raspberry-pi-svgrepo-com.svg" alt="Raspberry Pi" className={ styles.monsterpiLogo } />
+                <div className={ styles.monsterpiText }>
+                  <h3 className={ styles.monsterpiTitle }>MonsterPi</h3>
+                  <p className={ styles.monsterpiDescription }>
+                    A pre-built Raspberry Pi image with FDM Monster already configured and ready to use.
+                    Perfect for Raspberry Pi 3B+, Pi 4, and compatible devices.
+                  </p>
+                </div>
+              </div>
+              <div className={ styles.quickInstallLinks }>
+                <Link to="/docs/installing/monsterpi" className={ styles.quickInstallLink }>
+                  View MonsterPi Installation Guide <strong>→</strong>
                 </Link>
               </div>
             </div>
           </TabItem>
-        </Tabs>
+          </Tabs>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyFDMMonster() {
+  const features = [
+    {
+      title: "Real-time Monitoring",
+      description: "Monitor all your 3D printers in one central dashboard with live status updates and webcam feeds.",
+      // image: "/img/features/monitoring.gif"
+    },
+    {
+      title: "Print Queue Management",
+      description: "Organize and manage your print queue across multiple printers with drag-and-drop simplicity.",
+      // image: "/img/features/queue.gif"
+    },
+    {
+      title: "Multi-Printer Control",
+      description: "Control dozens of printers simultaneously with group operations and batch management tools.",
+      // image: "/img/features/control.gif"
+    },
+  ];
+
+  return (
+    <section id="why-fdm-monster" className={ styles.whySection }>
+      <div className={ styles.whyContainer }>
+        <h2 className={ styles.whyTitle } onClick={ handleSectionTitleClick('why-fdm-monster') } style={{ cursor: 'pointer' }}>
+          Why FDM Monster?
+        </h2>
+        <p className={ styles.whySubtitle }>
+          Built for makers who need to manage multiple 3D printers efficiently
+        </p>
+
+        <div className={ styles.featuresShowcase }>
+          {features.map((feature, idx) => (
+            <div key={idx} className={ styles.showcaseItem }>
+              <div className={ styles.showcaseMedia }>
+                {/* Placeholder for GIF - will be replaced with actual image */}
+                <div className={ styles.mediaPlaceholder }>
+                  <span>GIF Coming Soon</span>
+                </div>
+              </div>
+              <div className={ styles.showcaseContent }>
+                <h3 className={ styles.showcaseTitle }>{feature.title}</h3>
+                <p className={ styles.showcaseDescription }>{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -238,6 +389,9 @@ export default function Home() {
       <HomepageHeader/>
       <main>
         <QuickInstall/>
+        <div className={ styles.sectionSeparator }></div>
+        <WhyFDMMonster/>
+        <div className={ styles.sectionSeparator }></div>
         <HomepageFeatures/>
       </main>
     </Layout>

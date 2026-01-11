@@ -1,0 +1,119 @@
+---
+title: FDM Monster release 1.9.0
+authors:
+  - davidzwa
+tags: [releases]
+slug: /fdm-monster-release-1-9.0
+description: FDM Monster version 1.9.0 has been released!
+---
+
+Version **1.9.0** of FDM Monster has been released! This release ships with FDM Monster Client 1.9.0.
+
+## Highlights of this release
+
+This release includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.2 release](../01-03%20FDM%20Monster%20release%201.8.2/index.mdx)!
+
+- Printer Thumbnail improvement (experimental feature)
+- Print upload bar would get stuck
+- Support paths in Printer URLs (like octoprint_deploy)
+- Http client with builder pattern
+- SocketIO messages are not serialized twice
+- Smaller chores on the repository
+
+<!-- truncate -->
+
+### Printer Thumbnail improvement (experimental feature)
+
+The thumbnail feature has been introduced as an experimental feature since FDM Monster v1.8.0. Since then the thumbnail feature has received a bugfix in v1.8.1 within the UI. In this release the thumbnail will only change after the printed file has been uploaded and accepted by OctoPrint.
+
+This change however was not enough, it was found that even when OctoPrint is busy the thumbnail will change. This is tracked in [this issue](https://github.com/fdm-monster/fdm-monster/issues/4138) that will be tackled in a future release.
+
+### Print upload bar would get stuck
+
+Whenever a user uploads a file, the upload bar will show. This works in two stages: first the file is uploaded and then the file is forward to a printer service (OctoPrint, Moonraker, etc). In the second stage the upload progress got stuck and the UI got showed a frozen progress bar that would not disappear, even after page reload by pressing F5. The correct upload progress is now sent to the UI and when the upload succeeds/fails the progress bar will disappear.
+
+The design of the upload bar is not very clear yet. Also it is not clear what files have been uploaded in the past. These are known challenges captured in [this GitHub feature](https://github.com/fdm-monster/fdm-monster/issues/4148).
+
+### Support paths in Printer URLs (like octoprint_deploy)
+
+Printers that use octoprint_deploy `/printer1` path based routing would not connect properly. The path would not be consistently used in FDM Monster backend. The fix was to standardize the URL usage across the codebase for both HTTP calls as well as Websocket clients. This means that now the URL path is preserved across all supported
+printer services (OctoPrint, Moonraker, etc).
+
+### Http client with builder pattern
+
+Previously in the FDM Monster codebase, http clients were constructed using custom methods building on top of a static `axios` instance. This was hard to work with because some places required a customized http timeout, different URL, different headers or different request/response handling. This was growing too complex.
+By introducing a builder pattern, the http clients in the codebase can reuse the same logic, but choose which combination is required for that place. Also, the builder pattern allows to chain customization or overrides using the fluent pattern.
+
+Before (no chaining using the builder pattern) 😥
+
+```typescript
+const headers = {
+  ...options.headers,
+  ...formData.getHeaders(),
+  "Content-Length": result,
+};
+
+const response = await axios({
+  method: "POST",
+  url,
+  data: formData,
+  headers,
+  onUploadProgress: (p: AxiosProgressEvent) => {
+    if (token) {
+      this.eventEmitter2.emit(`${uploadProgressEvent(token)}`, token, p);
+    }
+  },
+});
+```
+
+After (chained customization and reuse) 🥳
+
+```typescript
+const response = await this.createClient(login, (builder) =>
+  builder
+    .withMultiPartFormData()
+    .withHeaders({
+      ...formData.getHeaders(),
+    })
+    .withOnUploadProgress((p: AxiosProgressEvent) => {
+      if (token) {
+        this.eventEmitter2.emit(`${uploadProgressEvent(token)}`, token, p);
+      }
+    })
+).post(urlPath, formData);
+```
+
+When working with the builder, the developer gets suggestions of what other methods can be chained on top. This invites the code to be reused whilst reducing duplication of complicated logic. All in all a great improvement! 🥳
+
+### Avoid serializing SocketIO messages twice
+
+The UI of FDM Monster Client receives server updates over SocketIO. Each message needs to be serialized by the server and deserialized by the client. This serialization step, however, was done an extra time by the server requiring the client to deserialize it another time as well. This was double work, because SocketIO internally already does both required steps on the sending and receiving end.
+Now that this has been simplified, the server requires the client to be updated to `1.9.0` in order to not create an incompatibility.
+
+### Smaller chores and fixes
+
+- The `installations` folder was removed from the repository for the sake of removing clutter. The contents wer not directly related to or not used anymore for FDM Monster.
+- The `requests` folder was moved into the test folder. It is used when testing and therefore this made more sense.
+
+## Issues
+
+As part of this release [6 issues](https://github.com/fdm-monster/fdm-monster/milestone/28?closed=1) were closed.
+
+### Bugs
+
+- [#4086](https://github.com/fdm-monster/fdm-monster/issues/4086) [Bug]: failed upload still ends up in changed thumbnail
+- [#4117](https://github.com/fdm-monster/fdm-monster/issues/4117) [Change]: dont serialize SocketIO messages on backend, dont parse on frontend
+- [#4077](https://github.com/fdm-monster/fdm-monster/issues/4077) [Bug]: Uploading GCode causes the upload bar to show indefinitely
+- [#4080](https://github.com/fdm-monster/fdm-monster/issues/4080) [Chore]: Clean up resources on the repository
+- [#3944](https://github.com/fdm-monster/fdm-monster/issues/3944) [Bug]: Printers that use octoprint_deploy /instancename path based routing will not connect properly
+- [#4074](https://github.com/fdm-monster/fdm-monster/issues/4074) [Maintenance]: HttpClient does not use configurable timeout across codebase
+
+If you encounter issues with this release, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
+
+## Contributors
+
+This release was made possible thanks to the [FDM Monster team](https://docs.fdm-monster.net/docs/community/ourteam). Special thanks to the feedback of these awesome community members:
+
+- [AbbeDabbe](https://github.com/AbbeDabbe) for reporting [this octoprint_deploy bug](https://github.com/fdm-monster/fdm-monster/issues/3944) that has been fixed.
+
+Full details of what has been included can be seen below.

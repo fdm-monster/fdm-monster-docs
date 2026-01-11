@@ -116,12 +116,24 @@ function Feature({ Svg, title, description, featureLink }) {
   );
 }
 
+function handleSectionTitleClick(sectionId: string) {
+  return () => {
+    window.history.pushState(null, '', `#${sectionId}`);
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+}
+
 export default function HomepageFeatures() {
   return (
-    <section className={styles.featuresSection}>
+    <section className={styles.featuresSection} id="powered-by">
       <div className={styles.featuresContainer}>
         <div className={styles.featuresHeader}>
-          <h2 className={styles.sectionTitle}>FDM Monster is Powered By</h2>
+          <h2 className={styles.sectionTitle} onClick={handleSectionTitleClick('powered-by')} style={{ cursor: 'pointer' }}>
+            FDM Monster is Powered By
+          </h2>
           <p className={styles.sectionSubtitle}>
             FDM Monster stands on the shoulders of giants! Check out the following projects and see what fits your needs:
           </p>

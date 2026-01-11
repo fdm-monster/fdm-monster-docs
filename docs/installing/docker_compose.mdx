@@ -9,8 +9,6 @@ pagination_next: software_usage/index
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Starting from version 2.0.0, FDM Monster uses SQLite as its database, so no separate database server is required.
-
 ## Quick Start
 
 <Tabs>
@@ -22,7 +20,7 @@ Create a `docker-compose.yml` file:
 services:
   fdm-monster:
     container_name: fdm-monster
-    image: fdmmonster/fdm-monster:2.0.0
+    image: fdmmonster/fdm-monster:2
     restart: unless-stopped
     deploy:
       restart_policy:
@@ -57,7 +55,7 @@ docker run -d \
   -v fdm-monster-media:/app/media \
   -v fdm-monster-database:/app/database \
   --restart unless-stopped \
-  fdmmonster/fdm-monster:2.0.0
+  fdmmonster/fdm-monster:2
 ```
 
 </TabItem>
@@ -81,15 +79,13 @@ Multiple tags are available for the `fdmmonster/fdm-monster` image:
 
 ## Environment Variables
 
-FDM Monster can be customized using environment variables. See the complete [Environment Variables Reference](../configuration/preconfiguration.mdx) for all available options.
-
-### Quick Example
+FDM Monster can be customized using environment variables. Here are some common ones:
 
 ```yaml
 services:
   fdm-monster:
     container_name: fdm-monster
-    image: fdmmonster/fdm-monster:2.0.0
+    image: fdmmonster/fdm-monster:2
     restart: unless-stopped
     ports:
       - "4000:4000"
@@ -97,6 +93,7 @@ services:
       - SERVER_PORT=4000
       - NODE_ENV=production
       - OVERRIDE_LOGIN_REQUIRED=true
+      - OVERRIDE_IS_DEMO_MODE=false
     volumes:
       - fdm-monster-media:/app/media
       - fdm-monster-database:/app/database
@@ -106,14 +103,13 @@ volumes:
   fdm-monster-database:
 ```
 
-Common environment variables include:
-
+Common options:
 - `SERVER_PORT` - Change the server port (default: 4000)
-- `NODE_ENV` - Set environment mode (default: production)
+- `NODE_ENV` - Set environment mode (options: development, production)
 - `OVERRIDE_LOGIN_REQUIRED` - Require login (default: true)
 - `OVERRIDE_IS_DEMO_MODE` - Enable demo mode (default: false)
 
-For the complete list of environment variables, configuration examples, and detailed descriptions, see the [Environment Variables Guide](../configuration/preconfiguration.mdx).
+For the complete list of environment variables and detailed configuration options, see the [Environment Variables Guide](../configuration/environment_variables.mdx).
 
 ## Additional Resources
 
