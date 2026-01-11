@@ -22,6 +22,11 @@ function handleSectionTitleClick(sectionId: string, scrollPosition: ScrollLogica
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
+
+  const version = 'Latest';
+  const description = 'Check out the latest release';
+  const permalink = '/blog';
+
   return (
     <header className={ styles.heroBanner }>
       <div className={ styles.heroContainer }>
@@ -60,10 +65,10 @@ function HomepageHeader() {
           </div>
         </div>
         <div className={ styles.heroVisual }>
-          <Link to="/blog/fdm-monster-release-1-9.0" className={ styles.visualCard }>
+          <Link to={ permalink } className={ styles.visualCard }>
             <div className={ styles.visualCardBadge }>Latest Release</div>
-            <h3 className={ styles.visualCardTitle }>1.9.0</h3>
-            <p className={ styles.visualCardDesc }>Printer thumbnail improvements, fixed upload progress bar, path-based routing support, and HTTP client builder pattern</p>
+            <h3 className={ styles.visualCardTitle }>{ version }</h3>
+            <p className={ styles.visualCardDesc }>{ description }</p>
             <span className={ styles.visualCardLink }>Read more →</span>
           </Link>
           <a href="#why-fdm-monster" className={ styles.visualCard } onClick={(e) => {
