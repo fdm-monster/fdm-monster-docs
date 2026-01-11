@@ -10,7 +10,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: DavidAnson/markdownlint-cli2-action@v22
+      - uses: DavidAnson/markdownlint-cli2-action@ced27be96cbfca9963b6a82de3dd05a7ee8a1d3e # v22.0.0
         with:
           globs: |
             **/*.md
@@ -21,5 +21,5 @@ jobs:
           node-version: 24.x
 
       - run: yarn set version berry
-      - run: yarn install --immutable
+      - run: yarn install --immutable --ignore-scripts
       - run: yarn run build
