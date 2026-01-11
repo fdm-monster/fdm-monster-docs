@@ -1,6 +1,6 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
- const sidebars: SidebarsConfig = {
+const sidebars: SidebarsConfig = {
   docs: [
     'introduction',
     {
@@ -12,21 +12,9 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: false,
       items: [
-        {
-          type: 'doc',
-          id: 'installing/linux',
-          label: 'Linux',
-        },
-        {
-          type: 'doc',
-          id: 'installing/docker_compose',
-          label: 'Docker Compose',
-        },
-        {
-          type: 'doc',
-          id: 'installing/raspberrypi34',
-          label: 'Raspberry Pi (3/4)',
-        },
+        'installing/linux',
+        'installing/docker_compose',
+        'installing/raspberrypi34'
       ],
     },
     {
