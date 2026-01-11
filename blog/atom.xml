@@ -2,12 +2,332 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.fdm-monster.net/blog</id>
     <title>FDM Monster Blog</title>
-    <updated>2025-03-15T00:00:00.000Z</updated>
+    <updated>2026-01-11T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.fdm-monster.net/blog"/>
     <subtitle>Keep up to date with FDM Monster and articles by following our feed!</subtitle>
     <icon>https://docs.fdm-monster.net/img/favicon.ico</icon>
     <rights>Copyright © 2026 David Zwart.</rights>
+    <entry>
+        <title type="html"><![CDATA[FDM Monster release 2.0.0]]></title>
+        <id>https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0</id>
+        <link href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0"/>
+        <updated>2026-01-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[FDM Monster version 2.0.0 is here with a complete UI redesign, SQLite-only architecture, and powerful new features!]]></summary>
+        <content type="html"><![CDATA[<p>Version <strong>2.0.0</strong> of FDM Monster has been released! This is a major milestone bringing a completely redesigned UI, streamlined architecture, and powerful new features for managing your 3D print farm.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="highlights">Highlights<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#highlights" class="hash-link" aria-label="Direct link to Highlights" title="Direct link to Highlights" translate="no">​</a></h2>
+<p>This major release represents a significant evolution of FDM Monster with breaking changes and exciting new capabilities:</p>
+<p><strong>Major Changes:</strong></p>
+<ul>
+<li class=""><strong>Brand New UI</strong> - Complete redesign with fdm-monster-client-next v2.0.0</li>
+<li class=""><strong>SQLite Only</strong> - MongoDB support removed for simplified setup and maintenance</li>
+<li class=""><strong>API v2</strong> - New API endpoint structure at <code>/api/v2</code></li>
+<li class=""><strong>Print Queue System</strong> - Manage and schedule multiple print jobs</li>
+<li class=""><strong>File Analysis</strong> - Advanced gcode analysis and metadata extraction</li>
+<li class=""><strong>Swagger/OpenAPI</strong> - Interactive API documentation built-in</li>
+<li class=""><strong>Slicer Integration</strong> - Direct upload from your slicer software</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="breaking-changes">Breaking Changes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#breaking-changes" class="hash-link" aria-label="Direct link to Breaking Changes" title="Direct link to Breaking Changes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mongodb-support-removed">MongoDB Support Removed<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#mongodb-support-removed" class="hash-link" aria-label="Direct link to MongoDB Support Removed" title="Direct link to MongoDB Support Removed" translate="no">​</a></h3>
+<p>FDM Monster 2.0.0 removes MongoDB support entirely. All installations now use SQLite as the built-in database. This change brings several benefits:</p>
+<ul>
+<li class=""><strong>Simplified setup</strong> - No need to install or manage a separate database server</li>
+<li class=""><strong>Better performance</strong> - SQLite provides excellent performance for FDM Monster's use case</li>
+<li class=""><strong>Easier backups</strong> - Your entire database is a single file</li>
+<li class=""><strong>Lower resource usage</strong> - Reduced memory and CPU overhead</li>
+</ul>
+<p><strong>Migration:</strong> If you're running FDM Monster 1.x with MongoDB, use the YAML export feature to backup your printers and settings, then import them after upgrading to 2.0.0.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-api-endpoint-structure">New API Endpoint Structure<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#new-api-endpoint-structure" class="hash-link" aria-label="Direct link to New API Endpoint Structure" title="Direct link to New API Endpoint Structure" translate="no">​</a></h3>
+<p>The API has been restructured to <code>/api/v2</code>. This provides a clean slate for future API evolution while maintaining stability.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-features">New Features<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="complete-ui-redesign">Complete UI Redesign<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#complete-ui-redesign" class="hash-link" aria-label="Direct link to Complete UI Redesign" title="Direct link to Complete UI Redesign" translate="no">​</a></h3>
+<p>FDM Monster Client Next brings a modern, responsive interface with improved usability and new features. The redesign focuses on:</p>
+<ul>
+<li class="">Enhanced printer grid layouts</li>
+<li class="">Better mobile support</li>
+<li class="">Improved navigation</li>
+<li class="">More intuitive workflows</li>
+<li class="">Faster load times</li>
+</ul>
+<p>See the <a href="https://github.com/fdm-monster/fdm-monster-client-next/blob/main/RELEASE_NOTES.MD" target="_blank" rel="noopener noreferrer" class="">full client release notes</a> for details.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="print-queue-system">Print Queue System<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#print-queue-system" class="hash-link" aria-label="Direct link to Print Queue System" title="Direct link to Print Queue System" translate="no">​</a></h3>
+<p>The new queue system allows you to:</p>
+<ul>
+<li class="">Schedule multiple print jobs per printer</li>
+<li class="">Automatically start the next job when one completes</li>
+<li class="">Manage queue priorities</li>
+<li class="">View queue status across all printers</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="file-analysis">File Analysis<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#file-analysis" class="hash-link" aria-label="Direct link to File Analysis" title="Direct link to File Analysis" translate="no">​</a></h3>
+<p>Advanced file analysis provides:</p>
+<ul>
+<li class="">Automatic gcode metadata extraction</li>
+<li class="">Estimated print time and material usage</li>
+<li class="">Thumbnail generation support</li>
+<li class="">File compatibility checking</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="slicer-integration-api">Slicer Integration API<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#slicer-integration-api" class="hash-link" aria-label="Direct link to Slicer Integration API" title="Direct link to Slicer Integration API" translate="no">​</a></h3>
+<p>Upload directly from your slicer software with the new slicer API:</p>
+<ul>
+<li class="">Direct integration with popular slicers</li>
+<li class="">Automatic printer selection</li>
+<li class="">Print start control</li>
+<li class="">Progress tracking</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="swaggeropenapi-documentation">Swagger/OpenAPI Documentation<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#swaggeropenapi-documentation" class="hash-link" aria-label="Direct link to Swagger/OpenAPI Documentation" title="Direct link to Swagger/OpenAPI Documentation" translate="no">​</a></h3>
+<p>Built-in API documentation accessible at <code>/swagger</code>:</p>
+<ul>
+<li class="">Interactive API testing</li>
+<li class="">Complete endpoint documentation</li>
+<li class="">Schema definitions</li>
+<li class="">Request/response examples</li>
+</ul>
+<p>Configure with environment variables:</p>
+<ul>
+<li class=""><code>DISABLE_SWAGGER_OPENAPI</code> - Disable Swagger UI (default: false)</li>
+<li class=""><code>GENERATE_SWAGGER_JSON</code> - Generate swagger.json file (default: false)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tag-colors">Tag Colors<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#tag-colors" class="hash-link" aria-label="Direct link to Tag Colors" title="Direct link to Tag Colors" translate="no">​</a></h3>
+<p>Organize your printers better with colored tags:</p>
+<ul>
+<li class="">Visual categorization</li>
+<li class="">Quick identification</li>
+<li class="">Customizable colors</li>
+<li class="">Filter by tag</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="print-job-history">Print Job History<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#print-job-history" class="hash-link" aria-label="Direct link to Print Job History" title="Direct link to Print Job History" translate="no">​</a></h3>
+<p>Track your print jobs with detailed history:</p>
+<ul>
+<li class="">Keep records of all completed prints</li>
+<li class="">See which prints succeeded or failed</li>
+<li class="">Monitor material usage over time</li>
+<li class="">Track how long each print took</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="improvements-and-fixes">Improvements and Fixes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#improvements-and-fixes" class="hash-link" aria-label="Direct link to Improvements and Fixes" title="Direct link to Improvements and Fixes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stability-improvements">Stability Improvements<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#stability-improvements" class="hash-link" aria-label="Direct link to Stability Improvements" title="Direct link to Stability Improvements" translate="no">​</a></h3>
+<ul>
+<li class="">BambuLab connection rejections can no longer cause server crashes</li>
+<li class="">Camera entity properly handles printer deletion with SET NULL foreign key</li>
+<li class="">ExceptionFilter now uses loggerFactory for better error logging</li>
+<li class="">YAML import service more robust against printer type failures</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-enhancements">Performance Enhancements<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#performance-enhancements" class="hash-link" aria-label="Direct link to Performance Enhancements" title="Direct link to Performance Enhancements" translate="no">​</a></h3>
+<ul>
+<li class="">Printer files load in background instead of synchronously</li>
+<li class="">Better resource management</li>
+<li class="">Optimized WebSocket connections</li>
+<li class="">Reduced memory footprint</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="bug-fixes">Bug Fixes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#bug-fixes" class="hash-link" aria-label="Direct link to Bug Fixes" title="Direct link to Bug Fixes" translate="no">​</a></h3>
+<ul>
+<li class="">Floor service position updates now work correctly (fixed x==x, y==x comparison)</li>
+<li class="">Quick stop API endpoint moved to printer controller</li>
+<li class="">File uploads now go to <code>media/file-uploads</code> instead of <code>media</code></li>
+<li class="">First-time-setup API filter now allows Swagger endpoints</li>
+<li class="">Floor order changes properly implemented in API service</li>
+<li class="">Fixed all TypeScript strict null check issues</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="removed-features">Removed Features<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#removed-features" class="hash-link" aria-label="Direct link to Removed Features" title="Direct link to Removed Features" translate="no">​</a></h2>
+<p>The following experimental or unused features were removed:</p>
+<ul>
+<li class="">MongoDB support (breaking change)</li>
+<li class="">Experimental thumbnail support (will be redesigned)</li>
+<li class="">Custom Gcode table (unused)</li>
+<li class="">PrintCompletion table (broken, replaced by PrintJob)</li>
+<li class="">Client next experimental setting (now default)</li>
+<li class="">Batch/single gcode analysis toggle</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="technical-changes">Technical Changes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#technical-changes" class="hash-link" aria-label="Direct link to Technical Changes" title="Direct link to Technical Changes" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="architecture">Architecture<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#architecture" class="hash-link" aria-label="Direct link to Architecture" title="Direct link to Architecture" translate="no">​</a></h3>
+<ul>
+<li class="">Role system reimplemented based on RoleName</li>
+<li class="">Permission system cleaned up and unused permissions removed</li>
+<li class="">Key-diff cache now uses Map instead of Object</li>
+<li class="">PrinterGroup renamed to PrinterTag for clarity</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="developer-experience">Developer Experience<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#developer-experience" class="hash-link" aria-label="Direct link to Developer Experience" title="Direct link to Developer Experience" translate="no">​</a></h3>
+<ul>
+<li class="">Complete TypeScript strict null checks</li>
+<li class="">Improved dependency injection</li>
+<li class="">Better code organization</li>
+<li class="">Comprehensive API documentation</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="upgrading-to-200">Upgrading to 2.0.0<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#upgrading-to-200" class="hash-link" aria-label="Direct link to Upgrading to 2.0.0" title="Direct link to Upgrading to 2.0.0" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="docker--docker-compose">Docker / Docker Compose<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#docker--docker-compose" class="hash-link" aria-label="Direct link to Docker / Docker Compose" title="Direct link to Docker / Docker Compose" translate="no">​</a></h3>
+<p>Update your image tag:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#0f1419"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#0f1419"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token key atrule">services</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token key atrule">fdm-monster</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token key atrule">image</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token plain"> fdmmonster/fdm</span><span class="token punctuation" style="color:rgb(248, 248, 242)">-</span><span class="token plain">monster</span><span class="token punctuation" style="color:rgb(248, 248, 242)">:</span><span class="token number" style="color:#00A6D6">2</span><br></span></code></pre></div></div>
+<p>Then pull and restart:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#0f1419"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#0f1419"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token function" style="color:rgb(80, 250, 123)">docker-compose</span><span class="token plain"> pull </span><span class="token operator">&amp;&amp;</span><span class="token plain"> </span><span class="token function" style="color:rgb(80, 250, 123)">docker-compose</span><span class="token plain"> up </span><span class="token parameter variable" style="color:rgb(189, 147, 249);font-style:italic">-d</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-one-click-install">Linux One-Click Install<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#linux-one-click-install" class="hash-link" aria-label="Direct link to Linux One-Click Install" title="Direct link to Linux One-Click Install" translate="no">​</a></h3>
+<p>Use the upgrade command:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#0f1419"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#0f1419"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">fdmm upgrade</span><br></span></code></pre></div></div>
+<p>Your data is automatically preserved during the upgrade.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mongodb-to-sqlite-migration">MongoDB to SQLite Migration<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#mongodb-to-sqlite-migration" class="hash-link" aria-label="Direct link to MongoDB to SQLite Migration" title="Direct link to MongoDB to SQLite Migration" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Export your data</strong> from FDM Monster 1.x:</p>
+<ul>
+<li class="">Go to Settings → Import/Export</li>
+<li class="">Export YAML file with all printers, floors, and settings</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Upgrade</strong> to FDM Monster 2.0.0</p>
+</li>
+<li class="">
+<p><strong>Import your data</strong>:</p>
+<ul>
+<li class="">Go to Settings → Import/Export</li>
+<li class="">Import the YAML file from step 1</li>
+</ul>
+</li>
+</ol>
+<p>See our <a href="https://docs.fdm-monster.net/docs/configuration/yaml_import_export" target="_blank" rel="noopener noreferrer" class="">YAML Import/Export guide</a> for details.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's Next<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#whats-next" class="hash-link" aria-label="Direct link to What's Next" title="Direct link to What's Next" translate="no">​</a></h2>
+<p>FDM Monster 2.0.0 lays the foundation for exciting features planned for future releases:</p>
+<ul>
+<li class="">Enhanced BambuLab support (currently work in progress)</li>
+<li class="">Advanced queue management features</li>
+<li class="">Improved file analysis and thumbnails</li>
+<li class="">More printer firmware integrations</li>
+<li class="">Enhanced monitoring and alerting</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="issues-and-feedback">Issues and Feedback<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#issues-and-feedback" class="hash-link" aria-label="Direct link to Issues and Feedback" title="Direct link to Issues and Feedback" translate="no">​</a></h2>
+<p>If you encounter issues with this release, please:</p>
+<ul>
+<li class="">Create an issue at our <a href="https://github.com/fdm-monster/fdm-monster/issues" target="_blank" rel="noopener noreferrer" class="">GitHub issues</a></li>
+<li class="">Join our <a href="https://discord.gg/mwA8uP8CMc" target="_blank" rel="noopener noreferrer" class="">Discord community</a></li>
+<li class="">Check the <a href="https://docs.fdm-monster.net/" target="_blank" rel="noopener noreferrer" class="">documentation</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contributors">Contributors<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-2-0-0#contributors" class="hash-link" aria-label="Direct link to Contributors" title="Direct link to Contributors" translate="no">​</a></h2>
+<p>This major release was made possible thanks to the <a href="https://docs.fdm-monster.net/docs/community/ourteam" target="_blank" rel="noopener noreferrer" class="">FDM Monster team</a> and the entire community.</p>
+<p>Special thanks to all community members who:</p>
+<ul>
+<li class="">Tested release candidates</li>
+<li class="">Provided feedback on the new UI</li>
+<li class="">Reported bugs and issues</li>
+<li class="">Contributed to discussions and planning</li>
+</ul>
+<p>Full details of what has been included can be found in the <a href="https://github.com/fdm-monster/fdm-monster/blob/main/RELEASE_NOTES.md" target="_blank" rel="noopener noreferrer" class="">release notes</a>.</p>
+<hr>
+<p>Welcome to FDM Monster 2.0 - the future of 3D print farm management! 🚀</p>]]></content>
+        <author>
+            <name>David Zwart</name>
+            <uri>https://github.com/davidzwa</uri>
+        </author>
+        <category label="releases" term="releases"/>
+        <category label="major" term="major"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[FDM Monster release 1.9.x]]></title>
+        <id>https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x</id>
+        <link href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x"/>
+        <updated>2025-05-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[FDM Monster version 1.9.0 through 1.9.4 have been released!]]></summary>
+        <content type="html"><![CDATA[<p>Version <strong>1.9.x</strong> of FDM Monster has been released! This series includes versions 1.9.0 through 1.9.4, bringing PrusaLink support, BambuLab improvements, YAML import/export enhancements, and many bug fixes.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="highlights-of-this-release-series">Highlights of this release series<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#highlights-of-this-release-series" class="hash-link" aria-label="Direct link to Highlights of this release series" title="Direct link to Highlights of this release series" translate="no">​</a></h2>
+<p>This release series includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the <a class="" href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-8-3">FDM Monster 1.8.3 release</a>!</p>
+<p><strong>Major Features:</strong></p>
+<ul>
+<li class=""><strong>PrusaLink Support</strong> - Full adapter for PrusaLink printers (MK3S+, Mini+, MK4S, XL, Core One)</li>
+<li class=""><strong>BambuLab Support</strong> - Experimental support for BambuLab printers via MQTT and FTP</li>
+<li class=""><strong>Full YAML Import/Export</strong> - Complete backup and restore with users, roles, and settings</li>
+<li class=""><strong>Prometheus &amp; Loki Integration</strong> - Opt-in monitoring and logging support</li>
+<li class=""><strong>Colored Logs</strong> - Optional colored console output with <code>ENABLE_COLORED_LOGS</code> env var</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-194---bambulab-improvements">Version 1.9.4 - BambuLab Improvements<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#version-194---bambulab-improvements" class="hash-link" aria-label="Direct link to Version 1.9.4 - BambuLab Improvements" title="Direct link to Version 1.9.4 - BambuLab Improvements" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes-194">Fixes 1.9.4<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#fixes-194" class="hash-link" aria-label="Direct link to Fixes 1.9.4" title="Direct link to Fixes 1.9.4" translate="no">​</a></h3>
+<ul>
+<li class="">BambuLab MQTT adapter now connects using <code>mqtts://</code> protocol</li>
+<li class="">BambuLab FTP now works with <code>.3mf</code> files (as well as gcode)</li>
+<li class="">BambuLab: Implemented socket state emitting for test functionality</li>
+<li class="">PrusaLink: Implemented socket state emitting for test functionality</li>
+<li class="">BambuLab: Download file implemented via FTP</li>
+<li class="">File upload now checks file extension after upload (not during upload)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-193---bambulab-port-fix">Version 1.9.3 - BambuLab Port Fix<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#version-193---bambulab-port-fix" class="hash-link" aria-label="Direct link to Version 1.9.3 - BambuLab Port Fix" title="Direct link to Version 1.9.3 - BambuLab Port Fix" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes-193">Fixes 1.9.3<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#fixes-193" class="hash-link" aria-label="Direct link to Fixes 1.9.3" title="Direct link to Fixes 1.9.3" translate="no">​</a></h3>
+<ul>
+<li class="">BambuLab port corrected from 1883 to 8883</li>
+<li class="">Removed confusing app constants wrongly suggesting MQTT configuration is an option</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-192---yaml-importexport--bambulab">Version 1.9.2 - YAML Import/Export &amp; BambuLab<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#version-192---yaml-importexport--bambulab" class="hash-link" aria-label="Direct link to Version 1.9.2 - YAML Import/Export &amp; BambuLab" title="Direct link to Version 1.9.2 - YAML Import/Export &amp; BambuLab" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features-192">Features 1.9.2<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#features-192" class="hash-link" aria-label="Direct link to Features 1.9.2" title="Direct link to Features 1.9.2" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Full YAML export</strong> with users, roles, and settings</li>
+<li class=""><strong>Full YAML import</strong> for easy migration and getting started</li>
+<li class=""><strong>Experimental BambuLab support</strong> (tested with mock BambuLab server)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes-192">Fixes 1.9.2<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#fixes-192" class="hash-link" aria-label="Direct link to Fixes 1.9.2" title="Direct link to Fixes 1.9.2" translate="no">​</a></h3>
+<ul>
+<li class="">Floor: SQLite floor level would start at 0, not 1</li>
+<li class="">YAML export: Mongo floor printer position would export printerId as <!-- --> instead of string</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-191---security-update">Version 1.9.1 - Security Update<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#version-191---security-update" class="hash-link" aria-label="Direct link to Version 1.9.1 - Security Update" title="Direct link to Version 1.9.1 - Security Update" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates-191">Updates 1.9.1<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#updates-191" class="hash-link" aria-label="Direct link to Updates 1.9.1" title="Direct link to Updates 1.9.1" translate="no">​</a></h3>
+<ul>
+<li class="">Resolved CVE multer vulnerabilities by updating to 2.0.2</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-190---prusalink--monitoring">Version 1.9.0 - PrusaLink &amp; Monitoring<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#version-190---prusalink--monitoring" class="hash-link" aria-label="Direct link to Version 1.9.0 - PrusaLink &amp; Monitoring" title="Direct link to Version 1.9.0 - PrusaLink &amp; Monitoring" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="features-190">Features 1.9.0<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#features-190" class="hash-link" aria-label="Direct link to Features 1.9.0" title="Direct link to Features 1.9.0" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="prusalink-adapter">PrusaLink Adapter<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#prusalink-adapter" class="hash-link" aria-label="Direct link to PrusaLink Adapter" title="Direct link to PrusaLink Adapter" translate="no">​</a></h4>
+<p>Introduce PrusaLink adapter for limited printer support for these printers:</p>
+<ul>
+<li class="">MK3S(+) (needs PrusaLink extension with Raspberry Pi)</li>
+<li class="">Mini(+)</li>
+<li class="">MK4(S)</li>
+<li class="">XL</li>
+<li class="">Core One</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="monitoring-integration">Monitoring Integration<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#monitoring-integration" class="hash-link" aria-label="Direct link to Monitoring Integration" title="Direct link to Monitoring Integration" translate="no">​</a></h4>
+<ul>
+<li class="">Add opt-in <strong>Prometheus integration</strong> (experimental)</li>
+<li class="">Add opt-in <strong>Loki integration</strong> (experimental)</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="upload-improvements">Upload Improvements<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#upload-improvements" class="hash-link" aria-label="Direct link to Upload Improvements" title="Direct link to Upload Improvements" translate="no">​</a></h4>
+<ul>
+<li class="">Introduce separate upload timeout setting for better control and resilience</li>
+<li class="">Ability to add <code>startPrint</code> parameter to specify print or not after upload</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixes">Fixes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes" translate="no">​</a></h3>
+<ul>
+<li class="">OctoPrint 1.8.7 needs explicit passive flag in body instead of header to login</li>
+<li class="">PrusaLink subfeature was not added to printer type feature (new client packaged)</li>
+<li class="">Improved Moonraker error logging</li>
+<li class="">Made colored logs opt-in with <code>ENABLE_COLORED_LOGS: true</code> env var</li>
+<li class="">SocketIO gateway logs errors more explicitly</li>
+<li class="">Logger is now static, reducing memory usage and test duration</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="chores">Chores<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#chores" class="hash-link" aria-label="Direct link to Chores" title="Direct link to Chores" translate="no">​</a></h3>
+<ul>
+<li class="">Remove unused code for OctoPrint plugin support</li>
+<li class="">Remove unused code for OctoPrint plugin backup and firmware update</li>
+<li class="">Remove unused code for OctoPrint plugin repository</li>
+<li class="">Remove unused code for Prusa firmware releases</li>
+<li class="">Remove cache-manager package</li>
+<li class="">Add biome linter/formatter, remove prettier and eslint</li>
+<li class="">Update .env.template</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="technical-changes">Technical Changes<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#technical-changes" class="hash-link" aria-label="Direct link to Technical Changes" title="Direct link to Technical Changes" translate="no">​</a></h3>
+<ul>
+<li class=""><code>tsconfig.json</code> strictNullChecks and strictPropertyInitialization set to true</li>
+<li class="">Update dependency injection with awilix, switch to CLASSIC mode</li>
+<li class="">Update API controller, use decorators over api builder</li>
+<li class="">Remove PrinterFile entity (unused)</li>
+<li class="">Remove debug settings from server settings database</li>
+<li class="">Remove all API compatibility feature flags except for printerGroupsApi and multiplePrinterServices</li>
+</ul>
+<p>If you encounter issues with this release series, please create an issue at our <a href="https://github.com/fdm-monster/fdm-monster/issues" target="_blank" rel="noopener noreferrer" class="">GitHub issues</a> or join our <a href="https://discord.gg/mwA8uP8CMc" target="_blank" rel="noopener noreferrer" class="">Discord</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="contributors">Contributors<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-9-x#contributors" class="hash-link" aria-label="Direct link to Contributors" title="Direct link to Contributors" translate="no">​</a></h2>
+<p>This release series was made possible thanks to the <a href="https://docs.fdm-monster.net/docs/community/ourteam" target="_blank" rel="noopener noreferrer" class="">FDM Monster team</a> and feedback from the community.</p>
+<p>Special thanks to all community members who tested the experimental BambuLab and PrusaLink support!</p>
+<p>Full details of what has been included can be found in the <a href="https://github.com/fdm-monster/fdm-monster/blob/main/RELEASE_NOTES.md" target="_blank" rel="noopener noreferrer" class="">release notes</a>.</p>]]></content>
+        <author>
+            <name>David Zwart</name>
+            <uri>https://github.com/davidzwa</uri>
+        </author>
+        <category label="releases" term="releases"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[FDM Monster release 1.8.3]]></title>
         <id>https://docs.fdm-monster.net/blog/fdm-monster-release-1-8-3</id>
@@ -38,9 +358,9 @@ printer services (OctoPrint, Moonraker, etc).</p>
 <p>Previously in the FDM Monster codebase, http clients were constructed using custom methods building on top of a static <code>axios</code> instance. This was hard to work with because some places required a customized http timeout, different URL, different headers or different request/response handling. This was growing too complex.
 By introducing a builder pattern, the http clients in the codebase can reuse the same logic, but choose which combination is required for that place. Also, the builder pattern allows to chain customization or overrides using the fluent pattern.</p>
 <p>Before (no chaining using the builder pattern) 😥</p>
-<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> headers </span><span class="token operator">=</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token operator">...</span><span class="token plain">options</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">headers</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token operator">...</span><span class="token plain">formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">getHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token string-property property">"Content-Length"</span><span class="token operator">:</span><span class="token plain"> result</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> response </span><span class="token operator">=</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">await</span><span class="token plain"> </span><span class="token function" style="color:rgb(80, 250, 123)">axios</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  method</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"POST"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  url</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  data</span><span class="token operator">:</span><span class="token plain"> formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  headers</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token function-variable function" style="color:rgb(80, 250, 123)">onUploadProgress</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">p</span><span class="token operator">:</span><span class="token plain"> AxiosProgressEvent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">eventEmitter2</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">emit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">${</span><span class="token template-string interpolation function" style="color:rgb(80, 250, 123)">uploadProgressEvent</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string interpolation">token</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> p</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><br></span></code></pre></div></div>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#0f1419"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#0f1419"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> headers </span><span class="token operator">=</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token operator">...</span><span class="token plain">options</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">headers</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token operator">...</span><span class="token plain">formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">getHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token string-property property">"Content-Length"</span><span class="token operator">:</span><span class="token plain"> result</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> response </span><span class="token operator">=</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">await</span><span class="token plain"> </span><span class="token function" style="color:rgb(80, 250, 123)">axios</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  method</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">"POST"</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  url</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  data</span><span class="token operator">:</span><span class="token plain"> formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  headers</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token function-variable function" style="color:rgb(80, 250, 123)">onUploadProgress</span><span class="token operator">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">p</span><span class="token operator">:</span><span class="token plain"> AxiosProgressEvent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">eventEmitter2</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">emit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">${</span><span class="token template-string interpolation function" style="color:rgb(80, 250, 123)">uploadProgressEvent</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string interpolation">token</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> p</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><br></span></code></pre></div></div>
 <p>After (chained customization and reuse) 🥳</p>
-<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> response </span><span class="token operator">=</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">await</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">createClient</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">login</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">builder</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  builder</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withMultiPartFormData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token operator">...</span><span class="token plain">formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">getHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withOnUploadProgress</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">p</span><span class="token operator">:</span><span class="token plain"> AxiosProgressEvent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">eventEmitter2</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">emit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">${</span><span class="token template-string interpolation function" style="color:rgb(80, 250, 123)">uploadProgressEvent</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string interpolation">token</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> p</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">post</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">urlPath</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><br></span></code></pre></div></div>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#0f1419"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#0f1419"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">const</span><span class="token plain"> response </span><span class="token operator">=</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">await</span><span class="token plain"> </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">createClient</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">login</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">builder</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">  builder</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withMultiPartFormData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token operator">...</span><span class="token plain">formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">getHeaders</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">withOnUploadProgress</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">p</span><span class="token operator">:</span><span class="token plain"> AxiosProgressEvent</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token operator">=&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">this</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token plain">eventEmitter2</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">emit</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">${</span><span class="token template-string interpolation function" style="color:rgb(80, 250, 123)">uploadProgressEvent</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token template-string interpolation">token</span><span class="token template-string interpolation punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token template-string interpolation interpolation-punctuation punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token template-string template-punctuation string" style="color:rgb(255, 121, 198)">`</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> token</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> p</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">      </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token function" style="color:rgb(80, 250, 123)">post</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">urlPath</span><span class="token punctuation" style="color:rgb(248, 248, 242)">,</span><span class="token plain"> formData</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><br></span></code></pre></div></div>
 <p>When working with the builder, the developer gets suggestions of what other methods can be chained on top. This invites the code to be reused whilst reducing duplication of complicated logic. All in all a great improvement! 🥳</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="avoid-serializing-socketio-messages-twice">Avoid serializing SocketIO messages twice<a href="https://docs.fdm-monster.net/blog/fdm-monster-release-1-8-3#avoid-serializing-socketio-messages-twice" class="hash-link" aria-label="Direct link to Avoid serializing SocketIO messages twice" title="Direct link to Avoid serializing SocketIO messages twice" translate="no">​</a></h3>
 <p>The UI of FDM Monster Client receives server updates over SocketIO. Each message needs to be serialized by the server and deserialized by the client. This serialization step, however, was done an extra time by the server requiring the client to deserialize it another time as well. This was double work, because SocketIO internally already does both required steps on the sending and receiving end.
