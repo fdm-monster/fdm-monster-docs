@@ -75,23 +75,24 @@ docker_compose=$(cat << EOC
 # This section requires an explict docker network that allows the container to
 #  utilize an IP directly on the host interface. Reference macvlan setup at
 #  https://docs.docker.com/engine/network/drivers/macvlan/ for details
-fdm-monster-mdns:
-  container_name: fdm-monster-mdns
-  image: fdmmonster/fdm-monster:latest-mdns
-  restart: unless-stopped
-  environment:
-    - SERVER_PORT=80
-  deploy:
-    restart_policy:
-      delay: 5s
-      #max_attempts: 3
-      window: 120s
-  networks:
-    ${name}: # rename to mach your config option below
-      ipv4_address: ${ip} # dhcp is available. Refer to docker documentation
-  volumes:
-    - fdmm-media:/app/media
-    - fdmm-database:/app/database
+service: 
+  fdm-monster-mdns:
+    container_name: fdm-monster-mdns
+    image: fdmmonster/fdm-monster:latest-mdns
+    restart: unless-stopped
+    environment:
+      - SERVER_PORT=80
+    deploy:
+      restart_policy:
+        delay: 5s
+        #max_attempts: 3
+        window: 120s
+    networks:
+      ${name}: # rename to mach your config option below
+        ipv4_address: ${ip} # dhcp is available. Refer to docker documentation
+    volumes:
+      - fdmm-media:/app/media
+      - fdmm-database:/app/database
 
 volumes:
   fdmm-media:
