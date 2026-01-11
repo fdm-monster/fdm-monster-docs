@@ -24,7 +24,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
         },
         {
           type: 'doc',
-          id: 'installing/monsterpi',
+          id: 'installing/raspberrypi34',
           label: 'Raspberry Pi (3/4)',
         },
       ],
