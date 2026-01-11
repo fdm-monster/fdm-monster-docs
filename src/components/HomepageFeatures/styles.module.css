@@ -41,7 +41,7 @@
 .featureCardLink:nth-child(1),
 .featureCardLink:nth-child(2),
 .featureCardLink:nth-child(3) {
-  grid-column: span 4;
+  grid-column: span 3;
 }
 
 /* Second row: 4 tiles (each takes 3 columns out of 12) */
@@ -123,7 +123,6 @@
   object-fit: contain;
   max-width: 100%;
   max-height: 100%;
-  filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.3));
 }
 
 .featureContent {

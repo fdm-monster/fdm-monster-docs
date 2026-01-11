@@ -3,6 +3,44 @@
  * and scoped locally.
  */
 
+:root {
+  --primary-color: #b60110;
+  --primary-color-rgb: rgb(--primary-color);
+}
+
+/* JetBrains Mono Font */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .heroBanner {
   padding: 0;
   position: relative;
@@ -37,7 +75,6 @@
 .heroLogo {
   width: 80px;
   height: 80px;
-  filter: drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3));
 }
 
 .heroTitle {
@@ -66,7 +103,7 @@
 }
 
 .heroCta {
-  background: #ef4444;
+  background: var(--primary-color);
   color: white;
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -81,11 +118,11 @@
 }
 
 .heroCta:hover {
-  background: #dc2626;
+  background: var(--primary-color);
   color: white;
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 8px 20px rgba(var(--primary-color-rgb), 0.4);
 }
 
 .ctaArrow {
@@ -108,9 +145,9 @@
   position: absolute;
   width: 300px;
   height: 400px;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
   border-radius: 16px;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
@@ -129,7 +166,7 @@
   top: 0;
   transform: rotateY(0deg) rotateX(5deg);
   z-index: 2;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(var(--primary-color-rgb), 0.15) 100%);
   animation: float 6s ease-in-out infinite 2s;
 }
 
@@ -251,3 +288,236 @@
   justify-content: center;
 }
 
+/* Quick Install Section */
+.quickInstall {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(var(--primary-color-rgb), 0.1);
+  border-bottom: 1px solid rgba(var(--primary-color-rgb), 0.1);
+}
+
+.quickInstallContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quickInstallTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.quickInstallSubtitle {
+  font-size: 1.1rem;
+  color: #a0aec0;
+  margin-bottom: 2rem;
+}
+
+.codeBlock {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.4);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.codeBlock:hover {
+  border-color: rgba(var(--primary-color-rgb), 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.codeText {
+  font-family: 'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  flex: 1;
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.6;
+  padding: 0.5rem;
+}
+
+.copyButton {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.copyButton:hover {
+  background: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(var(--primary-color-rgb), 0.4);
+}
+
+.copyButton svg {
+  display: block;
+}
+
+.quickInstallLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quickInstallLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.quickInstallLink:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+  transform: translateX(4px);
+}
+
+/* Tab Content Styles */
+.tabContent {
+  padding: 1.5rem 0;
+  text-align: left;
+}
+
+.tabDescription {
+  font-size: 1rem;
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.stepLabel {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.monsterpiContent {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.monsterpiDescription {
+  color: #a0aec0;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.monsterpiButton {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.monsterpiButton:hover {
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.4);
+}
+
+.stepsList {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #a0aec0;
+  line-height: 2;
+}
+
+.stepsList li {
+  margin-bottom: 0.5rem;
+}
+
+.accessInfo {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(var(--primary-color-rgb), 0.2);
+}
+
+.accessInfo p {
+  color: #a0aec0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.accessInfo strong {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 996px) {
+  .quickInstall {
+    padding: 3rem 1.5rem;
+  }
+
+  .quickInstallTitle {
+    font-size: 2rem;
+  }
+
+  .quickInstallSubtitle {
+    font-size: 1rem;
+  }
+
+  .codeBlock {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .codeText {
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+
+  .copyButton {
+    width: 100%;
+  }
+
+  .quickInstallLinks {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tabContent {
+    padding: 1rem 0;
+  }
+
+  .monsterpiContent {
+    padding: 1rem 1.5rem;
+  }
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 
@@ -17,42 +16,7 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: "Install as Docker container",
-    Svg: require("@site/static/img/docker-svgrepo-com.svg").default,
-    description: (
-      <>
-        With docker you can be sure FDM Monster will run in isolation. (easy)
-      </>
-    ),
-    featureLink: {
-      description: "Get Started",
-      href: "/docs/installing/docker_compose",
-    },
-  },
-  {
-    title: "Install MonsterPi on your Pi",
-    Svg: require("@site/static/img/raspberry-pi-svgrepo-com.svg").default,
-    description: (
-      <>Run FDM Monster on a Raspberry Pi 3 or 4 using our prebuilt image.</>
-    ),
-    featureLink: {
-      description: "Learn More",
-      href: "/docs/installing/monsterpi",
-    },
-  },
-  {
-    title: "Chat on Discord",
-    Svg: require("@site/static/img/discord-icon-svgrepo-com.svg").default,
-    description: (
-      <>Do you have questions about FDM Monster? Or just want to talk about 3D Printing?</>
-    ),
-    featureLink: {
-      description: "Join Community",
-      href: "https://discord.gg/mwA8uP8CMc",
-    },
-  },
-  {
-    title: "Powered by OctoPrint",
+    title: "Connect OctoPrint",
     Svg: require("@site/static/img/octoprint-tentacle.svg").default,
     description: (
       <>Using OctoPrint, FDM Monster prevents single points of failures in your farm!</>
@@ -63,7 +27,7 @@ const FeatureList: FeatureItem[] = [
     },
   },
   {
-    title: "Powered by Moonraker",
+    title: "Connect Moonraker",
     Svg: require("@site/static/img/klipper.svg").default,
     description: (
       <>Moonraker enables FDM Monster to communicate with your Klipper device!</>
@@ -74,10 +38,10 @@ const FeatureList: FeatureItem[] = [
     },
   },
   {
-    title: "Powered by Bambu Lab",
+    title: "Connect Bambu Lab",
     Svg: require("@site/static/img/bambu-logo.png").default,
     description: (
-      <>Connect and manage your Bambu Lab printers directly through FDM Monster!</>
+      <>Control your Bambu Lab printers directly through FDM Monster!</>
     ),
     featureLink: {
       description: "Visit Bambu Lab",
@@ -85,7 +49,7 @@ const FeatureList: FeatureItem[] = [
     },
   },
   {
-    title: "Powered by PrusaLink",
+    title: "Connect PrusaLink",
     Svg: require("@site/static/img/prusa-link-logo.svg").default,
     description: (
       <>Integrate your Prusa printers using PrusaLink for seamless farm management!</>
@@ -104,6 +68,17 @@ const FeatureList: FeatureItem[] = [
     featureLink: {
       description: "Learn More",
       href: "https://unraid.net/community/apps",
+    },
+  },
+  {
+    title: "Our Community",
+    Svg: require("@site/static/img/discord-icon-svgrepo-com.svg").default,
+    description: (
+      <>Do you have questions about FDM Monster? Or just want to talk about 3D Printing?</>
+    ),
+    featureLink: {
+      description: "Join Community",
+      href: "https://discord.gg/mwA8uP8CMc",
     },
   },
 ];
@@ -146,9 +121,9 @@ export default function HomepageFeatures() {
     <section className={styles.featuresSection}>
       <div className={styles.featuresContainer}>
         <div className={styles.featuresHeader}>
-          <h2 className={styles.sectionTitle}>Get Started with FDM Monster</h2>
+          <h2 className={styles.sectionTitle}>FDM Monster is Powered By</h2>
           <p className={styles.sectionSubtitle}>
-            Choose your preferred installation method and start managing your 3D print farm today
+            FDM Monster stands on the shoulders of giants! Check out the following projects and see what fits your needs:
           </p>
         </div>
         <div className={styles.featuresGrid}>

@@ -210,7 +210,8 @@ const config: Config = {
         },
         {
           href: "https://github.com/fdm-monster/fdm-monster-docs",
-          label: "GitHub",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
           position: "right",
         },
       ],

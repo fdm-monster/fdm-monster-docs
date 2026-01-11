@@ -1,0 +1,320 @@
+---
+title: One-Click Linux Install
+description: Install FDM Monster on Linux with a single command
+slug: /installing/one-click-linux
+pagination_prev: installing/index
+pagination_next: software_usage/index
+---
+
+## Quick Install
+
+Install FDM Monster with a single command:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster/main/install.sh | bash
+```
+
+This script will automatically:
+- ✅ Detect your system architecture (x64, ARM64, ARMv7)
+- ✅ Check for Docker or Node.js
+- ✅ Install FDM Monster using the best available method
+- ✅ Create management scripts
+- ✅ Set up auto-start on boot
+- ✅ Start the service immediately
+
+## What Gets Installed?
+
+### Installation Methods
+
+The installer will choose the best method based on what's available on your system:
+
+#### Docker (Recommended)
+If Docker is installed, FDM Monster will run in a container with:
+- **Image**: `fdmmonster/fdm-monster:latest`
+- **Port**: 4000 (customizable)
+- **Auto-start**: Enabled
+- **Data directory**: `~/.fdm-monster-data`
+
+#### Native (Node.js)
+If Docker is not available but Node.js 18+ and Yarn are installed:
+- **Install directory**: `~/.fdm-monster`
+- **Data directory**: `~/.fdm-monster-data`
+- **Service**: systemd service (if available)
+- **Auto-start**: Enabled
+
+### Data Storage
+
+All your data is stored in `~/.fdm-monster-data/`:
+- **Database**: SQLite database files
+- **Media**: Logs, uploads, and thumbnails
+
+## Requirements
+
+### Minimum Requirements
+
+**For Docker installation (recommended):**
+- Docker installed and running
+- 512MB RAM minimum, 1GB+ recommended
+- 500MB disk space
+
+**For native installation:**
+- Node.js 18 or higher
+- Yarn 1.22.0 or higher
+- 1GB RAM minimum, 2GB+ recommended
+- 1GB disk space
+
+### Supported Platforms
+
+- **Linux**: Ubuntu, Debian, Fedora, CentOS, Arch, and others
+- **Architecture**: x86_64 (amd64), ARM64, ARMv7
+- **Raspberry Pi**: Pi 3B+, Pi 4, Pi 5 (recommended)
+
+## Management Commands
+
+After installation, use the `fdm-monster` command to manage your installation:
+
+### Start/Stop/Restart
+
+```bash
+# Start FDM Monster
+fdm-monster start
+
+# Stop FDM Monster
+fdm-monster stop
+
+# Restart FDM Monster
+fdm-monster restart
+```
+
+### View Logs
+
+```bash
+# Follow logs in real-time
+fdm-monster logs
+```
+
+### Update
+
+```bash
+# Update to the latest version
+fdm-monster update
+```
+
+### Uninstall
+
+```bash
+# Completely remove FDM Monster
+fdm-monster uninstall
+```
+
+:::warning
+The uninstall command will remove all FDM Monster files including your database and uploaded files. Make sure to backup your data first if you want to keep it.
+:::
+
+## Access FDM Monster
+
+After installation, access FDM Monster at:
+
+```
+http://localhost:4000
+```
+
+Or from another device on your network:
+
+```
+http://YOUR_SERVER_IP:4000
+```
+
+## Customization
+
+### Change Port
+
+#### Docker Installation
+
+```bash
+# Stop the container
+fdm-monster stop
+
+# Remove the container
+docker rm fdm-monster
+
+# Start with custom port (e.g., 8080)
+docker run -d \
+  --name fdm-monster \
+  -p 8080:4000 \
+  -v ~/.fdm-monster-data/media:/app/media \
+  -v ~/.fdm-monster-data/database:/app/database \
+  --restart unless-stopped \
+  fdmmonster/fdm-monster:latest
+```
+
+#### Native Installation
+
+Edit the systemd service file:
+
+```bash
+sudo nano /etc/systemd/system/fdm-monster.service
+```
+
+Change the `SERVER_PORT` environment variable:
+
+```ini
+Environment="SERVER_PORT=8080"
+```
+
+Reload and restart:
+
+```bash
+sudo systemctl daemon-reload
+fdm-monster restart
+```
+
+## Troubleshooting
+
+### Docker Not Running
+
+If you see "Docker is installed but not running":
+
+```bash
+# Start Docker service
+sudo systemctl start docker
+
+# Enable Docker to start on boot
+sudo systemctl enable docker
+```
+
+### Permission Denied (Docker)
+
+If you see permission errors when running Docker:
+
+```bash
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+
+# Log out and log back in for changes to take effect
+```
+
+### Service Won't Start
+
+Check the logs:
+
+```bash
+fdm-monster logs
+```
+
+For Docker installations, you can also check Docker logs:
+
+```bash
+docker logs fdm-monster
+```
+
+### Port Already in Use
+
+If port 4000 is already in use, see the [Change Port](#change-port) section above.
+
+### Cannot Access from Other Devices
+
+Make sure your firewall allows connections on port 4000:
+
+```bash
+# For UFW (Ubuntu/Debian)
+sudo ufw allow 4000/tcp
+
+# For firewalld (Fedora/CentOS)
+sudo firewall-cmd --permanent --add-port=4000/tcp
+sudo firewall-cmd --reload
+```
+
+## Manual Installation
+
+If you prefer not to use the one-click installer, see these alternatives:
+
+- [Docker Compose](./docker_compose.mdx)
+- [MonsterPi (Raspberry Pi Image)](./monsterpi.mdx)
+
+## Security Considerations
+
+### Running Behind a Reverse Proxy
+
+For production use, we recommend running FDM Monster behind a reverse proxy like Nginx or Caddy with HTTPS enabled.
+
+Example Nginx configuration:
+
+```nginx
+server {
+    listen 443 ssl http2;
+    server_name fdm-monster.yourdomain.com;
+
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/key.pem;
+
+    location / {
+        proxy_pass http://localhost:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+```
+
+### Login Configuration
+
+By default, FDM Monster requires login. You can change this in the settings after first setup.
+
+## Updates
+
+The installer creates an update command that safely updates FDM Monster:
+
+```bash
+fdm-monster update
+```
+
+This will:
+- **Docker**: Pull the latest image and recreate the container
+- **Native**: Pull latest code, rebuild, and restart the service
+
+Your data in `~/.fdm-monster-data` is preserved during updates.
+
+## Backup and Restore
+
+### Backup
+
+Your data is stored in `~/.fdm-monster-data`. To backup:
+
+```bash
+# Stop FDM Monster
+fdm-monster stop
+
+# Create backup
+tar -czf fdm-monster-backup-$(date +%Y%m%d).tar.gz ~/.fdm-monster-data
+
+# Start FDM Monster
+fdm-monster start
+```
+
+### Restore
+
+```bash
+# Stop FDM Monster
+fdm-monster stop
+
+# Restore from backup
+tar -xzf fdm-monster-backup-YYYYMMDD.tar.gz -C ~/
+
+# Start FDM Monster
+fdm-monster start
+```
+
+## Next Steps
+
+- [Initial Setup Guide](../software_usage/index.mdx)
+- [Configuration Options](../configuration/preconfiguration.mdx)
+
+## Getting Help
+
+- **Documentation**: [docs.fdm-monster.net](https://docs.fdm-monster.net)
+- **Discord**: [discord.gg/mwA8uP8CMc](https://discord.gg/mwA8uP8CMc)
+- **GitHub Issues**: [github.com/fdm-monster/fdm-monster/issues](https://github.com/fdm-monster/fdm-monster/issues)
+

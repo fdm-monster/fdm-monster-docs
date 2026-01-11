@@ -31,7 +31,9 @@
   /* Navbar */
   --ifm-navbar-background-color: #0f1419;
   --ifm-navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  --ifm-navbar-height: 70px;
+  --ifm-navbar-height: 60px;
+  --ifm-navbar-padding-vertical: 0.5rem;
+  --ifm-navbar-padding-horizontal: 1rem;
 
   /* Footer */
   --ifm-footer-background-color: #0f1419;
@@ -75,7 +77,7 @@
   border-bottom: 1px solid rgba(239, 68, 68, 0.2);
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
 }
 
 .navbar__title {
@@ -85,10 +87,9 @@
 }
 
 .navbar__logo {
-  filter: drop-shadow(0 2px 4px rgba(239, 68, 68, 0.3));
   transition: transform 0.3s ease;
-  margin-right: 1.5rem;
-  margin-left: 2rem;
+  margin-right: 1rem;
+  height: 32px;
 }
 
 .navbar__logo:hover {
@@ -125,22 +126,39 @@
   background: #ef4444;
 }
 
-/* Navbar GitHub link styling */
-.navbar__item--right .navbar__link {
+/* Navbar GitHub icon link styling */
+.header-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0 !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 8px;
-  padding: 0.5rem 1rem !important;
-  color: #ef4444 !important;
-  font-weight: 600;
 }
 
-.navbar__item--right .navbar__link:hover {
-  background: #ef4444;
-  color: white !important;
+.header-github-link:hover {
+  /*background: #ef4444;*/
   border-color: #ef4444;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23efefef' d='M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-github-link:hover::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23efefef' d='M12 0.297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
 }
 
 /* Main content area */
@@ -148,31 +166,8 @@ main {
   background: #0f1419;
 }
 
-/* Docs page specific backgrounds */
-.docs-wrapper {
-  background: #0f1419;
-}
-
-.docMainContainer {
-  background: #0f1419;
-}
-
-.docPage {
-  background: #0f1419;
-}
-
-.theme-doc-markdown {
-  background: rgba(26, 26, 46, 0.3);
-  border-radius: 12px;
-  padding: 2rem;
-  border: 1px solid rgba(239, 68, 68, 0.05);
-}
-
 article {
   background: transparent;
-  border-radius: 0;
-  padding: 0;
-  border: none;
 }
 
 .markdown {
@@ -220,14 +215,6 @@ article {
   background: transparent;
 }
 
-/* Blog page backgrounds */
-.blogPage {
-  background: #0f1419;
-}
-
-.blogPostPage {
-  background: #0f1419;
-}
 
 /* Buttons */
 .button--primary {
@@ -319,24 +306,6 @@ article {
   background: rgba(239, 68, 68, 0.1);
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f1419;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(239, 68, 68, 0.3);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(239, 68, 68, 0.5);
-}
 
 /* Mobile navbar */
 .navbar-sidebar {
@@ -358,10 +327,6 @@ article {
   margin-bottom: 1rem;
 }
 
-/* Search bar */
-.navbar__search {
-  margin-left: 1rem;
-}
 
 .DocSearch-Button {
   background: rgba(239, 68, 68, 0.1) !important;
