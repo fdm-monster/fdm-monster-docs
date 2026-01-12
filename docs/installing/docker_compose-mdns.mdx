@@ -118,7 +118,7 @@ Within the docker-compose.yml, you must create a network definition. The definti
 
 ### Static IP vs DHCP
 
-The current FDM Monster image does not support DCHP address assignment. If you do not assign a static IP from the expected range, Docker will use the "next, unassigned IP" from the range provided to the bridge network. It is highly recommended that you assign a static IP address to the container **or** provide a hostname for the container (enabling mDNS lookup).
+The FDM Monster container image does not support DHCP address assignment. If a static IP is not explicitly assigned, Docker will automatically select the next available IP address from the bridge network’s configured range. It is strongly recommended to either assign a static IP address to the container **or** configure a hostname to enable mDNS-based name resolution.
 
 It is also highly recommended that the IP range provided to the mavlan bridge be removed from any DHCP scopes to prevent duplicate IP address use on your network.
 
