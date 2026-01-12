@@ -217,7 +217,7 @@ function QuickInstall() {
   }, []);
 
   const linuxCommandPrefix = "$ ";
-  const linuxCommand = "curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh | bash";
+  const linuxCommand = "curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install/linux/install.sh | bash";
   const dockerComposeYaml = `services:
   fdm-monster:
     container_name: fdm-monster
@@ -264,7 +264,7 @@ volumes:
               </p>
               <CodeBlock prefix={ linuxCommandPrefix } command={ linuxCommand } syntax="bash"/>
               <div className={ styles.scriptLink }>
-                <a href="https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install.sh" target="_blank" rel="noopener noreferrer" className={ styles.viewScriptLink }>
+                <a href="https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install/linux/install.sh" target="_blank" rel="noopener noreferrer" className={ styles.viewScriptLink }>
                   View Installation Script{" "}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline', verticalAlign: 'middle' }}>
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
