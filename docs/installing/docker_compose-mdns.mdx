@@ -1,0 +1,130 @@
+---
+title: Docker and Docker Compose
+description: How to use Docker for your FDM-Monster environment
+slug: /installing/docker_compose
+pagination_prev: installing/index
+pagination_next: software_usage/index
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+FDM Monster provides container images with mDNS support. mDNS support requires use of the Docker network driver macvlan. This limits support to hosts running a Linux operating system.
+
+## Quick Start
+
+Before setting up FDM Monster with mDNS you will need the following information.
+
+- A name for the Docker network to create (you can use an existing macvlan network).
+- The device label to bind the macvlan network to. For multi-homed systems ensure the device is on the network which will host FDM Monster.
+- The network address in CIDR notation that the macvlan network will be part of (should match the network of the device).
+- The network range in CIDR notation that specifies IP addresses available to containers attached to the macvlan network.
+- The default gateway of for the host interface.
+- The IP address to assign to the container.
+
+<Tabs>
+<TabItem value="helper-script" label="Using a helper script" default>
+
+The [macvlan-setup.sh](https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/macvlan-setup.sh) can create the required macvlan network and a functional docker-compose.yml (uses tag latest-mdns)
+
+Download the FDM Monster helper script [macvlan-setup.sh](https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/macvlan-setup.sh)
+
+Execute the script and respond to the prompts.
+
+Run the container
+
+```bash
+docker compose -d FDMM-mDNS-docker-compose.yml up -d
+```
+
+Use your favorite browser to access http://\<assigned-IP\>
+
+<Tabs>
+<TabItem value="the-hard-way" label="The Hard Way">
+
+"The Hard Way" assumes an understanding of linux and docker.
+
+The following is a general guide based on the helper script. Please refer to docker command documentation and FDM Monster source for full descriptions of all syntax and options. In the examples below variable are denoted by ${..}. Please replace the entire variable syntax with correct values for your installation.
+
+Create the macvlan bridge
+
+```bash
+docker network create -d macvlan --subnet=${network} --ip-range=${subnet} --gateway=${gateway} -o parent=${interface} ${name}
+```
+
+Create a docker-compose.yml
+
+```yaml
+# This section requires an explicit docker network that allows the container to
+#  utilize an IP directly on the host interface. Reference macvlan setup at
+#  https://docs.docker.com/engine/network/drivers/macvlan/ for details
+service:
+  fdm-monster-mdns:
+    container_name: fdm-monster-mdns
+    image: fdmmonster/fdm-monster:latest-mdns
+    restart: unless-stopped
+    environment:
+      - SERVER_PORT=80   # Port for FDM Monster
+    deploy:
+      restart_policy:
+        delay: 5s
+        #max_attempts: 3
+        window: 120s
+    networks:
+      ${name}:               # rename to mach your config option below
+        ipv4_address: ${ip}  # IP address to assign to FDM Monster container
+    volumes:
+      - fdmm-media:/app/media
+      - fdmm-database:/app/database
+
+volumes:
+  fdmm-media:
+    name: fdmm-media
+  fdmm-database:
+    name: fdmm-database
+
+networks:
+  ${name}:          # edit to suite as this is internal config
+    external: true
+    name: ${name}   # must match your macvlan bridge name
+```
+
+Run the container
+
+```bash
+docker compose -d docker-compose.yml up -d
+```
+
+</TabItem>
+<Tabs>
+
+## Changes needed in docker-config.yml
+
+The mDNS version requires use of docker's macvlan diver and minor changes to docker-compose.yml. Below are the important notes on these changes.
+
+### Image tags
+
+ mDNS support is available via a new image. This image can be selected by adding "-mdns" to any of the standard FMD Monster tags.
+
+- latest-mdns
+- 2.2.0-mdns
+- main-mdns
+- develop-mdns
+- x.y.z-rc1-1234-mdns
+
+### Network defintion
+
+Within the docker-compose.yml, you must create a network definition. The defintion label does not need to match the macvlan network name. It is simply easier, and not harmful to use the same name. The name statement **must** match the macvlan bridge name.
+
+### Static IP vs DHCP
+
+The current FDM Monster image does not support DCHP address assignment. If you do not assign a static IP from the expected range, Docker will use the "next, unassigned IP" from the range provided to the bridge network. It is highly recommended that you assign a static IP address to the container **or** provide a hostname for the container (enabling mDNS lookup).
+
+It is also highly recommended that the IP range provided to the mavlan bridge be removed from any DHCP scopes to prevent duplicate IP address use on your network.
+
+### No port definition
+
+No port definition is used in the mDNS docker-compose.yml. There are 2 reasons for this:
+
+- The container "lives" on the host's native network with a unique, network accessible MAC address and IP. This means that all open ports on the container are accessible on the network.
+- Port mapping is not supported by the macvlan driver.
