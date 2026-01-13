@@ -34,10 +34,10 @@ Execute the script and respond to the prompts.
 Run the container
 
 ```bash
-docker compose -d FDMM-mDNS-docker-compose.yml up -d
+docker compose -f FDMM-mDNS-docker-compose.yml up -d
 ```
 
-Use your favorite browser to access http://\<assigned-IP\>
+Use your favorite browser to access http://fdmmonster.local
 
 </TabItem>
 <TabItem value="the-hard-way" label="The Hard Way">
@@ -92,7 +92,7 @@ networks:
 Run the container
 
 ```bash
-docker compose -d docker-compose.yml up -d
+docker compose -f docker-compose.yml up -d
 ```
 
 </TabItem>
