@@ -1,6 +1,6 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
- const sidebars: SidebarsConfig = {
+const sidebars: SidebarsConfig = {
   docs: [
     'introduction',
     {
@@ -12,8 +12,9 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: false,
       items: [
-        'installing/monsterpi',
+        'installing/linux',
         'installing/docker_compose',
+        'installing/raspberrypi34'
       ],
     },
     {
@@ -25,7 +26,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       },
       collapsed: true,
       items: [
-        'configuration/preconfiguration',
+        'configuration/environment_variables',
         {
           type: 'category',
           label: 'Settings',
@@ -66,12 +67,14 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
       items: [
         'troubleshooting/log_dump',
         'troubleshooting/sentry',
-
+        'troubleshooting/prometheus_metrics',
       ],
     },
+    'faq',
   ],
   development: [
     'developer_setup/introduction',
+    'developer_setup/api_documentation',
     'developer_setup/setup_server',
     'developer_setup/setup_client',
     'developer_setup/setup_octoprint',

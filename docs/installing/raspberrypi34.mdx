@@ -1,0 +1,147 @@
+---
+title: Raspberry Pi (3/4)
+description: How to setup MonsterPi for your FDM-Monster environment
+slug: /installing/monsterpi
+pagination_prev: installing/index
+pagination_next: software_usage/index
+---
+
+## What is Monster Pi?
+
+[MonsterPi](https://github.com/fdm-monster/MonsterPi) is
+
+- a [Raspberry Pi](https://www.raspberrypi.org/) image
+- based on [Ubuntu](https://ubuntu.com/download/raspberry-pi)
+- built using [CustomPiOS](https://github.com/guysoft/CustomPiOS)
+- running [FDM Monster](https://fdm-monster.net/)
+
+## Hardware requirements
+
+We advise you to get these components for your setup. You might already have these or equivalents of them. All links point to the official Raspberry Pi website. From there links to (local) stores are provided.
+
+| Component                                                                                         | Raspberry Pi 3                                                               | Raspberry Pi 4                                                                |
+|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| Raspberry Pi                                                                                      | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)  |
+| Raspberry Pi Case                                                                                 | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-3-case/)    | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case/)     |
+| Cooling                                                                                           | Not Required                                                                 | [Product Link](https://www.raspberrypi.com/products/raspberry-pi-4-case-fan/) |
+| Power Supply                                                                                      | [Product Link](https://www.raspberrypi.com/products/micro-usb-power-supply/) | [Product Link](https://www.raspberrypi.com/products/type-c-power-supply/)     |
+| 16GB or bigger Class 10 SD Card<br />Please get a decent brand<br />**do not save money on this** | [Product Link](https://www.raspberrypi.com/products/sd-cards/)               | [Product Link](https://www.raspberrypi.com/products/sd-cards/)                |
+
+Additionally, depending on your device, you might need a SD Card reader and (optionally) an micro SD Card to SD Card adapter.
+
+:::warning
+A Raspberry Pi 5 will not work. Please check out [this GitHub issue](https://github.com/fdm-monster/MonsterPi/issues/82) for any progress on this matter.
+:::
+
+## Installing MonsterPi
+
+1. Download the Monster Pi image [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
+[GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases)
+1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+1. Please go to [Raspberry Pi - Getting Started](https://www.raspberrypi.com/documentation/computers/getting-started.html)
+1. Insert your SD Card into your SD Card Reader
+1. Start Raspberry Pi Imager on your computer
+1. Click on **Choose Device** and select the device matching your RaspberryPi device:
+
+1. Click on **Choose OS**, scroll to the bottom, select **Use Custom**, and select the downloaded Monster Pi image on your computer.
+1. Click on **Choose Storage**, and select your SD Card.
+
+   :::danger Triple check this!
+   Ensure you have selected the correct Storage!
+   :::
+
+1. Click on **Next** to continue configuring the Raspberry Pi Image.
+1. The Raspberry Pi Imager will now ask you if you want to customize your image. Click on **Edit Settings** to start your configuration.
+1. In the **General** section, check the checkbox for **Set Hostname** and name it `monsterpi`.
+
+   :::info
+   You can pick any name, but that will change steps later in the documentation
+   :::
+
+   Also check the **Set username and password** checkbox. Set the username to `pi` and the password to any value. This is required for enabling SSH later on.
+
+   :::warning
+   Note: You cannot change the default username and password using the Raspberry Pi Imager. The default username and password will still be `pi` and `raspberry`. This is due to a limitation of using `Ubuntu` instead of `RaspberryPiOS`.
+   :::
+
+   If required, change the WiFi and locale settings to your needs.
+
+1. In the **Services** section, check the checkbox for **Enable SSH**. Depending on your preferences and setup, either select **Use password authentication** or **Allow public-key authentication only**
+   :::info
+   If you have an SSH Key, **Allow public-key authentication only** is advisable.
+   :::
+1. Click the **Save** Button at the bottom of the dialog. Once the dialog closes, click **Yes** to apply your customizations to the image.
+1. After pressing **Yes** Raspberry Pi Imager will ask you for a confirmation to overwrite all data of the SD Card. Triple check if you have the correct storage device. Click **Yes** to continue.
+1. Raspberry Pi Imager will now start writing and verifying the image to your SD Card. This steps takes some time and can vary depending on your USB Bus speed, SD Card and other factors, but will usually take about 5-10 minutes.
+1. Once the verification is complete, by default, Raspberry Pi Imager will "eject" the device, play a sound and show a notification on the screen.
+1. Insert the SD card into your Raspberry Pi and power it up.
+   :::note
+   The first power up can take some time. Wait up to 10 minutes before attempting a power cycle.
+   :::
+1. Visit [http://monsterpi.local:4000](http://monsterpi.local:4000) to access FDM Monster.
+
+   Alternatively, you can visit [http://monsterpi.local](http://monsterpi.local) or [https://monsterpi.local (Self-Signed SSL Certificate)](https://monsterpi.local) to access FDM Monster.
+
+## Upgrading FDM Monster in MonsterPi
+
+:::warning
+Upgrading MonsterPi requires you to have SSH knowledge. If you do not feel comfortable making those changes, please do
+not continue and ask an expert to assist you!
+:::
+
+:::tip
+If you have not enabled SSH on your Raspberry Pi, shut it down, put the SD card in your card reader and create an empty file called `ssh` on the drive. Ensure you remove the extension! Once you boot it up, SSH should be enabled.
+:::
+
+### MonsterPi Version 0.4+
+
+Run the following commands as the `pi` user and execute an update with root elevation.
+
+If you would like to upgrade to the latest, you can run it like this, but beware that this mode is still experimental. It might not install the true latest or highest version sometimes, this happens mostly when a release candidate was released before (like 1.6.0-rc3).
+
+```bash
+cd ~/scripts
+sudo bash ./update-fdm-monster.sh
+```
+
+#### Upgrade to a specific version
+
+You can also upgrade to a specific version of FDM Monster. This should be used in rare cases.
+
+:::tip
+You can find all tags on our [FDM Monster](https://github.com/fdm-monster/fdm-monster/tags) GitHub.
+:::
+
+Replace `VERSION_HERE` with the tag (version) of FDM Monster you like.
+
+```bash
+cd ~/scripts
+
+# Deploy the FDM Monster server update
+sudo bash ./update-fdm-monster.sh --tag "VERSION_HERE" --non-interactive
+```
+
+For example, if you are running FDM Monster 1.6.2 and want to upgrade to 1.7.0, You would do the upgrade like this:
+
+```bash
+cd ~/scripts
+sudo bash ./update-fdm-monster.sh --tag "1.7.0" --non-interactive
+```
+
+### Older MonsterPi versions to 0.4+
+
+:::warning
+There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 1.6 and up.
+:::
+
+It is advised to export a `.yaml` file to back up your printers, printer floor positions and floors.
+Here are the steps to take:
+
+1. Go to the import/export dialog to get the `.yaml` file as a download.
+1. Check the file for missing or incorrect properties. Correct the mistakes with a text editor and save.
+1. Refer to [YAML Import and Export](../configuration/yaml_import_export.mdx) for more details.
+1. Ensure your .yaml is ready to be imported.
+1. Flash a new SD card with the installation steps [above](#installing-monsterpi)
+1. Ensure your MonsterPi is working. Proceed through the setup and create an account.
+1. Import the YAML file according to [YAML Import and Export](../configuration/yaml_import_export.mdx#user-interface) for the import.
+1. Your printers and floors will reappear.

@@ -209,8 +209,13 @@ const config: Config = {
           label: 'Development',
         },
         {
+          type: 'search',
+          position: 'left',
+        },
+        {
           href: "https://github.com/fdm-monster/fdm-monster-docs",
-          label: "GitHub",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
           position: "right",
         },
       ],
@@ -252,15 +257,15 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "Site",
+              label: "This Site",
               href: "https://fdm-monster.net/",
             },
             {
-              label: "Demo (latest release)",
+              label: "Demo",
               href: "https://demo.fdm-monster.net/",
             },
             {
-              label: "Test (bleeding edge release)",
+              label: "Demo (unstable)",
               href: "https://test.demo.fdm-monster.net/",
             },
           ],
@@ -270,12 +275,46 @@ const config: Config = {
     },
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: {
+        ...prismThemes.github,
+        plain: {
+          color: "#1c1e21",
+          backgroundColor: "#ffffff",
+        },
+      },
+      darkTheme: {
+        ...prismThemes.dracula,
+        plain: {
+          color: "#F8F8F2",
+          backgroundColor: "#0f1419",
+        },
+        styles: [
+          ...prismThemes.dracula.styles,
+          {
+            types: ["title"],
+            style: {
+              color: "#00A6D6",
+              fontWeight: "bold",
+            },
+          },
+          {
+            types: ["parameter"],
+            style: {
+              color: "#00A6D6",
+            },
+          },
+          {
+            types: ["boolean", "number", "constant"],
+            style: {
+              color: "#00A6D6",
+            },
+          },
+        ],
+      },
       additionalLanguages: ["bash", "json", "powershell"],
     },
   },

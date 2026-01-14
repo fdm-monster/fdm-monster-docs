@@ -1,6 +1,6 @@
 .featuresSection {
-  background: linear-gradient(190deg, #0f3460 0%, #16213e 25%, #1a1a2e 60%, #0f1419 100%);
-  padding: 5rem 0;
+  background: var(--ifm-background-color);
+  padding: 7rem 0 5rem 0;
   position: relative;
 }
 
@@ -19,13 +19,33 @@
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--ifm-font-color-base);
   margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.sectionTitle:hover {
+  color: var(--ifm-color-primary);
+}
+
+.sectionTitle::before {
+  content: '#';
+  position: absolute;
+  left: -2.5rem;
+  opacity: 0;
+  color: var(--ifm-color-primary);
+  transition: opacity 0.3s ease;
+}
+
+.sectionTitle:hover::before {
+  opacity: 1;
 }
 
 .sectionSubtitle {
   font-size: 1.25rem;
-  color: #a0aec0;
+  color: var(--ifm-font-color-secondary);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -41,7 +61,7 @@
 .featureCardLink:nth-child(1),
 .featureCardLink:nth-child(2),
 .featureCardLink:nth-child(3) {
-  grid-column: span 4;
+  grid-column: span 3;
 }
 
 /* Second row: 4 tiles (each takes 3 columns out of 12) */
@@ -96,8 +116,8 @@
 
 .featureCardLink:hover .featureCard {
   transform: translateY(-8px);
-  border-color: rgba(239, 68, 68, 0.5);
-  box-shadow: 0 12px 40px rgba(239, 68, 68, 0.15);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 50%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--ifm-color-primary) 15%, transparent);
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -108,7 +128,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
@@ -123,7 +143,6 @@
   object-fit: contain;
   max-width: 100%;
   max-height: 100%;
-  filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.3));
 }
 
 .featureContent {
@@ -134,13 +153,13 @@
 .featureTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--ifm-font-color-base);
   margin-bottom: 1rem;
 }
 
 .featureDescription {
   font-size: 1rem;
-  color: #a0aec0;
+  color: var(--ifm-font-color-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -154,9 +173,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: color-mix(in srgb, var(--ifm-color-primary) 10%, transparent);
+  color: var(--ifm-color-primary);
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 30%, transparent);
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
@@ -165,10 +184,10 @@
 }
 
 .featureCardLink:hover .featureButton {
-  background: #ef4444;
+  background: var(--ifm-color-primary);
   color: white;
   text-decoration: none;
-  border-color: #ef4444;
+  border-color: var(--ifm-color-primary);
   transform: translateY(-2px);
 }
 

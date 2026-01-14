@@ -4,11 +4,126 @@ description: The FDM Monster Team
 slug: /community/ourteam
 ---
 
-<!--
-  We don't need a header so every element needs to be strong
-  Images should be 200px in width!
- -->
-| ![David Zwart](./images/our_team/DavidZwart.jpg)           | David Zwart          | Founder <br /> Lead Developer                                            |
-| ---------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------ |
-| ![Maurice Kevenaar](./images/our_team/MauriceKevenaar.jpg) | **Maurice Kevenaar** | **Independent advisor and friend of the project<br />Community manager** |
-| ![Tobias Kissling](./images/our_team/placeholder.png)      | **Tobias Kissling**  | **Community manager**                                                    |
+<!-- markdownlint-disable MD033 -->
+<style>{`
+  .team-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .team-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--ifm-font-color-secondary);
+    font-size: 1.1rem;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .team-card {
+    background: var(--ifm-background-color);
+    border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 20%, transparent);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--ifm-color-primary) 20%, transparent);
+    border-color: var(--ifm-color-primary);
+  }
+
+  .team-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border: 3px solid var(--ifm-color-primary);
+  }
+
+  .team-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ifm-font-color-base);
+    margin-bottom: 0.5rem;
+  }
+
+  .team-role {
+    color: var(--ifm-color-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .team-description {
+    color: var(--ifm-font-color-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      padding: 1.5rem;
+    }
+
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+    }
+
+    .team-name {
+      font-size: 1.25rem;
+    }
+  }
+`}</style>
+
+<div className="team-container">
+  <p className="team-intro">
+    FDM Monster is built and maintained by a dedicated team of developers and community managers who are passionate about 3D printing and open-source software.
+  </p>
+
+  <div className="team-grid">
+    <div className="team-card">
+      <img src={require('./images/our_team/DavidZwart.jpg').default} alt="David Zwart" className="team-avatar" />
+      <h3 className="team-name">David Zwart</h3>
+      <div className="team-role">Founder & Lead Developer</div>
+      <p className="team-description">
+        Creator and lead developer of FDM Monster, driving the vision and technical direction of the project.
+      </p>
+    </div>
+
+    <div className="team-card">
+      <img src={require('./images/our_team/MauriceKevenaar.jpg').default} alt="Maurice Kevenaar" className="team-avatar" />
+      <h3 className="team-name">Maurice Kevenaar</h3>
+      <div className="team-role">Independent Advisor & Community Manager</div>
+      <p className="team-description">
+        Friend of the project providing strategic advice and managing the community.
+      </p>
+    </div>
+
+    <div className="team-card">
+      <img src={require('./images/our_team/placeholder.png').default} alt="Tobias Kissling" className="team-avatar" />
+      <h3 className="team-name">Tobias Kissling</h3>
+      <div className="team-role">Community Manager</div>
+      <p className="team-description">
+        Helping manage the community and supporting users with their questions and feedback.
+      </p>
+    </div>
+  </div>
+</div>

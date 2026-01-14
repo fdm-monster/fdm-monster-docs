@@ -1,0 +1,123 @@
+---
+title: FDM Monster release 1.9.x
+authors:
+  - davidzwa
+tags: [releases]
+slug: /fdm-monster-release-1-9-x
+description: FDM Monster version 1.9.0 through 1.9.4 have been released!
+---
+
+Version **1.9.x** of FDM Monster has been released! This series includes versions 1.9.0 through 1.9.4, bringing PrusaLink support, BambuLab improvements, YAML import/export enhancements, and many bug fixes.
+
+## Highlights of this release series
+
+This release series includes new features, improvements and bug fixes to both FDM Monster and FDM Monster Client since the [FDM Monster 1.8.3 release](../03-15%20FDM%20Monster%20release%201.8.3/index.mdx)!
+
+**Major Features:**
+
+- **PrusaLink Support** - Full adapter for PrusaLink printers (MK3S+, Mini+, MK4S, XL, Core One)
+- **BambuLab Support** - Experimental support for BambuLab printers via MQTT and FTP
+- **Full YAML Import/Export** - Complete backup and restore with users, roles, and settings
+- **Prometheus & Loki Integration** - Opt-in monitoring and logging support
+- **Colored Logs** - Optional colored console output with `ENABLE_COLORED_LOGS` env var
+
+<!-- truncate -->
+
+## Version 1.9.4 - BambuLab Improvements
+
+### Fixes 1.9.4
+
+- BambuLab MQTT adapter now connects using `mqtts://` protocol
+- BambuLab FTP now works with `.3mf` files (as well as gcode)
+- BambuLab: Implemented socket state emitting for test functionality
+- PrusaLink: Implemented socket state emitting for test functionality
+- BambuLab: Download file implemented via FTP
+- File upload now checks file extension after upload (not during upload)
+
+## Version 1.9.3 - BambuLab Port Fix
+
+### Fixes 1.9.3
+
+- BambuLab port corrected from 1883 to 8883
+- Removed confusing app constants wrongly suggesting MQTT configuration is an option
+
+## Version 1.9.2 - YAML Import/Export & BambuLab
+
+### Features 1.9.2
+
+- **Full YAML export** with users, roles, and settings
+- **Full YAML import** for easy migration and getting started
+- **Experimental BambuLab support** (tested with mock BambuLab server)
+
+### Fixes 1.9.2
+
+- Floor: SQLite floor level would start at 0, not 1
+- YAML export: Mongo floor printer position would export printerId as {} instead of string
+
+## Version 1.9.1 - Security Update
+
+### Updates 1.9.1
+
+- Resolved CVE multer vulnerabilities by updating to 2.0.2
+
+## Version 1.9.0 - PrusaLink & Monitoring
+
+### Features 1.9.0
+
+#### PrusaLink Adapter
+
+Introduce PrusaLink adapter for limited printer support for these printers:
+
+- MK3S(+) (needs PrusaLink extension with Raspberry Pi)
+- Mini(+)
+- MK4(S)
+- XL
+- Core One
+
+#### Monitoring Integration
+
+- Add opt-in **Prometheus integration** (experimental)
+- Add opt-in **Loki integration** (experimental)
+
+#### Upload Improvements
+
+- Introduce separate upload timeout setting for better control and resilience
+- Ability to add `startPrint` parameter to specify print or not after upload
+
+### Fixes
+
+- OctoPrint 1.8.7 needs explicit passive flag in body instead of header to login
+- PrusaLink subfeature was not added to printer type feature (new client packaged)
+- Improved Moonraker error logging
+- Made colored logs opt-in with `ENABLE_COLORED_LOGS: true` env var
+- SocketIO gateway logs errors more explicitly
+- Logger is now static, reducing memory usage and test duration
+
+### Chores
+
+- Remove unused code for OctoPrint plugin support
+- Remove unused code for OctoPrint plugin backup and firmware update
+- Remove unused code for OctoPrint plugin repository
+- Remove unused code for Prusa firmware releases
+- Remove cache-manager package
+- Add biome linter/formatter, remove prettier and eslint
+- Update .env.template
+
+### Technical Changes
+
+- `tsconfig.json` strictNullChecks and strictPropertyInitialization set to true
+- Update dependency injection with awilix, switch to CLASSIC mode
+- Update API controller, use decorators over api builder
+- Remove PrinterFile entity (unused)
+- Remove debug settings from server settings database
+- Remove all API compatibility feature flags except for printerGroupsApi and multiplePrinterServices
+
+If you encounter issues with this release series, please create an issue at our [GitHub issues](https://github.com/fdm-monster/fdm-monster/issues) or join our [Discord](https://discord.gg/mwA8uP8CMc).
+
+## Contributors
+
+This release series was made possible thanks to the [FDM Monster team](https://docs.fdm-monster.net/docs/community/ourteam) and feedback from the community.
+
+Special thanks to all community members who tested the experimental BambuLab and PrusaLink support!
+
+Full details of what has been included can be found in the [release notes](https://github.com/fdm-monster/fdm-monster/blob/main/RELEASE_NOTES.md).

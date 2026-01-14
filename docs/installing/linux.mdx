@@ -1,0 +1,380 @@
+---
+title: Linux
+description: Install FDM Monster on Linux with a single command
+slug: /installing/linux
+pagination_prev: installing/index
+pagination_next: software_usage/index
+---
+
+## Quick Install with `curl`
+
+Install FDM Monster with a single command on **Ubuntu / Debian / Raspberry Pi OS**:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install/linux/install.sh | bash
+```
+
+[View Installation Script](https://raw.githubusercontent.com/fdm-monster/fdm-monster-scripts/main/install/linux/install.sh)
+
+## What the Installer Does
+
+The one-click installer will automatically:
+
+1. Detect your platform and architecture (linux/amd64, linux/arm64, etc.)
+1. Install Node.js 24+ if not already present
+1. Set up Yarn via corepack
+1. Install `@fdm-monster/server` package
+1. Create and start systemd service
+1. Create CLI wrapper at `~/.local/bin/fdm-monster` (alias: `fdmm`)
+1. Display access URLs and management commands
+
+After installation completes, FDM Monster will be:
+
+- Running as a systemd service
+- Accessible at `http://localhost:4000`
+- Manageable via the `fdmm` CLI command
+
+## Requirements
+
+- **Linux**: Ubuntu, Debian, Fedora, CentOS, Arch, or similar
+- **RAM**: 512MB minimum (2GB+ recommended)
+- **Storage**: 500MB - 1GB free space
+- **Architecture**: x86_64 (amd64), ARM64, or ARMv7
+- **Raspberry Pi**: Compatible with Pi 3B+, Pi 4, and Pi 5
+
+The installer will automatically install Node.js 24+ if it's not already present on your system.
+
+## Installation Directories
+
+After installation, FDM Monster will use these directories:
+
+- **Install directory**: `~/.fdm-monster`
+  - Contains the FDM Monster server installation
+- **Data directory**: `~/.fdm-monster-data`
+  - Contains your database and media files (logs, uploads, etc.)
+- **CLI location**: `~/.local/bin/fdm-monster`
+  - The `fdmm` command-line tool
+
+## Management Commands
+
+After installation, use the `fdmm` command (or `fdm-monster`) to manage your installation:
+
+```bash
+# View CLI version
+fdmm version
+
+# Check if FDM Monster is running
+fdmm status
+
+# View logs in real-time
+fdmm logs
+```
+
+### Service Control
+
+```bash
+# Start FDM Monster
+fdmm start
+
+# Stop FDM Monster
+fdmm stop
+
+# Restart FDM Monster
+fdmm restart
+```
+
+### Updates and Upgrades
+
+```bash
+# Upgrade to the latest version
+fdmm upgrade
+
+# Upgrade to a specific version (see GitHub releases)
+fdmm upgrade 2.x.y
+
+# Update the CLI tool itself
+fdmm update-cli
+```
+
+Find available versions on the [GitHub Releases page](https://github.com/fdm-monster/fdm-monster/releases).
+
+### Backup and Maintenance
+
+```bash
+# Backup your data directory
+fdmm backup
+
+# Reinstall FDM Monster
+fdmm install
+
+# Uninstall FDM Monster completely
+fdmm uninstall
+```
+
+:::info
+The `fdmm uninstall` command will ask you whether to delete your data folder. Use `fdmm backup` first if you want to keep a backup of your data.
+:::
+
+## Accessing FDM Monster
+
+After installation, the installer will display all available access URLs. Typically:
+
+```bash
+http://localhost:4000
+http://YOUR_SERVER_IP:4000
+```
+
+Replace `YOUR_SERVER_IP` with your server's IP address to access from other devices on your network.
+
+## Customization
+
+### Environment Variables
+
+FDM Monster can be configured using environment variables. These are stored in a `.env` file located in your data directory at `~/.fdm-monster-data/.env`.
+
+To customize your installation:
+
+```bash
+# Stop FDM Monster
+fdmm stop
+
+# Edit the .env file
+nano ~/.fdm-monster-data/.env
+```
+
+Add or modify environment variables:
+
+```bash
+# Change the server port
+SERVER_PORT=8080
+
+# Set environment mode
+NODE_ENV=production
+
+# Authentication settings
+OVERRIDE_LOGIN_REQUIRED=true
+OVERRIDE_REGISTRATION_ENABLED=false
+```
+
+Save the file and restart FDM Monster:
+
+```bash
+fdmm start
+```
+
+For a complete list of available environment variables, see the [Environment Variables Guide](../configuration/environment_variables.mdx).
+
+:::warning
+Do not edit the systemd service file directly as it may break configuration overrides. Always use the `.env` file in your data directory instead.
+:::
+
+## Troubleshooting
+
+### Permission Errors
+
+If you encounter permission errors during installation, ensure you have write access to:
+
+- `~/.fdm-monster` (install directory)
+- `~/.fdm-monster-data` (data directory)
+- `~/.local/bin` (CLI directory)
+
+### Service Won't Start
+
+Check the service status and logs:
+
+```bash
+# Check systemd service status
+sudo systemctl status fdm-monster
+
+# View logs
+fdmm logs
+```
+
+### Port Already in Use
+
+If port 4000 is already in use, see the [Environment Variables](#environment-variables) section above to change the port.
+
+### Cannot Access from Other Devices
+
+Make sure your firewall allows connections on port 4000:
+
+```bash
+# For UFW (Ubuntu/Debian)
+sudo ufw allow 4000/tcp
+
+# For firewalld (Fedora/CentOS)
+sudo firewall-cmd --permanent --add-port=4000/tcp
+sudo firewall-cmd --reload
+```
+
+### Command Not Found: fdmm
+
+If the `fdmm` command is not found after installation, ensure `~/.local/bin` is in your PATH:
+
+```bash
+# Add to ~/.bashrc or ~/.zshrc
+export PATH="$HOME/.local/bin:$PATH"
+
+# Reload your shell configuration
+source ~/.bashrc  # or source ~/.zshrc
+```
+
+## Upgrading FDM Monster
+
+To upgrade to the latest version:
+
+```bash
+fdmm upgrade
+```
+
+To upgrade to a specific version (find versions on [GitHub Releases](https://github.com/fdm-monster/fdm-monster/releases)):
+
+```bash
+fdmm upgrade 2.x.y
+```
+
+Your data in `~/.fdm-monster-data` is automatically preserved during upgrades.
+
+## Backup and Restore
+
+### Backup
+
+Use the built-in backup command:
+
+```bash
+fdmm backup
+```
+
+This will create a timestamped backup file in `~/.fdm-monster-backups/`:
+
+```bash
+Backup created: ~/.fdm-monster-backups/fdm-monster-20260111-161209.tar.gz
+```
+
+### Restore
+
+To restore from a backup:
+
+```bash
+# Stop FDM Monster
+fdmm stop
+
+# Extract the backup to restore your data
+tar -xzf ~/.fdm-monster-backups/fdm-monster-YYYYMMDD-HHMMSS.tar.gz -C ~/
+
+# Start FDM Monster
+fdmm start
+```
+
+Replace `YYYYMMDD-HHMMSS` with the actual timestamp from your backup filename.
+
+## Uninstalling
+
+To remove FDM Monster:
+
+```bash
+# Uninstall
+fdmm uninstall
+```
+
+This will:
+
+- Stop the systemd service
+- Remove the service file
+- Delete the installation directory (`~/.fdm-monster`)
+- Remove the CLI tool (`~/.local/bin/fdm-monster`)
+- Ask whether to delete the data directory (`~/.fdm-monster-data`) - defaults to keeping it
+
+:::tip
+Your data directory is preserved by default during uninstall. Use `fdmm backup` before uninstalling if you want an additional backup.
+:::
+
+## Alternative Installation Methods
+
+If you prefer not to use the one-click installer, see these alternatives:
+
+- [Docker Compose](./docker_compose.mdx) - Run FDM Monster in a Docker container
+- [MonsterPi](./raspberrypi34.mdx) - Pre-built Raspberry Pi image
+
+## Next Steps
+
+- [Initial Setup Guide](../software_usage/index.mdx)
+- [Configuration Options](../configuration/environment_variables.mdx)
+- [Adding Printers](../software_usage/creating_printers.mdx)
+
+## Getting Help
+
+- **Documentation**: [docs.fdm-monster.net](https://docs.fdm-monster.net)
+- **Discord**: [discord.gg/mwA8uP8CMc](https://discord.gg/mwA8uP8CMc)
+- **GitHub Issues**: [github.com/fdm-monster/fdm-monster/issues](https://github.com/fdm-monster/fdm-monster/issues)
+
+## Complete Installation Output
+
+Below is an example of what you'll see during installation:
+
+```bash
+    ___________ __  ___   __  ___                 __
+   / ____/ __ \/  |/  /  /  |/  /___  ____  _____/ /____  _____
+  / /_  / / / / /|_/ /  / /|_/ / __ \/ __ \/ ___/ __/ _ \/ ___/
+ / __/ / /_/ / /  / /  / /  / / /_/ / / / (__  ) /_/  __/ /
+/_/   /_____/_/  /_/  /_/  /_/\____/_/ /_/____/\__/\___/_/
+
+FDM Monster One-Click Installer
+https://fdm-monster.net
+
+✓ Detected platform: linux/arm64
+✓ Node.js v24.12.0 detected
+ℹ Setting up Yarn via corepack...
+Preparing yarn@stable for immediate activation...
+✓ Yarn 4.12.0 ready
+ℹ Installing @fdm-monster/server...
+➤ YN0000: · Yarn 4.12.0
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Post-resolution validation
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: └ Completed in 0s 667ms
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed in 0s 279ms
+➤ YN0000: · Done with warnings in 1s 139ms
+✓ @fdm-monster/server installed
+ℹ Creating systemd service...
+✓ systemd service created and started
+ℹ Creating CLI wrapper...
+✓ CLI created at /home/pi/.local/bin/fdm-monster (alias: fdmm)
+ℹ Waiting for FDM Monster to start...
+✓ FDM Monster is ready!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  FDM Monster v2.0.3 is ready!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Access FDM Monster at:
+    http://localhost:4000
+    http://192.168.179.69:4000
+    http://172.17.0.1:4000
+    http://172.18.0.1:4000
+
+  Management commands: (use 'fdm-monster' or 'fdmm' - CLI v1.0.6)
+    fdmm install              - (Re)install FDM Monster
+    fdmm start                - Start FDM Monster
+    fdmm stop                 - Stop FDM Monster
+    fdmm restart              - Restart FDM Monster
+    fdmm status               - Check if FDM Monster is running
+    fdmm logs                 - View logs
+    fdmm upgrade [version]    - Upgrade to latest or specified version
+    fdmm backup               - Backup data directory
+    fdmm update-cli [url]     - Update CLI tool (optionally from custom URL)
+    fdmm version              - Show CLI version
+    fdmm uninstall            - Remove FDM Monster
+
+  Data directory: /home/pi/.fdm-monster-data
+  Install directory: /home/pi/.fdm-monster
+
+  Documentation: https://docs.fdm-monster.net
+  Discord: https://discord.gg/mwA8uP8CMc
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
