@@ -46,11 +46,12 @@ Use your favorite browser to access [http://fdmmonster.local](http://fdmmonster.
 The following is a general guide based on the helper script. Please refer to docker command documentation and FDM Monster source for full descriptions of all syntax and options. In the examples below variable are denoted by \$\{..\}. Please replace the entire variable syntax with correct values for your installation.
 
 Create the macvlan bridge with these parameters:
-  - `network` like `192.168.50.0/24`
-  - `subnet` like `192.168.50.128/25`
-  - `gateway` like `192.168.50.1`
-  - `interface` like `eth0`
-  - `name` like `printer_macvlan_net`
+
+- `network` like `192.168.50.0/24`
+- `subnet` like `192.168.50.128/25`
+- `gateway` like `192.168.50.1`
+- `interface` like `eth0`
+- `name` like `printer_macvlan_net`
 
 ```bash
 docker network create -d macvlan --subnet=${network} --ip-range=${subnet} --gateway=${gateway} -o parent=${interface} ${name}
