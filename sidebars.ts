@@ -14,6 +14,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'installing/linux',
         'installing/docker_compose',
+        'installing/docker_compose-mdns',
         'installing/raspberrypi34'
       ],
     },
