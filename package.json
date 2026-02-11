@@ -29,7 +29,7 @@
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
-    "@types/react": "19.2.13",
+    "@types/react": "19.2.14",
     "markdownlint-cli2": "0.20.0",
     "typescript": "5.9.3"
   },
