@@ -15,7 +15,7 @@ const sidebars: SidebarsConfig = {
         'installing/linux',
         'installing/docker_compose',
         'installing/docker_compose-mdns',
-        'installing/raspberrypi345'
+        'installing/raspberrypi'
       ],
     },
     {
