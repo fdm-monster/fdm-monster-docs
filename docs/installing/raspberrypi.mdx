@@ -18,6 +18,7 @@ pagination_next: software_usage/index
 Before installing the MonsterPi image using either [Raspberry Pi Imager v2](#installing-monsterpi-with-raspberry-pi-imager-v2) or [Raspberry Pi Imager v1](#installing-monsterpi-with-raspberry-pi-imager-v1)
 
 ### Don't change username `pi`
+
 :::warning
 Note: User's have reported problems changing the username other than `pi`. Please check [this issue](https://github.com/fdm-monster/MonsterPi/issues/132) if you want to see the status of this problem.
 **For now, please leave the username on `pi`.**
@@ -46,9 +47,7 @@ Please get a decent brand SD Card. **Do not save money on this.**
 Raspberry Pi Imager v2 introduced changes that affect custom OS images like MonsterPi. While the image will flash successfully, OS customization options (WiFi, user settings, etc.) may not be available unless you configure a custom content repository.
 This guide shows you how to enable full customization support for MonsterPi in Raspberry Pi Imager v2.
 
-### Solution: Configure Custom Content Repository
-
-Follow these steps to enable MonsterPi customization options:
+Follow the next steps to flash the MonsterPi image with customization options enabled:
 
 ### 1. Open App Options
 
@@ -64,12 +63,13 @@ Click **EDIT** next to "Content Repository".
 
 ### 3. Add Custom URL
 
-* Either, you can copy the latest URL directly:
+- Either, you can copy the latest URL directly:
+
 ```bash
 https://github.com/fdm-monster/MonsterPi/releases/latest/download/monsterpi-rpi-imager.json
 ```
 
-* Or go to the [latest MonsterPi release](https://github.com/fdm-monster/MonsterPi/releases/latest) and copy the URL from the **Raspberry Pi Imager v2 - Custom OS (Recommended)** section in the release notes.
+- Or go to the [latest MonsterPi release](https://github.com/fdm-monster/MonsterPi/releases/latest) and copy the URL from the **Raspberry Pi Imager v2 - Custom OS (Recommended)** section in the release notes.
 
 Finally, select **Use Custom URL** and paste the MonsterPi JSON URL.
 
@@ -113,8 +113,8 @@ These instructions are for Raspberry Pi Imager v1. For installation instructions
 
 ### 1. Download the Monster Pi image
 
-* Download the image by clicking this button: [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
-* Or browse all available releases here: [GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases).
+- Download the image by clicking this button: [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
+- Or browse all available releases here: [GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases).
 
 ### 2. Download and install Raspberry Pi Imager
 
@@ -130,6 +130,7 @@ Be aware that the imager usage steps and screenshots are for Raspberry Pi Imager
 Insert your SD Card into the SD Card reader of your PC.
 
 ### 5. Flashing image using Raspberry Pi Imager
+
 1. Click on **Choose Device** and select the device matching your RaspberryPi device:
 
 1. Click on **Choose OS**, scroll to the bottom, select **Use Custom**, and select the downloaded Monster Pi image on your computer.
@@ -229,7 +230,7 @@ Here are the steps to take:
 1. Check the file for missing or incorrect properties. Correct the mistakes with a text editor and save.
 1. Refer to [YAML Import and Export](../configuration/yaml_import_export.mdx) for more details.
 1. Ensure your .yaml is ready to be imported.
-1. Flash a new SD card with the installation steps [above](#installing-monsterpi)
+1. Flash a new SD card with the installation steps [above](#installing-monsterpi-with-raspberry-pi-imager-v2)
 1. Ensure your MonsterPi is working. Proceed through the setup and create an account.
 1. Import the YAML file according to [YAML Import and Export](../configuration/yaml_import_export.mdx#user-interface) for the import.
 1. Your printers and floors will reappear.
