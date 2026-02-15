@@ -178,35 +178,41 @@ Upgrading MonsterPi requires you to have SSH knowledge. If you do not feel comfo
 not continue and ask an expert to assist you!
 :::
 
-:::tip
-If you have not enabled SSH on your Raspberry Pi, shut it down, put the SD card in your card reader and create an empty file called `ssh` on the drive. Ensure you remove the extension! Once you boot it up, SSH should be enabled.
-:::
+If you have not enabled SSH on your Raspberry Pi, you have a couple of options:
+- enable SSH during the flashing step using Raspberry Pi Imager
+- enable SSH with `sudo raspi-config` using screen and keyboard (you need a matching type of HDMI cable depending on which Pi you have)
+- enable SSH by taking out the SD card, and adjusting it using another device of choice
+  - shut down the Pi
+  - get the SD card out
+  - put the SD card in your card reader
+  - create an empty file called `ssh` on the drive. Ensure you remove the extension!
+  - Once you boot it up, SSH should be enabled.
 
-### MonsterPi Version 0.4+
+### MonsterPi Version 1.0+
 
-Run the following commands as the `pi` user and execute an update with root elevation.
-
-If you would like to upgrade to the latest, you can run it like this, but beware that this mode is still experimental. It might not install the true latest or highest version sometimes, this happens mostly when a release candidate was released before (like 1.6.0-rc3).
+Run the following command as the `pi` user.
 
 ```bash
-cd ~/scripts
-sudo bash ./update-fdm-monster.sh
+# Upgrade to the latest version
+fdmm upgrade
+
+# Upgrade to a specific version (see GitHub releases)
+fdmm upgrade 2.x.y
+
+# Update the CLI tool itself
+fdmm update-cli
 ```
 
-#### Upgrade to a specific version
+Refer to [Linux section](../installing/linux.mdx) for more details on the usages of `fdmm`/`fdm-monster` command-line interface.
 
-You can also upgrade to a specific version of FDM Monster. This should be used in rare cases.
+### MonsterPi Version 0.4.0 - 0.5.0 (legacy)
 
-:::tip
-You can find all tags on our [FDM Monster](https://github.com/fdm-monster/fdm-monster/tags) GitHub.
-:::
-
-Replace `VERSION_HERE` with the tag (version) of FDM Monster you like.
+Older MonsterPi's used a different setup and an unstable update script.
 
 ```bash
 cd ~/scripts
 
-# Deploy the FDM Monster server update
+# Upgrade FDM Monster, replacing `VERSION_HERE` with the tag (version) of FDM Monster you like.
 sudo bash ./update-fdm-monster.sh --tag "VERSION_HERE" --non-interactive
 ```
 
@@ -217,10 +223,10 @@ cd ~/scripts
 sudo bash ./update-fdm-monster.sh --tag "1.7.0" --non-interactive
 ```
 
-### Older MonsterPi versions to 0.4+
+### Older MonsterPi versions to 0.1.0-0.3.2
 
 :::warning
-There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 1.6 and up.
+There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 2+.
 :::
 
 It is advised to export a `.yaml` file to back up your printers, printer floor positions and floors.
