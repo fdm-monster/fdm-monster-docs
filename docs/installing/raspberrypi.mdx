@@ -207,10 +207,17 @@ Refer to [Linux section](../installing/linux.mdx) for more details on the usages
 
 ### MonsterPi Version 0.4.0 - 0.5.0 (legacy)
 
-Older MonsterPi's used a different setup and an unstable update script.
+Older MonsterPi's used a different setup and an unstable update script. Only by downloading the latest image, users will be able to use the latest MonsterPi and FDM Monster.
+
+:::warning
+Note that there is no upgrade path from 0.4.0-0.5.0 to 1.0.0+.
+:::
 
 ```bash
 cd ~/scripts
+
+# Upgrade FDM Monster to latest
+sudo bash ./update-fdm-monster.sh
 
 # Upgrade FDM Monster, replacing `VERSION_HERE` with the tag (version) of FDM Monster you like.
 sudo bash ./update-fdm-monster.sh --tag "VERSION_HERE" --non-interactive
@@ -223,10 +230,10 @@ cd ~/scripts
 sudo bash ./update-fdm-monster.sh --tag "1.7.0" --non-interactive
 ```
 
-### Older MonsterPi versions to 0.1.0-0.3.2
+### Older MonsterPi versions to 0.1.0-0.3.2 (legacy)
 
 :::warning
-There is no upgrade path to MonsterPi 0.4. Only by downloading the new image, users will be able to use FDM Monster 2+.
+There is no upgrade path from MonsterPi 0.1.0-0.3.2 to 0.4. Only by downloading the new image, users will be able to use the latest MonsterPi and FDM Monster.
 :::
 
 It is advised to export a `.yaml` file to back up your printers, printer floor positions and floors.
