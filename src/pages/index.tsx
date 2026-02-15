@@ -192,7 +192,7 @@ function QuickInstall() {
       'Linux': 'linux',
       'Docker Compose': 'docker-compose',
       'Docker': 'docker',
-      'Raspberry Pi (3/4)': 'monsterpi'
+      'Raspberry Pi (MonsterPi)': 'monsterpi'
     };
 
     const handleTabClick = (e: MouseEvent) => {
@@ -307,7 +307,7 @@ volumes:
             </div>
           </TabItem>
 
-          <TabItem value="monsterpi" label="Raspberry Pi (3/4)">
+          <TabItem value="monsterpi" label="Raspberry Pi (MonsterPi)">
             <div className={ styles.tabContent }>
               <div className={ styles.monsterpiHeader }>
                 <img src="/img/raspberry-pi-svgrepo-com.svg" alt="Raspberry Pi" className={ styles.monsterpiLogo } />
@@ -315,7 +315,7 @@ volumes:
                   <h3 className={ styles.monsterpiTitle }>MonsterPi</h3>
                   <p className={ styles.monsterpiDescription }>
                     A pre-built Raspberry Pi image with FDM Monster already configured and ready to use.
-                    Perfect for Raspberry Pi 3B+, Pi 4, and compatible devices.
+                    Perfect for Raspberry Pi 3B+, Pi 4, Pi 5 and compatible devices.
                   </p>
                 </div>
               </div>
