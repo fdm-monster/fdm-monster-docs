@@ -6,14 +6,24 @@ pagination_prev: installing/index
 pagination_next: software_usage/index
 ---
 
-## What is Monster Pi?
+## What is MonsterPi?
 
 - a [Raspberry Pi](https://www.raspberrypi.org/) image
 - based on [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/operating-systems/)
 - built using [CustomPiOS](https://github.com/guysoft/CustomPiOS)
 - running [FDM Monster](https://fdm-monster.net/)
 
-## Hardware requirements
+## Before Installing MonsterPi
+
+Before installing the MonsterPi image using either [Raspberry Pi Imager v2](#installing-monsterpi-with-raspberry-pi-imager-v2) or [Raspberry Pi Imager v1](#installing-monsterpi-with-raspberry-pi-imager-v1)
+
+### Don't change username `pi`
+:::warning
+Note: User's have reported problems changing the username other than `pi`. Please check [this issue](https://github.com/fdm-monster/MonsterPi/issues/132) if you want to see the status of this problem.
+**For now, please leave the username on `pi`.**
+:::
+
+### Hardware requirements
 
 We advise you to get these components for your setup. You might already have these or equivalents of them. All links point to the official Raspberry Pi website. From there links to (local) stores are provided.
 
@@ -25,20 +35,96 @@ We advise you to get these components for your setup. You might already have the
 | Power Supply                    | [Product Link](https://www.raspberrypi.com/products/micro-usb-power-supply/) | [Product Link](https://www.raspberrypi.com/products/type-c-power-supply/)     | [Product Link](https://www.raspberrypi.com/products/active-cooler/)       |
 | 16GB or bigger Class 10 SD Card | [Product Link](https://www.raspberrypi.com/products/sd-cards/)               | [Product Link](https://www.raspberrypi.com/products/sd-cards/)                | [Product Link](https://www.raspberrypi.com/products/sd-cards/)            |
 
-Additionally, depending on your device, you might need a SD Card reader and (optionally) a micro SD Card to SD Card adapter.
+Additionally, depending on your computer, you might need a SD Card reader and (optionally) a micro SD Card to SD Card adapter.
 
 :::warning
 Please get a decent brand SD Card. **Do not save money on this.**
 :::
 
-## Installing MonsterPi
+## Installing MonsterPi with Raspberry Pi Imager v2
 
-1. Download the Monster Pi image [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
-[GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases)
-1. Download and install [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-1. Please go to [Raspberry Pi - Getting Started](https://www.raspberrypi.com/documentation/computers/getting-started.html)
-1. Insert your SD Card into your SD Card Reader
-1. Start Raspberry Pi Imager on your computer
+Raspberry Pi Imager v2 introduced changes that affect custom OS images like MonsterPi. While the image will flash successfully, OS customization options (WiFi, user settings, etc.) may not be available unless you configure a custom content repository.
+This guide shows you how to enable full customization support for MonsterPi in Raspberry Pi Imager v2.
+
+### Solution: Configure Custom Content Repository
+
+Follow these steps to enable MonsterPi customization options:
+
+### 1. Open App Options
+
+Click **App Options** in the bottom right corner of Raspberry Pi Imager.
+
+<img width="183" height="58" alt="App Options button" src="https://github.com/user-attachments/assets/fcdfe8f6-5501-49f9-8a90-046b38abc657" />
+
+### 2. Edit Content Repository
+
+Click **EDIT** next to "Content Repository".
+
+<img width="398" height="54" alt="Content Repository edit button" src="https://github.com/user-attachments/assets/8114b9d1-e2e0-47c0-be6e-2a286da0cf9a" />
+
+### 3. Add Custom URL
+
+Select **Use Custom URL** and paste the MonsterPi JSON URL.
+
+> **Find the JSON URL:** Go to the [latest MonsterPi release](https://github.com/fdm-monster/MonsterPi/releases/latest) and copy the URL from the "Raspberry Pi Imager v2 - Custom OS" section in the release notes.
+
+### 4. Apply and Restart
+
+Click **Apply & Restart** to reload the content repository.
+
+### 5. Select MonsterPi
+
+Choose **MonsterPi** from the OS list (look for "MonsterPi 1.0.0 (or higher) Trixie").
+
+### 6. Configure OS Customization
+
+You should now see the full OS customization settings available:
+
+<img width="659" height="470" alt="Raspberry Pi Imager with customization options enabled" src="https://github.com/user-attachments/assets/eebb172a-da01-4b82-ab82-03514b04d2e2" />
+
+✅ You can now configure WiFi, hostname, user credentials, and other settings before flashing!
+
+---
+
+### Troubleshooting
+
+#### Missing Customization Options
+
+If customization options don't appear after selecting MonsterPi, you'll see a limited settings screen like this:
+
+<img width="675" height="474" alt="Raspberry Pi Imager without customization options" src="https://github.com/user-attachments/assets/26cafba6-825f-478b-bb54-2c1b500feb63" />
+
+**Solution:** Follow the steps above to configure the custom content repository.
+
+#### Alternative: Download Custom JSON File
+
+Instead of using a URL, you can download the JSON file from the [latest release](https://github.com/fdm-monster/MonsterPi/releases/latest) and use the **Use Custom File** option in the Content Repository settings.
+
+## Installing MonsterPi with Raspberry Pi Imager v1
+
+:::info
+These instructions are for Raspberry Pi Imager v1. For installation instructions using the latest Raspberry Pi Imager v2, please refer to section [Raspberry Pi Imager v2](#installing-monsterpi-with-raspberry-pi-imager-v2).
+:::
+
+### 1. Download the Monster Pi image
+
+* Download the image by clicking this button: [![Latest Version](https://img.shields.io/github/v/release/fdm-monster/monsterpi.svg?color=1eb6c3&label=stable)](https://github.com/fdm-monster/monsterpi/releases/latest). Extracting the file is not required.
+* Or browse all available releases here: [GitHub Releases](https://github.com/fdm-monster/MonsterPi/releases).
+
+### 2. Download and install Raspberry Pi Imager
+
+Download the imager using this link: [Raspberry Pi Imager v1](https://github.com/raspberrypi/rpi-imager/releases/tag/v1.9.6).
+
+### 3. Review Raspberry Pi documentation
+
+You can view [Raspberry Pi - Getting Started](https://www.raspberrypi.com/documentation/computers/getting-started.html) for more details to get started.
+Be aware that the imager usage steps and screenshots are for Raspberry Pi Imager v2 (not v1).
+
+### 4. Preparing the SD Card
+
+Insert your SD Card into the SD Card reader of your PC.
+
+### 5. Flashing image using Raspberry Pi Imager
 1. Click on **Choose Device** and select the device matching your RaspberryPi device:
 
 1. Click on **Choose OS**, scroll to the bottom, select **Use Custom**, and select the downloaded Monster Pi image on your computer.
@@ -58,10 +144,6 @@ Please get a decent brand SD Card. **Do not save money on this.**
 
    Also check the **Set username and password** checkbox. Set the username to `pi` and the password to any value. This is required for enabling SSH later on.
 
-   :::warning
-   Note: You cannot change the default username and password using the Raspberry Pi Imager. The default username and password will still be `pi` and `raspberry`. This is due to a limitation of using `Ubuntu` instead of `RaspberryPiOS`.
-   :::
-
    If required, change the WiFi and locale settings to your needs.
 
 1. In the **Services** section, check the checkbox for **Enable SSH**. Depending on your preferences and setup, either select **Use password authentication** or **Allow public-key authentication only**
@@ -72,6 +154,9 @@ Please get a decent brand SD Card. **Do not save money on this.**
 1. After pressing **Yes** Raspberry Pi Imager will ask you for a confirmation to overwrite all data of the SD Card. Triple check if you have the correct storage device. Click **Yes** to continue.
 1. Raspberry Pi Imager will now start writing and verifying the image to your SD Card. This steps takes some time and can vary depending on your USB Bus speed, SD Card and other factors, but will usually take about 5-10 minutes.
 1. Once the verification is complete, by default, Raspberry Pi Imager will "eject" the device, play a sound and show a notification on the screen.
+
+## First time starting up the Pi
+
 1. Insert the SD card into your Raspberry Pi and power it up.
    :::note
    The first power up can take some time. Wait up to 10 minutes before attempting a power cycle.
