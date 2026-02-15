@@ -54,19 +54,24 @@ Follow these steps to enable MonsterPi customization options:
 
 Click **App Options** in the bottom right corner of Raspberry Pi Imager.
 
-<img width="183" height="58" alt="App Options button" src="https://github.com/user-attachments/assets/fcdfe8f6-5501-49f9-8a90-046b38abc657" />
+![App Options button](../images/monsterpi/rpi-imager-app-options-button.png)
 
 ### 2. Edit Content Repository
 
 Click **EDIT** next to "Content Repository".
 
-<img width="398" height="54" alt="Content Repository edit button" src="https://github.com/user-attachments/assets/8114b9d1-e2e0-47c0-be6e-2a286da0cf9a" />
+![Content Repository edit button](../images/monsterpi/rpi-imager-content-repository-edit.png)
 
 ### 3. Add Custom URL
 
-Select **Use Custom URL** and paste the MonsterPi JSON URL.
+* Either, you can copy the latest URL directly:
+```bash
+https://github.com/fdm-monster/MonsterPi/releases/latest/download/monsterpi-rpi-imager.json
+```
 
-> **Find the JSON URL:** Go to the [latest MonsterPi release](https://github.com/fdm-monster/MonsterPi/releases/latest) and copy the URL from the "Raspberry Pi Imager v2 - Custom OS" section in the release notes.
+* Or go to the [latest MonsterPi release](https://github.com/fdm-monster/MonsterPi/releases/latest) and copy the URL from the **Raspberry Pi Imager v2 - Custom OS (Recommended)** section in the release notes.
+
+Finally, select **Use Custom URL** and paste the MonsterPi JSON URL.
 
 ### 4. Apply and Restart
 
@@ -80,7 +85,7 @@ Choose **MonsterPi** from the OS list (look for "MonsterPi 1.0.0 (or higher) Tri
 
 You should now see the full OS customization settings available:
 
-<img width="659" height="470" alt="Raspberry Pi Imager with customization options enabled" src="https://github.com/user-attachments/assets/eebb172a-da01-4b82-ab82-03514b04d2e2" />
+![Raspberry Pi Imager with customization options enabled](../images/monsterpi/rpi-imager-customization-enabled.png)
 
 ✅ You can now configure WiFi, hostname, user credentials, and other settings before flashing!
 
@@ -92,13 +97,13 @@ You should now see the full OS customization settings available:
 
 If customization options don't appear after selecting MonsterPi, you'll see a limited settings screen like this:
 
-<img width="675" height="474" alt="Raspberry Pi Imager without customization options" src="https://github.com/user-attachments/assets/26cafba6-825f-478b-bb54-2c1b500feb63" />
+![Raspberry Pi Imager without customization options](../images/monsterpi/rpi-imager-customization-disabled.png)
 
 **Solution:** Follow the steps above to configure the custom content repository.
 
 #### Alternative: Download Custom JSON File
 
-Instead of using a URL, you can download the JSON file from the [latest release](https://github.com/fdm-monster/MonsterPi/releases/latest) and use the **Use Custom File** option in the Content Repository settings.
+Instead of using a URL, you can download the `monsterpi-rpi-imager.json` JSON file from the [latest release page](https://github.com/fdm-monster/MonsterPi/releases/latest/monsterpi-rpi-imager.json) and use the **Use Custom File** option in the Content Repository settings.
 
 ## Installing MonsterPi with Raspberry Pi Imager v1
 
@@ -155,7 +160,7 @@ Insert your SD Card into the SD Card reader of your PC.
 1. Raspberry Pi Imager will now start writing and verifying the image to your SD Card. This steps takes some time and can vary depending on your USB Bus speed, SD Card and other factors, but will usually take about 5-10 minutes.
 1. Once the verification is complete, by default, Raspberry Pi Imager will "eject" the device, play a sound and show a notification on the screen.
 
-## First time starting up the Pi
+## First time starting up the Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi and power it up.
    :::note
