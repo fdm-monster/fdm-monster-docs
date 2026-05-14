@@ -20,7 +20,7 @@ The virtual-klipper-printer provides a Klipper/Moonraker environment, but Mainsa
    cd virtual-klipper-printer
    ```
 
-2. **Add Mainsail to docker-compose.yml**:
+1. **Add Mainsail to docker-compose.yml**:
 
    Edit the `docker-compose.yml` file and add the following service:
 
@@ -34,7 +34,7 @@ The virtual-klipper-printer provides a Klipper/Moonraker environment, but Mainsa
          - "./mainsail/config.json:/usr/share/nginx/html/config.json"
    ```
 
-3. **Create Mainsail config** (optional):
+1. **Create Mainsail config** (optional):
 
    Create a `mainsail/config.json` file to configure Mainsail to connect to your virtual printer:
 
@@ -50,16 +50,16 @@ The virtual-klipper-printer provides a Klipper/Moonraker environment, but Mainsa
    }
    ```
 
-4. **Start the environment**:
+1. **Start the environment**:
    ```bash
    docker-compose up -d
    ```
 
-5. **Access Mainsail**:
+1. **Access Mainsail**:
    - Open your browser to `http://localhost:8081`
    - This provides the Mainsail web interface for the virtual printer
 
-6. **Configure FDM Monster**:
+1. **Configure FDM Monster**:
    - In FDM Monster, create a new printer
    - Set the printer type to **Moonraker**
    - Use `http://localhost:7125` for the Moonraker API URL
