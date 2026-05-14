@@ -1,0 +1,100 @@
+---
+title: API Keys
+description: Generate and use API keys for programmatic access to FDM Monster
+slug: /developer_setup/api_keys
+---
+
+:::note NOTE
+API keys are available in FDM Monster 2.1.0 and later versions.
+:::
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+FDM Monster supports user-managed API keys for programmatic access to the server. API keys allow you to authenticate API requests without using session cookies, making them ideal for scripts, integrations, and third-party applications.
+
+## API Key Features
+
+- **Secure tokens**: API keys use a `fdmm_api_<43 chars base64url>` format with SHA-256 verification
+- **User-bound**: Keys inherit the permissions of the user who created them
+- **Auditable**: Track when keys were last used with `lastUsedAt` timestamps
+- **Revocable**: Delete keys at any time to revoke access
+
+## Generating API Keys
+
+API keys can be created through the FDM Monster web interface. This is the recommended and secure method for generating API keys.
+
+### Via Web Interface
+
+1. Log in to FDM Monster
+1. Navigate to your user settings or API keys section
+1. Fill in a name for the new API key (e.g., "My Integration Script")
+1. Click "Create"
+1. Copy the generated key immediately - it will only be shown once
+
+## Using API Keys
+
+Include the API key in the `Authorization` header using the `Bearer` scheme for all API requests.
+
+### Example: Get Printer Information
+
+<Tabs>
+<TabItem value="bash" label="Bash (curl)">
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  http://localhost:4000/api/v2/printer
+```
+
+</TabItem>
+<TabItem value="powershell" label="PowerShell">
+
+```powershell
+$headers = @{
+    "Authorization" = "Bearer YOUR_API_KEY"
+}
+
+Invoke-WebRequest -Uri "http://localhost:4000/api/v2/printer" -Headers $headers
+```
+
+</TabItem>
+<TabItem value="python" label="Python">
+
+```python
+import requests
+
+headers = {
+    'Authorization': 'Bearer YOUR_API_KEY'
+}
+
+response = requests.get('http://localhost:4000/api/v2/printer', headers=headers)
+print(response.json())
+```
+
+</TabItem>
+</Tabs>
+
+Replace `YOUR_API_KEY` with your actual API key token.
+
+## Security Best Practices
+
+- **Store securely**: Never commit API keys to version control or share them publicly
+- **Use specific names**: Give keys descriptive names to identify their purpose
+- **Revoke when needed**: Delete keys that are no longer needed or if compromised
+- **Monitor usage**: Check the `lastUsedAt` field to see when keys were last accessed
+- **Limit permissions**: API keys inherit user permissions, so create dedicated users with minimal required access for integrations
+
+## Common Use Cases
+
+- **Automation scripts**: Control printers programmatically
+- **Monitoring tools**: Build dashboards or alerting systems
+- **Integration services**: Connect FDM Monster with other applications
+- **CI/CD pipelines**: Automate testing or deployment workflows
+
+## Troubleshooting
+
+- **401 Unauthorized**: Verify your API key is correct and not revoked
+- **403 Forbidden**: Check that your user account has permission for the requested operation
+- **Connection errors**: Ensure the server is running and accessible at the correct URL
+
+For more information about available API endpoints, see the [API Documentation](./api_documentation.mdx).

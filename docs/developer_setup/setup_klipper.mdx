@@ -8,4 +8,78 @@ id: setup_moonraker
 permalink: :baseUrl/:docsUrl/:langPart/:versionPart/:id
 ---
 
-TODO!
+To set up Moonraker for FDM Monster development and testing, we recommend using the [virtual-klipper-printer](https://github.com/mainsail-crew/virtual-klipper-printer) project along with [Mainsail](https://github.com/mainsail-crew/mainsail).
+
+## Setting up a Test Environment
+
+The virtual-klipper-printer provides a Klipper/Moonraker environment, but Mainsail needs to be added separately for the web interface.
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/mainsail-crew/virtual-klipper-printer.git
+   cd virtual-klipper-printer
+   ```
+
+1. **Add Mainsail to docker-compose.yml**:
+
+   Edit the `docker-compose.yml` file and add the following service:
+
+   ```yaml
+   mainsail:
+       image: ghcr.io/mainsail-crew/mainsail
+       container_name: mainsail
+       ports:
+         - "8081:80"
+       volumes:
+         - "./mainsail/config.json:/usr/share/nginx/html/config.json"
+   ```
+
+1. **Create Mainsail config** (optional):
+
+   Create a `mainsail/config.json` file to configure Mainsail to connect to your virtual printer:
+
+   ```json
+   {
+     "instances": [
+       {
+         "name": "Virtual Printer",
+         "host": "virtual-klipper-printer",
+         "port": 7125
+       }
+     ]
+   }
+   ```
+
+1. **Start the environment**:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+1. **Access Mainsail**:
+   - Open your browser to `http://localhost:8081`
+   - This provides the Mainsail web interface for the virtual printer
+
+1. **Configure FDM Monster**:
+   - In FDM Monster, create a new printer
+   - Set the printer type to **Moonraker**
+   - Use `http://localhost:7125` for the Moonraker API URL
+
+## What You Get
+
+- **Virtual Klipper instance** running in Docker
+- **Moonraker API server** on port 7125 for FDM Monster
+- **Mainsail web interface** on port 8081 for printer control
+- **Simulated printer responses** for testing FDM Monster integration
+
+## Stopping the Test Environment
+
+When you're done testing:
+
+```bash
+cd virtual-klipper-printer
+docker-compose down
+```
+
+This setup allows you to safely experiment with Moonraker features and test printer connections without needing physical hardware.
