@@ -4,6 +4,10 @@ description: Generate and use API keys for programmatic access to FDM Monster
 slug: /developer_setup/api_keys
 ---
 
+:::note NOTE
+API keys are available in FDM Monster 2.1.0 and later versions.
+:::
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -23,32 +27,10 @@ API keys can be created through the FDM Monster web interface. This is the recom
 ### Via Web Interface
 
 1. Log in to FDM Monster
-2. Navigate to API keys section
-3. Fill in a name for the new API key
-4. Click "Create API Key"
-5. Provide a name for the key (e.g., "My Integration Script")
-6. Copy the generated key immediately - it will only be shown once
-
-## Managing API Keys
-
-### List Your Keys
-
-```bash
-curl -H "Authorization: Bearer YOUR_API_KEY" \
-  http://localhost:4000/api/v2/api-keys
-```
-
-This returns a list of your keys (without exposing the secret tokens).
-
-### Revoke a Key
-
-```bash
-curl -X DELETE \
-  -H "Authorization: Bearer YOUR_API_KEY" \
-  http://localhost:4000/api/v2/api-keys/KEY_ID
-```
-
-Replace `KEY_ID` with the ID of the key you want to revoke.
+2. Navigate to your user settings or API keys section
+3. Fill in a name for the new API key (e.g., "My Integration Script")
+4. Click "Create"
+5. Copy the generated key immediately - it will only be shown once
 
 ## Using API Keys
 
