@@ -76,6 +76,7 @@ const sidebars: SidebarsConfig = {
   development: [
     'developer_setup/introduction',
     'developer_setup/api_documentation',
+    'developer_setup/api_keys',
     'developer_setup/setup_server',
     'developer_setup/setup_client',
     'developer_setup/setup_octoprint',
