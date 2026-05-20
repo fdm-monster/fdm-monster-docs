@@ -190,7 +190,11 @@ volumes:
   fdm-monster-watched:
 ```
 
-On the slicing PC, open the share (`\\<linux-host-ip>\fdm-monster` on Windows, or map it as a network drive), sign in as `slicer`, and send your gcode files straight into the `by-printer/` and `by-tag/` subfolders.
+:::warning
+The compose file above ships a **placeholder password** — `changeme`. Set a real one in `ACCOUNT_slicer` before you start the containers: the share is writable by anyone who can reach it on your network.
+:::
+
+On the slicing PC, open the share (`\\<linux-host-ip>\fdm-monster` on Windows, or map it as a network drive) and sign in with the `slicer` account from the compose file. Then send your gcode files straight into the `by-printer/` and `by-tag/` subfolders.
 
 What matters here:
 
