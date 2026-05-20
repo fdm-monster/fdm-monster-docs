@@ -113,7 +113,7 @@ For a worked example — slicing from a desktop PC into a Dockerised install on 
 
 ## When a file matches more than one printer
 
-A tag usually covers several printers, so a file dropped into a `by-tag/` folder rarely points at a single machine. FDM Monster will not guess which one — it imports the file but does not start it anywhere. The same is true of a file whose target matched nothing at all.
+A tag usually covers several printers, so a file dropped into a `by-tag/` folder rarely points at a single machine. FDM Monster will not guess which one — it imports the file but does not start it anywhere. The same is true of a file whose target matched nothing at all, or whose `fdmm_target` matched both a printer and a tag.
 
 These files gather on the **Print Jobs** page, under **awaiting printer assignment**. Open it, choose the printer you want from the file's group, and FDM Monster queues the file on that machine. Nothing prints until you have made that choice.
 
@@ -127,7 +127,17 @@ Add a single comment line to your slicer's **start gcode**:
 ; fdmm_target = prusa-mk4
 ```
 
-Whatever you put after `fdmm_target =` is the routing target — a printer name or a tag name, the same labels the folders use. It is only a comment, so the printer ignores it entirely. Where to add it depends on your slicer:
+`fdmm_target` takes a printer name or a tag name, and FDM Monster works out which. It is only a comment, so the printer ignores it.
+
+There is one catch: if a **printer and a tag share a name**, a bare `fdmm_target` is ambiguous — FDM Monster will not guess, and the file is held for [manual routing](#when-a-file-matches-more-than-one-printer). When that can happen, name the kind in the token, the same way the `by-printer/` and `by-tag/` folders do:
+
+| Comment | Routes to |
+|---|---|
+| `; fdmm_target = voron` | A printer **or** a tag named `voron` — only safe when that name is unique |
+| `; fdmm_target_printer = voron` | The **printer** named `voron` |
+| `; fdmm_target_tag = voron` | The **tag** named `voron` |
+
+Where to add the comment depends on your slicer:
 
 | Slicer                    | Location                                                  |
 |---------------------------|-----------------------------------------------------------|
