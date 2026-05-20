@@ -69,7 +69,7 @@ FDM Monster can watch a folder and route dropped files to the right printer auto
 |--------------------------|-----------|------------------------------------------------------------------------------------------------------|
 | `WATCHED_FOLDER_PATH`    | -         | Absolute path to the folder FDM Monster watches. Unset disables the feature.                          |
 | `WATCHED_FOLDER_MODE`    | `consume` | `consume` moves imported files out of the folder; `library` copies them, leaving the originals.       |
-| `WATCHED_FOLDER_POLLING` | `true`    | Poll for changes. Required for Docker bind mounts and network shares; set `false` for a local disk.   |
+| `WATCHED_FOLDER_POLLING` | `true`    | Poll for changes. Required for Docker Desktop and network shares; can be `false` for a local disk or Docker on a Linux host. |
 
 ## Common Configuration Examples
 
