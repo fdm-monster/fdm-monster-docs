@@ -72,6 +72,8 @@ your-watched-folder/
 
 You do not maintain these subfolders yourself. FDM Monster keeps them in step with your setup: add a printer or create a tag, and its folder appears, ready to receive files.
 
+The folders belong to whatever user account FDM Monster runs as. Nothing stops you renaming, moving or deleting them — FDM Monster simply recreates any that are missing the next time it starts, or whenever a printer or tag changes.
+
 ### Sending a file to a printer
 
 To route a file, drop it into the subfolder that matches where you want it:
@@ -87,15 +89,27 @@ By default FDM Monster **moves** each file out of the watched folder as it impor
 
 If you would rather leave your files in place — for instance the watched folder doubles as your own gcode library — set `WATCHED_FOLDER_MODE=library`. FDM Monster then **copies** each file instead, and remembers what it has already imported, so re-scanning the folder will not import the same file twice.
 
+:::note
+When the watched folder is on a different drive or filesystem than FDM Monster's data directory, `consume` mode cannot move a file in a single step — it copies the file in, then deletes the original. The result is identical; it just happens in two stages.
+:::
+
 ### Watched folders on shares and Docker
 
-FDM Monster notices a new file in one of two ways. On a normal local disk it can let the operating system tell it the moment a file appears. Across a Docker bind mount or a network share (NFS/SMB) those notifications never arrive — so instead FDM Monster **polls** the folder, checking it about once a second.
+FDM Monster spots a new file in one of two ways. When it can watch the folder's real filesystem directly, the operating system tells it the instant a file appears. When something stands in between — the Docker Desktop VM on Windows or macOS, or a network share — those notifications never arrive, so FDM Monster falls back to **polling**, re-scanning the folder about once a second.
 
-Polling is on by default (`WATCHED_FOLDER_POLLING=true`) because it works everywhere. If your watched folder is on a normal local disk, you can set `WATCHED_FOLDER_POLLING=false` for instant, lower-overhead detection.
+`WATCHED_FOLDER_POLLING` chooses between them. It is `true` by default because polling works everywhere; turn it off where FDM Monster can see the folder's filesystem directly:
+
+| Where the watched folder lives                             | `WATCHED_FOLDER_POLLING`      |
+|-------------------------------------------------------------|-------------------------------|
+| A local folder — a bare install, or Docker on a Linux host  | `false` — native events work  |
+| Docker Desktop on Windows or macOS                          | `true`                        |
+| A network share (NFS or SMB) mounted as the watched folder  | `true`                        |
 
 :::tip
-Running FDM Monster straight on Linux (the one-click install) with the watched folder on the same disk? Set `WATCHED_FOLDER_POLLING=false` — the operating system reports new files immediately, at no cost. Keep polling on for Docker Desktop bind mounts and for any network share.
+The rule of thumb: polling is only needed when something stands between FDM Monster and the folder's real filesystem — the Docker Desktop VM, or a network mount. A bare install, or Docker on a plain Linux host, can run with `WATCHED_FOLDER_POLLING=false`.
 :::
+
+For a worked example — slicing from a desktop PC into a Dockerised install on Linux — see [Example: sharing the watched folder over Samba](#example-sharing-the-watched-folder-over-samba) at the end of this page.
 
 ## When a file matches more than one printer
 
@@ -127,3 +141,53 @@ Every file sliced from that profile now carries its target. Carrying a target is
 ### When the folder and the file disagree
 
 A file can carry both signals — it sits in a `by-printer/` folder, and its gcode names a different target. The **folder always wins**. FDM Monster logs a warning when the two disagree, so a misfiled print is easy to spot.
+
+## Example: sharing the watched folder over Samba
+
+A common farm setup runs FDM Monster in Docker on a Linux host — a server or a Raspberry Pi — while you slice on a separate (possibly Windows) PC. To get sliced files into the watched folder, add a **Samba server** alongside FDM Monster in the same `docker-compose.yml`, both sharing one volume. None of this is FDM Monster-specific — it is ordinary Docker and Samba plumbing — but here is a starting point.
+
+```yaml
+services:
+  fdm-monster:
+    container_name: fdm-monster
+    image: fdmmonster/fdm-monster:2
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - WATCHED_FOLDER_PATH=/watched
+    volumes:
+      - fdm-monster-media:/app/media
+      - fdm-monster-database:/app/database
+      - fdm-monster-watched:/watched
+
+  samba:
+    container_name: fdm-monster-samba
+    image: ghcr.io/servercontainers/samba
+    restart: unless-stopped
+    ports:
+      - "445:445"
+    environment:
+      - ACCOUNT_slicer=changeme
+      - UID_slicer=1000
+      - "SAMBA_VOLUME_CONFIG_fdmmonster=[fdm-monster]; path = /watched; valid users = slicer; read only = no; browseable = yes"
+    volumes:
+      - fdm-monster-watched:/watched
+
+volumes:
+  fdm-monster-media:
+  fdm-monster-database:
+  fdm-monster-watched:
+```
+
+On the slicing PC, open the share (`\\<linux-host-ip>\fdm-monster` on Windows, or map it as a network drive), sign in as `slicer`, and send your gcode files straight into the `by-printer/` and `by-tag/` subfolders.
+
+What matters here:
+
+- Both containers mount the `fdm-monster-watched` volume. FDM Monster watches it; the Samba container publishes it on the network as a share named **`fdm-monster`** — so it is obvious what it is from the slicing PC. The only FDM Monster-specific lines are `WATCHED_FOLDER_PATH` and that shared volume.
+- FDM Monster sees `/watched` as a plain local volume on the Linux host, so native file events work — `WATCHED_FOLDER_POLLING` can stay off. The SMB layer sits between Samba and the slicing PC; FDM Monster never crosses it.
+- There is no _official_ Samba image. This uses [servercontainers/samba](https://github.com/ServerContainers/samba), one of the actively-maintained choices ([crazymax/samba](https://github.com/crazy-max/docker-samba) is another). Avoid the `dperson/samba` that many older guides still reach for — it is effectively unmaintained. The `ACCOUNT_` and `SAMBA_VOLUME_CONFIG_` settings follow servercontainers/samba's own documentation; check it for the current syntax.
+- Files arriving over Samba must be readable by — and, in `consume` mode, deletable by — the user FDM Monster runs as. Set `UID_slicer` to that user's UID.
+- Port 445 is SMB; expose it only on a trusted LAN, and change `changeme` to a real password.
+
+The reverse direction works too: if your files already live on a NAS, FDM Monster can be the network *client* instead — back the `fdm-monster-watched` volume with a `cifs` (or `nfs`) volume driver pointing at the NAS, and drop the Samba container. In that setup FDM Monster does cross a network mount, so keep `WATCHED_FOLDER_POLLING=true`.
