@@ -1,0 +1,129 @@
+---
+title: Print File Routing
+description: Let FDM Monster send each sliced file to the right printer
+slug: /software_usage/print_file_routing
+---
+
+With a single printer, printing a file is easy: you upload it and you print. Once you run several printer models — or a whole farm — deciding which machine each sliced file belongs on, every single time, turns into a chore.
+
+Print file routing hands that job to FDM Monster. You tell it which printer (or which group of printers) a file is meant for, and it imports the file and queues it on the right machine for you.
+
+## How routing works
+
+To route a file you give it a **routing target** — a single short label that names where the file should go. A routing target is either:
+
+- the **name of a printer** — the file goes to that one printer; or
+- the **name of a tag** — a tag being a group of printers you have defined — and the file is meant for that whole group.
+
+A file gets its routing target from one of **two sources**, and you use whichever suits you:
+
+- **The folder you drop it in.** A watched folder keeps a subfolder for every printer and every tag; the subfolder a file lands in _is_ its routing target.
+- **A comment inside the gcode.** A single line your slicer bakes into the file names the target, so the file carries it wherever it goes.
+
+It is normally one or the other — not both. If a file somehow has both (it sits in a routing folder _and_ its gcode names a target), the **folder wins**.
+
+Once FDM Monster knows a file's target, what happens next depends on how many printers it resolves to:
+
+- **Exactly one printer** → the file is queued on that printer automatically.
+- **A group of printers, or nothing at all** → the file is imported but not started anywhere; you choose the printer yourself. See [When a file matches more than one printer](#when-a-file-matches-more-than-one-printer).
+
+The rest of this page covers each source in turn, starting with the watched folder — the simpler of the two.
+
+## Routing with a watched folder
+
+A watched folder is an ordinary folder on disk that FDM Monster keeps an eye on. Drop a sliced file into it and FDM Monster imports and routes the file — no slicer configuration, it works with any slicer, and it works just as well for gcode you downloaded from the internet.
+
+### Turning it on
+
+Point FDM Monster at a folder with the `WATCHED_FOLDER_PATH` environment variable. Until that is set, the feature stays off.
+
+How you set it depends on how FDM Monster is installed:
+
+- **Linux (one-click install):** add the line to `~/.fdm-monster-data/.env`, then run `fdmm restart`.
+- **Docker / Docker Compose:** pass it with `-e` or the `environment:` section, and make sure the folder is mounted into the container.
+
+The watched folder has three settings in total:
+
+| Variable                 | Default     | Description                                                                 |
+|--------------------------|-------------|-----------------------------------------------------------------------------|
+| `WATCHED_FOLDER_PATH`    | _(unset)_   | Absolute path to the folder FDM Monster watches. Unset means the feature is off. |
+| `WATCHED_FOLDER_MODE`    | `consume`   | Whether imported files are moved out of the folder or copied. See [Keeping or consuming your files](#keeping-or-consuming-your-files). |
+| `WATCHED_FOLDER_POLLING` | `true`      | How FDM Monster notices new files. See [Watched folders on shares and Docker](#watched-folders-on-shares-and-docker). |
+
+:::note
+Environment variable changes only take effect after FDM Monster restarts. The [Environment Variables guide](../configuration/environment_variables.mdx) covers where the `.env` file lives for each kind of installation.
+:::
+
+### How the folder is organised
+
+The first time FDM Monster starts with a watched folder set, it creates two folders inside it:
+
+```
+your-watched-folder/
+  by-printer/
+    Voron 2.4/
+    Prusa MK4/
+  by-tag/
+    prusa-fleet/
+```
+
+- `by-printer/` holds one subfolder per printer, named exactly after that printer.
+- `by-tag/` holds one subfolder per tag — a tag being a group of printers you have defined in FDM Monster.
+
+You do not maintain these subfolders yourself. FDM Monster keeps them in step with your setup: add a printer or create a tag, and its folder appears, ready to receive files.
+
+### Sending a file to a printer
+
+To route a file, drop it into the subfolder that matches where you want it:
+
+- `by-printer/Prusa MK4/bracket.gcode` → imported and queued on the Prusa MK4.
+- `by-tag/prusa-fleet/bracket.gcode` → meant for every printer tagged `prusa-fleet`.
+
+FDM Monster picks up `.gcode`, `.bgcode` and `.3mf` files; anything else in the folder is ignored. A file dropped loose in the root of the watched folder, or in some folder of your own, is still imported — it simply has no folder-based target, so it falls back to the [gcode comment](#routing-from-your-slicer-instead) or waits to be assigned.
+
+### Keeping or consuming your files
+
+By default FDM Monster **moves** each file out of the watched folder as it imports it (`WATCHED_FOLDER_MODE=consume`). The folder behaves like an inbox that empties itself, so you can always see at a glance what has not been processed yet.
+
+If you would rather leave your files in place — for instance the watched folder doubles as your own gcode library — set `WATCHED_FOLDER_MODE=library`. FDM Monster then **copies** each file instead, and remembers what it has already imported, so re-scanning the folder will not import the same file twice.
+
+### Watched folders on shares and Docker
+
+FDM Monster notices a new file in one of two ways. On a normal local disk it can let the operating system tell it the moment a file appears. Across a Docker bind mount or a network share (NFS/SMB) those notifications never arrive — so instead FDM Monster **polls** the folder, checking it about once a second.
+
+Polling is on by default (`WATCHED_FOLDER_POLLING=true`) because it works everywhere. If your watched folder is on a normal local disk, you can set `WATCHED_FOLDER_POLLING=false` for instant, lower-overhead detection.
+
+:::tip
+Running FDM Monster straight on Linux (the one-click install) with the watched folder on the same disk? Set `WATCHED_FOLDER_POLLING=false` — the operating system reports new files immediately, at no cost. Keep polling on for Docker Desktop bind mounts and for any network share.
+:::
+
+## When a file matches more than one printer
+
+A tag usually covers several printers, so a file dropped into a `by-tag/` folder rarely points at a single machine. FDM Monster will not guess which one — it imports the file but does not start it anywhere. The same is true of a file whose target matched nothing at all.
+
+These files gather on the **Print Jobs** page, under **awaiting printer assignment**. Open it, choose the printer you want from the file's group, and FDM Monster queues the file on that machine. Nothing prints until you have made that choice.
+
+## Routing from your slicer instead
+
+If you would rather not sort files into folders — or you want a file to carry its destination with it wherever it travels — you can write the routing target into the gcode itself.
+
+Add a single comment line to your slicer's **start gcode**:
+
+```
+; fdmm_target = prusa-mk4
+```
+
+Whatever you put after `fdmm_target =` is the routing target — a printer name or a tag name, the same labels the folders use. It is only a comment, so the printer ignores it entirely. Where to add it depends on your slicer:
+
+| Slicer                    | Location                                                  |
+|---------------------------|-----------------------------------------------------------|
+| PrusaSlicer / SuperSlicer | Printer Settings → Custom G-code → Start G-code            |
+| OrcaSlicer / Bambu Studio | Printer Settings → Machine G-code → Machine start G-code   |
+| Cura                      | Preferences → Printers → Machine Settings → Start G-code   |
+| Simplify3D                | Process → Scripts → Starting Script                        |
+
+Every file sliced from that profile now carries its target. Carrying a target is not the same as being routed, though: as with a folder, the file is queued automatically only when the target names exactly **one** printer — a tag covering several printers, or a name FDM Monster does not recognise, leaves the file in [awaiting printer assignment](#when-a-file-matches-more-than-one-printer).
+
+### When the folder and the file disagree
+
+A file can carry both signals — it sits in a `by-printer/` folder, and its gcode names a different target. The **folder always wins**. FDM Monster logs a warning when the two disagree, so a misfiled print is easy to spot.
