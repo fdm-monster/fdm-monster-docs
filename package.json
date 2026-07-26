@@ -31,7 +31,7 @@
     "@docusaurus/types": "3.10.1",
     "@types/react": "19.2.15",
     "markdownlint-cli2": "0.22.1",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "browserslist": {
     "production": [
