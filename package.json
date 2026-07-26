@@ -15,10 +15,10 @@
     "lint:md": "markdownlint-cli2 \"**/*.md\" \"**/*.mdx\" \"#node_modules\""
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.1",
-    "@docusaurus/plugin-client-redirects": "3.10.1",
-    "@docusaurus/preset-classic": "3.10.1",
-    "@docusaurus/theme-search-algolia": "3.10.1",
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/plugin-client-redirects": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-search-algolia": "3.10.2",
     "@iconify/react": "6.0.2",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",
@@ -26,9 +26,9 @@
     "react-dom": "19.2.6"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.10.1",
-    "@docusaurus/tsconfig": "3.10.1",
-    "@docusaurus/types": "3.10.1",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
     "@types/react": "19.2.15",
     "markdownlint-cli2": "0.22.1",
     "typescript": "6.0.3"
