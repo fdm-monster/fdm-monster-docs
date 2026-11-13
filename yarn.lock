@@ -2802,14 +2802,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:6.0.2":
-  version: 6.0.2
-  resolution: "@iconify/react@npm:6.0.2"
+"@iconify/react@npm:6.0.4":
+  version: 6.0.4
+  resolution: "@iconify/react@npm:6.0.4"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
   peerDependencies:
-    react: ">=16"
-  checksum: 10c0/1f53f588361d658c6f077fefcc31d52f6f5d375f06b63dd13cc73b71fd28cf9409edece921ea8fa5195a79d02ff9162aff8472c14e858c0178067eecc3128460
+    react: ">=18.0.0"
+  checksum: 10c0/9c1c7389e8a14156c0a76ca6d696e7223ce2dc6a11d02a46dce805914c32d475a887f09e309f8b30e39a62b05871be96eeec2b5aa5961076af88cc7bfcc4b181
   languageName: node
   linkType: hard
 
@@ -6495,7 +6495,7 @@ __metadata:
     "@docusaurus/theme-search-algolia": "npm:3.10.2"
     "@docusaurus/tsconfig": "npm:3.10.2"
     "@docusaurus/types": "npm:3.10.2"
-    "@iconify/react": "npm:6.0.2"
+    "@iconify/react": "npm:6.0.4"
     "@types/react": "npm:19.3.0"
     clsx: "npm:2.1.1"
     markdownlint-cli2: "npm:0.24.1"
