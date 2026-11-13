@@ -30,7 +30,7 @@
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",
     "@types/react": "19.2.15",
-    "markdownlint-cli2": "0.22.1",
+    "markdownlint-cli2": "0.24.1",
     "typescript": "6.0.3"
   },
   "browserslist": {
