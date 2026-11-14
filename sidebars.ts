@@ -55,6 +55,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'software_usage/creating_printers',
         'software_usage/organizing_floors',
+        'software_usage/print_file_routing',
       ],
     },
     {
