@@ -6568,7 +6568,7 @@ __metadata:
     "@iconify/react": "npm:6.0.4"
     "@types/react": "npm:19.3.0"
     clsx: "npm:2.1.1"
-    markdownlint-cli2: "npm:0.24.1"
+    markdownlint-cli2: "npm:0.24.2"
     prism-react-renderer: "npm:2.4.1"
     react: "npm:19.3.1"
     react-dom: "npm:19.3.1"
@@ -8152,28 +8152,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdownlint-cli2@npm:0.24.1":
-  version: 0.24.1
-  resolution: "markdownlint-cli2@npm:0.24.1"
+"markdownlint-cli2@npm:0.24.2":
+  version: 0.24.2
+  resolution: "markdownlint-cli2@npm:0.24.2"
   dependencies:
     globby: "npm:16.2.4"
     js-yaml: "npm:5.5.0"
     jsonc-parser: "npm:3.3.1"
     jsonpointer: "npm:5.0.1"
     markdown-it: "npm:15.0.3"
-    markdownlint: "npm:0.42.1"
+    markdownlint: "npm:0.42.2"
     markdownlint-cli2-formatter-default: "npm:0.0.6"
     micromatch: "npm:4.0.8"
     smol-toml: "npm:1.9.1"
   bin:
     markdownlint-cli2: markdownlint-cli2-bin.mjs
-  checksum: 10c0/b99cce5b12fd3b6905ce024fa9c571a47473e3355f98ff48a12f7e7ccdda05aa4076126a572ac0370af7b84319f5923e64a2c9c0a89a378617439db786267c71
+  checksum: 10c0/a73afe0103ac6bd84ca32b02e664f57f19df683b4e89f8d490609656c66a178c2f887994f1abe4bbc9aaf73b796b6146657b87d09d732524e861883caaf88126
   languageName: node
   linkType: hard
 
-"markdownlint@npm:0.42.1":
-  version: 0.42.1
-  resolution: "markdownlint@npm:0.42.1"
+"markdownlint@npm:0.42.2":
+  version: 0.42.2
+  resolution: "markdownlint@npm:0.42.2"
   dependencies:
     micromark: "npm:4.0.3"
     micromark-core-commonmark: "npm:2.0.4"
@@ -8185,7 +8185,7 @@ __metadata:
     micromark-util-types: "npm:2.0.3"
     re2js: "npm:2.9.1"
     string-width: "npm:8.3.0"
-  checksum: 10c0/f052eebb2b7e27282a66ba8fcc4619fbcb3ca2fcf80f5df763c3d999dfc786e19cb95d6bb78f1ad6258bb88e1c3c3bbbfa33a61d7ac72e9ae888e17e7964440d
+  checksum: 10c0/8d3a42bb2787be1346955d92f1a22be9e90fe4619feff8f302876f4ee0ac0c4811e4f8b1cf4c18ab504afa2ccf5fc6734985085e4941ba80b4dfbcd2e4947eb7
   languageName: node
   linkType: hard
 
